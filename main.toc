@@ -2,16 +2,17 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{General Introduction}{1}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}Project scope}{4}{chapter.1}%
-\contentsline {section}{\numberline {1}Host company: SmartLab Solutions GmbH}{4}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1}General information about SLS and its vision}{4}{subsection.1.1.1}%
-\contentsline {chapter}{\numberline {2}Design and development of the CAN Bus software}{6}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{8}{chapter.3}%
-\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{8}{section.3.1}%
-\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{8}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{8}{subsubsection.3.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{9}{subsubsection.3.1.1.2}%
-\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{11}{chapter.4}%
-\contentsline {section}{\numberline {1}Architecture}{11}{section.4.1}%
-\contentsline {chapter}{General conclusion}{12}{chapter*.10}%
-\contentsline {chapter}{Bibliography}{13}{chapter*.11}%
-\contentsline {chapter}{Annexes}{15}{chapter*.12}%
+\contentsline {section}{\numberline {1}Host company: STILL GmbH}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1}General information about STILL and KION Group and their vision}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}KION Management Hierarchy}{5}{subsection.1.1.2}%
+\contentsline {chapter}{\numberline {2}Design and development of the CAN Bus software}{8}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{10}{chapter.3}%
+\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{10}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{10}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{10}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{11}{subsubsection.3.1.1.2}%
+\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{13}{chapter.4}%
+\contentsline {section}{\numberline {1}Architecture}{13}{section.4.1}%
+\contentsline {chapter}{General conclusion}{14}{chapter*.12}%
+\contentsline {chapter}{Bibliography}{15}{chapter*.13}%
+\contentsline {chapter}{Annexes}{16}{chapter*.14}%
