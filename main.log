@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  9 AUG 2024 13:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  9 AUG 2024 14:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/media/sf_OneDrive_-_KION_Group/Shared/PFE/main.tex
-(/media/sf_OneDrive_-_KION_Group/Shared/PFE/main.tex
+**/home/developer/Desktop/PFE/main.tex
+(/home/developer/Desktop/PFE/main.tex
 LaTeX2e <2021-11-15>
 L3 programming layer <2021-11-22> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
@@ -899,27 +899,27 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2
-
-] [3] [4])
+))
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
- [5] (./main.lof [6
+ [2
 
-] [7])
+] (./main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [8] (./main.lot)
+ [3
+
+] (./main.lot)
 \tf@lot=\write11
 \openout11 = `main.lot'.
 
- (./other/acronymes.tex [9
+ (./other/acronymes.tex [4
 
-] [10
+] [5
 
-] [11]) (./other/introduction.tex [1
+] [6]) (./other/introduction.tex [1
 
 ] [2]) [3
 
@@ -930,490 +930,33 @@ Underfull \hbox (badness 1383) in paragraph at lines 9--9
 |[]\T1/cmr/bx/n/24.88 1 |[] Host com-pany: Smart-Lab So-lu-tions
  []
 
-<images/Chap0/hierarchy.png, id=716, 623.32875pt x 427.5975pt>
-File: images/Chap0/hierarchy.png Graphic file (type png)
-<use images/Chap0/hierarchy.png>
-Package pdftex.def Info: images/Chap0/hierarchy.png  used on input line 25.
-(pdftex.def)             Requested size: 361.34999pt x 247.88275pt.
-[4
+) [4
 
-] [5 <./images/Chap0/hierarchy.png>]
-<images/Chap0/iHEX System.jpg, id=732, 2870.725pt x 1102.1175pt>
-File: images/Chap0/iHEX System.jpg Graphic file (type jpg)
-<use images/Chap0/iHEX System.jpg>
-Package pdftex.def Info: images/Chap0/iHEX System.jpg  used on input line 54.
-(pdftex.def)             Requested size: 469.75499pt x 180.34483pt.
- [6 <./images/Chap0/iHEX System.jpg>]
-<images/Chap0/product overview.jpg, id=742, 1097.60063pt x 569.12625pt>
-File: images/Chap0/product overview.jpg Graphic file (type jpg)
-<use images/Chap0/product overview.jpg>
-Package pdftex.def Info: images/Chap0/product overview.jpg  used on input line 78.
-(pdftex.def)             Requested size: 397.48499pt x 206.10107pt.
- [7 <./images/Chap0/product overview.jpg>]
-<images/Chap0/Agile.png, id=751, 1284.8pt x 597.23125pt>
-File: images/Chap0/Agile.png Graphic file (type png)
-<use images/Chap0/Agile.png>
-Package pdftex.def Info: images/Chap0/Agile.png  used on input line 133.
-(pdftex.def)             Requested size: 361.34999pt x 167.97087pt.
- [8] [9 <./images/Chap0/Agile.png (PNG copy)>]
-<images/Chap0/SLS KANBAN board.jpg, id=762, 602.25pt x 202.50656pt>
-File: images/Chap0/SLS KANBAN board.jpg Graphic file (type jpg)
-<use images/Chap0/SLS KANBAN board.jpg>
-Package pdftex.def Info: images/Chap0/SLS KANBAN board.jpg  used on input line 173.
-(pdftex.def)             Requested size: 361.34999pt x 121.50795pt.
-) [10 <./images/Chap0/SLS KANBAN board.jpg>] [11
+] [5
 
 ] (./chapters/chap1.tex
 Chapter 2.
-<images/Chap1/product overview CAN.jpg, id=773, 1097.60063pt x 569.12625pt>
-File: images/Chap1/product overview CAN.jpg Graphic file (type jpg)
-<use images/Chap1/product overview CAN.jpg>
-Package pdftex.def Info: images/Chap1/product overview CAN.jpg  used on input line 18.
-(pdftex.def)             Requested size: 361.34999pt x 187.36066pt.
-[12
+) [6
 
-] [13 <./images/Chap1/product overview CAN.jpg>] [14]
-<images/Chap1/can bus topology.png, id=795, 1604.99625pt x 666.49pt>
-File: images/Chap1/can bus topology.png Graphic file (type png)
-<use images/Chap1/can bus topology.png>
-Package pdftex.def Info: images/Chap1/can bus topology.png  used on input line 81.
-(pdftex.def)             Requested size: 397.48499pt x 165.05594pt.
- [15 <./images/Chap1/can bus topology.png>]
-<images/Chap1/CAN logical levels.png, id=809, 248.72925pt x 165.61874pt>
-File: images/Chap1/CAN logical levels.png Graphic file (type png)
-<use images/Chap1/CAN logical levels.png>
-Package pdftex.def Info: images/Chap1/CAN logical levels.png  used on input line 101.
-(pdftex.def)             Requested size: 289.07999pt x 192.49188pt.
- [16 <./images/Chap1/CAN logical levels.png>]
-<images/Chap1/can data frame.jpg, id=817, 760.64175pt x 134.30174pt>
-File: images/Chap1/can data frame.jpg Graphic file (type jpg)
-<use images/Chap1/can data frame.jpg>
-Package pdftex.def Info: images/Chap1/can data frame.jpg  used on input line 131.
-(pdftex.def)             Requested size: 361.34999pt x 63.80219pt.
-<images/Chap1/product overview - MC selection.jpg, id=820, 1097.60063pt x 569.12625pt>
-File: images/Chap1/product overview - MC selection.jpg Graphic file (type jpg)
-<use images/Chap1/product overview - MC selection.jpg>
-Package pdftex.def Info: images/Chap1/product overview - MC selection.jpg  used on input line 153.
-(pdftex.def)             Requested size: 361.34999pt x 187.36066pt.
- [17 <./images/Chap1/can data frame.jpg>] [18 <./images/Chap1/product overview - MC selection.jpg>]
-<images/Chap1/product overview - SC selection.jpg, id=833, 1097.60063pt x 569.12625pt>
-File: images/Chap1/product overview - SC selection.jpg Graphic file (type jpg)
-<use images/Chap1/product overview - SC selection.jpg>
-Package pdftex.def Info: images/Chap1/product overview - SC selection.jpg  used on input line 184.
-(pdftex.def)             Requested size: 361.34999pt x 187.36066pt.
- [19 <./images/Chap1/product overview - SC selection.jpg>] [20]
-<images/Chap1/MC-SC architecture.png, id=853, 481.8pt x 375.20175pt>
-File: images/Chap1/MC-SC architecture.png Graphic file (type png)
-<use images/Chap1/MC-SC architecture.png>
-Package pdftex.def Info: images/Chap1/MC-SC architecture.png  used on input line 241.
-(pdftex.def)             Requested size: 252.94499pt x 196.97813pt.
- [21 <./images/Chap1/MC-SC architecture.png>]
-Underfull \hbox (badness 1117) in paragraph at lines 256--257
-[]\T1/cmr/m/n/12 Developing the CAN com-mu-ni-ca-tion soft-ware means de-vel-op-ing the com-mu-ni-ca-tion
- []
-
-<images/Chap1/mcp2515 photo.jpg, id=864, 301.125pt x 301.125pt>
-File: images/Chap1/mcp2515 photo.jpg Graphic file (type jpg)
-<use images/Chap1/mcp2515 photo.jpg>
-Package pdftex.def Info: images/Chap1/mcp2515 photo.jpg  used on input line 269.
-(pdftex.def)             Requested size: 144.54pt x 144.54294pt.
-[22]
-<images/Chap1/MCP2515 black box.png, id=871, 1137.048pt x 240.29774pt>
-File: images/Chap1/MCP2515 black box.png Graphic file (type png)
-<use images/Chap1/MCP2515 black box.png>
-Package pdftex.def Info: images/Chap1/MCP2515 black box.png  used on input line 280.
-(pdftex.def)             Requested size: 325.215pt x 68.72755pt.
- [23 <./images/Chap1/mcp2515 photo.jpg> <./images/Chap1/MCP2515 black box.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 343.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-<images/Chap1/ifconfig.png, id=878, 1541.76pt x 217.41225pt>
-File: images/Chap1/ifconfig.png Graphic file (type png)
-<use images/Chap1/ifconfig.png>
-Package pdftex.def Info: images/Chap1/ifconfig.png  used on input line 397.
-(pdftex.def)             Requested size: 433.62pt x 61.14703pt.
- [24 <./images/Chap1/ifconfig.png>]
-<images/Chap1/cansend.png, id=912, 566.86781pt x 17.31468pt>
-File: images/Chap1/cansend.png Graphic file (type png)
-<use images/Chap1/cansend.png>
-Package pdftex.def Info: images/Chap1/cansend.png  used on input line 412.
-(pdftex.def)             Requested size: 397.48499pt x 12.14131pt.
-<images/Chap1/candump.png, id=914, 475.02469pt x 36.135pt>
-File: images/Chap1/candump.png Graphic file (type png)
-<use images/Chap1/candump.png>
-Package pdftex.def Info: images/Chap1/candump.png  used on input line 422.
-(pdftex.def)             Requested size: 397.48499pt x 30.23793pt.
-
-Overfull \hbox (9.82526pt too wide) in paragraph at lines 436--437
-[]\T1/cmr/m/n/12 Figure []2.13[] be-low presents the MC com-mu-ni-ca-tion soft-ware lay-ers ar-chi-tec-ture. The MCP2515
- []
-
-<images/Chap1/Communication firmware software layers.png, id=917, 688.974pt x 192.11775pt>
-File: images/Chap1/Communication firmware software layers.png Graphic file (type png)
-<use images/Chap1/Communication firmware software layers.png>
-Package pdftex.def Info: images/Chap1/Communication firmware software layers.png  used on input line 440.
-(pdftex.def)             Requested size: 289.07999pt x 80.60681pt.
-[25 <./images/Chap1/cansend.png> <./images/Chap1/candump.png>]
-<images/Chap1/MC CAN UML design.png, id=924, 523.9575pt x 295.1025pt>
-File: images/Chap1/MC CAN UML design.png Graphic file (type png)
-<use images/Chap1/MC CAN UML design.png>
-Package pdftex.def Info: images/Chap1/MC CAN UML design.png  used on input line 459.
-(pdftex.def)             Requested size: 289.07999pt x 162.82019pt.
- [26 <./images/Chap1/Communication firmware software layers.png> <./images/Chap1/MC CAN UML design.png>]
-
-LaTeX Warning: Reference `lst:canfd_frame' on page 27 undefined on input line 494.
-
-
-Overfull \hbox (3.6931pt too wide) in paragraph at lines 496--497
-\T1/cmr/m/n/12 This method uses the \T1/cmtt/m/n/12 CAN_iReceiveFrame \T1/cmr/m/n/12 func-tion which is a up-graded ver-sion of \T1/cmtt/m/n/12 candump
- []
-
-
-LaTeX Warning: Reference `lst:CAN_Rtr_ten' on page 27 undefined on input line 513.
-
-
-LaTeX Warning: Reference `lst:CAN_FilterType_ten' on page 27 undefined on input line 514.
-
-[27]
-
-LaTeX Warning: Reference `lst:CAN_Rtr_ten' on page 28 undefined on input line 522.
-
-
-LaTeX Warning: Reference `lst:CAN_FilterType_ten' on page 28 undefined on input line 523.
-
-
-LaTeX Warning: Reference `lst:CAN_CtrlStatus_ten' on page 28 undefined on input line 533.
-
-
-LaTeX Warning: Reference `lst:canfd_frame' on page 28 undefined on input line 541.
-
-[28]
-
-LaTeX Warning: Reference `lst:canfd_frame' on page 29 undefined on input line 592.
-
-
-LaTeX Warning: Reference `lst:can_filter' on page 29 undefined on input line 599.
-
-
-LaTeX Warning: Reference `lst:CAN_FilterType_ten' on page 29 undefined on input line 599.
-
-[29]
-Package hyperref Info: bookmark level for unknown Rule defaults to 0 on input line 616.
- [30]
-
-LaTeX Warning: Reference `lst:CAN-Transmission-Test-RPi' on page 31 undefined on input line 661.
-
-<images/Chap1/tx test 1 - MC.png, id=955, 456.95718pt x 54.2025pt>
-File: images/Chap1/tx test 1 - MC.png Graphic file (type png)
-<use images/Chap1/tx test 1 - MC.png>
-Package pdftex.def Info: images/Chap1/tx test 1 - MC.png  used on input line 665.
-(pdftex.def)             Requested size: 397.48499pt x 47.15pt.
-
-LaTeX Warning: Reference `lst:CAN reception test RPi' on page 31 undefined on input line 671.
-
-<images/Chap1/rx test 1 - MC.png, id=956, 460.72125pt x 122.70844pt>
-File: images/Chap1/rx test 1 - MC.png Graphic file (type png)
-<use images/Chap1/rx test 1 - MC.png>
-Package pdftex.def Info: images/Chap1/rx test 1 - MC.png  used on input line 675.
-(pdftex.def)             Requested size: 397.48499pt x 105.86609pt.
-[31 <./images/Chap1/tx test 1 - MC.png> <./images/Chap1/rx test 1 - MC.png>]
-<images/Chap1/MCP2551.jpg, id=963, 712.6625pt x 596.2275pt>
-File: images/Chap1/MCP2551.jpg Graphic file (type jpg)
-<use images/Chap1/MCP2551.jpg>
-Package pdftex.def Info: images/Chap1/MCP2551.jpg  used on input line 698.
-(pdftex.def)             Requested size: 72.26999pt x 60.45413pt.
-<images/Chap1/MCP2551 black box.png, id=964, 775.39688pt x 168.2536pt>
-File: images/Chap1/MCP2551 black box.png Graphic file (type png)
-<use images/Chap1/MCP2551 black box.png>
-Package pdftex.def Info: images/Chap1/MCP2551 black box.png  used on input line 709.
-(pdftex.def)             Requested size: 325.215pt x 70.56845pt.
- [32 <./images/Chap1/MCP2551.jpg> <./images/Chap1/MCP2551 black box.png>]
-<images/Chap1/bit timing.png, id=971, 775.39688pt x 168.2536pt>
-File: images/Chap1/bit timing.png Graphic file (type png)
-<use images/Chap1/bit timing.png>
-Package pdftex.def Info: images/Chap1/bit timing.png  used on input line 784.
-(pdftex.def)             Requested size: 397.48499pt x 86.25233pt.
- [33 <./images/Chap1/bit timing.png>]
-<images/Chap1/can config STM.png, id=979, 281.55188pt x 310.15875pt>
-File: images/Chap1/can config STM.png Graphic file (type png)
-<use images/Chap1/can config STM.png>
-Package pdftex.def Info: images/Chap1/can config STM.png  used on input line 810.
-(pdftex.def)             Requested size: 216.81pt x 238.8419pt.
-<images/Chap1/setup test - SC.png, id=982, 467.49657pt x 252.945pt>
-File: images/Chap1/setup test - SC.png Graphic file (type png)
-<use images/Chap1/setup test - SC.png>
-Package pdftex.def Info: images/Chap1/setup test - SC.png  used on input line 821.
-(pdftex.def)             Requested size: 361.34999pt x 195.52087pt.
- [34 <./images/Chap1/can config STM.png>]
-<images/Chap1/SC CAN software abstraction layer.png, id=989, 689.57625pt x 192.11775pt>
-File: images/Chap1/SC CAN software abstraction layer.png Graphic file (type png)
-<use images/Chap1/SC CAN software abstraction layer.png>
-Package pdftex.def Info: images/Chap1/SC CAN software abstraction layer.png  used on input line 835.
-(pdftex.def)             Requested size: 289.07999pt x 80.5394pt.
-<images/Chap1/SC CAN UML.png, id=991, 502.87875pt x 82.3075pt>
-File: images/Chap1/SC CAN UML.png Graphic file (type png)
-<use images/Chap1/SC CAN UML.png>
-Package pdftex.def Info: images/Chap1/SC CAN UML.png  used on input line 847.
-(pdftex.def)             Requested size: 289.07999pt x 47.31387pt.
- [35 <./images/Chap1/setup test - SC.png> <./images/Chap1/SC CAN software abstraction layer.png>]
-
-LaTeX Warning: Reference `lst:CAN_Message_tst definition' on page 36 undefined on input line 858.
-
-
-LaTeX Warning: Reference `lst:CAN_Message_tst definition' on page 36 undefined on input line 863.
-
-
-LaTeX Warning: Reference `lst:CAN_FIFO' on page 36 undefined on input line 868.
-
-
-LaTeX Warning: Reference `lst:CAN_Message_tst definition' on page 36 undefined on input line 869.
-
-
-LaTeX Warning: Reference `lst:CAN_FIFO' on page 36 undefined on input line 876.
-
-
-LaTeX Warning: Reference `lst:CAN Filter banks' on page 36 undefined on input line 877.
-
-[36 <./images/Chap1/SC CAN UML.png>]
-
-LaTeX Warning: Reference `lst:CAN_FIFO' on page 37 undefined on input line 884.
-
-
-LaTeX Warning: Reference `lst:CAN Filter banks' on page 37 undefined on input line 885.
-
-
-LaTeX Warning: Reference `lst:CAN_CtrlStatus_ten' on page 37 undefined on input line 894.
-
-
-LaTeX Warning: Reference `lst:CAN-Transmission-Test-STM32' on page 37 undefined on input line 905.
-
-<images/Chap1/CAN message captured Logic ANalyzer.png, id=1009, 743.02594pt x 97.11281pt>
-File: images/Chap1/CAN message captured Logic ANalyzer.png Graphic file (type png)
-<use images/Chap1/CAN message captured Logic ANalyzer.png>
-Package pdftex.def Info: images/Chap1/CAN message captured Logic ANalyzer.png  used on input line 910.
-(pdftex.def)             Requested size: 469.75499pt x 61.39772pt.
-
-LaTeX Warning: Reference `lst:CAN-Reception-Test-STM32' on page 37 undefined on input line 918.
-
-<images/Chap1/CAN rx API test SC.png, id=1010, 383.93437pt x 163.3603pt>
-File: images/Chap1/CAN rx API test SC.png Graphic file (type png)
-<use images/Chap1/CAN rx API test SC.png>
-Package pdftex.def Info: images/Chap1/CAN rx API test SC.png  used on input line 923.
-(pdftex.def)             Requested size: 361.34999pt x 153.7606pt.
-[37 <./images/Chap1/CAN message captured Logic ANalyzer.png>]) [38 <./images/Chap1/CAN rx API test SC.png>] [39
+] [7
 
 ] (./chapters/chap2.tex
 Chapter 3.
-[40
+) [8
 
-]
-<images/Chap2/MC design CI.png, id=1032, 805.0075pt x 471.7625pt>
-File: images/Chap2/MC design CI.png Graphic file (type png)
-<use images/Chap2/MC design CI.png>
-Package pdftex.def Info: images/Chap2/MC design CI.png  used on input line 25.
-(pdftex.def)             Requested size: 397.48499pt x 232.93648pt.
-
-
-LaTeX Warning: Reference `Switch on LED example' on page 41 undefined on input line 39.
-
-[41 <./images/Chap2/MC design CI.png>]
-
-LaTeX Warning: Reference `log message example' on page 42 undefined on input line 41.
-
-[42]
-
-LaTeX Warning: Reference `Switch on LED example' on page 43 undefined on input line 75.
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-) [43]
-
-LaTeX Warning: Reference `Connection lost report' on page 44 undefined on input line 112.
-
-[44]
-<images/Chap2/CI SC overview.png, id=1104, 803.0pt x 332.24126pt>
-File: images/Chap2/CI SC overview.png Graphic file (type png)
-<use images/Chap2/CI SC overview.png>
-Package pdftex.def Info: images/Chap2/CI SC overview.png  used on input line 164.
-(pdftex.def)             Requested size: 419.16621pt x 173.43562pt.
- [45 <./images/Chap2/CI SC overview.png>]
-<images/Chap2/LED control schema.png, id=1114, 271.0125pt x 380.622pt>
-File: images/Chap2/LED control schema.png Graphic file (type png)
-<use images/Chap2/LED control schema.png>
-Package pdftex.def Info: images/Chap2/LED control schema.png  used on input line 194.
-(pdftex.def)             Requested size: 180.67499pt x 253.7551pt.
- [46] [47 <./images/Chap2/LED control schema.png>]
-<images/Chap2/Buzzer control schema.png, id=1126, 391.4625pt x 261.3765pt>
-File: images/Chap2/Buzzer control schema.png Graphic file (type png)
-<use images/Chap2/Buzzer control schema.png>
-Package pdftex.def Info: images/Chap2/Buzzer control schema.png  used on input line 260.
-(pdftex.def)             Requested size: 180.67499pt x 120.63745pt.
- [48]
-<images/Chap2/Electricity control schema.png, id=1136, 443.85825pt x 290.2845pt>
-File: images/Chap2/Electricity control schema.png Graphic file (type png)
-<use images/Chap2/Electricity control schema.png>
-Package pdftex.def Info: images/Chap2/Electricity control schema.png  used on input line 275.
-(pdftex.def)             Requested size: 252.94499pt x 165.42844pt.
- [49 <./images/Chap2/Buzzer control schema.png> <./images/Chap2/Electricity control schema.png>]
-<images/Chap2/Signal loop schema.png, id=1142, 243.309pt x 150.5625pt>
-File: images/Chap2/Signal loop schema.png Graphic file (type png)
-<use images/Chap2/Signal loop schema.png>
-Package pdftex.def Info: images/Chap2/Signal loop schema.png  used on input line 296.
-(pdftex.def)             Requested size: 180.67499pt x 111.80734pt.
- [50 <./images/Chap2/Signal loop schema.png>]
-<images/Chap2/Channel one.png, id=1149, 631.35875pt x 171.64125pt>
-File: images/Chap2/Channel one.png Graphic file (type png)
-<use images/Chap2/Channel one.png>
-Package pdftex.def Info: images/Chap2/Channel one.png  used on input line 329.
-(pdftex.def)             Requested size: 361.34999pt x 98.23723pt.
-
-
-LaTeX Warning: Reference `Switch on LED example' on page 51 undefined on input line 337.
-
-
-LaTeX Warning: Reference `convert command into CAN' on page 51 undefined on input line 337.
-
-[51 <./images/Chap2/Channel one.png>]
-<images/Chap2/channel two.png, id=1156, 631.35875pt x 171.64125pt>
-File: images/Chap2/channel two.png Graphic file (type png)
-<use images/Chap2/channel two.png>
-Package pdftex.def Info: images/Chap2/channel two.png  used on input line 345.
-(pdftex.def)             Requested size: 361.34999pt x 98.23723pt.
-
-
-LaTeX Warning: Reference `create send CAN message' on page 52 undefined on input line 353.
-
-
-LaTeX Warning: Reference `Connection lost report' on page 52 undefined on input line 353.
-
-[52 <./images/Chap2/channel two.png>]
-<images/Chap2/new connection uml.png, id=1163, 753.81625pt x 1185.42876pt>
-File: images/Chap2/new connection uml.png Graphic file (type png)
-<use images/Chap2/new connection uml.png>
-Package pdftex.def Info: images/Chap2/new connection uml.png  used on input line 376.
-(pdftex.def)             Requested size: 397.48499pt x 625.07265pt.
- [53] [54 <./images/Chap2/new connection uml.png>]
-
-LaTeX Warning: Reference `Switch on LED example' on page 55 undefined on input line 387.
-
-<images/Chap2/Result of LED red.jpg, id=1175, 1084.05pt x 1084.05pt>
-File: images/Chap2/Result of LED red.jpg Graphic file (type jpg)
-<use images/Chap2/Result of LED red.jpg>
-Package pdftex.def Info: images/Chap2/Result of LED red.jpg  used on input line 391.
-(pdftex.def)             Requested size: 216.81pt x 216.80615pt.
-<images/Chap2/connection lost report iHEX.jpg, id=1178, 4015.0pt x 3011.25pt>
-File: images/Chap2/connection lost report iHEX.jpg Graphic file (type jpg)
-<use images/Chap2/connection lost report iHEX.jpg>
-Package pdftex.def Info: images/Chap2/connection lost report iHEX.jpg  used on input line 402.
-(pdftex.def)             Requested size: 252.94499pt x 189.67299pt.
-[55 <./images/Chap2/Result of LED red.jpg>]
-<images/Chap2/Connection lost MQTT.png, id=1183, 1541.76pt x 113.223pt>
-File: images/Chap2/Connection lost MQTT.png Graphic file (type png)
-<use images/Chap2/Connection lost MQTT.png>
-Package pdftex.def Info: images/Chap2/Connection lost MQTT.png  used on input line 410.
-(pdftex.def)             Requested size: 469.75499pt x 34.49754pt.
-<images/Chap2/new connection iHEX.jpg, id=1190, 1084.05pt x 1084.05pt>
-File: images/Chap2/new connection iHEX.jpg Graphic file (type jpg)
-<use images/Chap2/new connection iHEX.jpg>
-Package pdftex.def Info: images/Chap2/new connection iHEX.jpg  used on input line 439.
-(pdftex.def)             Requested size: 252.94499pt x 252.93225pt.
- [56 <./images/Chap2/connection lost report iHEX.jpg> <./images/Chap2/Connection lost MQTT.png>]
-<images/Chap2/new connection MQTT.png, id=1196, 1541.76pt x 89.133pt>
-File: images/Chap2/new connection MQTT.png Graphic file (type png)
-<use images/Chap2/new connection MQTT.png>
-Package pdftex.def Info: images/Chap2/new connection MQTT.png  used on input line 447.
-(pdftex.def)             Requested size: 469.75499pt x 27.15764pt.
- [57 <./images/Chap2/new connection iHEX.jpg> <./images/Chap2/new connection MQTT.png>] [58] [59]) [60] [61
+] [9] [10
 
 ] (./chapters/chap3.tex
 Chapter 4.
-<images/Chap3/PCB architecture.png, id=1232, 651.03226pt x 336.0555pt>
-File: images/Chap3/PCB architecture.png Graphic file (type png)
-<use images/Chap3/PCB architecture.png>
-Package pdftex.def Info: images/Chap3/PCB architecture.png  used on input line 24.
-(pdftex.def)             Requested size: 361.34999pt x 186.53351pt.
-[62
+) (./other/conclusion.tex [11
+
+]) (./other/bibliographie.tex [12
 
 ]
-<images/Chap3/Main pcb final.png, id=1240, 748.59676pt x 467.346pt>
-File: images/Chap3/Main pcb final.png Graphic file (type png)
-<use images/Chap3/Main pcb final.png>
-Package pdftex.def Info: images/Chap3/Main pcb final.png  used on input line 42.
-(pdftex.def)             Requested size: 361.34999pt x 225.58572pt.
- [63 <./images/Chap3/PCB architecture.png>] [64 <./images/Chap3/Main pcb final.png>] [65]
-
-LaTeX Warning: Reference `Main PCB schematic' on page 66 undefined on input line 112.
-
-<images/Chap3/Main pcb.png, id=1258, 417.35925pt x 483.0045pt>
-File: images/Chap3/Main pcb.png Graphic file (type png)
-<use images/Chap3/Main pcb.png>
-Package pdftex.def Info: images/Chap3/Main pcb.png  used on input line 116.
-(pdftex.def)             Requested size: 216.81pt x 250.9132pt.
-<images/Chap3/IO PCB final.png, id=1260, 648.62325pt x 523.9575pt>
-File: images/Chap3/IO PCB final.png Graphic file (type png)
-<use images/Chap3/IO PCB final.png>
-Package pdftex.def Info: images/Chap3/IO PCB final.png  used on input line 128.
-(pdftex.def)             Requested size: 361.34999pt x 291.90315pt.
-[66 <./images/Chap3/Main pcb.png>] [67 <./images/Chap3/IO PCB final.png>]
-
-LaTeX Warning: Reference `IO PCB schematic' on page 68 undefined on input line 190.
-
-<images/Chap3/IO PCB design.png, id=1274, 866.63776pt x 230.66174pt>
-File: images/Chap3/IO PCB design.png Graphic file (type png)
-<use images/Chap3/IO PCB design.png>
-Package pdftex.def Info: images/Chap3/IO PCB design.png  used on input line 194.
-(pdftex.def)             Requested size: 361.34999pt x 96.17685pt.
-[68]
-<images/Chap3/Dock PCB image.png, id=1280, 435.42674pt x 331.83975pt>
-File: images/Chap3/Dock PCB image.png Graphic file (type png)
-<use images/Chap3/Dock PCB image.png>
-Package pdftex.def Info: images/Chap3/Dock PCB image.png  used on input line 206.
-(pdftex.def)             Requested size: 216.81pt x 165.23083pt.
- [69 <./images/Chap3/IO PCB design.png> <./images/Chap3/Dock PCB image.png>]
-
-LaTeX Warning: Reference `Dock PCB schematic' on page 70 undefined on input line 242.
-
-<images/Chap3/Dock PCB design.png, id=1287, 481.19775pt x 380.01974pt>
-File: images/Chap3/Dock PCB design.png Graphic file (type png)
-<use images/Chap3/Dock PCB design.png>
-Package pdftex.def Info: images/Chap3/Dock PCB design.png  used on input line 246.
-(pdftex.def)             Requested size: 180.67499pt x 142.6868pt.
-[70 <./images/Chap3/Dock PCB design.png>]
-<images/Chap3/LED PCB.png, id=1293, 514.92375pt x 538.01pt>
-File: images/Chap3/LED PCB.png Graphic file (type png)
-<use images/Chap3/LED PCB.png>
-Package pdftex.def Info: images/Chap3/LED PCB.png  used on input line 258.
-(pdftex.def)             Requested size: 158.99377pt x 166.11641pt.
- [71 <./images/Chap3/LED PCB.png>]
-<images/Chap3/LED controller PCB design.png, id=1301, 739.563pt x 490.83376pt>
-File: images/Chap3/LED controller PCB design.png Graphic file (type png)
-<use images/Chap3/LED controller PCB design.png>
-Package pdftex.def Info: images/Chap3/LED controller PCB design.png  used on input line 292.
-(pdftex.def)             Requested size: 216.81pt x 143.88846pt.
-<images/Chap3/SC wiring.jpg, id=1307, 932.48375pt x 633.36626pt>
-File: images/Chap3/SC wiring.jpg Graphic file (type jpg)
-<use images/Chap3/SC wiring.jpg>
-Package pdftex.def Info: images/Chap3/SC wiring.jpg  used on input line 308.
-(pdftex.def)             Requested size: 289.07999pt x 196.35117pt.
- [72 <./images/Chap3/LED controller PCB design.png>]
-<images/Chap3/SC final.jpg, id=1319, 370.986pt x 324.61275pt>
-File: images/Chap3/SC final.jpg Graphic file (type jpg)
-<use images/Chap3/SC final.jpg>
-Package pdftex.def Info: images/Chap3/SC final.jpg  used on input line 318.
-(pdftex.def)             Requested size: 289.07999pt x 252.95421pt.
-<images/Chap3/Dock final.jpg, id=1320, 413.74574pt x 306.54526pt>
-File: images/Chap3/Dock final.jpg Graphic file (type jpg)
-<use images/Chap3/Dock final.jpg>
-Package pdftex.def Info: images/Chap3/Dock final.jpg  used on input line 326.
-(pdftex.def)             Requested size: 289.07999pt x 214.19197pt.
- [73 <./images/Chap3/SC wiring.jpg> <./images/Chap3/SC final.jpg>]) (./other/conclusion.tex [74 <./images/Chap3/Dock final.jpg>]) (./other/bibliographie.tex [75
-
-]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 []\T1/cmr/m/n/12 Raspberry Pi web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . raspberrypi . com / products /
  []
@@ -1453,14 +996,14 @@ Underfull \hbox (badness 5696) in paragraph at lines 60--61
 []\T1/cmr/m/n/12 MCP2551 Mic-ochip web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . microchip . com / en-[]us / product /
  []
 
-[76
+[13
 
 ]
 Underfull \hbox (badness 1502) in paragraph at lines 93--94
 []\T1/cmr/m/n/12 SysGCC web-site, aarch64-linux-gnu toolchain. URL: []$\T1/cmtt/m/n/12 https : / / gnutoolchains . com /
  []
 
-) [77] (./other/appendix/appendix.tex) [78
+) [14] (./other/appendix/appendix.tex) [15
 
 ] (./main.aux (./main.acr))
 
@@ -1610,98 +1153,36 @@ start/other.tex
 other/acronymes.tex
 other/introduction.tex
 chapters/chap0.tex
-images/Chap0/hierarchy.png
-images/Chap0/iHEX System.jpg
-images/Chap0/product overview.jpg
-images/Chap0/Agile.png
-images/Chap0/SLS KANBAN board.jpg
 chapters/chap1.tex
-images/Chap1/product overview CAN.jpg
-images/Chap1/can bus topology.png
-images/Chap1/CAN logical levels.png
-images/Chap1/can data frame.jpg
-images/Chap1/product overview - MC selection.jpg
-images/Chap1/product overview - SC selection.jpg
-images/Chap1/MC-SC architecture.png
-images/Chap1/mcp2515 photo.jpg
-images/Chap1/MCP2515 black box.png
-  t1cmtt.fd    2019/12/16 v2.5j Standard LaTeX font definitions
-images/Chap1/ifconfig.png
-images/Chap1/cansend.png
-images/Chap1/candump.png
-images/Chap1/Communication firmware software layers.png
-images/Chap1/MC CAN UML design.png
-images/Chap1/tx test 1 - MC.png
-images/Chap1/rx test 1 - MC.png
-images/Chap1/MCP2551.jpg
-images/Chap1/MCP2551 black box.png
-images/Chap1/bit timing.png
-images/Chap1/can config STM.png
-images/Chap1/setup test - SC.png
-images/Chap1/SC CAN software abstraction layer.png
-images/Chap1/SC CAN UML.png
-images/Chap1/CAN message captured Logic ANalyzer.png
-images/Chap1/CAN rx API test SC.png
 chapters/chap2.tex
-images/Chap2/MC design CI.png
-lstlang1.sty    2020/03/24 1.8d listings language file
-lstlang1.sty    2020/03/24 1.8d listings language file
- lstmisc.sty    2020/03/24 1.8d (Carsten Heinz)
-images/Chap2/CI SC overview.png
-images/Chap2/LED control schema.png
-images/Chap2/Buzzer control schema.png
-images/Chap2/Electricity control schema.png
-images/Chap2/Signal loop schema.png
-images/Chap2/Channel one.png
-images/Chap2/channel two.png
-images/Chap2/new connection uml.png
-images/Chap2/Result of LED red.jpg
-images/Chap2/connection lost report iHEX.jpg
-images/Chap2/Connection lost MQTT.png
-images/Chap2/new connection iHEX.jpg
-images/Chap2/new connection MQTT.png
 chapters/chap3.tex
-images/Chap3/PCB architecture.png
-images/Chap3/Main pcb final.png
-images/Chap3/Main pcb.png
-images/Chap3/IO PCB final.png
-images/Chap3/IO PCB design.png
-images/Chap3/Dock PCB image.png
-images/Chap3/Dock PCB design.png
-images/Chap3/LED PCB.png
-images/Chap3/LED controller PCB design.png
-images/Chap3/SC wiring.jpg
-images/Chap3/SC final.jpg
-images/Chap3/Dock final.jpg
 other/conclusion.tex
 other/bibliographie.tex
+  t1cmtt.fd    2019/12/16 v2.5j Standard LaTeX font definitions
 other/appendix/appendix.tex
     main.acr
  ***********
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0CBD05E4AEDE43C5F59192C7678DDF00;21738.
+(rerunfilecheck)             Checksum: E773675B3EFA47DD8F960F7F7C38B30E;2937.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 65 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34600 strings out of 478353
- 648106 string characters out of 5848100
- 1226311 words of memory out of 5000000
- 51679 multiletter control sequences out of 15000+600000
- 418516 words of font info for 64 fonts, out of 8000000 for 9000
- 1143 hyphenation exceptions out of 8191
- 83i,12n,80p,792b,3928s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfit1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (91 pages, 9562008 bytes).
+ 33121 strings out of 478353
+ 618675 string characters out of 5848100
+ 929422 words of memory out of 5000000
+ 50553 multiletter control sequences out of 15000+600000
+ 416284 words of font info for 60 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 83i,11n,80p,777b,2787s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (23 pages, 169387 bytes).
 PDF statistics:
- 1545 PDF objects out of 1728 (max. 8388607)
- 1328 compressed objects within 14 object streams
- 357 named destinations out of 1000 (max. 500000)
- 1077 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
