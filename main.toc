@@ -1,0 +1,100 @@
+\acswitchoff 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{General Introduction}{1}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Project scope}{4}{chapter.1}%
+\contentsline {section}{\numberline {1}Host company: SmartLab Solutions GmbH}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1}General information about SLS and its vision}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}iHEX system: SmartLab Solutions GmbH main product}{5}{subsection.1.1.2}%
+\contentsline {section}{\numberline {2}Project specifications}{7}{section.1.2}%
+\contentsline {section}{\numberline {3}Project management tools}{8}{section.1.3}%
+\contentsline {subsection}{\numberline {3.1}Agile methodolgy}{8}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {3.2}Project management software}{9}{subsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Microsoft tools: Microsoft Teams - Microsoft Outlook}{9}{subsubsection.1.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}YouTrack}{9}{subsubsection.1.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}GitHub}{10}{subsubsection.1.3.2.3}%
+\contentsline {chapter}{\numberline {2}Design and development of the CAN Bus software}{12}{chapter.2}%
+\contentsline {section}{\numberline {1}Communication protocol selection}{12}{section.2.1}%
+\contentsline {subsection}{\numberline {1.1}The company requirements}{13}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {1.2}Controller Area Network (CAN) specifications}{14}{subsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}CAN-Bus protocol overview}{14}{subsubsection.2.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}CAN-Bus topology}{15}{subsubsection.2.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}CAN-Bus electronics}{15}{subsubsection.2.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}CAN data frame}{16}{subsubsection.2.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Other advantages of CAN}{17}{subsubsection.2.1.2.5}%
+\contentsline {section}{\numberline {2}Selection of the Main Controller (MC) development board}{17}{section.2.2}%
+\contentsline {section}{\numberline {3}Selection of the Sub-Controller (SC) development board}{19}{section.2.3}%
+\contentsline {subsection}{\numberline {3.1}Characteristics of the MCU: Microcontroller Unit}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {3.2}The supplier company}{20}{subsection.2.3.2}%
+\contentsline {section}{\numberline {4}Development of the CAN communication software}{21}{section.2.4}%
+\contentsline {subsection}{\numberline {4.1}MC: Development of the CAN communication software}{22}{subsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}MC: Hardware setup:}{22}{subsubsection.2.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}MC: Software setup}{23}{subsubsection.2.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}MC: Design and development of the abstraction layer}{25}{subsubsection.2.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}MC: Development of the Low-Level (LL) firmware}{28}{subsubsection.2.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}MC: Test and validation of the developed APIs:}{30}{subsubsection.2.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}SC: Development of the CAN communication software}{31}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}SC: Hardware setup}{31}{subsubsection.2.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}SC: Software setup}{32}{subsubsection.2.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}SC: Design and development of the abstraction layer}{35}{subsubsection.2.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}SC: Test and validation of the developed API}{37}{subsubsection.2.4.2.4}%
+\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{40}{chapter.3}%
+\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{40}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{40}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{40}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{40}{subsubsection.3.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Design overview}{41}{subsubsection.3.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Threads, message queues and data flow}{41}{subsubsection.3.1.1.4}%
+\contentsline {subsection}{\numberline {1.2}MQTT integration}{42}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Importance and advantages of MQTT integration}{42}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Subscribing to "Commands Topic" (CT)}{43}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Publishing to "Events Topic" (ET)}{44}{subsubsection.3.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}JSON integration}{44}{subsection.3.1.3}%
+\contentsline {section}{\numberline {2}Control Interface (CI) on the SCs}{45}{section.3.2}%
+\contentsline {subsection}{\numberline {2.1}FreeRTOS middelware}{45}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {2.2}Real-Time task execution}{45}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {2.3}Hardware interaction}{46}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}LED management}{46}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Buzzer control}{48}{subsubsection.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Electricity control}{49}{subsubsection.3.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Signal Loop monitoring}{49}{subsubsection.3.2.3.4}%
+\contentsline {section}{\numberline {3}Integration and interoperability}{51}{section.3.3}%
+\contentsline {subsection}{\numberline {3.1}Integration of MC and SCs}{51}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.2}Bidirectional communication channels}{51}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Channel one: Command propagation}{51}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Channel two: Feedback and reporting}{52}{subsubsection.3.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Detecting and integrating new iHEX mobile elements}{52}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Signal Loop task: Detecting new connection}{52}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Reporting to the MC}{52}{subsubsection.3.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}MC response}{53}{subsubsection.3.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Confirmation and activation}{53}{subsubsection.3.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Handshake and recognition}{53}{subsubsection.3.3.3.5}%
+\contentsline {section}{\numberline {4}Testing the iHEX system}{55}{section.3.4}%
+\contentsline {subsection}{\numberline {4.1}Channel one test: Command propagation}{55}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {4.2}Channel two test: Feedback and reporting}{55}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {4.3}New connection integration test}{57}{subsection.3.4.3}%
+\contentsline {section}{\numberline {5}Identifier configuration module}{58}{section.3.5}%
+\contentsline {section}{\numberline {6}Software development and deployment process}{59}{section.3.6}%
+\contentsline {subsection}{\numberline {6.1}Software development and deployment process on the Raspberry Pi}{59}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {6.2}Software development and deployment process on STM32 MCU}{59}{subsection.3.6.2}%
+\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{62}{chapter.4}%
+\contentsline {section}{\numberline {1}Architecture}{62}{section.4.1}%
+\contentsline {section}{\numberline {2}Main PCB: Nucleus of the iHEX hardware}{63}{section.4.2}%
+\contentsline {subsection}{\numberline {2.1}Electronic components}{64}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {2.2}Schematic, integration, and PCB design}{66}{subsection.4.2.2}%
+\contentsline {section}{\numberline {3}IO PCB: Connectivity and control}{66}{section.4.3}%
+\contentsline {subsection}{\numberline {3.1}Ethernet ports:}{67}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {3.2}Header connectors}{68}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {3.3}Indicator LEDs}{68}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {3.4}Schematic integration, and PCB design}{68}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4}Dock PCB: Connecting and powering iHEX mobile elements}{69}{section.4.4}%
+\contentsline {subsection}{\numberline {4.1}Male Dock}{69}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.2}Female Dock}{70}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.3}Schematic, integration, and PCB Design}{70}{subsection.4.4.3}%
+\contentsline {section}{\numberline {5}LED PCB: LED strips control}{71}{section.4.5}%
+\contentsline {subsection}{\numberline {5.1}RGB color control}{71}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {5.2}Input and Output connections}{71}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {5.3}Schematic integration, and PCB design}{72}{subsection.4.5.3}%
+\contentsline {section}{\numberline {6}Production, test and validation}{72}{section.4.6}%
+\contentsline {chapter}{General conclusion}{75}{chapter*.86}%
+\contentsline {chapter}{Bibliography}{76}{chapter*.87}%
+\contentsline {chapter}{Annexes}{78}{chapter*.88}%

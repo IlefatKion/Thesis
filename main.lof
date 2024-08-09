@@ -1,0 +1,62 @@
+\acswitchoff 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces SmartLab Solutions GmbH hierarchy\relax }}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces SLS GmbH - iHEX product\relax }}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces iHEX system overview\relax }}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Agile methodology\relax }}{9}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces SLS GmbH Kanban board\relax }}{10}{figure.caption.11}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Communication protocol selection\relax }}{13}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces CAN-Bus topology \cite {R12}\relax }}{15}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces CAN logical levels\relax }}{16}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces CAN data frame\relax }}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces MC development board selection\relax }}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces SC development board selection\relax }}{19}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces MC/SC architecture\relax }}{21}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces RS485 CAN HAT board\relax }}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces MCP2515 as a black-box\relax }}{23}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces MC: Result of successful CAN configuration\relax }}{24}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces MC: Send CAN message on the bus\relax }}{25}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces MC: Listen to CAN messages on the bus\relax }}{25}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces MC: Communication firmware architecture\relax }}{26}{figure.caption.33}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces MC: CAN software UML design\relax }}{26}{figure.caption.34}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces MC: Successful transmission test\relax }}{31}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces MC: Successful reception test\relax }}{31}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces MCP2551 board\relax }}{32}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces MCP2551 as a black-box\relax }}{32}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Bit timing \cite {R5}\relax }}{33}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces SC: CAN configuration\relax }}{34}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces SC: Successful CAN configuration test\relax }}{35}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces SC: Communication firmware architecture\relax }}{35}{figure.caption.46}%
+\contentsline {figure}{\numberline {2.23}{\ignorespaces SC: CAN software UML design\relax }}{36}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.24}{\ignorespaces SC: Result of successful transmission methods test\relax }}{37}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.25}{\ignorespaces SC: Result of successful reception methods test\relax }}{38}{figure.caption.49}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces MC: Design of the CI software architecture\relax }}{41}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces SC: Design of the CI software architecture\relax }}{45}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces LED control schema\relax }}{47}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Buzzer control schema\relax }}{49}{figure.caption.57}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Electriciy control schema\relax }}{49}{figure.caption.58}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Signal Loop schema\relax }}{50}{figure.caption.59}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Channel one different steps\relax }}{51}{figure.caption.60}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Channel two different steps\relax }}{52}{figure.caption.61}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces New connection detection routine\relax }}{54}{figure.caption.62}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Validation of the command propagation\relax }}{55}{figure.caption.63}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Detach of a mobile iHEX element\relax }}{56}{figure.caption.64}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Reporting the lost connection on "Events Topic"\relax }}{56}{figure.caption.65}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces A mobile iHEX element connected an island\relax }}{57}{figure.caption.66}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Reporting the established connection on "Events Topic"\relax }}{57}{figure.caption.67}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The different connections between the PCBs\relax }}{63}{figure.caption.70}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Main PCB overview\relax }}{64}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Design of the Main PCB\relax }}{66}{figure.caption.74}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces IO PCB overview\relax }}{67}{figure.caption.75}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Design of the IO PCB\relax }}{69}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Dock PCB overview\relax }}{69}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Design of the Dock PCB\relax }}{70}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces LED PCB overview\relax }}{71}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Design of LED PCB\relax }}{72}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces SC wiring\relax }}{73}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces SC final box\relax }}{73}{figure.caption.84}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Dock final box\relax }}{74}{figure.caption.85}%

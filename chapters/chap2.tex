@@ -1,0 +1,538 @@
+\chapter{Design and development of the Control Interface}
+
+\renewcommand{\chaptername}{Chapter}
+\section*{Introduction}
+In this chapter, we delve into the heart of the iHEX system's functionality – the Control Interface (CI) software which forms the cornerstone of communication and control, enabling seamless interaction between the MC and the SCs. This chapter presents the design, development, and test of the CI on both the MC and SC and the integration of both of them.
+
+\section{Control Interface (CI) on the MC}
+\subsection{Multithreaded architecture:}
+In the design of the CI on the MC, a multithreaded architecture was adopted to meet the dynamic and concurrent demands of communication, command processing, monitoring, and logging within the iHEX system. The use of multithreading was essential in ensuring a responsive and efficient operation of the control software.
+
+\subsubsection{Multithreading need}
+
+A fundamental requirement for the Control Interface is its ability to handle multiple tasks simultaneously. The MC must efficiently \textbf{manage communication with the server}, \textbf{manage communication with the SCs via CAN Bus}, \textbf{continuously monitor the health of the CAN network}, and \textbf{maintain a log of system activities}. This multifaceted demand necessitates a multithreaded approach to prevent bottlenecks and ensure timely execution.
+
+\subsubsection{The <pthread.h> library}
+
+To implement the multithreaded architecture, the <pthread.h> library (a default library of the Raspberry Pi OS), which provides the POSIX threads API, was leveraged. POSIX threads (pthreads) enable the creation and management of multiple threads within a single process. This library offers the necessary tools for thread \textbf{creation}, \textbf{synchronization}, and \textbf{communication}. \cite{R24}
+
+\subsubsection{Design overview}
+
+Before diving into the specifics of each thread, the diagram in Figure \ref{MC: design CI} was created to visualize the architecture. This design served as a blueprint for structuring the threads, their interactions, and data flow.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5.5in]{images/Chap2/MC design CI.png}\\
+\caption{MC: Design of the CI software architecture}
+\label{MC: design CI}
+\end{center}
+\end{figure}
+
+As deduced from the design in Figure \ref{MC: design CI}, the MC CI interfaces with the server via the topics (Command Topic and Events Topic) on the one side. On the other side, it interfaces with the iHEX elements via CAN-Bus communication. It is also equipped with a logging service.
+
+\subsubsection{Threads, message queues and data flow}
+
+The process is basically composed of the following threads:
+\begin{itemize}
+    \item Send Thread: Responsible for transmitting CAN messages. The Send Thread retrieves messages from the shared message queue "CAN message Queue". Messages in the queue are added by other threads, reflecting the ongoing communication demands of the system. This thread uses the transmission methods of the developed API in Chapter 2 (cf. 4.1 MC: Development of the CAN communication software).
+    \item Receive Thread: This thread continuously checks for incoming CAN messages. Upon receipt, the Receive Thread decode the message content, extracting command data and relevant parameters. The extracted data is subsequently forwarded for processing. This thread uses the reception and filtering method of developed API in Chapter 2 (cf. 4.1 MC: Development of the CAN communication software).
+    \item Command Input Thread: Focused on MQTT-based control commands from the server, the Command Input Thread listens for incoming messages. Upon receiving a command, it processes the command data and executes the corresponding routine. The incoming messages are in JSON format (cf. example in Listing \ref{Switch on LED example}).
+    \item Broadcast Thread: Responsible for network health verification, the Broadcast Thread periodically sends broadcast CAN messages. These messages serve as connectivity checks, ensuring the stability of network connections.
+    \item Logger Thread: Tasked with recording system activities, the Logger Thread receives log messages from all the other threads in the "Log Queue". It then organizes and writes these messages into a log file, ensuring a comprehensive record of system events. The log messages are in a JSON format (cf. Listing \ref{log message example}).
+\end{itemize}
+
+In the \texttt{main()} function, the set of threads is created. The threads are initialized and provided with their respective execution paths, ensuring parallel execution.
+
+After their creation, threads are monitored and managed. They are cancelled and joined to ensure a controlled and synchronized termination of execution. Additionally, the \texttt{main()} function handles cleanup tasks, ensuring the safe and orderly conclusion of the program.
+
+In this case, we can deduce that the CI process is composed of six threads: the five threads responsible for the CI's functionalities and the main one.
+
+As mentioned in Figure \ref{MC: design CI}, two queues are created to manage the communication between the threads:
+\begin{itemize}
+    \item CAN message queue: Serving as a central communication hub, the CAN message Queue facilitates data exchange between the Send, Receive, Broadcast, and Command Input Threads. The Send Thread dequeues CAN messages, which are enqueued and processed by the Receive, Command Input, and Broadcast Threads.
+    \item Log Queue: Send, Receive, Command Input, and Broadcast threads report results, errors and information messages to the Logger thread so the log file is updated. The Log messages are queued to the Log Queue by all the mentioned threads and are dequeued by the Logger thread.
+\end{itemize}
+
+\subsection{MQTT integration}
+The integration of the Message Queuing Telemetry Transport (MQTT) protocol within the Control Interface on the Main Controller (MC) plays a pivotal role in establishing seamless and efficient communication throughout the iHEX system. This section highlights the multifaceted implementation of MQTT, encompassing the reception of MQTT messages by the Command Input thread, the publication of messages by Receive threads.
+
+\subsubsection{Importance and advantages of MQTT integration}
+MQTT's integration serves as a linchpin, enabling cohesive communication within the iHEX system. By providing a versatile and standardized protocol, MQTT fosters the exchange of control commands and system information, elevating the efficiency and responsiveness of the CI. \cite{R25}
+
+MQTT's integration presents several advantages:
+\begin{itemize}
+    \item Efficient and Lightweight: MQTT's minimal overhead ensures efficient data transmission, making it particularly well-suited for resource-constrained environments.
+    \item Real-time Responsiveness: The publish-subscribe architecture facilitates real-time command transmission and prompt system responses.
+    \item Asynchronous Operation: MQTT's decoupled publish-subscribe model allows for asynchronous communication, enhancing the overall efficiency of the system.
+    \item Reliable Message Delivery: MQTT employs quality of service levels to ensure reliable message delivery, crucial for maintaining the integrity of system interactions.
+\end{itemize}
+
+The used server in this project has "\texttt{192.168.1.101}" as IP address and "\texttt{1883}" as a port.
+
+Critical to the realization of MQTT capabilities within the Control Interface is the employment of the \texttt{paho.mqtt} library (cf. \cite{R1} and \cite{R2}). This versatile library, available in multiple programming languages including C, C++, and Python, simplifies the complexities of MQTT communication tasks. It presents a robust set of functionalities for message publication, subscription, and comprehensive MQTT management.
+
+\subsubsection{Subscribing to "Commands Topic" (CT)}
+The MQTT implementation extends beyond the reception of messages by the Command Input thread. The Command Input thread, pivotal to enabling command transmission from the server to the MC, subscribes to the CT. This subscription mechanism ensures that incoming control commands, encoded as MQTT messages and encapsulated in JSON format (cf. Listing \ref{Switch on LED example}), are effectively received by the thread. Upon receipt, the Command Input thread processes the commands and channels them to the relevant task queues for execution.
+
+In order to accomplish this, Commands Input thread subscribes to CT and defines a callback to be executed once a new message is published as figured in Listing \ref{MQTT sub setup}.
+
+\begin{adjustwidth}{2em}{0pt}
+\begin{lstlisting}[style=cppStyle]
+// Callback: iHEX_SubscriberCallback object
+iHEX_SubscriberCallback callback;
+// Subscriber client creation
+mqtt::async_client SubscriberClient(ADDRESS, SUBSCRIBER_CLIENT_ID);
+// Subscriber connection options
+mqtt::connect_options SubscriberConnOpts;
+SubscriberClient.set_callback(callback); // assign the callback
+// make the client send a keep-alive message every 20s
+SubscriberConnOpts.set_keep_alive_interval(20); 
+// Clean other previous sessions
+SubscriberConnOpts.set_clean_session(true);
+// Connect and wait for connection
+SubscriberClient.connect(SubscriberConnOpts)->wait();
+// Subscribe and wait for subscription
+SubscriberClient.subscribe(COMMANDS_TOPIC, QOS)->wait();
+\end{lstlisting}
+\stepcounter{listingcounter}
+\captionsetup{type=lstlisting}
+\captionof{lstlisting}{Setup MQTT subscriber: Commands Input thread}
+\label{MQTT sub setup}
+\end{adjustwidth}
+
+Where:
+\begin{itemize}
+    \item \texttt{ADDRESS} is \texttt{"192.168.1.101:1883"}.
+    \item \texttt{SUBSCRIBER\_CLIENT\_ID} is \texttt{"iHEX\_MainControllerSubscriber"}.
+    \item \texttt{COMMANDS\_TOPIC} is \texttt{"CommandsTopic"}.
+    \item \texttt{QOS} is the Quality Of Service and it is \texttt{1}.
+\end{itemize} 
+
+\subsubsection{Publishing to "Events Topic" (ET)}
+Receive thread, attuned to the content of incoming CAN messages, occasionally publish MQTT messages to the server via the ET. The messages are encapsulated in JSON format (cf. Listing \ref{Connection lost report}).
+In order to accomplish this, Receive thread publishes the messages as detailed in Listing \ref{MQTT pub}.
+
+\begin{adjustwidth}{2em}{0pt}
+\begin{lstlisting}[style=cppStyle]
+// Publisher client creation
+mqtt::async_client PublisherClient(ADDRESS, PUBLISHER_CLIENT_ID);
+// Publisher connection options
+mqtt::connect_options PublisherConnOpts;
+// Connect and wait for connection
+PublisherClient.connect(PublisherConnOpts)->wait();
+// make the client send a keep-alive message every 20s
+PublisherConnOpts.set_keep_alive_interval(20);
+// Clean other previous sessions
+PublisherConnOpts.set_clean_session(true);
+// Prepare the message
+pubMsg_ptr=mqtt::make_message(EVENTS_TOPIC, mqttPubMsg_s, QOS, false);
+// Publish the message
+PublisherClient.publish(pubMsg_ptr)->wait();
+\end{lstlisting}
+\stepcounter{listingcounter}
+\captionsetup{type=lstlisting}
+\captionof{lstlisting}{Publish MQTT messages}
+\label{MQTT pub}
+\end{adjustwidth}
+
+Where:
+\begin{itemize}
+    \item \texttt{ADDRESS} is \texttt{"192.168.1.101:1883"}.
+    \item \texttt{PUSBLISHER\_CLIENT\_ID} is \texttt{"iHEX\_MainControllerPublisher"}.
+    \item \texttt{EVENTS\_TOPIC} is \texttt{"EventsTopic"}.
+    \item \texttt{QOS} is the Quality Of Service and it is \texttt{1}.
+\end{itemize}
+
+\subsection{JSON integration}
+The MQTT messages received by the Command Input thread and those published by the Receive thread, and also the Log messages trated by the Logging thread are encoded in JSON format. JSON (JavaScript Object Notation) is a lightweight data interchange format that offers a human-readable and standardized way to represent data \cite{R26}. 
+
+The JSON structure enables efficient parsing and handling of message content, promoting clear communication between different components of the iHEX system. \texttt{json.hpp} is used as a C++ library. (cf. \cite{R3}).
+
+\section{Control Interface (CI) on the SCs}
+The CI on the SCs constitutes the operational heart of the iHEX system's low-level components. This section provides an in-depth exploration of the CI on the SCs, focusing on the real-time task execution, communication and synchronization strategies, and the direct interaction with hardware components.
+
+\subsection{FreeRTOS middelware} 
+To facilitate the real-time execution and coordination of tasks within the iHEX system, the Control Interface (CI) on the SC was developed with the support of FreeRTOS. Serving as a free and reliable middleware, FreeRTOS offers a robust platform for managing concurrent tasks, ensuring efficient resource allocation, and maintaining deterministic behavior. \cite{R27}
+
+\subsection{Real-Time task execution}
+The CI on the SCs thrives within the real-time realm, propelled by its meticulous execution of specific tasks. These tasks are meticulously designed to ensure swift responses to control commands and real-time physical inputs.
+
+The design in Figure \ref{SC: design CI} presents an overview of the SC Control Interface software architecture.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5.8in]{images/Chap2/CI SC overview.png}\\
+\caption{SC: Design of the CI software architecture}
+\label{SC: design CI}
+\end{center}
+\end{figure}
+
+The following tasks collectively orchestrate the dynamic operation of the SCs:
+\begin{itemize}
+    \item \textbf{Send task:} The Send Task undertakes the transmission of essential CAN messages, fostering communication with the MC and fellow SCs. These messages encapsulate crucial updates on status, acknowledgments, and responses to received commands, playing a pivotal role in the iHEX system's seamless operation. This task uses the transmission methods of the developed API in Chapter 2. (Section 4.2 SC: Development of the CAN communication software)
+    \item \textbf{Receive task:} The Receive Task, devoted to the reception and interpretation of incoming CAN messages, decodes the intricacies of the received data. It identifies command instructions, extracts essential parameters, and passes on this information for subsequent actions, ensuring a cohesive response to commands issued by the MC. This task uses the reception and filtering methods of the developed APIs in Chapter 2 (Section 4.2 SC: Development of the CAN communication software)
+    \item \textbf{Signal Loop task:} A constant monitor of an electric signal, the Signal Loop Task perpetually assesses the robustness of physical connections within the iHEX system. This task safeguards communication pathways and validates the integrity of connections, forming a foundational layer of the iHEX system's reliability.
+    \item \textbf{LED task:} The LED Task, meticulously aligned with hardware components, facilitates the visualization of system states and operational conditions. Through precise control of LEDs, this task contributes to diagnostics and ongoing monitoring, providing tangible insights into system behavior.
+    \item \textbf{Beeper task:} Auditory feedback is managed by the Beeper Task, which orchestrates the patterned beeps that convey system alerts and user notifications. By skillfully manipulating sound signals, this task adds an additional layer of interaction and communication within the iHEX environment.
+    \item \textbf{Powering task:} The Electricity Task holds sway over the activation and deactivation of electrical components. By exercising control over power sources, this task ensures safe, controlled, and optimized electrical operations, enhancing the safety and reliability of the iHEX system.
+\end{itemize}
+
+As mentioned in Figure \ref{SC: design CI} above, one queue is created to manage the communication between task. Send queue contains the CAN messages enqueued by "Receive" and "Signal Loop" tasks. "Send Task" dequeues the CAN messages and send them on the CAN Bus.
+
+Not only queues are used to ensure the communication and synchronization between tasks, notifications are also. Notifications (yellow arrows in Figure \ref{SC: design CI}) allow a task to send data to another one ensuring the same efficiency and consuming less memory than queues.
+
+\subsection{Hardware interaction}
+Direct interaction with hardware components is another pivotal role undertaken by the Control Interface on the SCs. By governing the LEDs, beepers, electrical components, and the loop signal the interface ensures that control functionalities are realized seamlessly. This interaction streamlines the translation of high-level commands into tangible, actionable changes within the iHEX system's physical components. It also makes the SC able to get  feedback on the physical connections within iHEX system.
+
+\subsubsection{LED management}
+The interface governs the RGB (Red-Green-Blue) LEDs integrated into the iHEX system, providing a visual representation of system states and conditions. The LED Task oversees the controlled illumination and switching of LEDs, offering real-time insights and diagnostics.
+
+Figure \ref{LED control schema} presents the control schema that allows the SC to switch on and off the LEDs and control the colour and the visual effect.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=2.5in]{images/Chap2/LED control schema.png}\\
+\caption{LED control schema}
+\label{LED control schema}
+\end{center}
+\end{figure}
+
+The LEDs are controlled with PWM signals (PWM1, PWM2, PWM3, and PWM4) on the MOSFETs Gates:
+\begin{itemize}
+    \item \texttt{PWM1}, \texttt{PWM2}, and \texttt{PWM3} respectively control R, G, and B.
+    \item \texttt{PWM4} controls the blinking effect required by the company.
+\end{itemize}
+
+\begin{adjustwidth}{2em}{0pt}
+\begin{tcolorbox}[colback=yellow!10!white,colframe=yellow!50!black]
+PWM signals are gnerated by a timer embed in the SC (STM32 MCU). 
+
+For that purpose, the timer's channels are configured in their PWM generation mode.
+
+As known, a PWM signal is characterized by its \textbf{frequency} and its \textbf{duty cycle}.
+
+The frequency $f$ is obtained by applying the formula (2) \cite{R28}:
+\[
+f = \frac{f_{clk}}{(1+PSC)*(1+ARR)} ~~~~(2)
+\]
+where:
+\begin{itemize}
+    \item $f_{clk}$ is the frequency of the bus to which the timer is connected.
+    \item $PSC$ is the Prescaker register.
+    \item $ARR$ is the AutoReload Register.
+\end{itemize}
+
+
+In mode 1 (cf. \cite{R28}), the duty cycle $\delta$ is obtained by applying the formula (3):
+\[
+\delta = \frac{CCR}{ARR} ~~~~(3)
+\]
+where:
+\begin{itemize}
+    \item $CCR$ is the Capture-Compare Register.
+\end{itemize}
+\end{tcolorbox}
+\stepcounter{listingcounter}
+\captionsetup{type=rule}
+\captionof{Rule}{PWM generation}
+\label{PWM generation}
+\end{adjustwidth}
+
+To generate \texttt{PWM1}, \texttt{PWM2} and  \texttt{PWM3} signals, 3 channels of Timer1 are used in its PWM generation Mode 1 to control the LEDs applying the configuration $(4)$:
+\[
+f_{clk} = 72MHz,~~~~ PSC = 1,~~~~ and~~~~ ARR = 35999 ~~~~ (4)
+\]
+It results in $f = 1000 Hz$ and the duty cycle is obtained by modifying $CCR$ applying the formula $(3)$.
+
+To generate \texttt{PWM4} signal, Channel1 of Timer3 is used in its PWM generation Mode 1 applying the configuration $(5)$:
+\[
+f_{clk} = 72MHz ~~~~ and ~~~~ PSC = 35999 ~~~~ (5)
+\]
+In that case, $f$ and the duty cycle are obtained by respectively modifying $ARR$ and $CCR$ applying the formula $(2)$ and $(3)$.
+
+\subsubsection{Buzzer control}
+Auditory feedback is a significant aspect of the iHEX system's communication. The Beeper Task manages beeping patterns, translating system alerts and notifications into audible signals that resonate with users.
+
+Figure \ref{Buzzer control schema} presents the control schema that allows the SC switch on and off and blink the buzzer.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=2.5in]{images/Chap2/Buzzer control schema.png}\\
+\caption{Buzzer control schema}
+\label{Buzzer control schema}
+\end{center}
+\end{figure}
+
+In order to accomplish this, Channel2 of Timer15 is used in its PWM generation Mode 1 applying the configuration $(5)$.
+
+In that case, $f$ and the duty cycle are obtained by respectively modifying $ARR$ and $CCR$ applying the formula $(2)$ and $(3)$.
+
+\subsubsection{Electricity control}
+The Electricity Task extends beyond the simple activation and deactivation of electrical components; it also encompasses the provision and prevention of electricity to and from mobile elements integrated within the system. Given the high power nature of electricity, this process is meticulously controlled through the utilization of relays as shown in Figure \ref{Electricity control schema}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=3.5in]{images/Chap2/Electricity control schema.png}\\
+\caption{Electriciy control schema}
+\label{Electricity control schema}
+\end{center}
+\end{figure}
+If \texttt{Control sig} is \texttt{VCC}, then the coil of the relay is active. It applies an attractive force on the contact so the circuit is opened.
+
+If \texttt{Control sig} is \texttt{GND}, the the coil of the relay is not active. The contact is released and the circuit is closed.
+
+\subsubsection{Signal Loop monitoring}
+
+A fundamental pillar of the Control Interface's hardware interaction is the continuous monitoring of the signal loop—a vital electric signal designed exclusively for the dynamic iHEX mobile elements. The Signal Loop Task, a dedicated module within the Control Interface, takes on the responsibility of incessantly scrutinizing this signal's integrity.
+
+The signal loop serves as an indispensable mechanism for detecting and responding to the connection and disconnection of iHEX mobile elements—a dynamic addition to the static installed system.
+
+The Signal Loop Task steadfastly tracks the signal loop's presence and strength exclusively for mobile elements. When a mobile element establishes a connection, the task promptly identifies the robust signal, triggering the inclusion of the element within the iHEX ecosystem. Similarly, the task is primed to detect any weakening or absence of the signal, which signifies the disconnection of a mobile element.
+
+Figure \ref{Signal Loop schema} represents the simple schema of the Signal Loop module.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=2.5in]{images/Chap2/Signal loop schema.png}\\
+\caption{Signal Loop schema}
+\label{Signal Loop schema}
+\end{center}
+\end{figure}
+
+The following paragraph presents a brief summary of the hardware setup:
+\begin{itemize}
+    \item GPIO (General Purpose Input Outpu) Configuration: A dedicated GPIO pin is configured as a pull-up input. In this state, the GPIO pin is held at a high voltage level (logic '1') through a pull-up resistor connected internally to a positive voltage source (Vcc).
+    \item Signal Loop Contact: A Signal Loop contact is established as part of the mobile element. This contact interacts with the dedicated GPIO pin.
+    \item Ground signal: When an iHEX mobile element establishes a connection, the ground signal and the Signal Loop are short-circuited. This short-circuit effectively forces the ground signal to the GPIO pin.
+\end{itemize}
+
+When the mobile element is connected and the ground signal is short-circuited with the Signal Loop, the GPIO pin is effectively pulled down to a low voltage level (logic '0'). This change in voltage level is detected by the SC's Control Interface, which recognizes the connection of the mobile element.
+
+Conversely, when the mobile element is disconnected, the ground signal and the Signal Loop are disconnected. As a result, the GPIO pin returns to its default high voltage level (logic '1'), indicating the absence of a connection.
+
+\section{Integration and interoperability}
+
+The successful operation of the iHEX system hinges on the seamless integration and interoperability of its diverse components. This section delves into the complex network of connections and interactions that allow the MC and SCs to harmoniously function as a unified whole.
+
+\subsection{Integration of MC and SCs}
+
+The integration of the MC and SCs serves as the foundation for the iHEX system's holistic operation. The MC, acting as the central coordinator, establishes communication links with each SC. Through the Control Interface, the MC sends and receives command messages, orchestrates control functionalities, and interprets system states. This integration ensures that the SCs respond promptly and accurately to commands issued by the MC, fostering a symbiotic relationship between control and execution.
+
+\subsection{Bidirectional communication channels}
+The iHEX system's integration is orchestrated through a comprehensive array of communication channels, each designed to facilitate effective information exchange and robust coordination. These channels not only enable the MC to control the SCs but also foster a continuous feedback loop that enhances the system's responsiveness.
+
+\subsubsection{Channel one: Command propagation}
+The first channel, as shown in Figure \ref{Channel one}, involves the MC's command dissemination to the SCs. It commences with the reception of a command on the "Commands Topic" of the MQTT server. The command is encapsulated in an MQTT message in JSON format. The MC interprets this command, extracting its specifics and intent. Subsequently, the MC translates the command into a suitable CAN message, which is then sent onto the CAN bus to reach the SCs. This channel exemplifies the MC's role as a central coordinator, converting high-level instructions into actionable commands for the SCs.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5in]{images/Chap2/Channel one.png}\\
+\caption{Channel one different steps}
+\label{Channel one}
+\end{center}
+\end{figure}
+
+\textbf{Example:}
+
+A command received through the MQTT server instructs the iHEX system to light on the LEDs in Red (cf. Listing \ref{Switch on LED example}). The MC processes this command, converts it into a CAN message (cf. Listing \ref{convert command into CAN}), and dispatches it to the SC responsible for the designated module's control.
+
+\subsubsection{Channel two: Feedback and reporting}
+
+The second channel, as shown in Figure \ref{Channel two}, encompasses the SCs' transmission of feedback and information to the MC. An SC detects events, gathers information, or generates real-time feedback that holds relevance to the system's operational status. This information is encapsulated in CAN messages, which the SC sends onto the CAN bus. Upon reception, the MC interprets the CAN messages, extracting vital details. The MC then channels the extracted information into an MQTT message in JSON format. This message is subsequently published to the ET of the MQTT server, facilitating remote monitoring and comprehensive system awareness.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5in]{images/Chap2/channel two.png}\\
+\caption{Channel two different steps}
+\label{Channel two}
+\end{center}
+\end{figure}
+
+\textbf{Example:}
+
+An SC sends a CAN message containing \texttt{"connection lost"} (cf. Listing \ref{create send CAN message}). The MC deciphers the CAN message and generates the corresponding MQTT message (cf. Listing \ref{Connection lost report}). This MQTT message is published to the "Events Topic," enabling remote users to stay informed about the laboratory's conditions.
+
+\subsection{Detecting and integrating new iHEX mobile elements}
+
+One of the pivotal scenarios highlighting the integration prowess of the iHEX system is the detection and integration of new iHEX mobile elements. This process, as showin in Figure \ref{new connection routine} exemplifies the orchestration of control, communication, and synchronization across MC and SCs.
+
+\subsubsection{Signal Loop task: Detecting new connection}
+The process commences within the SCs, specifically through the vigilance of the Signal Loop Task. This task constantly monitors the signal loop, a specialized electric signal unique to iHEX mobile elements. Upon detecting a new connection—an indication of a mobile element's integration—the Signal Loop Task springs into action.
+
+\subsubsection{Reporting to the MC}
+As the Signal Loop Task identifies a new connection, it promptly formulates a CAN message signaling this event. This message is dispatched onto the CAN bus, reaching the MC with the crucial information about the new iHEX mobile element's inclusion.
+
+\subsubsection{MC response}
+The MC, now informed about the new mobile element, meticulously orchestrates the subsequent steps. It initiates the process by locking the \texttt{"newMemberMutex"}, ensuring the exclusive handling of new connection reports and preventing potential overlaps.
+
+\subsubsection{Confirmation and activation}
+Following mutex locking, the MC promptly responds to the SC. It sends a confirmation CAN message, informing the SC that the new connection has been duly acknowledged and accepted by the MC. The SC, armed with the MC's confirmation, proceeds to feed the mobile element with electricity—an imperative step for its activation.
+
+\subsubsection{Handshake and recognition}
+As the new mobile element becomes active, it responds with a hand-shake signal, a succinct yet significant gesture signifying its successful integration. This hand-shake serves as a recognition beacon, alerting the MC that the new element is fully operational and a seamless part of the iHEX ecosystem.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5.5in]{images/Chap2/new connection uml.png}\\
+\caption{New connection detection routine}
+\label{new connection routine}
+\end{center}
+\end{figure}
+
+\section{Testing the iHEX system}
+
+An essential aspect of system development involves rigorous testing to validate its operational capabilities and ensure the reliability of its intricate mechanisms. The iHEX system is no exception, and its comprehensive testing regime encapsulates the evaluation of its communication channels and the dynamic integration of new iHEX mobile elements.
+
+\subsection{Channel one test: Command propagation}
+To validate the effectiveness of the first communication channel, a controlled test was conducted. A command was initiated from the MC through the CT of the MQTT server. The command (cf. Listing \ref{Switch on LED example}), in JSON format, directed the LED module to light on in red. As expected, the MC interpreted the command, translated it into a CAN message, and dispatched it to the pertinent SC. The SC promptly executed the command, resulting in the successful lightening on of the LED in the desired colour as shown in Figure \ref{Result of LED red.jpg}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=3in]{images/Chap2/Result of LED red.jpg}\\
+\caption{Validation of the command propagation}
+\label{Result of LED red.jpg}
+\end{center}
+\end{figure}
+
+\subsection{Channel two test: Feedback and reporting}
+The second communication channel underwent scrutiny through an evaluation of feedback reporting. An SC, responsible for monitoring environmental parameters, generated a CAN message reporting the connection lost with a mobile element, as shown in Figure \ref{Detach mobile element} and \ref{Detach mobile element MQTT}. The MC intercepted the CAN message, deciphered its contents, and seamlessly transformed the information into an MQTT message in JSON format. This MQTT message was promptly published to the ET.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=3.5in]{images/Chap2/connection lost report iHEX.jpg}\\
+\caption{Detach of a mobile iHEX element}
+\label{Detach mobile element}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6.5in]{images/Chap2/Connection lost MQTT.png}\\
+\caption{Reporting the lost connection on "Events Topic"}
+\label{Detach mobile element MQTT}
+\end{center}
+\end{figure}
+
+In Figure \ref{Detach mobile element MQTT}, a JSON message published on ET is displayed. The message has the following attributes:
+\begin{itemize}
+    \item \texttt{"event"}: \texttt{"connection removed"}. It indicates that a removed connection is detected.
+    \item \texttt{"payload"}: It precises the details of the reported event:
+    \begin{itemize}
+        \item \texttt{"n"}: It reports the lost element details.
+        \begin{itemize}
+            \item \texttt{"id"}: the id of the lost element (2 in Figure \ref{Detach mobile element MQTT}).
+            \item \texttt{"port"}: 0
+        \end{itemize}
+        \item \texttt{"n-1"}: It reports the static element to which the lost element was connected.
+        \begin{itemize}
+            \item \texttt{"id"}: the id of the considered element (0x111 in Figure \ref{Detach mobile element MQTT}).
+            \item \texttt{"port"}: the exact port through which the lost element was connected (3 in Figure \ref{Detach mobile element MQTT}).
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{New connection integration test}
+The process of integrating a new iHEX mobile element was meticulously assessed. A new mobile element was connected as shown in Figure \ref{new connection iHEX}, triggering the Signal Loop Task's detection mechanism. The SC reported the connection to the MC through a CAN message, which, in turn, sent a confirmation and waited for a hand-shake signal. The mobile element became active and sent the hand-shake. As the MC publishes the reporting message to \texttt{"Events Topic"} as shown in Figure \ref{new connection MQTT}, the entire process confirmed successful integration.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=3.5in]{images/Chap2/new connection iHEX.jpg}\\
+\caption{A mobile iHEX element connected an island}
+\label{new connection iHEX}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6.5in]{images/Chap2/new connection MQTT.png}\\
+\caption{Reporting the established connection on "Events Topic"}
+\label{new connection MQTT}
+\end{center}
+\end{figure}
+
+In Figure \ref{new connection MQTT}, a JSON message published on ET is displayed. The message has the following attributes:
+\newpage
+
+\begin{itemize}
+    \item \texttt{"event"}: \texttt{"new connection"}. It indicates that a new connection is detected.
+    \item \texttt{"payload"}: It precises the details of the reported event:
+    \begin{itemize}
+        \item \texttt{"n"}: It reports the new connected element element details.
+        \begin{itemize}
+            \item \texttt{"id"}: the id of the new connected element (2 in Figure \ref{new connection MQTT}).
+            \item \texttt{"port"}: 0
+        \end{itemize}
+        \item \texttt{"n-1"}: It reports the static element to which the new connected element is connected.
+        \begin{itemize}
+            \item \texttt{"id"}: the id of the considered element (0x111 in Figure \ref{Detach mobile element MQTT}).
+            \item \texttt{"port"}: the exact port through which the new connected element is connected (3 in Figure \ref{Detach mobile element MQTT}).
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\section{Identifier configuration module}
+
+In our project, each SC plays a unique role, identified by its specific ID. However, managing these IDs in the software used to be a cumbersome process, involving code changes, recompilation, and re-flashing each time an ID needed modification.
+
+To streamline this, we developed a configurable ID module that eliminates the need for code alterations and recompilation when changing an SC's ID. With this module, we first flash a generic code onto the STM32 microcontroller, simplifying the deployment process. Subsequently, we engage the configuration phase, which allows us to set and modify the IDs as needed. 
+
+This innovation presents several advanyages: 
+\begin{itemize}
+    \item It reduces the time and effort required for configuration.
+    \item It enhances the flexibility and adaptability of our system, making it easier to manage unique IDs across multiple SCs.
+\end{itemize}
+
+The technical implementation of the configuration module centers on utilizing UART communication on the STM32F303RE MCU. During startup, the system awaits configuration instructions in a specific format, communicated via a UART message consisting of 2 bytes. Table \ref{uart conf format} details the configuration message format:
+
+\begin{table} [H]
+\centering
+\begin{tabular}{|*{2}{>{\centering\arraybackslash}m{10mm}|}}
+\hline
+4 bits & \multicolumn{1}{>{\centering\arraybackslash}m{100mm}|}{12 bits} \\
+\hline
+0x41 & \multicolumn{1}{>{\centering\arraybackslash}m{100mm}|}{ID in HEX format} \\
+\hline
+\end{tabular}
+\caption{UART configuration message format}
+\label{uart conf format}
+\end{table}
+
+where \texttt{0x41} refers to the ASCII code of \texttt{'A'}.
+
+To ensure this communication, UART2, embedded within the STM32F303RE MCU, is employed. It is configured to establish the interface with the MCU via the ST-Link port, which is soldered on the NUCLEO-F303RE board. 
+
+This UART-based configuration approach streamlines the process of assigning unique IDs to each SC without necessitating changes to the code, thereby enhancing configurability and flexibility.
+
+
+\section{Software development and deployment process}
+
+\subsection{Software development and deployment process on the Raspberry Pi}
+
+A notable aspect of the software development process is the utilization of cross-compilation. To streamline efficiency, we developed the software intended for the Raspberry Pi on our Windows machines. Subsequently, we employed the \texttt{aarch64-linux-gnu} toolchain for cross-compilation \cite{R30}.
+
+The cross-compilation is adopted for its numerous advantages \cite{R31}:
+\begin{itemize}
+    \item Development flexibility: Developers can work on their preferred development environment, typically a more powerful desktop or laptop, which can significantly speed up development compared to working directly on the Raspberry Pi.
+    \item Reduced build time: Compiling large codebases on the Raspberry Pi itself can be time-consuming, whereas cross compilation allows developers to compile the code much faster on a more powerful host machine.
+    \item Debugging Tools: Developers can use advanced debugging tools available on their host machine, making it easier to identify and fix issues in the code.
+    \item Portability: Cross-compiled binaries can be easily deployed to multiple Raspberry Pi devices with the same architecture, simplifying the deployment process.
+    \item Resource Efficiency: Cross-compiling doesn't consume Raspberry Pi resources, leaving them available for running and testing the compiled software.
+    \item Compatibility: It ensures that the compiled software is compatible with the target Raspberry Pi's architecture, reducing the risk of compatibility issues.
+\end{itemize}
+
+The outcome of this process, known as \texttt{iHEX\_MC.exe}, is then securely transferred to the Raspberry Pi via SSH for execution. This approach ensures a smooth and efficient deployment of our control interface software onto the Raspberry Pi.
+
+\subsection{Software development and deployment process on STM32 MCU}
+When working on the STM32 microcontroller, our software development process is equally efficient. Leveraging STM32CubeIDE \cite{R15}, which is provided by STMicroelectronics and based on Eclipse, we craft and fine-tune our software on our Windows machines. This IDE not only facilitates the coding process but also supports cross-compilation. 
+
+Once our software is polished and ready for deployment, it is cross-compiled and then seamlessly flashed into the flash memory of the STM32F303RE MCU using the ST-Link debugger. Additionally, STM32CubeIDE provides debugging capabilities, which prove invaluable when fine-tuning our code and ensuring optimal performance. 
+
+For monitoring the flash memory registers when needed, we employ STM32CubeProgrammer \cite{R18}, which rounds out our comprehensive software development toolkit.
+
+
+\section*{Conclusion}
+Chapter 3 explored how the Control Interface operates within the iHEX system, involving both the MC and SCs. The MC manages commands, while SCs handle real-time tasks and hardware control.
+
+We also discussed how MC and SCs communicate, emphasizing their collaboration in the iHEX system. We highlighted how new mobile elements are integrated, showcasing synchronization and testing.
+
+Looking ahead, Chapter 4 will delve into the design and development of crucial PCBs, the building blocks of our system.

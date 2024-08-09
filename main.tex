@@ -1,0 +1,117 @@
+%------------------------------------------------Main.tex % the one that you should compile ;)
+
+\documentclass[a4paper,12pt,oneside]{report}
+
+% Packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[top=3cm,bottom=3cm,left=2cm,right=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{tcolorbox}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{acro}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage{version}
+\usepackage{lettrine}
+\usepackage{arabtex}
+\usepackage{bibtopic}
+\usepackage{ulem}
+\usepackage{newfloat}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{changepage}
+\usepackage{acro}
+
+% Custom Commands
+\newcommand{\HRule}{\textcolor{lightgray}{\rule{15.5 cm}{0.12 cm}}}
+\newcommand{\Hrule}{\textcolor{lightgray}{\rule{13.5 cm}{0.15 cm}}}
+\newcommand{\customizeNumber}{\fontsize{40}{40}\usefont{U}{eur}{b}{n}}
+\newcommand{\chapterNumber}{\fontsize{12}{12}\usefont{U}{b}{n}}
+
+% Package Configurations
+\input{config/packages-config.tex}
+
+% Page Style
+\pagestyle{fancy}
+\fancyhead[L]{}
+\renewcommand{\headrulewidth}{2pt}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{0.7em} 
+
+\hypersetup{
+  hidelinks=true % This removes frames around hyperlinks
+}
+
+% Document
+\begin{document}
+
+% Front Page
+
+% Abstract, Signatures, Acknowledgement
+
+
+% Table of Contents, List of Figures, List of Tables
+\pagenumbering{Roman}
+
+\input{start/other.tex}
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Acronyms
+\input{other/acronymes.tex} % TODO: Alphabetical order
+
+
+
+\pagestyle{fancy}
+
+% Main Content
+\newpage
+\pagenumbering{arabic}
+
+% General Introduction
+\input{other/introduction.tex}
+
+% Chapters
+\part*{Chapter 1 \\Project scope}
+\input{chapters/chap0.tex}
+\part*{Chapter 2 \\Design and development of the CAN Bus software}
+\input{chapters/chap1.tex}
+\part*{Chapter 3 \\Design and development of the Control Interface}
+\input{chapters/chap2.tex}
+\part*{Chapter 4 \\Design and development of Printed Circuit Boards}
+\input{chapters/chap3.tex}
+% \input{chapters/chap4.tex}
+
+\fancyhead[R]{}
+
+% General Conclusion
+\input{other/conclusion.tex}
+
+% Bibliography & Netography
+\input{other/bibliographie.tex}
+
+\newpage
+%\pagenumbering{alph}
+\input{other/appendix/appendix.tex}
+
+\end{document}

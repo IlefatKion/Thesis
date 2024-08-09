@@ -1,0 +1,939 @@
+\chapter{Design and development of the CAN Bus software}
+
+\renewcommand{\chaptername}{Chapter}
+
+\section*{Introduction}
+This chapter focuses on the design and development of the CAN (Controller Area Network) interface for the iHEX system. 
+It starts with discussing the specific constraints and requirements defined by the company's vision, which influence the selection of the communication protocol, the Main Controller (MC) platform, and the Sub-Controller (SC) microcontroller units (MCUs). 
+The chapter then outlines the step-by-step procedure followed in developing the CAN communication software on both the MC and SC platforms. 
+Finally, the test and validation process of the implemented software will be described.
+
+\section{Communication protocol selection}
+
+The selection of an appropriate communication protocol for the iHEX system is crucial to ensure efficient and reliable communication between the interconnected elements. The target in this part is the yellow data flux in Figure \ref{comm selection}.
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=5in]{images/Chap1/product overview CAN.jpg}\\
+\caption{Communication protocol selection}
+\label{comm selection}
+\end{center}
+\end{figure} 
+
+
+\subsection{The company requirements}
+During the protocol selection process, we took several factors and constraints into consideration. The following requirements were identified based on the company's vision and the specific needs of the iHEX system:
+
+\begin{itemize}
+    \item \textbf{Minimization of cable length: }The company aims to reduce the cable length required for communication. This requirement is important to optimize the physical wiring and reduce complexity.
+    \item \textbf{Scalability and extendability: }The communication protocol should support a scalable and extendable number of communicating nodes. This is essential to accommodate future expansion of the iHEX system, allowing for the addition of new elements without significant wiring modifications.
+    Simplifying the wiring process for both static and new nodes enhances flexibility, reduces installation and configuration time, and enhance the user experience for the user.
+    \item \textbf{Robustness in laboratory environment: }The communication protocol should be robust and able to withstand the challenging environment of laboratories. Laboratories are often characterized by high levels of electromagnetic interference and other disturbances. The chosen protocol should be resilient to such environmental factors.
+    \item \textbf{Real-time capability: }The protocol should support real-time communication to ensure timely and synchronized interactions between the elements. Real-time capability is essential for accurate control and coordination within the iHEX system.
+\end{itemize}    
+
+At this level, the SLS engineering team proposed to choose Ethernet as the communication protocol since it is already used within the iHEX system in some devices. As much more communication protocols are available in the marked, we decided to compare the Ethernet and the Controller Area Network (CAN). 
+
+The following Table \ref{comparison CAN Ethernet} summarizes, in short, the comparison between CAN and Ethernet.
+
+% Define a new 'X' column type
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\begin{table} [H]
+\centering
+\begin{tabularx}{\textwidth}{|Y|Y|Y|} \hline
+ \textbf{Criteria} & \textbf{CAN} & \textbf{Ethernet} \\ [0.5ex] % RPi
+ \hline\hline
+ \textbf{Minimization of cable length} & One pair of twisted cables. &  n Ethernet cables; n is the number of iHEX elements per island. \\
+ & Estimation: 10 m of one pair of twisted cable for an island of 10 elements. & Estimation: 55 m of Ethernet cable (4 pairs of twisted cables) for an island of 10 elements. \\
+ \hline
+ \textbf{Scalability and extendability} &  Supports $2^{29} - $1 communicating nodes & Depends on the router ports number \\
+ \hline
+ \textbf{Robustness in severe environment} & \checkmark & \checkmark \\
+ \hline
+ \textbf{Real-time capability} & \checkmark & \checkmark  \\
+ \hline
+ \textbf{Estimated cost for the prototype} & 40 € & 110 € \\
+ \hline
+ \textbf{Availability} & \checkmark & \checkmark  \\
+ \hline
+\end{tabularx}
+\caption{Comparison between CAN and Ethernet}
+\label{comparison CAN Ethernet}
+\end{table}
+
+Following the previous comparison, CAN protocol seems more convenient for the application in question.
+
+\subsection{Controller Area Network (CAN) specifications}
+
+This section will provide an overview of the CAN-Bus protocol, including its principle, topology, electronics, and data frame structure. This overview helps in identifying the CAN advantages that align with the company's vision and the constraints of the project.
+
+\subsubsection{CAN-Bus protocol overview}
+
+The CAN-Bus protocol is a widely-used communication standard that was originally developed for automotive applications. It has since found, extensive use in various industrial automation systems, making it an ideal choice for the iHEX ecosystem. The protocol is designed to facilitate robust and reliable communication between distributed nodes in a network, even in harsh and noisy environments such as laboratories. \cite{R11}
+
+\subsubsection{CAN-Bus topology}
+Figure \ref{can topology} shows that CAN-Bus networks typically employ a bus topology, where all the nodes are connected to a shared communication medium, known as the bus. This topology simplifies the wiring process and enables easy scalability and extendability, which aligns with the requirements of the iHEX system.
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=5.5in]{images/Chap1/can bus topology.png}\\
+\caption{CAN-Bus topology \cite{R12}}
+\label{can topology}
+\end{center}
+\end{figure} 
+
+\subsubsection{CAN-Bus electronics}
+
+The CAN-Bus protocol relies on a specific set of electronic components to ensure reliable communication. Each node in the network consists of an MCU, which interfaces with the CAN controller. The CAN controller, through interfacing with the CAN Transceiver, handles the transmission and reception of messages and manages the arbitration process, allowing multiple nodes to communicate without conflicts. The bus is terminated with resistors (Figure \ref{can topology}) at each end to prevent signal reflections and ensure signal integrity. \cite{R12}
+
+The CAN-Bus protocol utilizes a differential signaling scheme, where the voltage levels on the bus represent the logical states of the transmitted data. This technique is behind the CAN robustness and accuracy even in severe environments. This signaling method involves transmitting data over twisted-pair cables, where the current flowing in each signal line is equal but opposite in direction. This method results in a field-canceling effect which is the key for the noise cancellation. \cite{R12}
+
+As figured in Figure \ref{can logical levels} in the next page, on the CAN-Bus, the voltage levels represent the logical states of the transmitted data. There are two logical levels to represent the data: dominant and recessive.
+A dominant level is represented by a logical 0, where the voltage on the CAN-High (CANH) line is higher than the voltage on the CAN-Low (CANL) line.
+On the other hand, a recessive level is represented by a logical 1, where the voltage on the CANH line is equal to the voltage on the CANL line.
+During communication, multiple nodes on the CAN-Bus may attempt to transmit simultaneously. This is resolved through arbitration based on the dominant and recessive levels. If two nodes transmit different logic levels, the node that transmits a dominant level (logical 0) will carry on the transmission, and the one that transmits a recessive level (logical 1) aborts the transmission. \cite{R12}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=4in]{images/Chap1/CAN logical levels.png}\\
+\caption{CAN logical levels}
+\label{can logical levels}
+\end{center}
+\end{figure}
+
+\subsubsection{CAN data frame}
+As mentioned in Figure \ref{can data frame}, the data frame in CAN consists of several components that collectively enable the transmission and reception of data. \cite{R12}
+
+\begin{itemize}
+    \item \textbf{Start-of-Frame (SoF) field}: It serves as a synchronization marker for all nodes on the bus. This field allows the receiving nodes to align themselves with the incoming data.
+    
+    \item \textbf{Arbitration field}: It contains the Identifier. The Identifier uniquely identifies the message and determines its priority on the bus. Nodes with higher priority Identifiers have the ability to overwrite lower priority messages during transmission, if the two nodes start the transmission at the same time.
+    Two ID format are possible: standard (11-bit ID) or extended (29-bit ID).
+    The arbitration field also contains the RTR bit which indates whether it is about a data or request CAN message. A data CAN message, contrary to the request one, contains data to be transmitted.
+
+    \item \textbf{Control field}: It contains various control bits that govern the behavior of the data frame. These bits include the Data Length Code (DLC), which indicates the length of the data being transmitted (8 bytes is the maximal allowed length). They include also the IDE bit which indicates whether the ID is standard (logical 0) or extended (logical 1).
+
+    \item \textbf{Data field}: It carries the actual payload or data being transmitted. The length of the Data field is determined by the DLC specified in the Control field.
+
+    \item \textbf{CRC field}: It contains a cyclic redundancy check value. This value allows the receiving node to verify the integrity of the transmitted data and detect any potential errors.
+
+    \item \textbf{Acknowledgement field}: It contains the acknowledgement bit (ACK) which indicates whether the transmitted message is received or not.
+
+    \item \textbf{End-of-Frame (EoF) field}: It marks the end of the frame transmission.
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=5in]{images/Chap1/can data frame.jpg}\\
+\caption{CAN data frame}
+\label{can data frame}
+\end{center}
+\end{figure}
+
+The data frame structure in CAN-Bus ensures efficient and reliable communication by providing synchronization, arbitration, control, data, error detection, acknowledgement, and termination mechanisms.
+%id: priorities
+%payload 8 bytes
+%CRC
+
+\subsubsection{Other advantages of CAN}
+
+Two other advantages of CAN are notable. One is its built-in \textbf{acknowledgement} system, which guarantees reliable transmission of information. And the other is its built-in checking mechanism based on \textbf{Cyclic Redundancy Check} (CRC), which guarantees reliability. \cite{R12}
+
+By selecting the CAN protocol, the iHEX system can benefit from its robustness, real-time capability, and potential for future scalability. This choice aligns with the company's requirements and ensures reliable and efficient communication within the system.
+
+\section{Selection of the Main Controller (MC) development board}
+Selecting the MC development board means selecting the hardware part of the MC. The target in this part is the green part in Figure \ref{MC selection}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5in]{images/Chap1/product overview - MC selection.jpg}\\
+\caption{MC development board selection}
+\label{MC selection}
+\end{center}
+\end{figure} 
+
+Raspberry Pi is used for other purposes in the same project. It was chosen thanks to its suitability for meeting the project's requirements. The Raspberry Pi offers several advantages and capabilities that align with the needs of the project.
+
+\begin{itemize}
+    \item It provides robust support for multi-threading, allowing for efficient parallel execution of tasks. This is crucial for handling concurrent processes and optimizing the performance of the MC.
+    \item It does not have native support for CAN, but with the use of external modules and appropriate software libraries, CAN communication can be effectively implemented on the Raspberry Pi platform.
+    \item It offers connectivity options to connect to an MQTT server via TCP, either through Ethernet or Wi-Fi. This enables the MC to publish and subscribe to MQTT topics, facilitating real-time data exchange and integration with other systems or devices.
+    \item Another advantage of using the Raspberry Pi as the MC is its capability to write log files for debugging purposes. By logging relevant information, errors, and events, the MC can assist in troubleshooting and identifying issues during the development and testing phases.
+\end{itemize}
+
+The Raspberry Pi is characterized with more technical characteristics \cite{R13}:
+
+\begin{itemize}
+    \item 8GB of Random Access Memory (RAM).
+    \item Up to 256GB of SD-Card memory (Flash memory).
+    \item 1.8GHz Cortex-A72 CPU (Central Processing Unit).
+\end{itemize}
+
+The Raspberry Pi serves as a suitable platform for the MC in this project. Its support for multi-threading, CAN communication, MQTT connectivity, and logging capabilities align well with the project's requirements, providing a reliable and efficient foundation for the development and operation of the MC in the iHEX system.
+
+\section{Selection of the Sub-Controller (SC) development board}
+
+Selecting the SC development board means selecting the hardware part of the SC. The target in this part is the orange part in Figure \ref{SC selection}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5in]{images/Chap1/product overview - SC selection.jpg}\\
+\caption{SC development board selection}
+\label{SC selection}
+\end{center}
+\end{figure} 
+
+To fulfill the requirements of the project, the STM32F303RETx MCU (MicroController Unit), installed on the NUCLEO-F303RE evaluation board \cite{R14}, was chosen as the ideal option. The STM32F303RETx is a powerful MCU of STMicroelectronics (ST) that satisfies the project's needs.
+
+\subsection{Characteristics of the MCU: Microcontroller Unit}
+
+The STM32F303RETx microcontroller chosen for the project is characterized by the following performances \cite{R4}:
+\begin{itemize}
+    \item CPU: The microcontroller is built with a highly-efficient ARM Cortex-M4 core.
+    \item 72 MHz CPU Clock: The MCU operates at a maximum CPU clock frequency of 72 MHz. This clock speed determines the processing capability of the MCU and affects the execution speed of the program instructions.
+    \item 128 KB RAM Memory: The MCU is equipped with 128 KB of Random Access Memory (RAM). Sufficient RAM allows for the efficient handling of variables, data structures, and temporary storage requirements.
+    \item 512 KB Flash Memory: The MCU has 512 KB of Flash memory. The size of the Flash memory determines the amount of program code that can be stored on the MCU.
+    \item Peripherals:
+    \begin{itemize}
+        \item CAN controller: The STM32F303RETx integrates a CAN controller as an embed communcation peripheral, enabling seamless communication using the CAN protocol. As discussed before, this peripheral has to interface with a CAN transceiver to be able to be connected to the CAN bus.
+        \item General purpose Timers: The STM32F303RETx provides 6 general purpose timers that are capable of generating over than 20 PWM signals for controlling various components or systems. 
+    \end{itemize}
+    \item Sufficient IO pins: The microcontroller offers a substantial number of IO pins, ensuring compatibility with various peripherals and facilitating the connection of external devices, which is crucial during the prototyping phase.
+\end{itemize}
+
+The combination of a 72 MHz CPU clock, 128 KB RAM memory, and 512 KB Flash memory provides a balance between processing speed, data storage capacity, and program code size. These specifications of a general purpose MCU are suitable for a range of real-time applications, including CAN communication, PWM generation, and other tasks required by the project.
+
+\subsection{The supplier company}
+
+The decision to choose the STM32F303RETx microcontroller and NUCLEO-F303RE evaluation board was also influenced by the excellent support provided by ST. The company offers a comprehensive suite of development tools and resources that greatly facilitate the development process. Some of the key support features include:
+\begin{itemize}
+    \item \textbf{ST software tools: }ST offers a series of software tools that support the embedded software engineer in developing embedded applications.
+    
+    \begin{itemize}
+    \item STM32CubeIDE: A powerful integrated development environment (IDE) based on Eclipse. \cite{R15}
+
+    \item STM32CubeMX: A graphical tool that enables easy configuration and initialization of the microcontroller peripherals and generates the necessary initialization code, easing the setup process. \cite{R16}
+
+    \item STM32CubeMonitor: A monitoring and visualization tool that allows real-time monitoring of the MCU's variables during runtime. \cite{R17}
+
+    \item STM32CubeProgrammer: A programming tool that provides various programming and debugging features, allowing easy firmware updates and debugging of the microcontroller.\cite{R18}
+    \end{itemize}
+
+    \item \textbf{HAL library: }ST provides the Hardware Abstraction Layer (HAL) library, which offers a standardized and easy-to-use API for accessing the MCU's peripherals and functions.
+\end{itemize}
+
+Additionally, the NUCLEO boards offered by ST are specifically designed for proof of concepts and evaluation, making them well-suited for development and testing purposes.
+
+Furthermore, ST provides extensive documentation for the STM32 MCUs and NUCLEO boards, including reference manuals, user manuals, and datasheets. These resources offer detailed information about the MCU's architecture, features, pinouts, and programming guidelines, aiding developers in utilizing the MCU to its full potential.
+
+The combination of a robust development ecosystem, including software tools, support libraries, and documentation resources, enhances the ease of development, accelerates the learning curve, and ensures reliable support for the chosen STM32 MCU and NUCLEO evaluation board.
+
+\section{Development of the CAN communication software}
+
+The project specifications make us suggest the following architecture for the MC and SC.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=3.5in]{images/Chap1/MC-SC architecture.png}\\
+\caption{MC/SC architecture}
+\label{MC SC architecture}
+\end{center}
+\end{figure} 
+\newpage
+Figure \ref{MC SC architecture} in the previous page shows that both the MC and SC are mainly composed of 4 parts:
+\begin{itemize}
+    \item Hardware: It presents the necessary hardware for the application. It is the lowest layer. In general, it is composed of the processing unit, the peripheral, memory, and other electronic components.
+    \item Abstraction \& protection layer (APL): It is a software layer. This layer is commonly used not only to facilitate the interface with the hardware, but also to protect against wrong usage or destructive usage.
+    \item Communication firmware: The software that handles the communication with the iHEX parts. In interacts with the hardware layer via the APL and abstracts the communication process for the software layer on the top by providing an API.
+    \item Control Interface (CI): The software that makes the whole system provide a set of functionalities to the user. It is the highest layer. It uses the API methods provided by the communication firmware layer to communicate and also interacts with the hardware layer to control the physical parts of the iHEX system.
+\end{itemize}
+
+\begin{sloppypar}
+Developing the CAN communication software means developing the communication firmware the yellow part in Figure \ref{MC SC architecture}.
+\end{sloppypar}
+
+The following part involves the low-level part of this project. It consists of developing the software abstraction layer that enable the user to interface properly with the CAN transceivers via Raspberry Pi and STM32.
+
+\subsection{MC: Development of the CAN communication software}
+The development of the CAN communication firmware for the Raspberry Pi involves configuring the Raspberry Pi to support CAN communication and implementing the necessary software components, and then, developing the abstraction layer based on the need of the user.
+\subsubsection{MC: Hardware setup:}
+This part presents the different steps to go through in order to make the Raspberry Pi support CAN communication. As this development board does not embed any CAN controller, it is required to use a CAN transceiver with another communication protocol interface. One common method is to use the "RS485 CAN HAT" board in Figure \ref{mcp2515 module}: An electronic circuit, based on MCP2515 chip, that, sticked on the top of the IO pins, makes the Raspberry Pi communicate via CAN-Bus protocol. \cite{R19}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=2in]{images/Chap1/mcp2515 photo.jpg}\\
+\caption{RS485 CAN HAT board}
+\label{mcp2515 module}
+\end{center}
+\end{figure}
+
+The MCP2515 is an integrated circuit (IC) produced by Microchip Technology. It is a standalone CAN controller that provides an SPI interface between a microcontroller or other host device and a CAN bus. \cite{R20}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=4.5in]{images/Chap1/MCP2515 black box.png}\\
+\caption{MCP2515 as a black-box}
+\label{mcp2515 blackbox}
+\end{center}
+\end{figure} 
+
+The following section presents the necessary wiring to establish the physical connection between the Raspberry Pi and the MCP2515 module. It consists mainly of connecting the power supply and the SPI pins as it is mentioned in Table \ref{tab wiring MC}.
+
+\begin{table} [H]
+\centering
+\begin{tabular}{| c | c |} 
+ \hline
+ MCP2515 Pins & RPi Pins \\ [0.5ex] % RPi
+ \hline\hline
+ VCC &  5v     (2)  \\ 
+ \hline
+ GND &  GND    (39) \\ % GND
+ \hline
+ MOSI & GPIO10 (19) \\
+ \hline
+ MISO & GPIO9  (21) \\
+ \hline
+ SCK &  GPIO11 (23)\\
+ \hline
+ INT &  GPIO25 (32) \\
+ \hline
+ CS &   GPIO8  (24) \\
+ \hline
+\end{tabular}
+\caption{Wiring Configuration for RS485 CAN HAT to Raspberry Pi}
+  \label{tab wiring MC}
+\end{table}
+
+\subsubsection{MC: Software setup}
+
+This section summarizes the different steps to configure SPI interface on Raspberry Pi, install the can-utils library, and then setup the CAN interface.
+
+Configuring the SPI interface returns to adding configuration lines to the "/boot/config.txt" file:
+\begin{enumerate}
+    \item Edit the configuration file by running the command:
+    \begin{adjustwidth}{2em}{0pt}
+    \begin{lstlisting}[backgroundcolor=\color{mygray}]
+    sudo nano /boot/config.txt
+    \end{lstlisting}
+    \stepcounter{listingcounter}
+    \captionsetup{type=lstlisting}
+    \captionof{lstlisting}{Open the config.txt file in read/write mode}
+    \label{lst:nano config}
+    \end{adjustwidth}
+    
+    \item Add the following lines to the file to enable SPI interface, configure the MCP2515 module for the can0 interface specifying the oscillator frequency and the interrupt pin, and overlay the necessary SPI driver for the Raspberry Pi.
+    
+    \begin{adjustwidth}{2em}{0pt}
+    \begin{lstlisting}[backgroundcolor=\color{mygray}]
+    dtparam=spi=on 
+    dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25
+    \end{lstlisting}
+    \stepcounter{listingcounter}
+    \captionsetup{type=lstlisting}
+    \captionof{lstlisting}{Configuration lines of SPI configuration}
+    \label{lst:spi config}
+    \end{adjustwidth}
+
+    \item Install the \texttt{can-utils} library by executing:
+    
+    \begin{adjustwidth}{2em}{0pt}
+    \begin{lstlisting}[backgroundcolor=\color{mygray}]
+    sudo apt-get install can-utils
+    \end{lstlisting}
+    \stepcounter{listingcounter}
+    \captionsetup{type=lstlisting}
+    \captionof{lstlisting}{Install can-utils library}
+    \label{lst:install can-utils}
+    \end{adjustwidth}
+    
+    \texttt{can-utils} is a developed library by "Volkswagen Group Electronic Research". It is used in this project to test the CAN configuration on the Raspberry Pi.
+    
+    \item Reboot the Raspberry Pi using the command:
+
+    \begin{adjustwidth}{2em}{0pt}
+    \begin{lstlisting}[backgroundcolor=\color{mygray}]
+    sudo reboot
+    \end{lstlisting}
+    \stepcounter{listingcounter}
+    \captionsetup{type=lstlisting}
+    \captionof{lstlisting}{Reboot the Raspberry Pi}
+    \label{lst:reboot RPi}
+    \end{adjustwidth}
+    
+    \item Set up the CAN interface with the desired bitrate by running 
+    \begin{adjustwidth}{2em}{0pt}
+    \begin{lstlisting}[backgroundcolor=\color{mygray}]
+    sudo ip link set can0 up type can bitrate 500000    
+    \end{lstlisting}
+    \stepcounter{listingcounter}
+    \captionsetup{type=lstlisting}
+    \captionof{lstlisting}{Configuration of the CAN interface}
+    \label{lst:config can}
+    \end{adjustwidth}
+    
+    \item Check the result of the configuration.
+
+    \begin{adjustwidth}{2em}{0pt}
+    \begin{lstlisting}[backgroundcolor=\color{mygray}]
+    sudo ifconfig         
+    \end{lstlisting}
+    \stepcounter{listingcounter}
+    \captionsetup{type=lstlisting}
+    \captionof{lstlisting}{Check all the available network interface}
+    \label{lst:ifconfig}
+    \end{adjustwidth}
+    
+\end{enumerate}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=6in]{images/Chap1/ifconfig.png}\\
+\caption{MC: Result of successful CAN configuration}
+\label{ifconfig}
+\end{center}
+\end{figure}
+
+\begin{sloppypar}
+Figure \ref{ifconfig} shows that the MC is successfully configured to interface with the CAN transceiver and \texttt{can0} is set as a network interface. At this level, the Raspberry Pi is ready to send and receive CAN messages using the commands \texttt{cansend} and \texttt{candump}:
+\end{sloppypar}
+
+\begin{itemize}
+    \item \textbf{cansend}: A terminal command that is part of \texttt{can-utils} library. It allows the user to send CAN messages on the bus.
+    \begin{figure}[H]
+    \begin{center}
+     % Requires \usepackage{graphicx}
+    \includegraphics[width=5.5in]{images/Chap1/cansend.png}\\
+    \caption{MC: Send CAN message on the bus}
+    \label{test send}
+    \end{center}
+    \end{figure}
+    As figured in Figure \ref{test send}, the sent message has an identifier equal to \texttt{0x123} and a payload equal to \texttt{0x2580}.
+    \item \texttt{cansdump}: A terminal command that is part of \texttt{can-utils} library. It allows the user to listen to CAN messages on the bus.
+    \begin{figure}[H]
+    \begin{center}
+     % Requires \usepackage{graphicx}
+    \includegraphics[width=5.5in]{images/Chap1/candump.png}\\
+    \caption{MC: Listen to CAN messages on the bus}
+    \label{test receive}
+    \end{center}
+    \end{figure}
+    As figured in Figure \ref{test receive}, a new message is detected with the same identifier and payload of the sent message.
+\end{itemize}
+
+The software and hardware setup is successfully established. The project is ready to move on to developing the MC communication firmware.
+
+\subsubsection{MC: Design and development of the abstraction layer}
+
+The abstraction layer refers to a software component or module that provides a simplified interface and hides the underlying complexity of the system. It allows higher-level components to interact with lower-level components without needing to understand the intricacies of the implementation.
+
+Figure \ref{Communication firmware layers architecture} below presents the MC communication software layers architecture. The MCP2515 IC is programmed through writing in its registers via SPI commands. The SPI commands are exchanged with the IC in the \colorbox{green!50}{Low-level firmware}. On the top, \colorbox{blue!20}{a software abstraction layer} is developed to provide the user with the needed API methods to interface correctly with the CAN transceiver.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=4in]{images/Chap1/Communication firmware software layers.png}\\
+\caption{MC: Communication firmware architecture}
+\label{Communication firmware layers architecture}
+\end{center}
+\end{figure}
+
+Developing \colorbox{blue!20}{the software abstraction layer} starts with defining the API methods that will be exposed for higher-level components to use.
+
+The abstraction layer is mainly composed of two classes:
+\begin{itemize}
+    \item \textbf{CAN\_Header} class: It is implemented to make the MC able to send and receive CAN messages.
+
+    \item \textbf{CAN\_FilterManager} class: It is implemented to make the CAN transceiver filter the received CAN messages.
+\end{itemize}
+
+The UML design in Figure \ref{MC CAN UML} represents the two classes, their attributes and methods, as well as the relationship between them.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=4in]{images/Chap1/MC CAN UML design.png}\\
+\caption{MC: CAN software UML design}
+\label{MC CAN UML}
+\end{center}
+\end{figure}
+
+
+In this context, the following are the headers of the \texttt{CAN\_Header} class (API): 
+
+\begin{itemize}
+    \item \verb|TxInit|:
+    This method allows the user to initialize and properly configure the transmission module. It creates the socket responsible for handling the transmission process. It takes no parameter.
+    \item \verb|RxInit|:
+    This method allows the user to initialize and properly configure the reception module. It creates the socket responsible for handling the reception process. It takes no parameter.
+    \item \verb|RxStart|:
+    After initializing the reception module, this method allows the user to start the reception process. It takes no parameter.
+    \item \verb|SendData|: 
+    After initializing the transmission module, this method allows the user to send CAN data messages. It takes 3 parameters:
+    \begin{itemize}
+        \item \textbf{id}: The id of the sender node. It is a 32-bit unsigned integer.
+        \item \textbf{dlc}: The length of the data to be transmitted. As the maximal value of dlc is 8 (bytes). It is an 8-bit unsigned integer.
+        \item \textbf{txFrame}: The address of the array that contains the data to be transmitted. It is a pointer on 8-bit unsigned integer.
+    \end{itemize}
+    This method uses the \texttt{CAN\_iSendFrame} function which is a upgraded version of \texttt{cansend} of the library \texttt{can-utils}.
+
+    \item \verb|SendRequest|:
+    This method allows the user to send CAN request messages. It takes 1 parameter:
+    \begin{itemize}
+        \item \textbf{id}: The id of the sender node. It is a 32-bit unsigned integer.
+    \end{itemize}
+    This method also uses the \texttt{CAN\_iSendFrame} function.
+    
+    \item \verb|ReceiveData|:
+    This method allows the user to check if there are any new received CAN messages. It takes 1 parameter:
+    \begin{itemize}
+        \item \textbf{rxFrame}: If a new message is received, the message fields are stored in the rxFrame parameter. It is a pointer on \texttt{canfd\_frame} (cf. Listing \ref{lst:canfd_frame}).
+    \end{itemize}
+    This method uses the \texttt{CAN\_iReceiveFrame} function which is a upgraded version of \texttt{candump} of the library \texttt{can-utils}.
+    
+   \item \verb|RxDeInit|:
+   This method allows the user to safely and correctly disable the reception module. 
+   \item \verb|TxDeInit|:
+   This method allows the user to safely and correctly disable the transmission module. 
+\end{itemize}
+
+All the previous methods are developed to abstract and facilitate the transmission and reception process.
+
+The reception process requires the configuration of reception filter. In the following we describe the methods headers of the \texttt{CAN\_Filter} class (API):
+
+\begin{itemize} 
+    \item \verb|CreateIdFilter|:
+    This method allows the user to create ID filter that makes the CAN transceiver whether accept or reject a message with the ID in question. It takes 3 parameters:
+    \begin{itemize}
+        \item \textbf{id}: The id of the sender node. It is a 32-bit unsigned integer.
+        \item \textbf{rtr}: It specifies whether it is about a data message, a remote one, or it does not matter. It is a \texttt{CAN\_Rtr\_ten} (cf. Listing \ref{lst:CAN_Rtr_ten}).
+        \item \textbf{type}: It specifies whether the filter is an \texttt{accept} filter or a \texttt{reject} one. It is a \texttt{CAN\_FilterType\_ten} (cf. Listing \ref{lst:CAN_FilterType_ten}).
+    \end{itemize}
+
+    \item \verb|CreateMaskFilter|:
+    This method allows the user to create mask filter that makes the CAN transceiver whether accept or reject a message that succeeds the filtering process accroding to the mask filtering rules. It takes 4 parameters:
+    \begin{itemize}
+        \item \textbf{id}: The id of the sender node. It is a 32-bit unsigned integer.
+        \item \textbf{mask}: The mask of the sender node. It is a 32-bit unsigned integer.
+        \item \textbf{rtr}: It specifies whether it is about a data message, a remote one, or it does not matter. It is a \texttt{CAN\_Rtr\_ten} (cf. Listing \ref{lst:CAN_Rtr_ten}).
+        \item \textbf{type}: It specifies whether the filter is an \texttt{accept} filter or a \texttt{reject} one. It is a \texttt{CAN\_FilterType\_ten} (cf. Listing \ref{lst:CAN_FilterType_ten}).
+    \end{itemize}
+
+    \item \verb|ConfigureFilters|:
+    This method allows the user, after creating all the filters, to configure the CAN transceiver. It takes 1 parameter:
+    \begin{itemize}
+        \item \textbf{can}: The \texttt{CAN\_Header} object that handles the transmission and reception processes.
+    \end{itemize}
+\end{itemize}
+
+All the previous methods of both CAN\_Header and CAN\_Filter return a \texttt{CAN\_Status\_ten} value, (cf. Listing \ref{lst:CAN_CtrlStatus_ten}) to indicate whether the operation is successful or not.
+
+\subsubsection{MC: Development of the Low-Level (LL) firmware}
+
+In the next paragraphs the lower software layer (\colorbox{green!50}{LL firmware}) is detailed. As mentioned before, \texttt{CAN\_stSendData} and \texttt{CAN\_stSendRequest} methods use the \texttt{CAN\_iSendFrame} function, which is which is an upgraded version of \texttt{cansend} of the library \texttt{can-utils}. \cite{R21}
+
+\texttt{CAN\_iSendFrame} takes 2 parameters:
+\begin{itemize}
+    \item \textbf{frame}: contains all the fields to elaborate a CAN message. It is a pointer on \texttt{canfd\_frame} (cf. Listing \ref{lst:canfd_frame}).
+    \item \textbf{s}: the transmission socket. It is an integer.
+\end{itemize}
+
+\texttt{CAN\_stSendData} and \texttt{CAN\_stSendRequest} elaborate the \texttt{frame} parameter to feed it to \texttt{CAN\_iSendFrame}. They assign the length to \texttt{len} and the data frame to \texttt{data} and elaborates the \texttt{can\_id}.
+
+The \texttt{can\_id} is a 32-bit unsigned integer as it is explained in Table \ref{tab2}.
+
+\begin{table} [H]
+\centering
+\begin{tabular}{|*{4}{>{\centering\arraybackslash}m{10mm}|}}
+\hline
+EFF & RTR & ERR & \multicolumn{1}{>{\centering\arraybackslash}m{100mm}|}{ID} \\
+\hline
+31 & 30 & 29 & \multicolumn{1}{>{\centering\arraybackslash}m{100mm}|}{[28:0]} \\
+\hline
+\end{tabular}
+\caption{can\_id format}
+\label{tab2}
+\end{table}
+
+Bits 28:0 \textbf{ID}: the identifier of the node.
+
+\hangindent=\parindent
+\hangafter=1
+Bit  29 \textbf{ERR}: the error bit. \\
+0 by default.\\
+It is set to 1 whenever a transmission error occurs.
+
+\hangindent=\parindent
+\hangafter=1
+Bit 30 \textbf{RTR}: the RTR bit. \\
+Set/ Reset by software during the configuration. \\
+0: Data frame. \\
+1: Remote frame.
+
+\hangindent=\parindent
+\hangafter=1
+Bit 31 \textbf{EFF}: the IDE bit. \\
+Set/ Reset by software during the configuration. \\
+0: Standard ID. \\
+1: Extended ID.
+
+Basically the \texttt{can\_id} is equal to the identifier.
+
+Depending on the frame type (data or remote frame) and the identifier type (standard or extended), the \textbf{forcing and masking rules} are applied to set or reset the corresponding bits in \texttt{can\_id}. 
+
+% Receive: wait for modification TODO
+Also, \texttt{CAN\_stReceiveData} method uses the \texttt{CAN\_iReceiveFrame}, which is a patched version of \texttt{candump} of the library \texttt{can-utils}.
+\texttt{CAN\_iReceiveFrame} takes 2 parameters:
+\begin{itemize}
+    \item \textbf{frame}: presents the object where to store all the received CAN message fields. It is a pointer on \texttt{canfd\_frame} (cf. Listing \ref{lst:canfd_frame}).
+    \item \textbf{s}: the reception socket. It is an integer.
+\end{itemize}
+
+%Filter creation devlopement.
+Filtering process is done by hardware. The MCP2515 is equipped by embed configurable filters that filter the received messages on the CAN bus. If the message succeed the filtering process, then the reception is reported to the Raspberry Pi. Otherwise, it is discared.
+
+In this project, a filter is basically a \texttt{CAN\_filter} object which has \texttt{filter} and  \texttt{type} as attributes. \texttt{filter} is \texttt{can\_filter} (cf. Listing \ref{lst:can_filter}) and \texttt{type} is \texttt{CAN\_FilterType\_ten} (cf. Listing \ref{lst:CAN_FilterType_ten}).
+
+Creating filters using \texttt{CreateIdFilter} or \texttt{CreateMaskFilter} returns to elaborating the two parameters: \texttt{can\_id} and \texttt{can\_mask}, the elements of \texttt{filter}.
+
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=yellow!50!black]
+The masking rules that the CAN transceiver applies are the following:
+\textit{\begin{itemize}
+    \item The \texttt{can\_id} bits are associated with \texttt{mask\_id} bits specifying which bits of the identifier are marked as “must match” (set bit in the \texttt{can\_mask}) or as “don’t care” (reset bit in the \texttt{can\_mask}).
+    \item A "must match" bit has to match the corresponding bit in the \texttt{can\_id}.
+    \item A "don't care" bit does not matter whether it matches the corresponding bit in \texttt{can\_id} or not.
+    \item An identifier succeeds the filtering process when all its "must match" bits match their corresponding bits.
+    \item An identifier fails the filtering process when at least one of its "must match" bits does not match its corresponding bit.
+\end{itemize}}
+\end{tcolorbox}
+\stepcounter{listingcounter}
+\captionsetup{type=rule}
+\captionof{Rule}{CAN masking rules}
+\label{can masking rules}
+
+
+
+\setlength{\parindent}{0.5cm} % Set the desired indentation length here
+
+As \texttt{can\_id} and \texttt{can\_mask} have exactly the same formats as in Table \ref{tab2}, then the filtering process can also be applied for the \textbf{EFF} and \textbf{RTR} bits.
+
+Same as the identifier creation, the \textbf{forcing and masking rules} are applied to set or reset the corresponding bits in \texttt{can\_id} and \texttt{can\_mask}.
+
+\texttt{CreateIdFilter} allows the user to create a filter that only accepts or rejects a message with a specific identifier.
+
+\texttt{CreateMaskFilter} allows the user to customize the filter to accept or reject a set of identifiers. By applying the masking rules in Rule \ref{can masking rules}, the user specifies which set of identifiers to accept or reject.
+
+At this level, an example should be very useful to further explain the concept.
+
+Lets assume that a \textbf{mask} filter is configured with the following parameters:
+\\
+\textbf{MASK:} \texttt{0x20000111} = \texttt{0b 00\hl{1}0 0000 0000 0000 0000 000\hl{1} 000\hl{1} 000\hl{1}}
+\\
+\textbf{ID:}~~~~~~~ \texttt{0xA0000431} =   \texttt{0b 10\hl{1}0 0000 0000 0000 0000 010\hl{0} 001\hl{1} 000\hl{1}}
+
+
+In this example, based on the \texttt{mask}, the bits 0,4,8 and 29 are \texttt{"must match"} bits. The others are \texttt{"don't care"} ones.
+In combination with the \texttt{id}, the succeeded IDs have 1 in the bit 0, 0 in the bit 4, 0 in the bit 8, and 1 in the bit 29.
+
+Let's be two messages \texttt{message1} with \texttt{id1} and \texttt{message2} with \texttt{id2}. \\
+\texttt{id1} = \texttt{0x21353011} = \texttt{0b 00\hl{1}0 0001 0011 0101 0011 000\hl{0} 000\hl{1} 000\hl{1}} \\
+\texttt{id2} = \texttt{0x21353110} = \texttt{0b 0010 0001 0011 0101 0011 000\hl{1} 0001 000\hl{0}}
+
+\texttt{message1} succeeds the filtering process because all the \texttt{"must match"} bit match the bits in \textbf{ID}, whearas \texttt{message2} fails it because at least one of the \texttt{"must match"} bits does not match the bits in \textbf{ID} (bits 0 and 8 in this example).
+
+Depending on the filter type, the successful messages - \texttt{message1} in the example, are whether accepted or rejected.
+
+
+% development of the abstraction layer
+% define the needed methods
+% define the data structure
+% code development:... to be continued
+
+\subsubsection{MC: Test and validation of the developed APIs:}
+
+In order to ensure the functionality and reliability of the communication APIs on the MC platform (Raspberry Pi), thorough testing and validation were conducted. The testing process involved the development of two essential functions—one dedicated to testing message transmission and the other focused on testing message reception. These functions served as integral components of the testing suite, enabling a comprehensive evaluation of the MC's ability to communicate with other nodes through the CAN bus.
+
+The code in Listing \ref{lst:CAN-Transmission-Test-RPi} presents the transmission testing function. The sent message is well received by the counterpart, and the following is the result on the MC terminal. It shows that the transmission is successful and the testing program terminates correctly. The methods used for to transmit CAN messages are validated.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5.5in]{images/Chap1/tx test 1 - MC.png}\\
+\caption{MC: Successful transmission test}
+\label{MC tx test}
+\end{center}
+\end{figure}
+
+Additionally, the code in Listing \ref{lst:CAN reception test RPi} serves in testing the reception ability. The following is the result on the MC terminal. It shows that the test program received a new CAN message with the correct ID and data. The testing program terminates correctly. The methods used to receive CAN messages are validated.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5.5in]{images/Chap1/rx test 1 - MC.png}\\
+\caption{MC: Successful reception test}
+\label{MC rx test}
+\end{center}
+\end{figure}
+
+By conducting these thorough tests on both message transmission and reception, the reliability and effectiveness of the MC's communication APIs were evaluated. Any identified issues or anomalies were addressed to ensure seamless communication between the MC and other elements on the same bus.
+
+\subsection{SC: Development of the CAN communication software}
+
+The development of the CAN interface API for the STM32 microcontroller involved a systematic approach to enable seamless communication over the CAN bus network. The process encompassed various stages, including hardware setup, software configuration, identification and development of essential methods, and thorough testing.
+
+\subsubsection{SC: Hardware setup}
+This part presents the different needed steps to succeed the hardware configuration.
+
+The STM32F303RE has an embed CAN controller. It a peripheral called bxCAN, and it support several features.
+To be able to connect to the CAN bus, transmit and receive CAN messages, the MCU needs to connect to a CAN transceiver that plays the role of converting the digital signals from the microcontroller into the appropriate voltage levels required for communication over the CAN bus, and vice versa.
+
+In this project, the MCP2551 is used as the CAN transceiver. \cite{R22}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=1in]{images/Chap1/MCP2551.jpg}\\
+\caption{MCP2551 board}
+\label{MCP2551 photo}
+\end{center}
+\end{figure} 
+
+The MCP2551 is an IC produced by Microchip Technology.
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=4.5in]{images/Chap1/MCP2551 black box.png}\\
+\caption{MCP2551 as a black-box}
+\label{MCP2551 blackbox}
+\end{center}
+\end{figure} 
+
+The following section presents the necessary wiring to establish the physical connection between the NUCLEO-F303RE and the MCP2551 module.
+
+\begin{table} [H]
+\centering
+\begin{tabular}{| c | c |} 
+ \hline
+ MCP2551 Pins & NUCLEO Pins \\ [0.5ex] % RPi
+ \hline\hline
+ VCC &  5v       \\ 
+ \hline
+ GND &  GND     \\ % GND
+ \hline
+ CTX & CAN\_TX  \\
+ \hline
+ CRX & CAN\_RX   \\
+ \hline
+\end{tabular}
+    \caption{Wiring Configuration for MCP2551 to NUCLEO-F303RE board}
+    \label{STM32 MCP2551 wiring}
+\end{table}
+
+% TODO pins number
+
+The TX and RX pins are internally mapped in the MCU. Depending on the used CAN peripheral, two pins are reserved for this purpose.
+
+Only one bxCAN is available in the STM32F303RE. Based on the MCU datasheet - Pinout and pins description section, Table 14, only one combination of two pins is available. CAN\_TX and CAN\_RX are mapped respectevely to PA12 and PA11. % TODO refer to the MCU datasheet screenshot??
+
+% TODO insert an image of Fritzing
+
+
+% configuration of the CAN controller: STM32CubeIDE, .ioc file, the generated code,
+% Make the wiring
+% test using the loop back mode
+
+\subsubsection{SC: Software setup}
+
+The software setup involves utilizing the STM32CubeIDE tools, specifically the graphical interface (.ioc file). 
+
+The CAN peripheral is configured through this interface, enabling the necessary settings for achieving the desired baudrate of 500,000 bits/s. 
+
+The baudrate is the inverse of the bit timing. The bit timing is obtained by configuring various registers and values.
+
+The following values are configured to achieve the desired bit timing:
+
+\begin{itemize}
+    \item Prescaler for Time Quantum
+    \item Time Quanta in Bit Segment 1
+    \item Time Quanta in Bit Segment 2
+    \item Resynchronization Jump Width
+\end{itemize}
+
+The baudrate is obtained applying the following formula: \cite{R5}
+\[
+Baudrate = \frac{f}{PSC*(SJW+Seg1+Seg2)} (1)
+\]
+
+where:
+\begin{itemize}
+  \item Baudrate: The baudrate of the CAN bus communication. It is in bit per second.
+  \item PSC: The value of the prescaler. It is used to divide the clock frequency of the CAN peripheral.
+  \item f: The clock frequency of the CAN peripheral.
+  \item SJW: The number of ReSynchronization Jump Width quanta. This value determines the number of time quanta used for synchronization during the bit synchronization phase. It allows the synchronization between transmitter and receiver in the presence of bit errors. It is equal to 1.
+  \item Seg1: The number of the segment 1 quanta. It includes the PROP\_SEG and PHASE\_SEG1 of the CAN standard.
+  \item Seg2: The number of the segment 2 quanta. It defines the location of the transmit point. It represents the PHASE\_SEG2 of the CAN standard.
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=5.5in]{images/Chap1/bit timing.png}\\
+\caption{Bit timing \cite{R5}}
+\label{bit timing CAN STM32}
+\end{center}
+\end{figure}
+
+According to the STM32F303xD/E datasheet block diagram, the bxCAN peripheral is connected to \texttt{APB1} bus.
+In this project, the CAN baudrate used is 500Kbits/s and the APB1 bus frequency is set to its maximum value: 36MHz.
+Applying the forumula (1), the following must be a suitable combination.
+
+\begin{table} [H]
+\centering
+\begin{tabular}{| c | c | c | c |} 
+ \hline
+ PSC & SJW & Seg1 & Seg2 \\ [0.5ex] % RPi
+ \hline\hline
+ 9 &  1 & 6 &1       \\ 
+ \hline
+\end{tabular}
+\caption{SC: CAN configuration parameters}
+\label{SC config params}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=3in]{images/Chap1/can config STM.png}\\
+\caption{SC: CAN configuration}
+\label{config CAN STM32}
+\end{center}
+\end{figure}
+
+To test the setup, ST provides an embed mode of the bxCAN peripheral called \texttt{Loop-back} mode \cite{R23}. It consists of internally short-circuiting the TX and RX pin so the transmitted message is directly captured by the reception unit of the same peripheral. A test software was developed. Figure \ref{rx-tx test on STM32} below presents the result.
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=5in]{images/Chap1/setup test - SC.png}\\
+\caption{SC: Successful CAN configuration test}
+\label{rx-tx test on STM32}
+\end{center}
+\end{figure}
+
+The result shows that a new CAN message with the correct ID, data length and data is received. The hardware and software setup is validated. The system is ready to exchange CAN messages.
+
+\subsubsection{SC: Design and development of the abstraction layer}
+
+Figure \ref{SC Communication firmware layers architecture} presents the SC communication software layers architecture. It is composed of two main layers. The lower is \colorbox{green!50}{HAL}: Hardware Abstraction Layer of STMicroelectronics. The higher is the \colorbox{blue!20}{software abstraction layer} which is developed to provide the user with the needed API methods to interface correctly with the CAN transceiver; that being said, the software abstraction layer uses HAL.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=4in]{images/Chap1/SC CAN software abstraction layer.png}\\
+\caption{SC: Communication firmware architecture}
+\label{SC Communication firmware layers architecture}
+\end{center}
+\end{figure}
+
+Same as in the MC, the procedure starts with defining the methods that will be provided to higher-level components to use.
+
+The UML design in Figure \ref{SC CAN UML} presents the three modules developed to provide the needed API.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=4in]{images/Chap1/SC CAN UML.png}\\
+\caption{SC: CAN software UML design}
+\label{SC CAN UML}
+\end{center}
+\end{figure}
+
+In this context, five main methods are developed:
+
+\begin{itemize}
+    \item \verb|CAN_stSendData|: This method allows the user to send CAN data messages. (\texttt{SendData} in Figure \ref{SC CAN UML}) It takes 1 parameter:
+    \begin{itemize}
+        \item \textbf{txMessage}: The CAN message to be sent. It is a pointer on \texttt{CAN\_Message\_tst} (cf. Listing \ref{lst:CAN_Message_tst definition}).
+    \end{itemize}
+
+    \item \verb|CAN_stSendRequest|: This method allows the user to send CAN request messages. (\texttt{SendRequest} in Figure \ref{SC CAN UML}). It takes 1 parameter:
+    \begin{itemize}
+        \item \textbf{txMessage}: The CAN message to be sent. It is a pointer on \texttt{CAN\_Message\_tst} (cf. Listing \ref{lst:CAN_Message_tst definition}).
+    \end{itemize}
+
+    \item \verb|CAN_stReceive|: This method allows the user to check for and handle the received messages. (\texttt{Receive} in Figure \ref{SC CAN UML}). It takes 2 parameters:
+    \begin{itemize}
+        \item \textbf{fifo}: The FIFO list to check. It is a 32-bit unsigned integer and could be whether \texttt{CAN\_RX\_FIFO\_0} or \texttt{FIFO\_RX\_FIFO\_1} (cf. Listing \ref{lst:CAN_FIFO}).
+        \item \textbf{rxMessage}: The received CAN message. It is a pointer on \texttt{CAN\_Message\_tst} (cf. Listing \ref{lst:CAN_Message_tst definition}). 
+    \end{itemize}
+
+    \item \verb|CAN_stCreateIdFilter32|: This method allows the user to create an ID filter that makes the bxCAN peripheral only accepts the messages with the ID in question. This method could configure one or two IDs the filter. (\texttt{CreateIdFilter32} in Figure \ref{SC CAN UML}). It takes 4 parameters:
+    \begin{itemize}
+        \item \textbf{id1}: The first identifier. It is a 32-bit unsigned integer.
+        \item \textbf{id2}: The second identifier. It is a 32-bit unsigned integer.
+        \item \textbf{FilterFIFOAssignment}: The FIFO list to which is assigned the filter in question. - After succeeding the filtering process, the received message is stored in the FIFO list in order to be treated. It is a 32-bit unsigned integer and could be whether \texttt{CAN\_RX\_FIFO\_0} or \texttt{FIFO\_RX\_FIFO\_1} (cf. Listing \ref{lst:CAN_FIFO}).
+        \item \textbf{FilterBank}: The bank to which belongs the filter in question. It is a 32-bit unsigned integer and could be one of the 28 values (cf. Listing \ref{lst:CAN Filter banks}).
+    \end{itemize}
+
+    \item \verb|CAN_stCreateMaskFilter32|: This method allows the user to create an ID filter that makes the bxCAN peripheral only accepts the messages with ID succeeding the mask filtering process according to the same rule in Rule \ref{can masking rules}. (\texttt{CreateMaskFilter32} in Figure \ref{SC CAN UML}). This method takes 4 parameters:
+    \begin{itemize}
+        \item \textbf{id}: The identifier. It is a 32-bit unsigned integer.
+        \item \textbf{mask}: The mask. It is a 32-bit unsigned integer.
+        \item \textbf{FilterFIFOAssignment}: The FIFO list to which is assigned the filter in question. - After succeeding the filtering process, the received message is stored in the FIFO list in order to be treated. It is a 32-bit unsigned integer and could be whether \texttt{CAN\_RX\_FIFO\_0} or \texttt{FIFO\_RX\_FIFO\_1} (cf. Listing \ref{lst:CAN_FIFO}).
+        \item \textbf{FilterBank}: The bank to which belongs the filter in question. It is a 32-bit unsigned integer and could be one of the 28 values (cf. Listing \ref{lst:CAN Filter banks}).
+    \end{itemize}
+
+\end{itemize}
+
+The filtering process, is not exactly the same as in the MC. Here, in the STM32 environment, there is no freedom to choose the type of the filter; all the filters are acceptance ones. That mean, each message succeeding the filtering process is accepted and assigned to one of the two hardware FIFO lists. The masking rules in \label{lst:CAN masking rules} are still valid.
+
+Filter banks are embed pass-band filter to decompose the received signal.
+
+All the methods return a \texttt{CAN\_Status\_ten} value (cf. Listing \ref{lst:CAN_CtrlStatus_ten}) to indicate whether the operation is successful or not. They share the same return type as the MC methods.
+
+The software layer developed for this project operates at a higher level than the HAL provided by STM32. It uses the methods provided by the HAL to inerface with the underlying hardware and extends its functionality by implementing additional methods specific to the project requirements.
+% development of the abstraction layer
+% define the needed methods
+% define the data structure
+% code development:... to be continued
+
+\subsubsection{SC: Test and validation of the developed API}
+To ensure the reliability of the developed APIs, a test process should be held in order to validate the efficiency of the developed methods of the SC.
+
+The code in Listing \ref{lst:CAN-Transmission-Test-STM32} presents the transmission test function. The sent message is well received by the counterpart and the  following is the result captured by the logic analyzer.
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=6.5in]{images/Chap1/CAN message captured Logic ANalyzer.png}\\
+\caption{SC: Result of successful transmission methods test}
+\label{tx API test on STM32}
+\end{center}
+\end{figure}
+
+The result shows that the logic analyzer captured a CAN message on the bus. The ID (\texttt{0x123}), DLC (\texttt{2})and data (\texttt{0x2580}) fields are recognized and successfully verified.
+
+Moreover, the code in Listing \ref{lst:CAN-Reception-Test-STM32} tests the reception. The  following is the result on the debugger view of the IDE.
+
+\begin{figure}[H]
+\begin{center}
+ % Requires \usepackage{graphicx}
+\includegraphics[width=5in]{images/Chap1/CAN rx API test SC.png}\\
+\caption{SC: Result of successful reception methods test}
+\label{SC rx result}
+\end{center}
+\end{figure}
+
+The result in Figure \ref{SC rx result} shows that the MCU received a new CAN message on the bus. The ID (\texttt{0x123}), DLC (\texttt{2})and data (\texttt{0x2580}) fields are recognized and successfully verified.
+
+\section*{Conclusion}
+In chapter 2 we justified the selection of CAN-Bus as the communication protocol and the choice of Raspberry Pi and STM32 as respectively, the MC and SC development boards. We also detailed the design and development of the CAN-Bus firmware for the iHEX system, encompassing both the MC platform (Raspberry Pi) and the SC platform (STM32).  The provided APIs for message transmission and reception were thoroughly tested and validated, ensuring reliable and efficient communication within the iHEX system. The output of this chapter is a necessary part for the development of the Control Interface (CI) in chapter 3. 
+
+
+%TODO
+% In this chapter we need a lot of figures that assert the success and reliability of the developed APIs.
+% Screenshots of the logic analyzer
+% Screenshots of the oscilloscope
+% Electronic schematics
