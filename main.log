@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  10 AUG 2024 20:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  11 AUG 2024 00:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -899,27 +899,27 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [2
+
+])
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
- [2
-
-] (./main.lof)
+ [3] (./main.lof)
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [3
+ [4
 
 ] (./main.lot)
 \tf@lot=\write11
 \openout11 = `main.lot'.
 
- (./other/acronymes.tex [4
+ (./other/acronymes.tex [5
 
-] [5
+] [6
 
-] [6]) (./other/introduction.tex [1
+] [7]) (./other/introduction.tex [1
 
 ] [2]) [3
 
@@ -928,12 +928,12 @@ Chapter 1.
 [4
 
 ]
-<images/Chap0/KION_Segments.jpg, id=167, 1204.5pt x 676.5275pt>
+<images/Chap0/KION_Segments.jpg, id=202, 1204.5pt x 676.5275pt>
 File: images/Chap0/KION_Segments.jpg Graphic file (type jpg)
 <use images/Chap0/KION_Segments.jpg>
 Package pdftex.def Info: images/Chap0/KION_Segments.jpg  used on input line 41.
 (pdftex.def)             Requested size: 361.34999pt x 202.95981pt.
-<images/Chap0/KION_Hierarchy.png, id=173, 802.197pt x 357.13425pt>
+<images/Chap0/KION_Hierarchy.png, id=208, 802.197pt x 357.13425pt>
 File: images/Chap0/KION_Hierarchy.png Graphic file (type png)
 <use images/Chap0/KION_Hierarchy.png>
 Package pdftex.def Info: images/Chap0/KION_Hierarchy.png  used on input line 71.
@@ -944,45 +944,57 @@ Overfull \hbox (22.19313pt too wide) in paragraph at lines 71--71
  []
 
 [5 <./images/Chap0/KION_Segments.jpg>]
-<images/Chap0/Reach trucks.png, id=189, 602.25pt x 602.25pt>
+<images/Chap0/Reach trucks.png, id=222, 602.25pt x 602.25pt>
 File: images/Chap0/Reach trucks.png Graphic file (type png)
 <use images/Chap0/Reach trucks.png>
-Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 88.
+Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 87.
 (pdftex.def)             Requested size: 217.66211pt x 217.66446pt.
-<images/Chap0/hand truck.png, id=190, 602.25pt x 602.25pt>
+<images/Chap0/hand truck.png, id=223, 602.25pt x 602.25pt>
 File: images/Chap0/hand truck.png Graphic file (type png)
 <use images/Chap0/hand truck.png>
-Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 94.
+Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 93.
 (pdftex.def)             Requested size: 217.66211pt x 217.66446pt.
-<images/Chap0/double-.png, id=191, 602.25pt x 602.25pt>
+<images/Chap0/double-.png, id=224, 602.25pt x 602.25pt>
 File: images/Chap0/double-.png Graphic file (type png)
 <use images/Chap0/double-.png>
-Package pdftex.def Info: images/Chap0/double-.png  used on input line 104.
+Package pdftex.def Info: images/Chap0/double-.png  used on input line 103.
 (pdftex.def)             Requested size: 217.66211pt x 217.66446pt.
-<images/Chap0/iGoNeo.jpg, id=192, 475.7775pt x 475.7775pt>
+<images/Chap0/iGoNeo.jpg, id=225, 475.7775pt x 475.7775pt>
 File: images/Chap0/iGoNeo.jpg Graphic file (type jpg)
 <use images/Chap0/iGoNeo.jpg>
-Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 110.
+Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 109.
 (pdftex.def)             Requested size: 217.66211pt x 217.66243pt.
-) [6 <./images/Chap0/KION_Hierarchy.png> <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png>] [7 <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>] [8
+ [6 <./images/Chap0/KION_Hierarchy.png> <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png>] [7 <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>]
+<images/Chap0/station-sketch.drawio.png, id=241, 543.02875pt x 411.5375pt>
+File: images/Chap0/station-sketch.drawio.png Graphic file (type png)
+<use images/Chap0/station-sketch.drawio.png>
+Package pdftex.def Info: images/Chap0/station-sketch.drawio.png  used on input line 170.
+(pdftex.def)             Requested size: 361.34999pt x 273.86366pt.
+ [8 <./images/Chap0/station-sketch.drawio.png>]
+<images/Chap0/blog-scrum-process-opt.jpg, id=249, 1204.5pt x 629.35126pt>
+File: images/Chap0/blog-scrum-process-opt.jpg Graphic file (type jpg)
+<use images/Chap0/blog-scrum-process-opt.jpg>
+Package pdftex.def Info: images/Chap0/blog-scrum-process-opt.jpg  used on input line 201.
+(pdftex.def)             Requested size: 433.62pt x 226.56627pt.
+ [9 <./images/Chap0/blog-scrum-process-opt.jpg>]) [10] [11
 
 ] (./chapters/chap1.tex
 Chapter 2.
-) [9
+) [12
 
-] [10
+] [13
 
 ] (./chapters/chap2.tex
 Chapter 3.
-) [11
+) [14
 
-] [12] [13
+] [15] [16
 
 ] (./chapters/chap3.tex
 Chapter 4.
-) (./other/conclusion.tex [14
+) (./other/conclusion.tex [17
 
-]) (./other/bibliographie.tex [15
+]) (./other/bibliographie.tex [18
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
@@ -998,9 +1010,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
 []\T1/cmr/m/n/12 KION group web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . kiongroup . com / en / About-[]us /
  []
 
-) [16
 
-] (./other/appendix/appendix.tex) [17
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+[]\T1/cmr/m/n/12 iGo Neo datasheet. URL: []$\T1/cmtt/m/n/12 data . still . de / assets / products / Vehicles /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+\T1/cmtt/m/n/12 Order _ Pickers / OPX _ iGo _ neo / pdfs / OPX _ EN _ TD . pdf ? mod = 1681891889 & s =
+ []
+
+) [19
+
+] (./other/appendix/appendix.tex) [20
 
 ] (./main.aux (./main.acr))
 
@@ -1156,6 +1178,8 @@ images/Chap0/Reach trucks.png
 images/Chap0/hand truck.png
 images/Chap0/double-.png
 images/Chap0/iGoNeo.jpg
+images/Chap0/station-sketch.drawio.png
+images/Chap0/blog-scrum-process-opt.jpg
 chapters/chap1.tex
 chapters/chap2.tex
 chapters/chap3.tex
@@ -1167,25 +1191,25 @@ other/appendix/appendix.tex
  ***********
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3FFA78558FB1BBB9D45FD27CE17BE065;3301.
+(rerunfilecheck)             Checksum: F05ACB098DB80C066D61DFB1DA0A9508;4339.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 65 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33137 strings out of 478353
- 620037 string characters out of 5848100
- 922999 words of memory out of 5000000
- 50583 multiletter control sequences out of 15000+600000
- 416286 words of font info for 60 fonts, out of 8000000 for 9000
+ 33174 strings out of 478353
+ 620987 string characters out of 5848100
+ 923143 words of memory out of 5000000
+ 50606 multiletter control sequences out of 15000+600000
+ 416290 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,80p,777b,2729s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,12n,80p,777b,2762s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (25 pages, 1200350 bytes).
+Output written on main.pdf (29 pages, 1308184 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 253 compressed objects within 3 object streams
- 57 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 368 PDF objects out of 1000 (max. 8388607)
+ 303 compressed objects within 4 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
