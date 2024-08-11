@@ -12,13 +12,14 @@
 \contentsline {subsubsection}{\numberline {1.5.2}Version Control:}{10}{subsubsection.1.1.5.2}%
 \contentsline {subsubsection}{\numberline {1.5.3}Communication and Collaboration:}{10}{subsubsection.1.1.5.3}%
 \contentsline {chapter}{\numberline {2}State of the Art}{12}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{15}{chapter.3}%
-\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{15}{section.3.1}%
-\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{15}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{15}{subsubsection.3.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{16}{subsubsection.3.1.1.2}%
-\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{18}{chapter.4}%
-\contentsline {section}{\numberline {1}Architecture}{18}{section.4.1}%
-\contentsline {chapter}{General conclusion}{19}{chapter*.16}%
-\contentsline {chapter}{Bibliography}{20}{chapter*.17}%
-\contentsline {chapter}{Annexes}{21}{chapter*.18}%
+\contentsline {section}{\numberline {1}Path Planning}{15}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{17}{chapter.3}%
+\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{17}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{17}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{18}{subsubsection.3.1.1.2}%
+\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{20}{chapter.4}%
+\contentsline {section}{\numberline {1}Architecture}{20}{section.4.1}%
+\contentsline {chapter}{General conclusion}{21}{chapter*.18}%
+\contentsline {chapter}{Bibliography}{22}{chapter*.19}%
+\contentsline {chapter}{Annexes}{23}{chapter*.20}%

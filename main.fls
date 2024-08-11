@@ -1551,6 +1551,16 @@ INPUT ./chapters/chap1.tex
 INPUT chapters/chap1.tex
 INPUT ./chapters/chap1.tex
 INPUT chapters/chap1.tex
+INPUT ./images/Chap1/AMR-VS-AGV.png
+INPUT ./images/Chap1/AMR-VS-AGV.png
+INPUT images/Chap1/AMR-VS-AGV.png
+INPUT ./images/Chap1/AMR-VS-AGV.png
+INPUT ./images/Chap1/AMR-VS-AGV.png
+INPUT ./images/Chap1/Fig1.jpg
+INPUT ./images/Chap1/Fig1.jpg
+INPUT images/Chap1/Fig1.jpg
+INPUT ./images/Chap1/Fig1.jpg
+INPUT ./images/Chap1/Fig1.jpg
 INPUT ./chapters/chap2.tex
 INPUT chapters/chap2.tex
 INPUT ./chapters/chap2.tex
