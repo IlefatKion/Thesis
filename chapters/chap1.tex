@@ -264,9 +264,54 @@ figure \Ref{R17 test scenarios}.
     \label{R17 test scenarios}
 \end{figure}
 
+\subsection {Local Path Planning}
+Local path planning is a process used by robots to make real-time decisions about how to move 
+safely and efficiently in their surroundings. Unlike global path planning, which focuses on 
+finding the best overall route from a starting point to a destination based on astatic map, local path 
+planning deals with navigating the environment directly around the robot while considering real-time
+data input from sensors \cite{R18}. This involves quickly responding 
+to obstacles that suddenly appear or changes in the terrain, ensuring the robot can continue moving 
+without collisions.
+Local path planning is crucial for the safe and effective operation of robots, especially in 
+environments where situations can change in a fast manner. For example, in busy spaces with moving people 
+or vehicles, a robot needs to be able to make quick adjustments to avoid accidents. This type of 
+planning allows the robot to react immediately to new information, making it essential for applications 
+where unpredictability and quick responses are vital, such as in autonomous vehicles or service robots.
+Local path planning is crucial for the safe and effective operation of robots, especially in 
+environments where conditions can change rapidly. For example, in busy spaces like warehouses 
+with moving people 
+or vehicles, a robot needs to be able to make quick adjustments to avoid accidents. This type of 
+planning allows the robot to react immediately to new information, making it essential for 
+applications where unpredictability and quick responses are vital, such as in autonomous vehicles 
+or service robots.
+
+Common Techniques
+Reactive Methods:
+Reactive methods are approaches in local path planning that focus on immediate obstacle avoidance 
+and making quick adjustments as the robot moves. Techniques like the Vector Field Histogram (VFH), 
+Dynamic Window Approach (DWA), and Potential Fields are commonly used. These methods help the robot 
+react to obstacles directly in its path by quickly calculating a safe direction to move. They are 
+called "reactive" because they respond to the environment in real-time, allowing the robot to 
+navigate around obstacles as soon as they are detected.
+
+Sensor-Based Approaches:
+Sensor-based approaches rely on data collected by the robot's sensors, such as LIDAR, sonar, or 
+cameras, to make decisions about where to go next. These sensors help the robot create a map of 
+its surroundings, which can then be used to identify obstacles and safe paths. Techniques like 
+occupancy grids and point cloud processing are used to interpret the sensor data and guide the 
+robot's movements. This approach allows the robot to have a detailed understanding of its immediate 
+environment, making it more capable of avoiding obstacles and navigating complex spaces.
 
 
 
+
+
+\subsection {OMPL}
+
+
+\section{Spline based Paths}
+\section{Metrics}
+\section{Optimization Techniques}
 
 
 
