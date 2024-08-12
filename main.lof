@@ -12,5 +12,11 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces AMR and AGV behaviors at presence of an obstacle \cite {R9}\relax }}{13}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Mind map of the key topics\relax }}{14}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces 8 direction possibilities to move from the current cell to the next cell \cite {R14}\relax }}{17}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 8 direction possibilities to move from the current cell to the next cell \cite {R16}\relax }}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Simple obstacle environment \relax }}{19}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Intermediate obstacle environment\relax }}{19}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Complex obstacle environment\relax }}{19}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces GA Test scenarios \cite {R17}\relax }}{19}{figure.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

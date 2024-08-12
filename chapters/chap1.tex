@@ -86,3 +86,192 @@ outlines the methodology to be followed throughout this scientific work(Figure \
 
 \newpage
 \section{Path Planning}
+
+\subsection{Path Planning for autonomous robots}
+
+Path planning for mobile robots involves creating and generating efficient routes 
+for the robot to travel from a starting position (A) to a target position (B), 
+ensuring minimal time and travel distance while avoiding collisions with nearby objects.
+
+In complex environments, it is challenging for robots to move randomly and fulfill 
+their missions. However, with appropriate input from various sensors, such as laser 
+scanners, cameras, and LiDAR, robots can perceive their surroundings and plan 
+accordingly. This application is especially relevant in dynamic intralogistics 
+environments where operators and employees are moving around; boxes and pallets are 
+being transported or stocked; and in warehouses with multiple layers of shelves that 
+must be handled safely and carefully. Autonomous robots, as the name suggests, are 
+standalone systems that must compile and process such input and generate, with the 
+support of powerful algorithms, efficient paths. Path planning serves as the crucial 
+link between the robot’s sensor input and its motion control \cite{R10}.
+
+Literature and scientific studies differentiate between two main types of path planning: 
+global and local path planning. Global planning involves finding an optimal path from 
+the start to the target position based on sensor input within a known, static environment, 
+whereas local planning focuses on real-time obstacle avoidance, typically used while 
+moving to avoid dynamic obstacles \cite{R11}.
+
+This review will investigate the developed path planning approaches to 
+differentiate between them and eventually decide on the suitable method that servies the thesis.
+
+\subsection{Importance and Challenges}
+
+Efficient path planning is essential for ensuring the safe handling of objects in the environment. 
+In intralogistics, the materials being handled—whether goods, manufacturing systems, storage 
+shelves, or other vehicles—are valuable and must be treated with care. Moreover, safety is a 
+critical concern, especially when human safety and protection are involved. To pass quality 
+tests, autonomous forklifts must meet personal safety requirements. These requirements include, 
+but are not limited to, maintaining a safe distance from both static and dynamic objects and 
+people, as well as detecting surroundings at any height and time. By following an efficient 
+path, overall productivity increases since operations are repeated many times throughout the 
+day. An efficient path optimizes both length and smoothness, thereby reducing travel time. 
+Additionally, efficient path planning conserves the truck's energy, reducing the frequency of recharging.
+
+However, developing efficient paths comes with certain limitations. Several studies have compared 
+various planners, analyzing the advantages and drawbacks of each. One common drawback is excessive 
+computational time: if the algorithm takes too long to process (in the range of seconds), it 
+leads to long latencies and vehicle stops. While experts might understand this behavior, clients 
+may find it unacceptable, leading to doubts about the vehicle's efficiency or even disinterest in the product.
+
+In very crowded or complex areas, some planners may struggle to generate a viable path, which 
+could cause the vehicle to fail in navigating such environments, thus limiting its usefulness 
+in real-world scenarios. In these specific cases, some path planning algorithms perform better 
+than others. Therefore, it may be beneficial to equip the autonomous vehicle with more than one 
+approach for solving such situations (in Section ... the OMPL: Open Motion Planning Library is 
+presented as one of the available and most recent tools in RACK). Additionally, embedded PCs, 
+often used in these systems, have limited processing power and must handle large amounts of data 
+quickly. Achieving short computational times can be challenging, potentially impacting the vehicle's performance.
+
+Furthermore, sensors can produce noise or shadows, leading to uncertainty in the data about the 
+terrain. This uncertainty can cause the planner to make errors, affecting the vehicle’s ability 
+to navigate accurately and safely \cite{R12}.
+
+\subsection{Global Path Planning}
+
+At the beginning of the research phase for this thesis, it was important to look at the available types 
+of path planning methods. Science generally distinguishes between three general approaches of Global 
+Path Planning all having the same aim to plan the path from a start to a goal position within a pre-mapped 
+environment:  grid-based methods, sampling-based methods, and artificial intelligence-based methods \cite{R13}. 
+
+Grid-based methods involve discretizing the environment into a grid of cells, where each cell represents 
+a small, discrete part of the space. Then, the algorithm visits the grids to decide which cells will 
+be used for the path based on the occupancy or cost and calculates the fitness function from start to 
+the reached point in A* algorithm for example or from the reached point to the destination for Dijkstra 
+Algorithm. While this method seems easy to understand and quite simple to implement, it is 
+computationally intensive because of the number of grids to evaluate and the repetitiveness 
+and constrained in direction (Figure \Ref{direction possibilities}) 
+
+Sampling-based algorithms do not discretize the entire environment into a grid but instead randomly sample 
+the space to construct a path: the samples are distributed in a manner that they avoid the obstacles 
+and serve as a roadmap for to create a start-to-end path \cite{R15}. The exact approach to transform the 
+roadmap into a continuous path depends on the algorithm like PRM or RRT. 
+
+Sampling-based algorithms present advantages like handling big environments and complex situations, 
+however, they can also be computationally intensive and demanding in such situations. 
+Figure 2 shows the difference in the resulting optimal path in a cluttered environment where with 
+1 core the algorithm successfully finds a feasible path, and, as the cores double, the computed path 
+improves its quality as the search tree expands.  
+
+\begin{figure}[H]
+    \begin{center}
+       \includegraphics[width=3in]{images/Chap1/8dirs_pathPlan.png}\\
+       \caption{8 direction possibilities to move from the current cell to the next cell \cite{R14}}
+       \label{direction possibilities}
+       \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+       \includegraphics[width=4in]{images/Chap1/sampling-based.png}\\
+       \caption{8 direction possibilities to move from the current cell to the next cell \cite{R16}}
+       \label{sampling-based}
+       \end{center}
+\end{figure}
+
+As for artificial intelligence-based methods, also known as heuristic and metheuristic approaches, 
+leverage the use of neural networks, machine learning and deep learning, and evolutionary algorithms. 
+These methods learn from experience, adapt to changes, and optimize paths in complex environments. 
+They are good at handling dynamic and unpredictable scenarios, making them suitable for tasks like 
+autonomous driving, robot navigation, and logistics. 
+
+To start with, Neural networks (NN) are inspired from the biological harmonious connection of the brain neurons
+that gives it the ability to process big amounts of data and generate ideas and decisions and solve problems. 
+The NN is built in a way that enables it to get its input in a form of data and process it by learning, improving 
+and adjusting the output to the desired results. NN are able to perform Parallel processing: the information is 
+transmitted in two
+directions to the neuron in the case of Recurrent Neural Networks (RNN) that allows for learning fron current and 
+past inputs to the NN. This approach improves the computation time and overall performance. 
+The NN is then able to process complex solutions and create paths for difficult environments. 
+It is well suited for unpredictable situations as it is built to adapt to the available input and the desired output.
+However, it presents a practicality challenge. Althugh the performance an results can be impressive, yet, in a 
+real-time context, 
+it is hard to rely on solutions that require extensive computational efforts and need long durations to 
+process solutions. In addition, the number of neurons and layers have to be scalable and depends closely on the 
+level of complexity that the vehicle is to deal with \cite{R12}. 
+
+Fuzzy Logic (FL), on the other hand, is a way of thinking that mimics how humans make decisions, especially when things are unclear 
+or uncertain. Instead of working with exact numbers, it uses "fuzzy" terms like "good", "average" or "bad" to make 
+decisions. Input numbers are clustered following the fuzzy sets or intervals and assigned a value using membership 
+functions. Later the values are interfered and defuzzified to genearte the ouput as a command value. 
+In robotics and path planning, FL helps robots navigate by allowing them to handle uncertain situations, 
+like avoiding obstacles or finding the best route, even when the environment is not fully known. Instead of needing 
+exact data, the robot can employ fuzzy terms like "close" or "far" to understand its surroundings. For example, if an 
+obstacle is "somewhat close," the robot can smoothly adjust its path to avoid it. FL also helps the robot choose the best 
+route by weighing various factors like distance and safety, even when the information is not perfect. This makes the 
+robot better at handling unpredictable environments and making flexible and optimal decisions.
+However, one 
+disadvantage is that it can be tricky to create the right rules for the robot to follow, and the system can become 
+complicated as more rules are added. It may present a scalability problem because in unpredictable and dynamic environments
+it is not simple to decide about fixed fuzzy sets that would be practical in all of the cases \cite{R12}.
+
+While Neural Networks and Fuzzy Logic offer powerful approaches for handling uncertainty and complex decision-making, 
+another key area in artificial intelligence for path planning is the use of meta-heuristic algorithms.
+Meta-Heuristoc algorithms are inspired from biological and natural processes for evolution and survival. 
+Unlike NN and FL, that rely on data as input to generate decisions, meta-heuristic algorithms explore the solution
+space by evolving random solutions for the problem and optimizing them by rounds until a stopping criterion or set
+of criteria is satisfied (see more in section ...: Optimization Algorithms).
+Approaches like Genetic Algorithms (GA) have been used for path planning by Ahmed Elshamli et al. \cite{R17}. The The robusteness of their 
+solution is the adaption of the solution to dynamic environments. They evolve their GA using variable size chromosomes, where each node 
+represents a waypoint of the path, then they measure the quality of each path using an evaluation function. A modified Genetic Approach is then 
+applied to each population: Crossover, mutation, \textbf{Repair} infeasible paths, \textbf{Shorten}, then \textbf{Smoothen} 
+feasible paths while dynamically checking for new obstacles.
+The approach is tested in static and dynamic environments and has achieved proven efficiency when it comes 
+to local optima challenges and survivig the best elements of the population. While the use of the GA itself is robust
+and successful, it can be challenging to recreate the algorithm and to add the improvements. In addition, the tests
+the ran are limited to a simple simulation with unrealistic situations and obstacle setting as displayed in 
+figure \Ref{R17 test scenarios}. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap1/R17_simple.png} % Replace with your figure
+        \caption{Simple obstacle environment       }
+        \label{Simple obstacle environment}
+    \end{minipage}
+    \begin{minipage}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap1/R17_intermediate.png} % Replace with your figure
+        \caption{Intermediate obstacle environment}
+        \label{Intermediate obstacle environment}
+    \end{minipage}
+    \begin{minipage}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap1/R17_complex.png} % Replace with your figure
+        \caption{Complex obstacle environment}
+        \label{Complex obstacle environment}
+    \end{minipage}
+    \caption{GA Test scenarios \cite{R17}}
+    \label{R17 test scenarios}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
