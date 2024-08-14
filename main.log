@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  12 AUG 2024 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  14 AUG 2024 18:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -810,14 +810,14 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
-* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 645.87756pt, 113.81102pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=483.69687pt
-* \textheight=674.33032pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
+* \textwidth=426.79135pt
+* \textheight=645.87756pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
 * \topmargin=-23.91173pt
 * \headheight=15.0pt
 * \headsep=25.0pt
@@ -921,136 +921,259 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [7]) (./other/introduction.tex [1
 
-] [2]) [3
+] [2] [3]) [4
 
 ] (./chapters/chap0.tex
 Chapter 1.
-[4
+[5
 
 ]
-<images/Chap0/KION_Segments.jpg, id=270, 1204.5pt x 676.5275pt>
+<images/Chap0/KION_Segments.jpg, id=296, 1204.5pt x 676.5275pt>
 File: images/Chap0/KION_Segments.jpg Graphic file (type jpg)
 <use images/Chap0/KION_Segments.jpg>
-Package pdftex.def Info: images/Chap0/KION_Segments.jpg  used on input line 41.
+Package pdftex.def Info: images/Chap0/KION_Segments.jpg  used on input line 43.
 (pdftex.def)             Requested size: 361.34999pt x 202.95981pt.
-<images/Chap0/KION_Hierarchy.png, id=276, 802.197pt x 357.13425pt>
+ [6 <./images/Chap0/KION_Segments.jpg>]
+<images/Chap0/KION_Hierarchy.png, id=306, 802.197pt x 357.13425pt>
 File: images/Chap0/KION_Hierarchy.png Graphic file (type png)
 <use images/Chap0/KION_Hierarchy.png>
-Package pdftex.def Info: images/Chap0/KION_Hierarchy.png  used on input line 71.
+Package pdftex.def Info: images/Chap0/KION_Hierarchy.png  used on input line 73.
 (pdftex.def)             Requested size: 505.89pt x 225.2192pt.
 
-Overfull \hbox (22.19313pt too wide) in paragraph at lines 71--71
+Overfull \hbox (79.09865pt too wide) in paragraph at lines 73--73
  [] 
  []
 
-[5 <./images/Chap0/KION_Segments.jpg>]
-<images/Chap0/Reach trucks.png, id=290, 602.25pt x 602.25pt>
+<images/Chap0/Reach trucks.png, id=315, 602.25pt x 602.25pt>
 File: images/Chap0/Reach trucks.png Graphic file (type png)
 <use images/Chap0/Reach trucks.png>
-Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 87.
-(pdftex.def)             Requested size: 217.66211pt x 217.66446pt.
-<images/Chap0/hand truck.png, id=291, 602.25pt x 602.25pt>
+Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 89.
+(pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
+<images/Chap0/hand truck.png, id=316, 602.25pt x 602.25pt>
 File: images/Chap0/hand truck.png Graphic file (type png)
 <use images/Chap0/hand truck.png>
-Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 93.
-(pdftex.def)             Requested size: 217.66211pt x 217.66446pt.
-<images/Chap0/double-.png, id=292, 602.25pt x 602.25pt>
+Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 95.
+(pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/Chap0/double-.png, id=317, 602.25pt x 602.25pt>
 File: images/Chap0/double-.png Graphic file (type png)
 <use images/Chap0/double-.png>
-Package pdftex.def Info: images/Chap0/double-.png  used on input line 103.
-(pdftex.def)             Requested size: 217.66211pt x 217.66446pt.
-<images/Chap0/iGoNeo.jpg, id=293, 475.7775pt x 475.7775pt>
+Package pdftex.def Info: images/Chap0/double-.png  used on input line 105.
+(pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
+<images/Chap0/iGoNeo.jpg, id=318, 475.7775pt x 475.7775pt>
 File: images/Chap0/iGoNeo.jpg Graphic file (type jpg)
 <use images/Chap0/iGoNeo.jpg>
-Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 109.
-(pdftex.def)             Requested size: 217.66211pt x 217.66243pt.
- [6 <./images/Chap0/KION_Hierarchy.png> <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png>] [7 <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>]
-<images/Chap0/station-sketch.drawio.png, id=309, 543.02875pt x 411.5375pt>
+Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 111.
+(pdftex.def)             Requested size: 192.0548pt x 192.05722pt.
+[7 <./images/Chap0/KION_Hierarchy.png>]
+Overfull \hbox (2.81577pt too wide) in paragraph at lines 122--122
+|[]\T1/cmr/bx/n/24.88 2 |[] Grad-u-a-tion project Mo-ti-va-tion and
+ []
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 124.
+
+[8 <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png> <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>] [9]
+<images/Chap0/station-sketch.drawio.png, id=340, 543.02875pt x 411.5375pt>
 File: images/Chap0/station-sketch.drawio.png Graphic file (type png)
 <use images/Chap0/station-sketch.drawio.png>
-Package pdftex.def Info: images/Chap0/station-sketch.drawio.png  used on input line 170.
+Package pdftex.def Info: images/Chap0/station-sketch.drawio.png  used on input line 175.
 (pdftex.def)             Requested size: 361.34999pt x 273.86366pt.
- [8 <./images/Chap0/station-sketch.drawio.png>]
-<images/Chap0/blog-scrum-process-opt.jpg, id=317, 1204.5pt x 629.35126pt>
+ [10 <./images/Chap0/station-sketch.drawio.png>]
+<images/Chap0/blog-scrum-process-opt.jpg, id=349, 1204.5pt x 629.35126pt>
 File: images/Chap0/blog-scrum-process-opt.jpg Graphic file (type jpg)
 <use images/Chap0/blog-scrum-process-opt.jpg>
-Package pdftex.def Info: images/Chap0/blog-scrum-process-opt.jpg  used on input line 201.
+Package pdftex.def Info: images/Chap0/blog-scrum-process-opt.jpg  used on input line 231.
 (pdftex.def)             Requested size: 433.62pt x 226.56627pt.
- [9 <./images/Chap0/blog-scrum-process-opt.jpg>]) [10] [11
+
+Overfull \hbox (6.82864pt too wide) in paragraph at lines 231--231
+ [] 
+ []
+
+[11] [12 <./images/Chap0/blog-scrum-process-opt.jpg>]) [13] [14
 
 ] (./chapters/chap1.tex
 Chapter 2.
-<images/Chap1/AMR-VS-AGV.png, id=338, 1638.12pt x 1505.625pt>
+[15
+
+]
+<images/Chap1/AMR-VS-AGV.png, id=378, 1638.12pt x 1505.625pt>
 File: images/Chap1/AMR-VS-AGV.png Graphic file (type png)
 <use images/Chap1/AMR-VS-AGV.png>
 Package pdftex.def Info: images/Chap1/AMR-VS-AGV.png  used on input line 36.
-(pdftex.def)             Requested size: 361.34999pt x 332.11154pt.
-[12
+(pdftex.def)             Requested size: 289.07999pt x 265.69382pt.
 
-] [13 <./images/Chap1/AMR-VS-AGV.png>]
-<images/Chap1/Fig1.jpg, id=354, 1443.3925pt x 1090.0725pt>
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[16 <./images/Chap1/AMR-VS-AGV.png>]
+<images/Chap1/Fig1.jpg, id=389, 1443.3925pt x 1090.0725pt>
 File: images/Chap1/Fig1.jpg Graphic file (type jpg)
 <use images/Chap1/Fig1.jpg>
 Package pdftex.def Info: images/Chap1/Fig1.jpg  used on input line 81.
-(pdftex.def)             Requested size: 433.62pt x 327.47336pt.
- [14 <./images/Chap1/Fig1.jpg>] [15]
-<images/Chap1/8dirs_pathPlan.png, id=371, 141.52875pt x 141.52875pt>
+(pdftex.def)             Requested size: 361.34999pt x 272.88338pt.
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[17 <./images/Chap1/Fig1.jpg>]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[18]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[19]
+<images/Chap1/8dirs_pathPlan.png, id=413, 141.52875pt x 141.52875pt>
 File: images/Chap1/8dirs_pathPlan.png Graphic file (type png)
 <use images/Chap1/8dirs_pathPlan.png>
-Package pdftex.def Info: images/Chap1/8dirs_pathPlan.png  used on input line 176.
+Package pdftex.def Info: images/Chap1/8dirs_pathPlan.png  used on input line 172.
 (pdftex.def)             Requested size: 216.81pt x 216.82765pt.
- [16]
-<images/Chap1/sampling-based.png, id=382, 344.487pt x 364.9635pt>
+<images/Chap1/sampling-based.png, id=416, 344.487pt x 364.9635pt>
 File: images/Chap1/sampling-based.png Graphic file (type png)
 <use images/Chap1/sampling-based.png>
-Package pdftex.def Info: images/Chap1/sampling-based.png  used on input line 184.
+Package pdftex.def Info: images/Chap1/sampling-based.png  used on input line 180.
 (pdftex.def)             Requested size: 289.07999pt x 306.27766pt.
- [17 <./images/Chap1/8dirs_pathPlan.png> <./images/Chap1/sampling-based.png>] [18]
-<images/Chap1/R17_simple.png, id=399, 133.6995pt x 104.18925pt>
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[20 <./images/Chap1/8dirs_pathPlan.png>]
+Overfull \hbox (4.00192pt too wide) in paragraph at lines 186--191
+[]\T1/cmr/m/n/12 As for ar-ti-fi-cial intelligence-based meth-ods, also known as heuris-tic and metheuris-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[21 <./images/Chap1/sampling-based.png>]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[22]
+<images/Chap1/R17_simple.png, id=438, 133.6995pt x 104.18925pt>
 File: images/Chap1/R17_simple.png Graphic file (type png)
 <use images/Chap1/R17_simple.png>
-Package pdftex.def Info: images/Chap1/R17_simple.png  used on input line 247.
-(pdftex.def)             Requested size: 145.11053pt x 113.09026pt.
-<images/Chap1/R17_intermediate.png, id=400, 132.495pt x 104.18925pt>
+Package pdftex.def Info: images/Chap1/R17_simple.png  used on input line 243.
+(pdftex.def)             Requested size: 128.0387pt x 99.78523pt.
+<images/Chap1/R17_intermediate.png, id=439, 132.495pt x 104.18925pt>
 File: images/Chap1/R17_intermediate.png Graphic file (type png)
 <use images/Chap1/R17_intermediate.png>
-Package pdftex.def Info: images/Chap1/R17_intermediate.png  used on input line 253.
-(pdftex.def)             Requested size: 145.11053pt x 114.11726pt.
-<images/Chap1/R17_complex.png, id=401, 130.68825pt x 104.7915pt>
+Package pdftex.def Info: images/Chap1/R17_intermediate.png  used on input line 249.
+(pdftex.def)             Requested size: 128.0387pt x 100.69142pt.
+<images/Chap1/R17_complex.png, id=440, 130.68825pt x 104.7915pt>
 File: images/Chap1/R17_complex.png Graphic file (type png)
 <use images/Chap1/R17_complex.png>
-Package pdftex.def Info: images/Chap1/R17_complex.png  used on input line 259.
-(pdftex.def)             Requested size: 145.11053pt x 116.35512pt.
- [19 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]) [20] [21
+Package pdftex.def Info: images/Chap1/R17_complex.png  used on input line 255.
+(pdftex.def)             Requested size: 128.0387pt x 102.66618pt.
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[23 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]
+<images/Chap1/DWA_flowchart.png, id=454, 322.20375pt x 464.33475pt>
+File: images/Chap1/DWA_flowchart.png Graphic file (type png)
+<use images/Chap1/DWA_flowchart.png>
+Package pdftex.def Info: images/Chap1/DWA_flowchart.png  used on input line 314.
+(pdftex.def)             Requested size: 216.81pt x 312.46301pt.
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[24])
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[25 <./images/Chap1/DWA_flowchart.png>]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[26] [27
 
 ] (./chapters/chap2.tex
 Chapter 3.
-) [22
+[28
 
-] [23] [24
+])
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[29] [30
 
 ] (./chapters/chap3.tex
 Chapter 4.
-) (./other/conclusion.tex [25
+[31
 
-]) (./other/bibliographie.tex [26
+]) (./other/conclusion.tex [32]) (./other/bibliographie.tex [33
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 1052) in paragraph at lines 9--10
-[]\T1/cmr/m/n/12 KION group web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . kiongroup . com / en / About-[]us / Management/$[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
+Underfull \hbox (badness 4647) in paragraph at lines 9--10
 []\T1/cmr/m/n/12 KION group web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . kiongroup . com / en / About-[]us /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
+Underfull \hbox (badness 4647) in paragraph at lines 12--13
+[]\T1/cmr/m/n/12 KION group web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . kiongroup . com / en / About-[]us /
+ []
+
+
+Underfull \hbox (badness 7814) in paragraph at lines 21--22
 []\T1/cmr/m/n/12 iGo Neo datasheet. URL: []$\T1/cmtt/m/n/12 data . still . de / assets / products / Vehicles /
  []
 
@@ -1059,19 +1182,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 \T1/cmtt/m/n/12 Order _ Pickers / OPX _ iGo _ neo / pdfs / OPX _ EN _ TD . pdf ? mod = 1681891889 & s =
  []
 
-[27
+
+Underfull \hbox (badness 3049) in paragraph at lines 37--39
+[]\T1/cmr/m/n/12 AMR vs. AGV Fig-ure, Vecna Robotics Web-site. URL: []$\T1/cmtt/m/n/12 https : / / www .
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 41--45
+\T1/cmr/m/n/12 Path plan-ning tech-niques for mo-bile robots: Re-view and prospect, Ex-
+ []
+
+[34
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-[]\T1/cmr/m/n/12 Sertac Kara-man and Emilio Fraz-zoli. 2011. Sampling-based al-go-rithms for
+Underfull \hbox (badness 8170) in paragraph at lines 52--60
+[]\T1/cmr/m/n/12 Mohd. Nayab Za-far, J.C. Mo-hanta, Method-ol-ogy for Path Plan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-\T1/cmr/m/n/12 op-ti-mal mo-tion plan-ning. Int. J. Rob. Res. 30, 7 (June 2011), 846^^U894.
+Underfull \hbox (badness 2269) in paragraph at lines 52--60
+\T1/cmr/m/n/12 ning and Op-ti-miza-tion of Mo-bile Robots: A Re-view, Pro-ce-dia Com-
  []
 
-) [28] (./other/appendix/appendix.tex) [29
+
+Underfull \hbox (badness 6592) in paragraph at lines 52--60
+\T1/cmr/m/n/12 puter Sci-ence, Vol-ume 133, 2018, Pages 141-152, ISSN 1877-0509,
+ []
+
+) [35] (./other/appendix/appendix.tex) [36
 
 ] (./main.aux (./main.acr))
 
@@ -1237,6 +1375,7 @@ images/Chap1/sampling-based.png
 images/Chap1/R17_simple.png
 images/Chap1/R17_intermediate.png
 images/Chap1/R17_complex.png
+images/Chap1/DWA_flowchart.png
 chapters/chap2.tex
 chapters/chap3.tex
 other/conclusion.tex
@@ -1247,25 +1386,25 @@ other/appendix/appendix.tex
  ***********
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0374AA449C4403D042452BF1A341D983;5569.
+(rerunfilecheck)             Checksum: C9B70E5E09FF9D1C82F9CA46CBE66E47;6457.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 65 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33310 strings out of 478353
- 623472 string characters out of 5848100
- 927144 words of memory out of 5000000
- 50698 multiletter control sequences out of 15000+600000
- 416299 words of font info for 60 fonts, out of 8000000 for 9000
+ 33336 strings out of 478353
+ 623920 string characters out of 5848100
+ 926239 words of memory out of 5000000
+ 50711 multiletter control sequences out of 15000+600000
+ 416306 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,80p,777b,2886s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,12n,80p,777b,2902s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (38 pages, 2054046 bytes).
+Output written on main.pdf (45 pages, 2095010 bytes).
 PDF statistics:
- 534 PDF objects out of 1000 (max. 8388607)
- 441 compressed objects within 5 object streams
- 105 named destinations out of 1000 (max. 500000)
- 336 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 595 PDF objects out of 1000 (max. 8388607)
+ 492 compressed objects within 5 object streams
+ 117 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

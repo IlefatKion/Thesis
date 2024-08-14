@@ -1,4 +1,4 @@
-\chapter{Project scope}
+\chapter{Host company and Project context}
 
 \renewcommand{\chaptername}{Chapter}
 
@@ -6,15 +6,17 @@
 
 This chapter is reserved to present STILL GmbH as the host company, its organizational structure, the mother 
 company KION group. It will then proceed to describe the range of products that the company produces.
-The second part is dedicated to explain the problem statement, the motivation behind this thesis, and the project specifications.
+The second part is dedicated to set the project context by explaining the problem statement, the motivation 
+behind this thesis project, and its specifications.
 The final part will emphasize the work methodology adopted to carry out this project.
 
 \begin{sloppypar}
 \section{Host company: STILL GmbH}
 \end{sloppypar}
 
+This section introduces the host group and company through their activities, products, and activities
 
-\subsection{General information about STILL and KION Group and their vision}
+\subsection{KION Group and STILL GmbH}
 
 STILL GmbH, based in Hamburg, Germany, is a leading manufacturer of intralogistics solutions with 14 locations 
 in Germany and a global sales network spanning 246 locations. 
@@ -117,7 +119,9 @@ of such advanced technology brings up several challenges, particularly in ensuri
 behavior under all operating conditions. This leads to a key motivation for further investigation and improvement 
 in the field.
 
-\subsection{Motivation and Problem Statement}
+\section{Graduation project Motivation and Specifications}
+
+\subsubsection{Motivation and Problem statement}
 
 While autonomous vehicles can be highly reliable and efficient in carrying out various 
 tasks, their behavior is not always predictable or easily explained. The output often 
@@ -160,7 +164,8 @@ to palletize/depalletize, in predefined positions, it faces the following proble
     so a driving direction change is needed. 
 
     \item The vehicle is heavy (1200 to 1500 KG) with an overall length of 2500 to 4000 mm  
-    which makes it both challenging and dangerous to change directions on its spot \cite{R5}. 
+    which makes it both challenging and dangerous to change directions: turning on the spot or 
+    navigating in highly curved paths\cite{R5}. 
     
     \item The pallet docking process has to be very precise to avoid shifts and mistakes. 
 \end{itemize}
@@ -182,16 +187,41 @@ destination position.
 We would like to solve this problematic in a manner that: 
 
 \begin{itemize}
-    \item Imitate the manual driving process to pick a pallet when in the same situation (facing backward 
+    \item Imitates the manual driving process to pick a pallet when in the same situation (facing backward 
     of the pallet).
-    \item Implement a predictable local path planning algorithm for the vehicle operations inside a station. 
+    \item Implements a predictable local path planning algorithm for the vehicle operations inside a station. 
     \item Reduce the computational expense used with the global dynamic path planning algorithms implemented 
     through a pattern 
-    \item Choose an optimal path out of the various paths that can be driven.
+    \item Chooses an optimal path out of the various paths that can be driven.
 
 \end{itemize}
+\subsection{Project specifications}
+The aim of this thesis is to devise and assess a methodology for automated path planning of a mobile 
+robot, taking into account environmental obstacles. The proposed path should optimally connect the 
+robot to a nearby target pose, whereby optimality is defined as achieving maximum speed while adhering 
+to the robot’s kinematic constraints. Moreover, the path planning process should employ an online 
+pattern-based approach, ensuring that the robot’s behavior is explainable, and that all environmental 
+recognition information is utilized during path planning. 
+The work should build on existing work in the Robotics Application Construction Kit (RACK) and satisfy 
+real-time processing capabilities. Currently, existing methods in the literature shall be taken into 
+consideration so that the functionality is sufficient for typical intralogistics applications and 
+available computing power on the mobile robot itself. 
 
-\subsection{Work Structure and Methodology:}
+The thesis consists of the following steps: 
+\begin{itemize}
+    \item 	getting acquainted with the current topic area with subsequent clustering and discrimination 
+    of available approaches based on a scientific literature review.
+    \item  	design methods for evolving B-Spline based path planning approaches under consideration of 
+    typical patterns used by manual driven trucks in intralogistics.
+    \item   design methods for determining optimization approaches and related metrics to enable 
+    real-time capable path planning.
+    \item  	implement the derived approaches in the RACK framework and evaluate the performance of 
+    the developed methods. 
+    \item	verify and evaluate the developed robotic application on a mobile robot under consideration 
+    of intralogistics boundary conditions.
+\end{itemize}
+
+\section{Work Structure and Methodology}
 
 Our team adopts an Agile Scrum methodology showcased in Figure \Ref{Agile Scrum Process} to ensure 
 efficient and flexible project management. Here’s how we approach our work:
@@ -204,7 +234,7 @@ efficient and flexible project management. Here’s how we approach our work:
        \end{center}
 \end{figure}
 
-\subsubsection{Agile Scrum Framework:} 
+\subsection{Agile Scrum Framework} 
 \begin{itemize}
     \item \textbf{Jira: } We use Jira to organize and track our tasks and progress. Jira allows us to create 
     and manage tickets, which are detailed records of tasks, bugs, or features that need attention. 
@@ -230,14 +260,14 @@ efficient and flexible project management. Here’s how we approach our work:
 
 \end{itemize}
 
-\subsubsection{Version Control:}
+\subsection{Version Management}
 \begin{itemize}
     \item \textbf{GitHub: } We use GitHub for version control and code management. GitHub allows us to 
     collaborate on code, track changes, and manage different versions of our project. Each team member 
     can contribute to the codebase, and we use pull requests to review and integrate new features.
 \end{itemize}
 
-\subsubsection{Communication and Collaboration:}
+\subsection{Communication and Collaboration:}
 
 \begin{itemize}
 \item  \textbf{Microsoft Teams: } We use Microsoft Teams for real-time communication and collaboration. 
