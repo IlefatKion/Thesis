@@ -86,29 +86,43 @@ outlines the methodology to be followed throughout this scientific work(Figure \
 
 \newpage
 \section{Path Planning}
+This section will dive into the path planning state of the art: presenting its promising 
+opportuniities and current challenges, detailing the different approaches, and discussing
+their efficiency and compatibility with the problem statement.
 
 \subsection{Path Planning for autonomous robots: Opportunities and challenges}
 
 Path planning for mobile robots involves creating and generating efficient routes 
 for the robot to travel from a starting position (A) to a target position (B), 
-ensuring minimal time and travel distance while avoiding collisions with nearby objects.
+ensuring minimal time and travel distance while avoiding collisions with nearby objects \cite{R7}.
 
 In complex environments, it is challenging for robots to move randomly and fulfill 
 their missions. However, with appropriate input from various sensors, such as laser 
-scanners, cameras, and LiDAR, robots can perceive their surroundings and plan 
-accordingly. This application is especially relevant in dynamic intralogistics 
-environments where operators and employees are moving around; boxes and pallets are 
-being transported or stocked; and in warehouses with multiple layers of shelves that 
-must be handled safely and carefully. Autonomous robots, as the name suggests, are 
-standalone systems that must compile and process such input and generate, with the 
-support of powerful algorithms, efficient paths. Path planning serves as the crucial 
-link between the robot’s sensor input and its motion control \cite{R10}.
+scanners, cameras, and LiDAR, robots can perceive their surroundings and plan the right path
+accordingly. The innovation in hardware made navigation flexibility and autonomous recovery 
+after failure possible\cite{R7}.
 
-Literature and scientific studies differentiate between two main types of path planning: 
-global and local path planning. Global planning involves finding an optimal path from 
-the start to the target position based on sensor input within a known, static environment, 
-whereas local planning focuses on real-time obstacle avoidance, typically used while 
-moving to avoid dynamic obstacles \cite{R11}.
+The application areas of path planning for autonomous mobile robots are factories and warehouses, 
+healthcare institutions, hotels and restaurants, and domestic areas.
+The relevance of efficient path planning, mainly in the intralogistics sector, is derived from the constant need 
+of optimizing material flow, productivity rates, and cost effectiveness. Path planning is very promising to reduce
+travel time and distances when moving goods and thus, improving overall operational costs. 
+
+In those dynamic environments, operators and employees are moving around, goods and pallets are 
+being transported or stocked, and materials must be handled safely and carefully.
+Flexibility in routing and planning, enables the autonomous vehicles to always drive the optimal path
+based on the space settings. The benfits here include:
+\begin{itemize}
+    \item Independence from Human intervention -AMRs do not require assistance, unike AGVs \cite{R7}.
+    \item Respect of safey standards through developed vision and recognition: critical personnel safety protection,
+    preserving the handled goods, 
+    manufacturing systems, storage material or other vehicles.
+    \item Reduced energy consumption thanks to optimal: smooth and short paths that respect the vehicles' kinematics
+    and allocated task and travel time.
+    \item Robustness and responsiveness thanks to decentralized decison making: enables fast recovery after failure \cite{R7}.
+    \item Alignment with real-world applications and the growing demand for automation in logistics due to e-commerce 
+    growth and supply chain complexities.
+\end{itemize}
 
 Efficient path planning is essential for ensuring the safe handling of objects in the environment. 
 In intralogistics, the materials being handled—whether goods, manufacturing systems, storage 
@@ -121,7 +135,50 @@ path, overall productivity increases since operations are repeated many times th
 day. An efficient path optimizes both length and smoothness, thereby reducing travel time. 
 Additionally, efficient path planning conserves the truck's energy, reducing the frequency of recharging.
 
-However, developing efficient paths comes with certain limitations. Several studies have compared 
+Autonomous robots, as the name suggests, are 
+standalone systems that must compile and process such input and generate, through algorithms, 
+efficient paths. Path planning serves as the crucial 
+link between the robot’s sensor input and its motion control \cite{R10}.
+
+Literature and scientific studies differentiate between two main types of path planning: 
+global and local path planning. Global planning involves finding an optimal path from 
+the start to the target position based on sensor input within a known, static environment, 
+whereas local planning focuses on real-time obstacle avoidance, typically used while 
+moving to avoid dynamic obstacles \cite{R11}.
+
+%challenges
+More that 60 years have elapsed since "Shaky" the first wheeled robot was running it first tests
+in Stanford University' labs. However, most of the robotic related topic are still being researched and improved.
+Dealing with all the aspects and challenges that robotics comes with can be very intricate. One of the major 
+topics posing challenges to researchers is path planning. 
+In a research by S. H. Tang et al. \cite{R20}, the authors reviewed recent path planning approaches and challenges
+in dynamic unkown environments. 
+Saftey in path planning was the main concern for 29 \% of the reviewed studies. Navigating efficient 
+paths while avoiding collisions is challenging to accomplish. Collision avoidance is tightly related to perception 
+input through sensors, analysis and use of the data. While it may seem simple for the robots to correctfully analyze 
+and recognize the objects around them, in reality, detailed understanding is not possible \cite{R21}. Issues are 
+related to the accuracy of the sensors and the robustness of the algorithms. It is expected from the robot to 
+preceive of the obstacles just like humans do, but from the robot's perspective, it is only able to recognize the outer
+
+
+
+
+
+
+ 
+
+
+computational time pge1+2
+
+path smoothness pge2
+local minimal pge1
+safety pge 2 mainly in dynamic environments 
+noise and shadows drrom sensors pge 3
+kinematic properties of robots 
+
+
+
+However, developing efficient paths comes with certain requirements and limitations. Several studies have compared 
 various planners, analyzing the advantages and drawbacks of each. One common drawback is excessive 
 computational time: if the algorithm takes too long to process (in the range of seconds), it 
 leads to long latencies and vehicle stops. While experts might understand this behavior, clients 
@@ -140,7 +197,7 @@ Furthermore, sensors can produce noise or shadows, leading to uncertainty in the
 terrain. This uncertainty can cause the planner to make errors, affecting the vehicle’s ability 
 to navigate accurately and safely \cite{R12}.
 
-\subsection*{Path Planning}
+\subsection{Comprehensive Path Planning Approaches}
 \subsubsection{Global Path Planning}
 
 At the beginning of the research phase for this thesis, it was important to look at the available types 
@@ -163,13 +220,13 @@ roadmap into a continuous path depends on the algorithm like PRM or RRT.
 
 Sampling-based algorithms present advantages like handling big environments and complex situations, 
 however, they can also be computationally intensive and demanding in such situations. 
-Figure 2 shows the difference in the resulting optimal path in a cluttered environment where with 
+Figure \Ref{sampling-based} shows the difference in the resulting optimal path in a cluttered environment where with 
 1 core the algorithm successfully finds a feasible path, and, as the cores double, the computed path 
 improves its quality as the search tree expands.  
 
 \begin{figure}[H]
     \begin{center}
-       \includegraphics[width=3in]{images/Chap1/8dirs_pathPlan.png}\\
+       \includegraphics[width=2in]{images/Chap1/8dirs_pathPlan.png}\\
        \caption{8 direction possibilities to move from the current cell to the next cell \cite{R14}}
        \label{direction possibilities}
        \end{center}
@@ -177,7 +234,7 @@ improves its quality as the search tree expands.
 
 \begin{figure}[H]
     \begin{center}
-       \includegraphics[width=4in]{images/Chap1/sampling-based.png}\\
+       \includegraphics[width=3.5in]{images/Chap1/sampling-based.png}\\
        \caption{8 direction possibilities to move from the current cell to the next cell \cite{R16}}
        \label{sampling-based}
        \end{center}
@@ -317,15 +374,7 @@ environment, making it more capable of avoiding obstacles and navigating complex
         \end{center}
 \end{figure}
 
-
-
-\subsection {PathOMPL}
-current solution : path OMPL + BFMT + Reeds-Shepp
-there has to be multiple solutions 
-ompl is not station specific
-
-The Open Motion Planning Library also known as OMPL, 
-\subsection{conclusion}
+\subsection{Discussion}
 
 
 \section{Spline based Paths}
