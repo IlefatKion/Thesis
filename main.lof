@@ -12,12 +12,13 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces AMR and AGV behaviors at presence of an obstacle \cite {R9}\relax }}{16}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Mind map of the key topics\relax }}{17}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces 8 direction possibilities to move from the current cell to the next cell \cite {R14}\relax }}{21}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces 8 direction possibilities to move from the current cell to the next cell \cite {R16}\relax }}{22}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Simple obstacle environment \relax }}{24}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Intermediate obstacle environment\relax }}{24}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Complex obstacle environment\relax }}{24}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces GA Test scenarios \cite {R17}\relax }}{24}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Flowchart of the DWA \cite {R19}\relax }}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Simulation of the robot's perception of surrounding obstacles. \newline \textbf {Yellow rectangle:} Station limits \newline \textbf {Black rectangle:} Shelf limits: where to pick or to place pallets \newline \textbf {In gray:} Robot in simulation \newline \textbf {Blue polygones:} Simulated obstacles \newline \textbf {Black lines:} Perceived obstacle points\relax }}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 8 direction possibilities to move from the current cell to the next cell \cite {R14}\relax }}{22}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces 8 direction possibilities to move from the current cell to the next cell \cite {R16}\relax }}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Simple obstacle environment \relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Intermediate obstacle environment\relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Complex obstacle environment\relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces GA Test scenarios \cite {R17}\relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Flowchart of the DWA \cite {R19}\relax }}{27}{figure.caption.20}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

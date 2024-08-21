@@ -1354,6 +1354,7 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/acro/acro.sty
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
 INPUT ./config/packages-config.tex
 INPUT config/packages-config.tex
 INPUT ./config/packages-config.tex
@@ -1561,6 +1562,11 @@ INPUT ./images/Chap1/Fig1.jpg
 INPUT images/Chap1/Fig1.jpg
 INPUT ./images/Chap1/Fig1.jpg
 INPUT ./images/Chap1/Fig1.jpg
+INPUT ./images/Chap1/scan.png
+INPUT ./images/Chap1/scan.png
+INPUT images/Chap1/scan.png
+INPUT ./images/Chap1/scan.png
+INPUT ./images/Chap1/scan.png
 INPUT ./images/Chap1/8dirs_pathPlan.png
 INPUT ./images/Chap1/8dirs_pathPlan.png
 INPUT images/Chap1/8dirs_pathPlan.png
