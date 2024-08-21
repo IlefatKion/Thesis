@@ -18,8 +18,8 @@
 \contentsline {subsection}{\numberline {1.1}Path Planning for autonomous robots: Opportunities and challenges}{18}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {1.2}Comprehensive Path Planning Approaches}{21}{subsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Global Path Planning}{21}{subsubsection.2.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Local Path Planning}{25}{subsubsection.2.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Hybrid Path Planning}{26}{subsubsection.2.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.2}Local Path Planning}{24}{subsubsection.2.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Hybrid Path Planning}{25}{subsubsection.2.1.2.3}%
 \contentsline {subsection}{\numberline {1.3}Discussion}{27}{subsection.2.1.3}%
 \contentsline {section}{\numberline {2}Spline based Paths}{27}{section.2.2}%
 \contentsline {section}{\numberline {3}Metrics}{27}{section.2.3}%
