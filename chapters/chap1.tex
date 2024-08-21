@@ -356,45 +356,67 @@ figure \Ref{R17 test scenarios}.
 \end{figure}
 
 \subsubsection {Local Path Planning}
-Local path planning is a process used by robots to make real-time decisions about how to move 
+Local path planning has as the role to make real-time decisions about how to move 
 safely and efficiently in their surroundings. Unlike global path planning, which focuses on 
-finding the best overall route from a starting point to a destination based on astatic map, local path 
+finding the best overall route from a starting point to a destination based on a static map, local path 
 planning deals with navigating the environment directly around the robot while considering real-time
-data input from sensors \cite{R18}. This involves quickly responding 
-to obstacles that suddenly appear or changes in the terrain, ensuring the robot can continue moving 
-without collisions.
-
-Local path planning is crucial for the safe and effective operation of robots, especially in 
-environments where situations can change in a fast manner. For example, in busy spaces with moving people 
+data input from sensors without prior knowledge about the surroundings\cite{R18}. This involves quickly 
+responding to obstacles that appear or changes in the terrain, ensuring the robot can 
+continue moving without collisions. Unlike Global Path planning, it functions without prior localization
+and mapping of the surrounding environment. Local path planning is crucial for the safe and effective 
+operation of robots, especially in 
+dynamic and unkown environments. For example, in busy spaces with moving people 
 or vehicles, a robot needs to be able to make quick adjustments to avoid accidents. This type of 
 planning allows the robot to react immediately to new information, making it essential for applications 
-where unpredictability and quick responses are vital, such as in autonomous vehicles or service robots.
-Local path planning is crucial for the safe and effective operation of robots, especially in 
-environments where conditions can change rapidly. For example, in busy spaces like warehouses 
-with moving people or vehicles, a robot needs to be able to make quick adjustments to avoid accidents. 
-This type of planning allows the robot to react immediately to new information, making it essential for 
-applications where unpredictability and quick responses are vital, such as in autonomous vehicles 
-or service robots.
+where unpredictability and quick responses are vital, such as in autonomous vehicles or service robots in 
+warehouses and factories.
 
 Common Techniques involve Reactive methods which are approaches in local path planning that focus on real-time
 obstacle avoidance and online adjustements on the path that are processed while the robot is navigating.
-Techniques like the Vector Field Histogram (VFH), 
-Dynamic Window Approach (DWA), and Potential Fields are commonly used.
+Techniques like the Potential Fields, 
+Dynamic Window Approach (DWA), and Bug Algorithms are commonly used. In their research paper \cite{R25},
+Buniyamin, N. et al. propose the point to point Bug algorithm to navigate in unkown environments. 
+Bug algorithms are based on range sensors input. The robot at the starting point, plans to move directly to the 
+target. Then it rotates scanning for obstacle points. If it encounters a sudden point, it navigates in its direction.
+The robot rotates in the target's direction until it is able to resume its direct path to the target based on the 
+constant search for the shortest distance from the current standpoint or find the next obstacle. 
+While this approach is simple from the computational point of view and the hardware used, it may not be 
+optimal considering other metrics.
+Its path length optimality depends on the nature of the environments and its effciency decreases if the complexity
+of the test area increases. 
+Local path planning approaches are effective in navigating through cluttered environments, but when it comes to 
+long-range planning, a hybrid approach that integrates both local and global path planning strategies can provide 
+more robust and efficient results.
 
 \subsubsection {Hybrid Path Planning}
 
+In recent years, path planning approaches that combine both global and local techniques have gained popularity. 
+By integrating global and local path planning approaches, robots and autonomous vehicles can take advantage of 
+the strengths of both methods. This hybrid approach is a promising area of research, with the potential to benefit 
+a wide range of applications. Hybrid path planning approaches are becoming increasingly popular due to their ability 
+to handle complex environments and dynamic obstacles.
 
-In \cite{R19}, Liu et al. worked used Djikstra ALgorithm for Global path planning and 
-the DWA as the local path planner for sudden unkown obstacles that could 
-appear for smart cars while following the global path.
-It works by evaluating different possible movements the robot could make within a short time frame 
-and choosing the one that avoids obstacles while also moving towards the goal. The "window" refers 
-to a limited set of possible velocities of the velocity space the robot can use based on its current 
-speed and capabilities. Figure \Ref{flowchart of the DWA} details the flowchart of the DWA. 
+\noindent
+\begin{minipage}{0.5\textwidth}  
+    In \cite{R19}, Liu et al. used Djikstra ALgorithm for Global path planning and 
+    the DWA as the local path planner for sudden unkown obstacles that could 
+    appear for smart cars while following the global path.
+    It works by evaluating different possible movements the robot could make within a short time frame 
+    and choosing the one that avoids obstacles while also moving towards the goal. The "window" refers 
+    to a limited set of possible velocities of the velocity space the robot can use based on its current 
+    speed and capabilities. Figure \Ref{flowchart of the DWA} details the flowchart of the DWA. 
+    The combined algorithms were tested on 3 spaces with 3 stages of environment complexity ranging from 
+    simple to complex. The tests showed that the hybrid path planning approach was efficient for navigating the 
+    robot and avoiding collisions. However, the tests were effected with dynamic obstacles only inside the simulation.
+\end{minipage} 
+\begin{minipage}{0.5\textwidth}  
+    \centering  
+    \includegraphics[width=\linewidth]{images/Chap1/DWA_flowchart.png}  
+    \captionof{figure}{Flowchart of the DWA \cite{R19}}  
+    \label{flowchart of the DWA}  
+\end{minipage}  
+ 
 
-The combined algorithms were tested on 3 spaces with 3 stages of environment complexity ranging from 
-simple to complex. The tests showed that the hybrid path planning approach was efficient for navigating the 
-robot and avoiding collisions. However, the tests were effected with dynamic obstacles only inside the simulation.
 
 
 Sensor-based approaches, on the other hand, rely on data collected by the robot's sensors, such as LIDAR, 
@@ -403,15 +425,7 @@ its surroundings, which can then be used to identify obstacles and safe paths. O
 cloud processing are techniques used to interpret the sensor data and guide the 
 robot's movements. This approach allows the robot to have a detailed understanding of its immediate 
 environment, making it more capable of avoiding obstacles and navigating complex spaces.
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=3in]{images/Chap1/DWA_flowchart.png}\\
-        \caption{Flowchart of the DWA \cite{R19}}
-        \label{flowchart of the DWA}
-        \end{center}
-\end{figure}
-
+    
 \subsection{Discussion}
 
 

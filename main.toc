@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {1.2}Comprehensive Path Planning Approaches}{21}{subsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Global Path Planning}{21}{subsubsection.2.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}Local Path Planning}{24}{subsubsection.2.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Hybrid Path Planning}{25}{subsubsection.2.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3}Hybrid Path Planning}{26}{subsubsection.2.1.2.3}%
 \contentsline {subsection}{\numberline {1.3}Discussion}{27}{subsection.2.1.3}%
 \contentsline {section}{\numberline {2}Spline based Paths}{27}{section.2.2}%
 \contentsline {section}{\numberline {3}Metrics}{27}{section.2.3}%
@@ -31,6 +31,6 @@
 \contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{30}{subsubsection.3.1.1.2}%
 \contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{32}{chapter.4}%
 \contentsline {section}{\numberline {1}Architecture}{32}{section.4.1}%
-\contentsline {chapter}{General conclusion}{34}{chapter*.23}%
-\contentsline {chapter}{Bibliography}{35}{chapter*.24}%
-\contentsline {chapter}{Annexes}{38}{chapter*.25}%
+\contentsline {chapter}{General conclusion}{34}{chapter*.22}%
+\contentsline {chapter}{Bibliography}{35}{chapter*.23}%
+\contentsline {chapter}{Annexes}{38}{chapter*.24}%

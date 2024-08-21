@@ -1354,7 +1354,6 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/changepage/changepage.sty
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/acro/acro.sty
-INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
 INPUT ./config/packages-config.tex
 INPUT config/packages-config.tex
 INPUT ./config/packages-config.tex

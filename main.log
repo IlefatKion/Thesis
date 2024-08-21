@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  21 AUG 2024 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  21 AUG 2024 22:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,29 +760,29 @@ Package newfloat Info: float type `Rule'=4 on input line 66.
 )
 
 Package hyperref Warning: Unexpected value for option `hidelinks'
-(hyperref)                is ignored on input line 64.
+(hyperref)                is ignored on input line 63.
 
 (./main.aux (./main.acr))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
  (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count376
@@ -858,9 +858,9 @@ LaTeX hooks Warning: Generic hook
 (/usr/local/texlive/2021/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 67.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 66.
 Package newfloat Info: `float' package detected.
-Package hyperref Info: Link coloring OFF on input line 67.
+Package hyperref Info: Link coloring OFF on input line 66.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -870,9 +870,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count383
 )
-LaTeX Info: Redefining \ref on input line 67.
-LaTeX Info: Redefining \pageref on input line 67.
-LaTeX Info: Redefining \nameref on input line 67.
+LaTeX Info: Redefining \ref on input line 66.
+LaTeX Info: Redefining \pageref on input line 66.
+LaTeX Info: Redefining \nameref on input line 66.
  (./main.out) (./main.out)
 \@outlinefile=\write8
 \openout8 = `main.out'.
@@ -890,7 +890,7 @@ l.37 \begin{abstract}
                       [1])pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.78 \tableofcontents
+l.77 \tableofcontents
                       [1] (./main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -934,7 +934,7 @@ File: images/Chap0/KION_Segments.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/Chap0/KION_Segments.jpg  used on input line 43.
 (pdftex.def)             Requested size: 361.34999pt x 202.95981pt.
  [6 <./images/Chap0/KION_Segments.jpg>]
-<images/Chap0/KION_Hierarchy.png, id=316, 802.197pt x 357.13425pt>
+<images/Chap0/KION_Hierarchy.png, id=317, 802.197pt x 357.13425pt>
 File: images/Chap0/KION_Hierarchy.png Graphic file (type png)
 <use images/Chap0/KION_Hierarchy.png>
 Package pdftex.def Info: images/Chap0/KION_Hierarchy.png  used on input line 73.
@@ -944,12 +944,12 @@ Overfull \hbox (79.09865pt too wide) in paragraph at lines 73--73
  [] 
  []
 
-<images/Chap0/Reach trucks.png, id=324, 602.25pt x 602.25pt>
+<images/Chap0/Reach trucks.png, id=326, 602.25pt x 602.25pt>
 File: images/Chap0/Reach trucks.png Graphic file (type png)
 <use images/Chap0/Reach trucks.png>
 Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 89.
 (pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
-<images/Chap0/hand truck.png, id=325, 602.25pt x 602.25pt>
+<images/Chap0/hand truck.png, id=327, 602.25pt x 602.25pt>
 File: images/Chap0/hand truck.png Graphic file (type png)
 <use images/Chap0/hand truck.png>
 Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 95.
@@ -957,12 +957,12 @@ Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 95.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/Chap0/double-.png, id=326, 602.25pt x 602.25pt>
+<images/Chap0/double-.png, id=328, 602.25pt x 602.25pt>
 File: images/Chap0/double-.png Graphic file (type png)
 <use images/Chap0/double-.png>
 Package pdftex.def Info: images/Chap0/double-.png  used on input line 105.
 (pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
-<images/Chap0/iGoNeo.jpg, id=327, 475.7775pt x 475.7775pt>
+<images/Chap0/iGoNeo.jpg, id=329, 475.7775pt x 475.7775pt>
 File: images/Chap0/iGoNeo.jpg Graphic file (type jpg)
 <use images/Chap0/iGoNeo.jpg>
 Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 111.
@@ -977,13 +977,13 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 124.
 
 [8 <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png> <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>] [9]
-<images/Chap0/station-sketch.drawio.png, id=350, 543.02875pt x 411.5375pt>
+<images/Chap0/station-sketch.drawio.png, id=352, 543.02875pt x 411.5375pt>
 File: images/Chap0/station-sketch.drawio.png Graphic file (type png)
 <use images/Chap0/station-sketch.drawio.png>
 Package pdftex.def Info: images/Chap0/station-sketch.drawio.png  used on input line 175.
 (pdftex.def)             Requested size: 361.34999pt x 273.86366pt.
  [10 <./images/Chap0/station-sketch.drawio.png>]
-<images/Chap0/blog-scrum-process-opt.jpg, id=358, 1204.5pt x 629.35126pt>
+<images/Chap0/blog-scrum-process-opt.jpg, id=360, 1204.5pt x 629.35126pt>
 File: images/Chap0/blog-scrum-process-opt.jpg Graphic file (type jpg)
 <use images/Chap0/blog-scrum-process-opt.jpg>
 Package pdftex.def Info: images/Chap0/blog-scrum-process-opt.jpg  used on input line 231.
@@ -1000,7 +1000,7 @@ Chapter 2.
 [15
 
 ]
-<images/Chap1/AMR-VS-AGV.png, id=387, 1638.12pt x 1505.625pt>
+<images/Chap1/AMR-VS-AGV.png, id=390, 1638.12pt x 1505.625pt>
 File: images/Chap1/AMR-VS-AGV.png Graphic file (type png)
 <use images/Chap1/AMR-VS-AGV.png>
 Package pdftex.def Info: images/Chap1/AMR-VS-AGV.png  used on input line 36.
@@ -1014,7 +1014,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [16 <./images/Chap1/AMR-VS-AGV.png>]
-<images/Chap1/Fig1.jpg, id=396, 1443.3925pt x 1090.0725pt>
+<images/Chap1/Fig1.jpg, id=400, 1443.3925pt x 1090.0725pt>
 File: images/Chap1/Fig1.jpg Graphic file (type jpg)
 <use images/Chap1/Fig1.jpg>
 Package pdftex.def Info: images/Chap1/Fig1.jpg  used on input line 81.
@@ -1036,7 +1036,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [18]
-<images/Chap1/scan.png, id=414, 420.3705pt x 334.24875pt>
+<images/Chap1/scan.png, id=418, 420.3705pt x 334.24875pt>
 File: images/Chap1/scan.png Graphic file (type png)
 <use images/Chap1/scan.png>
 Package pdftex.def Info: images/Chap1/scan.png  used on input line 170.
@@ -1066,7 +1066,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [21]
-<images/Chap1/8dirs_pathPlan.png, id=447, 141.52875pt x 141.52875pt>
+<images/Chap1/8dirs_pathPlan.png, id=451, 141.52875pt x 141.52875pt>
 File: images/Chap1/8dirs_pathPlan.png Graphic file (type png)
 <use images/Chap1/8dirs_pathPlan.png>
 Package pdftex.def Info: images/Chap1/8dirs_pathPlan.png  used on input line 266.
@@ -1076,7 +1076,7 @@ Overfull \hbox (4.00192pt too wide) in paragraph at lines 272--277
 []\T1/cmr/m/n/12 As for ar-ti-fi-cial intelligence-based meth-ods, also known as heuris-tic and metheuris-
  []
 
-<images/Chap1/sampling-based.png, id=449, 344.487pt x 364.9635pt>
+<images/Chap1/sampling-based.png, id=454, 344.487pt x 364.9635pt>
 File: images/Chap1/sampling-based.png Graphic file (type png)
 <use images/Chap1/sampling-based.png>
 Package pdftex.def Info: images/Chap1/sampling-based.png  used on input line 281.
@@ -1097,17 +1097,17 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [23 <./images/Chap1/sampling-based.png>]
-<images/Chap1/R17_simple.png, id=468, 133.6995pt x 104.18925pt>
+<images/Chap1/R17_simple.png, id=474, 133.6995pt x 104.18925pt>
 File: images/Chap1/R17_simple.png Graphic file (type png)
 <use images/Chap1/R17_simple.png>
 Package pdftex.def Info: images/Chap1/R17_simple.png  used on input line 338.
 (pdftex.def)             Requested size: 128.0387pt x 99.78523pt.
-<images/Chap1/R17_intermediate.png, id=469, 132.495pt x 104.18925pt>
+<images/Chap1/R17_intermediate.png, id=475, 132.495pt x 104.18925pt>
 File: images/Chap1/R17_intermediate.png Graphic file (type png)
 <use images/Chap1/R17_intermediate.png>
 Package pdftex.def Info: images/Chap1/R17_intermediate.png  used on input line 344.
 (pdftex.def)             Requested size: 128.0387pt x 100.69142pt.
-<images/Chap1/R17_complex.png, id=470, 130.68825pt x 104.7915pt>
+<images/Chap1/R17_complex.png, id=476, 130.68825pt x 104.7915pt>
 File: images/Chap1/R17_complex.png Graphic file (type png)
 <use images/Chap1/R17_complex.png>
 Package pdftex.def Info: images/Chap1/R17_complex.png  used on input line 350.
@@ -1132,11 +1132,22 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [25 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]
-<images/Chap1/DWA_flowchart.png, id=487, 322.20375pt x 464.33475pt>
+<images/Chap1/DWA_flowchart.png, id=496, 322.20375pt x 464.33475pt>
 File: images/Chap1/DWA_flowchart.png Graphic file (type png)
 <use images/Chap1/DWA_flowchart.png>
-Package pdftex.def Info: images/Chap1/DWA_flowchart.png  used on input line 409.
-(pdftex.def)             Requested size: 216.81pt x 312.46301pt.
+Package pdftex.def Info: images/Chap1/DWA_flowchart.png  used on input line 414.
+(pdftex.def)             Requested size: 213.39568pt x 307.53882pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 415.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 399--418
+$[]$ $[]$ 
+ []
+
 )
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1419,25 +1430,25 @@ other/appendix/appendix.tex
  ***********
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6331BA8C0B0AF579191019624C00FE09;6616.
+(rerunfilecheck)             Checksum: 1B345897F915876DB57587E7B8C02B57;6616.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 67 (\begingroup)
+### semi simple group (level 1) entered at line 66 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33364 strings out of 478353
- 624241 string characters out of 5848100
- 927699 words of memory out of 5000000
- 50729 multiletter control sequences out of 15000+600000
+ 33367 strings out of 478353
+ 624254 string characters out of 5848100
+ 929721 words of memory out of 5000000
+ 50731 multiletter control sequences out of 15000+600000
  416309 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,11n,80p,777b,2906s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (48 pages, 2111827 bytes).
+Output written on main.pdf (48 pages, 2113331 bytes).
 PDF statistics:
- 629 PDF objects out of 1000 (max. 8388607)
- 528 compressed objects within 6 object streams
- 126 named destinations out of 1000 (max. 500000)
+ 640 PDF objects out of 1000 (max. 8388607)
+ 531 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
  370 words of extra memory for PDF output out of 10000 (max. 10000000)
 
