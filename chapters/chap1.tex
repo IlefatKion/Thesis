@@ -415,8 +415,6 @@ to handle complex environments and dynamic obstacles.
     \captionof{figure}{Flowchart of the DWA \cite{R19}}  
     \label{flowchart of the DWA}  
 \end{minipage}  
- 
-
 
 
 Sensor-based approaches, on the other hand, rely on data collected by the robot's sensors, such as LIDAR, 
@@ -425,11 +423,87 @@ its surroundings, which can then be used to identify obstacles and safe paths. O
 cloud processing are techniques used to interpret the sensor data and guide the 
 robot's movements. This approach allows the robot to have a detailed understanding of its immediate 
 environment, making it more capable of avoiding obstacles and navigating complex spaces.
-    
+
 \subsection{Discussion}
 
+While traditional path planning methods have proven effective across various applications and usecases, 
+they often face challenges when applied to highly structured, repetitive environments like those found 
+in industrial automation. To overcome these limitations, the research in the previous years became rather 
+oriented to investigating and using heuristic approaches. In \cite{R26}, Masehian et al. conducted a 
+chronological review about the followe approaches in Motion Planning (MP). The results testify that in 30 years,
+The application of Heuristic approaches in MP went from 0\% to 54\% from 1977 to 2007 as shown on Figure 
+\Ref{heuristic barchart}.
 
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=3.5in]{images/Chap1/heuristic_barchart.png}\\ 
+    \captionof{figure}{Application of classic and heuristic approaches in MP \cite{R26} 
+    \newline \textbf{Dark gray:} Classic approaches
+    \newline \textbf{Light gray:} Heuristic approaches }
+    \label{heuristic barchart} 
+\end{figure}
+
+The classic algorithms have the drawback of traps in local minima and increased complexity in sophisticated environments.
+In practice, the conditions where the robot operates are cluttered and complex than we can imagine which makes the classic 
+approaches impractical. Consequently, it is necessary to tackle these issues in a different way. Although 
+probabilistic methods proved high computational capabilities, scientists tend to combine 2 algorithms to 
+benefit from the classic and heuristic advantages simultaneously. In \cite{R27}, Chen et al. delve into a hybrid
+approach for online motion planning. Their approach is based on space exploration and heuristic search to determine 
+optimal path linking a start point to an end goal. Tested on both low and high speed scenarios, the algorithm ensured
+a low planning time: it outperformed RRT and had similar results in terms of planning time to Hybrid A*. 
+
+To draw to a close, even though researches confirm that the heuristic approach prevails the classic one:
+\cite{R20} and \cite{R25}, these approaches are not without their limitations. Heuristic methods, while good at 
+navigating complex environments and avoiding local minima, sometimes fall short in finding the best possible 
+solutions, especially in high-dimensional spaces. In contrast, classical methods, though computationally 
+expensive, provide a more systematic and theoretically solid approach to path planning. To address these trade-offs, 
+there is growing interest in hybrid methods that combine the strengths of both approaches. 
+These hybrids use the precision and reliability of classical methods along with the flexibility and 
+speed of heuristics. By doing so, they reduce the weaknesses of each approach, offering a more 
+balanced and effective solution for path planning in complex environments. As a result, hybrid 
+methods hold promise for future research, potentially leading to more efficient and dependable 
+path planning algorithms.
+
+\newpage
 \section{Spline based Paths}
+%introduction
+This section will closely examine splines, their different types, their application in robotics and the 
+importance of their integration and detail the challenges and limitations related to the use of Splines
+for robotic motion planning, and conclude by a discussion around their relevance to this work.
+
+\subsection{Definitions and Basic Concepts}
+\textbf{Splines} are mathematical functions used to create smooth curves that can be defined by a series of 
+control points. They are commonly used in computer graphics, animation, CAD, and robotics for 
+design and exchange of geometric information. Mathematically, it is a piecewise polynomial function.
+To break down the global meaning of splines:
+
+In mathematics and computer graphics, a curve is a continuous and smooth flowing line without sharp angles. 
+It can be defined parametrically or implicitly and represents a path that can be traced by a moving point.
+A curve can be defined using a parameter 
+\(u\), where \(u\)varies over an interval, and the coordinates of the curve are given by functions of:
+\begin{equation}
+    C(u) = (x(u), y(u)) \quad \text{given} \quad a \leq u \leq b \label{eq:curve}
+\end{equation}
+
+The curclie is an example of a curve where:
+x(u) = cos
+y(u) = sin ref = nurbs book
+
+Parametric curves have a clear direction (from C(a) to C(b)), which implicit curves lack. This makes 
+it simpler to create ordered sequences of points along a parametric curve. Additionally, the parametric 
+form is more intuitive for designing and modeling shapes on a computer, as the coefficients in many 
+parametric functions (such as Bezier and B-Splines) carry geometric significance. This results in 
+user-friendly design techniques and algorithms that are numerically stable.
+
+Polynomials are a commonly used type of function in robotics because they can be easily differentiated and are less prone to numerical rounding errors (known as floating point errors). Although they cannot represent every geometric curve, polynomials can usually approximate them with sufficient accuracy.
+
+Using classical polynomial functions or their derivatives in Bezier form is mathematically equivalent, meaning any curve described in one form can be converted to the other. However, the Bezier form is superior to the power basis form for geometric modeling because the coefficients in the power basis form provide limited geometric insight into the curve's shape. Therefore, the Bezier-based form will be used, as shown in equation.
+B-splines are ....
+NURBS are ...
+
+\subsection{Applications in Robotics}
+
+
 \section{Metrics}
 \section{Optimization Techniques}
 

@@ -7,8 +7,8 @@
 \contentsline {subsection}{\numberline {1.2}KION Management Hierarchy}{6}{subsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.3}STILL Products}{6}{subsection.1.1.3}%
 \contentsline {section}{\numberline {2}Graduation project Motivation and Specifications}{9}{section.1.2}%
-\contentsline {subsubsection}{\numberline {2.0.1}Motivation and Problem statement}{9}{subsubsection.1.2.0.1}%
-\contentsline {subsection}{\numberline {2.1}Project specifications}{11}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {2.1}Motivation and Problem statement}{9}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {2.2}Project specifications}{11}{subsection.1.2.2}%
 \contentsline {section}{\numberline {3}Work Structure and Methodology}{11}{section.1.3}%
 \contentsline {subsection}{\numberline {3.1}Agile Scrum Framework}{12}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {3.2}Version Management}{13}{subsection.1.3.2}%
@@ -21,16 +21,18 @@
 \contentsline {subsubsection}{\numberline {1.2.2}Local Path Planning}{24}{subsubsection.2.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.3}Hybrid Path Planning}{26}{subsubsection.2.1.2.3}%
 \contentsline {subsection}{\numberline {1.3}Discussion}{27}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2}Spline based Paths}{27}{section.2.2}%
-\contentsline {section}{\numberline {3}Metrics}{27}{section.2.3}%
-\contentsline {section}{\numberline {4}Optimization Techniques}{27}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{29}{chapter.3}%
-\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{29}{section.3.1}%
-\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{29}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{29}{subsubsection.3.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{30}{subsubsection.3.1.1.2}%
-\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{32}{chapter.4}%
-\contentsline {section}{\numberline {1}Architecture}{32}{section.4.1}%
-\contentsline {chapter}{General conclusion}{34}{chapter*.22}%
-\contentsline {chapter}{Bibliography}{35}{chapter*.23}%
-\contentsline {chapter}{Annexes}{38}{chapter*.24}%
+\contentsline {section}{\numberline {2}Spline based Paths}{29}{section.2.2}%
+\contentsline {subsection}{\numberline {2.1}Definitions and Basic Concepts}{29}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2}Applications in Robotics}{30}{subsection.2.2.2}%
+\contentsline {section}{\numberline {3}Metrics}{30}{section.2.3}%
+\contentsline {section}{\numberline {4}Optimization Techniques}{30}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{32}{chapter.3}%
+\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{32}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{32}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{32}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{33}{subsubsection.3.1.1.2}%
+\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{35}{chapter.4}%
+\contentsline {section}{\numberline {1}Architecture}{35}{section.4.1}%
+\contentsline {chapter}{General conclusion}{37}{chapter*.23}%
+\contentsline {chapter}{Bibliography}{38}{chapter*.24}%
+\contentsline {chapter}{Annexes}{41}{chapter*.25}%
