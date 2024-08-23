@@ -472,12 +472,8 @@ importance of their integration and detail the challenges and limitations relate
 for robotic motion planning, and conclude by a discussion around their relevance to this work.
 
 \subsection{Definitions and Basic Concepts}
-\textbf{Splines} are mathematical functions used to create smooth curves that can be defined by a series of 
-control points. They are commonly used in computer graphics, animation, CAD, and robotics for 
-design and exchange of geometric information. Mathematically, it is a piecewise polynomial function.
-To break down the global meaning of splines:
 
-In mathematics and computer graphics, a curve is a continuous and smooth flowing line without sharp angles. 
+In mathematics and computer graphics, a \textbf{curve} is a continuous and smooth flowing line without sharp angles. 
 It can be defined parametrically or implicitly and represents a path that can be traced by a moving point.
 A curve can be defined using a parameter 
 \(u\), where \(u\)varies over an interval, and the coordinates of the curve are given by functions of:
@@ -485,21 +481,107 @@ A curve can be defined using a parameter
     C(u) = (x(u), y(u)) \quad \text{given} \quad a \leq u \leq b \label{eq:curve}
 \end{equation}
 
-The curclie is an example of a curve where:
-x(u) = cos
-y(u) = sin ref = nurbs book
+The circle is an example of a curve where:
+
+\hspace*{-1cm} % Adjust the value as needed
+\begin{align}
+    x(u) &= \cos(u) \\
+    y(u) &= \sin(u) \quad \text{given} \quad 0 \leq u \leq \frac{\pi}{2}     \cite{R29}
+\end{align}
+
+whereas, the implicit form of the circle would be:
+\begin{equation}
+    (x - h)^2 + (y - k)^2 = r^2
+\end{equation}
+
+where \((h,k)\) is the center and \(r\) is the radius.
+
 
 Parametric curves have a clear direction (from C(a) to C(b)), which implicit curves lack. This makes 
 it simpler to create ordered sequences of points along a parametric curve. Additionally, the parametric 
 form is more intuitive for designing and modeling shapes on a computer, as the coefficients in many 
 parametric functions (such as Bezier and B-Splines) carry geometric significance. This results in 
-user-friendly design techniques and algorithms that are numerically stable.
+user-friendly design techniques and algorithms that are numerically stable \cite{R28}. 
+However, using one polynome-curves is inadequate as it is not possible to represent complex shapes, certain 
+curve changes, and fitting the needed points. 
+The solution is to use piecewise polynomial curves of degree \((n-1)\) for example if we need to integrate
+\(n\) data points \cite{R29}.
 
-Polynomials are a commonly used type of function in robotics because they can be easily differentiated and are less prone to numerical rounding errors (known as floating point errors). Although they cannot represent every geometric curve, polynomials can usually approximate them with sufficient accuracy.
+Polynomials are a commonly used type of function in robotics because they can be easily differentiated 
+and are less prone to numerical rounding errors (known as floating point errors). Although they cannot 
+represent every geometric curve, polynomials can usually approximate them with sufficient accuracy.
 
-Using classical polynomial functions or their derivatives in Bezier form is mathematically equivalent, meaning any curve described in one form can be converted to the other. However, the Bezier form is superior to the power basis form for geometric modeling because the coefficients in the power basis form provide limited geometric insight into the curve's shape. Therefore, the Bezier-based form will be used, as shown in equation.
-B-splines are ....
-NURBS are ...
+Using classical polynomial functions or their derivatives in Bézier form is mathematically equivalent. 
+This means that any curve described using standard polynomials can be transformed into a Bézier curve, 
+and vice versa. However, when it comes to geometric modeling—especially in applications like computer 
+graphics or robotics—the Bézier form is often preferred. This preference is due to the fact that the 
+coefficients in the standard polynomial form (also known as the power basis form) don't offer much 
+information about the curve's actual shape, making it harder to intuitively control and adjust the 
+curve. In contrast, the coefficients in the Bézier form -the control points- directly influence the 
+shape of the curve, in a visually meaningful way, making it easier to understand and manipulate 
+as shown in equation \Ref{Bezier curve} \cite{R28}. 
+
+\begin{equation}
+    C(u) = \sum_{i=0}^{n} B_{i,n}(u) \mathbf{P}_i \quad \text{with } 0 \leq u \leq 1 \label{Bezier curve}
+\end{equation}
+
+The basis function \( B_{i,n}(u) \) is called the Bernstein polynomial of degree \( n \) and follows the equation
+
+\begin{equation}
+    B_{i,n}(u) = \frac{n!}{i!(n - i)!} \cdot u^i \cdot (1 - u)^{n - i} \label{}
+\end{equation}
+
+In this context, the Bernstein polynomial is a fundamental component. 
+The basis function \( B_{i,n}(u) \) is used to determine how much influence each control 
+point \( \mathbf{P}_i \) has on the shape of the Bézier curve.
+
+The geometric coefficients \( \mathbf{P}_i \) are known as control points, and they define 
+the shape of the polynomial curve. In many applications, such as mapping trajectories, 
+a large number of control points is needed \cite{R28}.
+Furthermore, in the Bézier form, the continuity of the curve depends on the placement of 
+control points. This means if you want to change the shape of part of the curve while keeping 
+the rest smooth, you can't easily do so because changing one part affects the whole curve \cite{R29}.
+
+Instead, a more effective curve representation can be expressed as:
+
+\begin{equation}
+    C(u) = \sum_{i=0}^{n} N_i(u) \mathbf{P}_i
+\end{equation}
+
+where:
+\begin{itemize}
+    \item \( \mathbf{P}_i \): the control points
+    \item \( N_i(u) \): the piecewise polynomial functions
+\end{itemize}
+The continuity of the curve is determined by these basis functions, allowing for flexible modification of 
+control points without affecting the curve's smoothness \cite{R29}.
+
+The basis functions for B-splines are defined recursively. For a given degree \( p \) and a set of non-decreasing knot values 
+\( \{ u_i \} \), the basis functions \( N_{i,p}(u) \) can be defined as:
+
+\begin{equation}
+    N_{i,0}(u) = 
+\begin{cases} 
+1 & \text{if } u_i \leq u < u_{i+1} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\begin{equation}
+N_{i,p}(u) = \frac{u - u_i}{u_{i+p} - u_i} N_{i,p-1}(u) + \frac{u_{i+p+1} - u}{u_{i+p+1} - u_{i+1}} N_{i+1,p-1}(u)
+\end{equation}
+
+
+With:
+\begin{itemize}
+    \item \( u \) is the parameter along the curve.
+    \item \( u_i \) are the knot values, which divide the parameter range into intervals.
+    \item \( N_{i,p}(u) \) are the B-spline basis functions of degree \( p \).
+\end{itemize}
+
+Understanding these principles is essential as we move forward to explore the applications of splines 
+in robotics. In the next section, we will examine how these spline concepts are applied to solve 
+real-world problems in robotic path planning and motion control.
 
 \subsection{Applications in Robotics}
 
