@@ -1621,6 +1621,11 @@ INPUT ./images/Chap1/convex-hull.png
 INPUT images/Chap1/convex-hull.png
 INPUT ./images/Chap1/convex-hull.png
 INPUT ./images/Chap1/convex-hull.png
+INPUT ./images/Chap1/curvature.png
+INPUT ./images/Chap1/curvature.png
+INPUT images/Chap1/curvature.png
+INPUT ./images/Chap1/curvature.png
+INPUT ./images/Chap1/curvature.png
 INPUT ./chapters/chap2.tex
 INPUT chapters/chap2.tex
 INPUT ./chapters/chap2.tex

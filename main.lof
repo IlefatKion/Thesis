@@ -24,5 +24,6 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces NURBS spline example \newline \textbf {Green}: Control points \newline \textbf {Red}: NURBS spline\relax }}{31}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }}{32}{figure.caption.22}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Convex hull contained Spline \cite {R29}\relax }}{33}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Curvature of 3 S-shaped splines\relax }}{34}{figure.caption.24}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
