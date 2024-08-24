@@ -21,5 +21,8 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces GA Test scenarios \cite {R17}\relax }}{25}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Flowchart of the DWA \cite {R19}\relax }}{26}{figure.2.10}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Application of classic and heuristic approaches in MP \cite {R26} \newline \textbf {Dark gray:} Classic approaches \newline \textbf {Light gray:} Heuristic approaches \relax }}{27}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces NURBS spline example \newline \textbf {Green}: Control points \newline \textbf {Red}: NURBS spline\relax }}{31}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }}{32}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Convex hull contained Spline \cite {R29}\relax }}{33}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
