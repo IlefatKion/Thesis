@@ -1,16 +1,5 @@
-\chapter{Design and development of the Control Interface}
+\chapter{chapter name}
 
 \renewcommand{\chaptername}{Chapter}
 \section*{Introduction}
-In this chapter, we delve into the heart of the iHEX system's functionality – the Control Interface (CI) software which forms the cornerstone of communication and control, enabling seamless interaction between the MC and the SCs. This chapter presents the design, development, and test of the CI on both the MC and SC and the integration of both of them.
-
-\section{Control Interface (CI) on the MC}
-\subsection{Multithreaded architecture:}
-In the design of the CI on the MC, a multithreaded architecture was adopted to meet the dynamic and concurrent demands of communication, command processing, monitoring, and logging within the iHEX system. The use of multithreading was essential in ensuring a responsive and efficient operation of the control software.
-
-\subsubsection{Multithreading need}
-
-A fundamental requirement for the Control Interface is its ability to handle multiple tasks simultaneously. The MC must efficiently \textbf{manage communication with the server}, \textbf{manage communication with the SCs via CAN Bus}, \textbf{continuously monitor the health of the CAN network}, and \textbf{maintain a log of system activities}. This multifaceted demand necessitates a multithreaded approach to prevent bottlenecks and ensure timely execution.
-
-\subsubsection{The <pthread.h> library}
 

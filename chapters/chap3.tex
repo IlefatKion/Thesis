@@ -1,19 +1,6 @@
-\chapter{Design and development of Printed Circuit Boards}
+\chapter{chapter name }
 
 \renewcommand{\chaptername}{Chapter}
 
 \section*{Introduction}
-
-In Chapter 4, we dive into the essential process of creating the electronic foundation of the iHEX system—Printed Circuit Boards (PCBs). These PCBs serve as the crucial framework where all the electronic parts of the iHEX system come together, ensuring seamless communication and control. This chapter explores the design, development, and roles of four specific PCB types: Main PCB, IO PCB, LED PCB, and Dock PCB.
-
-\section{Architecture}
-
-Based on the specifications and the company needs, we designed the global hardware architecture. It is mainly composed of 4 designed PCBs:
-
-\begin{itemize}
-    \item Main PCB is the motherboard that brings the main electronic components of the SC together. Each SC is composed of one Main PCB that is connected directly to an IO PCB.
-    \item IO (Input-Output) PCB mainly ensures connectivity and interaction with the other SCs. It is connected to the Main PCB on one side. On the other side, it is connected whether to IO PCBs of other static SCs or Dock PCBs.
-    \item Dock PCB ensures the interaction and control of the iHEX mobile element newly connected. If it exists, whether in a static or mobile element, it is connected to the SC through the IO PCB.
-    \item LED PCB controls the LED strip. Each LED PCB is part of a SC. It is plugged-in directly on the Main PCB.
-\end{itemize}
 

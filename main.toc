@@ -26,15 +26,12 @@
 \contentsline {subsection}{\numberline {2.2}Applications of Splines in Robotics}{32}{subsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Trajectory Planning}{32}{subsubsection.2.2.2.1}%
 \contentsline {subsection}{\numberline {2.3}Discussion}{34}{subsection.2.2.3}%
-\contentsline {section}{\numberline {3}Metrics}{35}{section.2.3}%
+\contentsline {section}{\numberline {3}Evaluating Path Efficiency: Key Metrics}{35}{section.2.3}%
+\contentsline {subsection}{\numberline {3.1}Core Metrics for Path Evaluation}{35}{subsection.2.3.1}%
 \contentsline {section}{\numberline {4}Optimization Techniques}{35}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Design and development of the Control Interface}{37}{chapter.3}%
-\contentsline {section}{\numberline {1}Control Interface (CI) on the MC}{37}{section.3.1}%
-\contentsline {subsection}{\numberline {1.1}Multithreaded architecture:}{37}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Multithreading need}{37}{subsubsection.3.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}The <pthread.h> library}{38}{subsubsection.3.1.1.2}%
-\contentsline {chapter}{\numberline {4}Design and development of Printed Circuit Boards}{40}{chapter.4}%
-\contentsline {section}{\numberline {1}Architecture}{40}{section.4.1}%
-\contentsline {chapter}{General conclusion}{42}{chapter*.27}%
-\contentsline {chapter}{Bibliography}{43}{chapter*.28}%
-\contentsline {chapter}{Annexes}{47}{chapter*.29}%
+\contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{35}{section.2.5}%
+\contentsline {chapter}{\numberline {3}chapter name}{37}{chapter.3}%
+\contentsline {chapter}{\numberline {4}chapter name }{39}{chapter.4}%
+\contentsline {chapter}{General conclusion}{40}{chapter*.27}%
+\contentsline {chapter}{Bibliography}{41}{chapter*.28}%
+\contentsline {chapter}{Annexes}{45}{chapter*.29}%
