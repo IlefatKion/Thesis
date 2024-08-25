@@ -28,10 +28,11 @@
 \contentsline {subsection}{\numberline {2.3}Discussion}{34}{subsection.2.2.3}%
 \contentsline {section}{\numberline {3}Evaluating Path Efficiency: Key Metrics}{35}{section.2.3}%
 \contentsline {subsection}{\numberline {3.1}Core Metrics for Path Evaluation}{35}{subsection.2.3.1}%
-\contentsline {section}{\numberline {4}Optimization Techniques}{36}{section.2.4}%
-\contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{36}{section.2.5}%
-\contentsline {chapter}{\numberline {3}chapter name}{38}{chapter.3}%
-\contentsline {chapter}{\numberline {4}chapter name }{40}{chapter.4}%
-\contentsline {chapter}{General conclusion}{41}{chapter*.27}%
-\contentsline {chapter}{Bibliography}{42}{chapter*.28}%
-\contentsline {chapter}{Annexes}{46}{chapter*.29}%
+\contentsline {subsection}{\numberline {3.2}Combinations of single metrics}{37}{subsection.2.3.2}%
+\contentsline {section}{\numberline {4}Heuristic Approaches to Path Optimization in Robotics}{38}{section.2.4}%
+\contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{38}{section.2.5}%
+\contentsline {chapter}{\numberline {3}chapter name}{40}{chapter.3}%
+\contentsline {chapter}{\numberline {4}chapter name }{42}{chapter.4}%
+\contentsline {chapter}{General conclusion}{43}{chapter*.27}%
+\contentsline {chapter}{Bibliography}{44}{chapter*.28}%
+\contentsline {chapter}{Annexes}{48}{chapter*.29}%

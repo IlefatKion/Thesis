@@ -733,7 +733,7 @@ where robots often work in busy environments with other machines and human worke
 paths also minimize the risk of accidents and product damage. Overall, ensuring path 
 smoothness helps robots operate more reliably and effectively, leading to faster and 
 more accurate material handling. Path smoothness reflects less cusps -sharp turns- and generally
-less overall curvature which allows for smooth driving and smaller scale steering.
+less curvature which allows for smooth driving and smaller scale steering.
 Curvature of a circle at a point \(x(t)\) is defined according to Gary D. Knott, in his book 
 "Interpolating Cubic Splines" \cite{R34}, as the reciprocal of the radius at the same point as shown in
 equation \Ref{kurv}.
@@ -752,7 +752,7 @@ For a cubic spline \( y = f(x) \), the curvature \( \kappa \) at a point \( x \)
 The unsigned curvature indicating whether the curve is concave or convexe is given by:
 \begin{equation}
     \kappa = \frac{f''(x)}{\left(1 + \left(f'(x)\right)^2\right)^{3/2}}
-    \end{equation}
+\end{equation}
 
 Heiden, E et al. \cite{R23}, also relied on curvature to determine path quality. They used it along 
 path length and tracked it for the different scenarios and algorithms to measure their effectiveness.
@@ -761,15 +761,59 @@ motion planning algorithms\cite{R35}.
 Although the above-mentioned sources used the metrics to evaluate their optimized solutions,
 they did not mention the techniques  followed to measure the metrics.
 
+Path clearance is another significant metric used to evaluate how well a robot can safely navigate 
+its environment. It measures the distance between the robot's position along the path and any obstacles 
+it might encounter. A larger path clearance means the robot has more space around it, reducing the risk 
+of collisions and making the path safer. This metric is especially useful when optimizing paths, as it 
+helps ensure that the robot can move smoothly without bumping into objects or other robots. 
+Elshamli, A. et al. \cite{R17} have used path clearance as one of the indicators of path feasibility.
+Clearance is measured as follows in \Ref{clear}:
 
+\begin{equation}
+    \sum_{i=1}^{n-2} \exp\left(a \cdot (g_i - \tau)\right)
+    \label{clear}
+\end{equation}
 
-Computation time
-Path clearance
-How to combine?
-Have to have simple approach: mention the other possible metrics and who used them 
+where \(g_i\) is the shortest distance from the \(i^{\text{th}}\) discrete position of the 
+robot to the surrounding obstacles, and \(\tau\) is the desired clearance distance that 
+guarantees safety. By focusing 
+on path clearance, we can design routes that not only get the robot from one point to another efficiently 
+but also do so in a way that minimizes risks and improves overall safety.
 
+\subsection{Combinations of single metrics}
 
-\section{Optimization Techniques}
+Some applications focus solely on minimizing path length. They use this single value as the 
+metric for evaluating and distinguishing path solutions or for optimization. However, other 
+applications require the combination of several metrics. This combination invites us to look 
+at possible ways to blend the measured value into one significant value that reflects path quality.
+Elshamli, A. et al. \cite{R17} used a weighted sum of the Distance between two nodes, or two waypoints,
+Path smoothness, and clearance as given by \Ref{evaluation}. 
+
+\begin{equation}
+    \text{eval}(p) = w_d \cdot \text{dist}(p) + w_s \cdot \text{smooth}(p) + w_c \cdot \text{clear}(p)
+    \label{evaluation}
+\end{equation}
+The outcome of this evaluation function of each path is used as the fitness function for that path.
+The fitness of each path serves later the evolution of the genetic algorithm.
+
+Zhang B et al. \cite{R36}, deployed a nonlinear optimization problem that integrates path length and 
+curvature variation over a spline-based path. The problem is constrained by the curvature limits, the 
+parametrized location of the spline's control points, and the distance to obstacles.
+
+Combining metrics for path evaluation should be done with a simple approach. It is advisable to limit 
+the number of combined metrics to 2 or 3. Using more metrics can make the optimization process complex 
+and slow, as the optimizer has to handle more variables. Additionally, with too many metrics, it becomes 
+challenging to understand how each one influences the results. By keeping the metrics to a 
+manageable number, we ensure that the optimization remains efficient and the impact of each metric 
+is clear and easy to interpret. 
+Using a more metrics like computational time, number of cusps or direction changes, solvability percentage
+or predicted speed or travel time can be efficient for evaluating path planning algorithms and benchmarking some
+usecases as in \cite{R23}.
+
+\newpage
+
+\section{Heuristic Approaches to Path Optimization in Robotics}
+papers that suggest heuristic methods prevail classic ones: challenges paper
 \section{Predictability in intralogistics: why is it important?}
 
 
