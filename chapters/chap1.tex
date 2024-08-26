@@ -816,6 +816,8 @@ usecases as in \cite{R23}.
 %intro
 This section will focus on the Application of heuristic algorithms for solving robotic path planning 
 problematics. 
+
+\subsection{}
 Optimization refers to the decision making led by the machine with availability of certain circumstances and constraints
 thet either help or limit the outcomes of the optimizer \cite{R37}. In the case of path planning, optimization aims
 to modify some properties of the generated solutions to cope with the surrounding conditions.
@@ -855,25 +857,22 @@ as given by the tree graph in Figure \ref{Tree}
 \end{figure}
 
 The Neighborhood-based algorithms benefit from the neighboring solutions by migrating from the current solution to 
-the near surrounding solutions with the goal of improving the fitness function.
-The Population-based algorithms are methods that start from a populations and rely on their evolutions. 
-They are inspired by the evolutionary processes observed in nature and are sub-categorized in this approach under Swarm intelligence 
-and Evolutionary Algorithms. 
+the near surrounding solutions with the goal of improving the fitness function. The examples mentioned for this 
+approach are Simulated Annealing (1979) and Tabu Search (1989).
+The Population-based algorithms are methods that start from a sample population and rely on their evolutions. 
+They are inspired by the evolutionary processes observed in nature and are sub-categorized in this approach under 
+Swarm intelligence and Evolutionary Algorithms. 
+Swarm Intelligence approaches are analogous to the socio-cooperative practices of species like bees, ants, and birds. 
+For instance, Ant Colony Optimization (2006), Particle Swarm Optimization (1995), and Artificial Bee Colony Optimization (2007)
+are examples of such algorithms. 
+On the other hand, Evolutionary algorithms rather copy the species evolution theory, among which are Differential Evolution (1995) 
+and Genetic Algorithm (1957) \cite{R37}.
+
+\subsection{Application of Heuristic Optimization in Robotic Path Planning}
+The above-mentioned algorithms were applied to robotic path planning in several occasions that the literature attests of.
+Each with unique search mechanisms and strengths, offer different advantages and optimization areas. 
 
 
-Definition and Characteristics: Define heuristic optimization algorithms and discuss their general characteristics (e.g., problem-solving approach, 
-efficiency, adaptability).
-Commonly Used Heuristic Algorithms: Provide a brief overview of popular heuristic optimization algorithms used in path planning:
-Genetic Algorithms (GA)
-Simulated Annealing (SA)
-Particle Swarm Optimization (PSO)
-Ant Colony Optimization (ACO)
-Diff Evolution
-%Application of Heuristic Optimization in Robotic Path Planning
-Algorithm-Specific Applications: Discuss how each of the mentioned algorithms is applied to robotic path planning, including specific examples or case studies.
-Genetic Algorithms: How GAs evolve solutions over generations to find optimal or near-optimal paths.
-Particle Swarm Optimization: Swarm intelligence and how it helps in optimizing paths in dynamic environments.
-Ant Colony Optimization: The analogy to real-world ant behavior and its application in finding the shortest paths.
 
 %advantages & limitations in discussion:
 Comparative Analysis: Compare the effectiveness of these algorithms in different scenarios (e.g., static vs. dynamic environments, known vs. unknown environments).
