@@ -321,7 +321,7 @@ Unlike NN and FL, that rely on data as input to generate decisions, meta-heurist
 space by evolving random solutions for the problem and optimizing them by rounds until a stopping criterion or set
 of criteria is satisfied (see more in section ...: Optimization Algorithms).
 Approaches like Genetic Algorithms (GA) have been used for path planning by Ahmed Elshamli et al. \cite{R17}. The The robusteness of their 
-solution is the adaption of the solution to dynamic environments. They evolve their GA using variable size chromosomes, where each node 
+solution is its adaption to dynamic environments. They evolve their GA using variable size chromosomes, where each node 
 represents a waypoint of the path, then they measure the quality of each path using an evaluation function. A modified Genetic Approach is then 
 applied to each population: Crossover, mutation, \textbf{Repair} infeasible paths, \textbf{Shorten}, then \textbf{Smoothen} 
 feasible paths while dynamically checking for new obstacles.
@@ -813,9 +813,74 @@ usecases as in \cite{R23}.
 \newpage
 
 \section{Heuristic Approaches to Path Optimization in Robotics}
-papers that suggest heuristic methods prevail classic ones: challenges paper
-\section{Predictability in intralogistics: why is it important?}
+%intro
+This section will focus on the Application of heuristic algorithms for solving robotic path planning 
+problematics. 
+Optimization refers to the decision making led by the machine with availability of certain circumstances and constraints
+thet either help or limit the outcomes of the optimizer \cite{R37}. In the case of path planning, optimization aims
+to modify some properties of the generated solutions to cope with the surrounding conditions.
+In stochastic environments, it is challenging to plan feasible paths.
+The increase in the complexity of the environment and the constant dynamics increase the number of variables involved 
+in the mathematical representation of the problem. As a consequence, it raises the computation efforts that need to be 
+deployed for the creation and optimization of the solution and decreases feasibility \cite{R7}.
+The integration of an optimizer that takes charge of the solution and fits it into the constraints that bound it is necssary.
+In order to get optimal results like smooth and short paths, finding a feasible path is not enough. The evaluation 
+of the generated path and the optimization are helpful to ensure that the robot is driving the optimal path.
+There exists a range of planners and optimizers which are clustered as classic and Heuristic approaches \cite{R12}.
+Classic approaches include \textbf{Analytical} and \textbf{Enumerative} methods. 
+The former rely on mathematical modeling, which can become increasingly complex as the navigation environment becomes more 
+cluttered. Additionally, applying these models can be challenging in scenarios where the necessary models for different 
+components are not readily available. The latter have the drawback of increased intricacy in bigger or more elaborate 
+search spaces. On the other hand, Heuristic approaches can be sub-categorized into \textbf{Meta-Heuristic} and \textbf{Evolutionary algorithms}.
+Some of these methods can fall in the trap of local minima and sub-optimality \cite{R12}
+Alternatively, sebsequent to a review of the available planning and control approaches in intralogistics, Fragapane, G. et al. \cite{R7}, 
+concluded that nature-inspired algorithms can instill intelligence into planned paths.
 
+
+\subsection{Heuristic Optimization Algorithms : An Overview}
+In this section, we will dive into Meta-Heuristics which are defined by Bilal et al. as 'the optimization
+techniques mainly based on function evaluation and make little
+or no use of the properties of objective functions and constraints.
+Meta-heuristics are thus problem independent techniques not taking
+advantage of any specificity of the problem’ in their review \cite{R37}.
+The authors later break down Meta-Heuristics into \textbf{Neighborhood-based Algorithms} and \textbf{Population-based Algorithms}
+as given by the tree graph in Figure \ref{Tree}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap1/Tree_Metaheuristic.png}\\
+        \caption{Tree of Meta-Heuristic Algorithms \cite{R37}}
+        \label{Tree}
+    \end{center}
+\end{figure}
+
+The Neighborhood-based algorithms benefit from the neighboring solutions by migrating from the current solution to 
+the near surrounding solutions with the goal of improving the fitness function.
+The Population-based algorithms are methods that start from a populations and rely on their evolutions. 
+They are inspired by the evolutionary processes observed in nature and are sub-categorized in this approach under Swarm intelligence 
+and Evolutionary Algorithms. 
+
+
+Definition and Characteristics: Define heuristic optimization algorithms and discuss their general characteristics (e.g., problem-solving approach, 
+efficiency, adaptability).
+Commonly Used Heuristic Algorithms: Provide a brief overview of popular heuristic optimization algorithms used in path planning:
+Genetic Algorithms (GA)
+Simulated Annealing (SA)
+Particle Swarm Optimization (PSO)
+Ant Colony Optimization (ACO)
+Diff Evolution
+%Application of Heuristic Optimization in Robotic Path Planning
+Algorithm-Specific Applications: Discuss how each of the mentioned algorithms is applied to robotic path planning, including specific examples or case studies.
+Genetic Algorithms: How GAs evolve solutions over generations to find optimal or near-optimal paths.
+Particle Swarm Optimization: Swarm intelligence and how it helps in optimizing paths in dynamic environments.
+Ant Colony Optimization: The analogy to real-world ant behavior and its application in finding the shortest paths.
+
+%advantages & limitations in discussion:
+Comparative Analysis: Compare the effectiveness of these algorithms in different scenarios (e.g., static vs. dynamic environments, known vs. unknown environments).
+
+
+\section{Predictability in intralogistics: why is it important?}
+\section{Summary and Discussion}
 
 
 
