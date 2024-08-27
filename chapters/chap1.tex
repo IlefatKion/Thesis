@@ -867,8 +867,7 @@ approach are Simulated Annealing (1979) and Tabu Search (1989). The Population-b
 They are inspired by the evolutionary processes observed in nature and are sub-categorized in this approach under 
 Swarm intelligence and Evolutionary Algorithms. 
 Swarm Intelligence approaches are analogous to the socio-cooperative practices of species like bees, ants, and birds. 
-For instance, Ant Colony Optimization (2006), Particle Swarm Optimization (1995), and Artificial Bee Colony Optimization 
-(2007) are examples of such algorithms. 
+For instance, Ant Colony Optimization (1992)and Particle Swarm Optimization (1995) are examples of such algorithms. 
 On the other hand, Evolutionary algorithms rather copy the species evolution theory, among which are Differential 
 Evolution (1995) and Genetic Algorithm (1957) \cite{R37}.
 
@@ -927,7 +926,7 @@ as its personal best (pbest). Additionally, the algorithm tracks the best soluti
 the global best (gbest). The core idea of PSO is to guide each particle towards both its pbest and the gbest positions:
 from state a to c as given by figure \Ref{pso}, 
 using a randomly weighted acceleration during each iteration. The algorithm iteratively updates the particles' positions 
-and velocities until an optimal or near-optimal solution is found. 
+and velocities until an optimal or near-optimal solution is found.
 Alaliyat, S. et al. have investigated dynamic environment navigation using PSO. They found out that the performance 
 of the algorithm depends on parameters tuning. Overall, feasible paths were successfully generated.
 Planning time is rather high for simply organized environments (18.35s) and higher for the most complicated scenario
@@ -941,12 +940,47 @@ Planning time is rather high for simply organized environments (18.35s) and high
     \end{center}
 \end{figure}
 
-Another
+Defferential Evolution (DE) has been used in a hybrid algorithm along with PSO by Tand, B. et al. \cite{R43} to leverage 
+both of the algorithms benefits. DE is rarely solely applied to path planning problems. In their review \cite{R37}
+, of 20 years of research about DE, Bilal et al. did not mention robotics among the fields of application of DE. 
+DE starts with a set of potential solutions. Each solution, or individual, is modified 
+through mutation, crossover, and selection to improve over time. Mutation introduces random changes to create new 
+candidates and avoid getting stuck in local optima. Crossover mixes parts of the new candidates with the original 
+solutions to explore new possibilities. The selection process keeps only the better solutions for the next generation. 
+This method effectively balances exploring new options and refining existing ones, making DE well-suited for complex 
+optimization tasks.
+By integrating improved PSO and DE algorithms for enhancing particle diversity, Tand, B. et al. achieved better 
+path quality compared to other methods. The results demonstrate that their approach outperforms traditional 
+evolutionary algorithms in path optimality an optimize computation times by 1.38\% \cite{R43}. 
+
+Ant Colony Optimization (ACO) is known for being robust and good at parallel processing, but it can be slow and 
+sometimes gets stuck in local optima solutions. To fix this, improvements like Ant Colony System (ACS) 
+and Max-Min Ant System (MMAS) have been developed, which make ACO better at finding solutions but still have 
+issues like being too rigid and converging too early. In mobile robot path planning, new strategies have been 
+created to address these problems, such as adaptive methods that improve how pheromones are updated and balance 
+exploration with finding the best path. Recent research has also introduced advanced versions like polymorphic 
+ACO and multi-objective optimization, making ACO more effective for real-time and complex situations. However, 
+these improvements also make the algorithm more complex and take more time to compute.
 
 %advantages & limitations in discussion:
-Although Genetic Algorithms integration in robotic path planning mafamech fel intralogistics very limited
-2 major drawbacks no tests in real environments and no rationalization of obstacles: big par rapport robot, 
-irrealistic shapes ...
+
+Meta-heuristic algorithms, such as Genetic Algorithms (GA), Particle Swarm Optimization (PSO), and Differential 
+Evolution (DE), have become increasingly popular in robotic path planning. These algorithms are attractive because 
+they can find good solutions to complex problems by mimicking natural processes like evolution or swarming behavior.
+However, despite their growing use in research and their potential efficiency in practical usecases, the application 
+of meta-heuristic algorithms in real-world robotic path planning like the intralogistics field remains quite limited. 
+One of the major issues is that most studies focus on simulations rather than 
+testing in real environments. While simulations can help develop and adjust these algorithms, they do not fully 
+cover the challenges robots face in the real world, such as varying conditions, surface types, or unexpected 
+noises. Another major issue is how obstacles are represented in these studies. Often, obstacles are either unrealistically 
+large compared to the robot or have overly simple shapes that don’t accurately reflect real-world conditions. This 
+lack of realism can result in algorithms that work well in simulations but fail when used in real environments. Additionally, 
+because these algorithms are mostly tested in controlled, simulated settings, they may be too finely 
+tuned to those specific conditions. This can make them less reliable when applied to the unpredictable conditions 
+of the real world. In summary, while meta-heuristic algorithms show promise for robotic path planning, more real-world 
+testing and realistic obstacle modeling are needed to ensure they work effectively in practical situations. 
+Addressing these issues is key to advancing the use of robotics in intralogistics and other fields.
+
 \section{Predictability in intralogistics: why is it important?}
 \section{Summary and Discussion}
 

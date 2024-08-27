@@ -33,10 +33,10 @@
 \contentsline {subsection}{\numberline {4.1}}{38}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {4.2}Heuristic Optimization Algorithms : An Overview}{39}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {4.3}Application of Heuristic Optimization in Robotic Path Planning}{40}{subsection.2.4.3}%
-\contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{42}{section.2.5}%
-\contentsline {section}{\numberline {6}Summary and Discussion}{42}{section.2.6}%
-\contentsline {chapter}{\numberline {3}chapter name}{44}{chapter.3}%
-\contentsline {chapter}{\numberline {4}chapter name }{46}{chapter.4}%
-\contentsline {chapter}{General conclusion}{47}{chapter*.31}%
-\contentsline {chapter}{Bibliography}{48}{chapter*.32}%
-\contentsline {chapter}{Annexes}{52}{chapter*.33}%
+\contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{43}{section.2.5}%
+\contentsline {section}{\numberline {6}Summary and Discussion}{43}{section.2.6}%
+\contentsline {chapter}{\numberline {3}chapter name}{45}{chapter.3}%
+\contentsline {chapter}{\numberline {4}chapter name }{47}{chapter.4}%
+\contentsline {chapter}{General conclusion}{48}{chapter*.31}%
+\contentsline {chapter}{Bibliography}{49}{chapter*.32}%
+\contentsline {chapter}{Annexes}{53}{chapter*.33}%
