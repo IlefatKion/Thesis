@@ -980,12 +980,53 @@ tuned to those specific conditions. This can make them less reliable when applie
 of the real world. In summary, while meta-heuristic algorithms show promise for robotic path planning, more real-world 
 testing and realistic obstacle modeling are needed to ensure they work effectively in practical situations. 
 Addressing these issues is key to advancing the use of robotics in intralogistics and other fields.
-
+\newpage
 \section{Predictability in intralogistics: why is it important?}
 \section{Summary and Discussion}
+To synthesize the research conducted, it is paramount to summarize the key concepts comprehensively. This 
+State of the Art report focuses on mobile robot path planning, a critical component of the overall 
+robotic planning process. Effective path planning not only organizes and optimizes a robot's navigation 
+but also significantly enhances its productivity by enabling it to execute missions more efficiently. 
+In dynamic environments, a well-designed path planner is essential for ensuring safe operations and 
+maximizing the robot's resource utilization and operational capacities. Moreover, Spline-based path planning represents a cutting-edge approach to achieving smooth and safe 
+robot motion. This technique is particularly vital for managing heavy autonomous robots, such as 
+forklifts, that handle sensitive materials and must operate with precision and stability. By utilizing 
+constrained splines, it is possible to control various motion properties, including steering and 
+the handling of abrupt turns, thereby reducing wear and tear on the robot and extending its operational 
+lifespan. Nevertheless, there has to be a mean of quantifying the path qualities in order to test the 
+performance of the used approach and to compare different approaches. This tool must be based on the 
+properties of the path itself like length, direction changes, and clearance to obstacles.
+These information are useful in a later stage to optimize the paths by optimizing the supervised 
+properties of the paths. 
 
+Meta-heuristic optimization algorithms are highly effective for refining mobile robot paths, particularly 
+when building routes from scratch while considering both static and dynamic obstacles.
+They also have the capability to solve problems without information about their mathematical model.
+This has the great advantage of reducing the burden of expliciting the situation in order to solve it especially 
+in complex cases where the effort to model the problem and the contsraints is higher and, later, the computation 
+is harder. Instead, meta-heuristic algorithms focus on optimizing the fitness function related to the specific 
+usecase. However, these algorithms are 
+also computationally demanding due to their iterative nature, which involves repeatedly constructing and refining the path 
+segments from the starting point to the end goal. Previously reviewed literature reveals that these algorithms often 
+require significant computation 
+time, which is acceptable in simulation environments but problematic in real-world applications. In a dynamic warehouse 
+setting, blocking the area for extended periods to perform path planning is impractical. Such delays can disrupt 
+warehouse operations, interfere with other vehicles and personnel, decrease overall productivity, and lead to 
+increased time and energy costs. In addition the applications of meta-heuristic optimization approaches to robotics
+in the intralogistics field is limited to mission scheduling and rarely tackles path planning problems.
 
+Furthermore, the classical and the heuristic approaches are capable of creating new different paths every time the 
+algorithms are ran even in the same environment setting. While this phenomenon proves of the intelligence of the algorithms
+and the availability of several optimal paths, it makes the fully automated robot's behavior non-repeatable and unexplainable. 
+For humans, it is difficult to foresee the behavior if many options are available. However, it is important for those working 
+closely to robots to have an expectation of their behavior. It enables them to avoid collision risks and injuries and to 
+plan their actions accordingly. If a predictable vehicle behavior is available, it promises a structured approach to path 
+generation, reducing computational complexity and improving path quality.
 
+Combining an optimal path planning approach that accomodates the kinematic constraints of Autonomous forklifts in the
+intralogistics environment and generates smooth paths, is behaviorally explainable and deploys meta-heuristic Algorithms
+is a new approach that would have an added value to mobile robot path planning in Intralogistics of reducing 
+computation time and travel distance and improving AI driven solutions explainability. 
 
 
 
