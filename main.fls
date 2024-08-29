@@ -1675,6 +1675,16 @@ INPUT ./chapters/chap2.tex
 INPUT chapters/chap2.tex
 INPUT ./chapters/chap2.tex
 INPUT chapters/chap2.tex
+INPUT ./images/Chap2/perpendicular-parking-a-lot-scaled.jpg
+INPUT ./images/Chap2/perpendicular-parking-a-lot-scaled.jpg
+INPUT images/Chap2/perpendicular-parking-a-lot-scaled.jpg
+INPUT ./images/Chap2/perpendicular-parking-a-lot-scaled.jpg
+INPUT ./images/Chap2/perpendicular-parking-a-lot-scaled.jpg
+INPUT ./images/Chap2/station-without-subpolygones.png
+INPUT ./images/Chap2/station-without-subpolygones.png
+INPUT images/Chap2/station-without-subpolygones.png
+INPUT ./images/Chap2/station-without-subpolygones.png
+INPUT ./images/Chap2/station-without-subpolygones.png
 INPUT ./chapters/chap3.tex
 INPUT chapters/chap3.tex
 INPUT ./chapters/chap3.tex

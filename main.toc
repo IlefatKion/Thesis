@@ -36,7 +36,8 @@
 \contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{43}{section.2.5}%
 \contentsline {section}{\numberline {6}Summary and Discussion}{43}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Methodology \& Implementation}{46}{chapter.3}%
-\contentsline {chapter}{\numberline {4}chapter name }{48}{chapter.4}%
-\contentsline {chapter}{General conclusion}{49}{chapter*.31}%
-\contentsline {chapter}{Bibliography}{50}{chapter*.32}%
-\contentsline {chapter}{Annexes}{54}{chapter*.33}%
+\contentsline {section}{\numberline {1}Methodology }{46}{section.3.1}%
+\contentsline {chapter}{\numberline {4}chapter name }{50}{chapter.4}%
+\contentsline {chapter}{General conclusion}{51}{chapter*.33}%
+\contentsline {chapter}{Bibliography}{52}{chapter*.34}%
+\contentsline {chapter}{Annexes}{56}{chapter*.35}%
