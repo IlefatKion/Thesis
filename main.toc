@@ -35,9 +35,12 @@
 \contentsline {subsection}{\numberline {4.3}Application of Heuristic Optimization in Robotic Path Planning}{39}{subsection.2.4.3}%
 \contentsline {section}{\numberline {5}Predictability in intralogistics: why is it important?}{43}{section.2.5}%
 \contentsline {section}{\numberline {6}Summary and Discussion}{43}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Methodology \& Implementation}{46}{chapter.3}%
-\contentsline {section}{\numberline {1}Methodology }{46}{section.3.1}%
-\contentsline {chapter}{\numberline {4}chapter name }{51}{chapter.4}%
-\contentsline {chapter}{General conclusion}{52}{chapter*.35}%
-\contentsline {chapter}{Bibliography}{53}{chapter*.36}%
-\contentsline {chapter}{Annexes}{57}{chapter*.37}%
+\contentsline {chapter}{\numberline {3}Discussion of the problem and the proposed solution }{46}{chapter.3}%
+\contentsline {section}{\numberline {1}Conceptual Framework}{46}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Choice of Methodology}{46}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {1.2}Goal Setting and Work Structure}{48}{subsection.3.1.2}%
+\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{48}{section.3.2}%
+\contentsline {chapter}{\numberline {4}chapter name }{53}{chapter.4}%
+\contentsline {chapter}{General conclusion}{54}{chapter*.35}%
+\contentsline {chapter}{Bibliography}{55}{chapter*.36}%
+\contentsline {chapter}{Annexes}{59}{chapter*.37}%

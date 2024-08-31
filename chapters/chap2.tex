@@ -1,4 +1,6 @@
-\chapter{Methodology \& Implementation}
+\chapter{Discussion of the problem and the
+proposed solution
+}
 
 \renewcommand{\chaptername}{Chapter}
 \section*{Introduction}
@@ -10,10 +12,54 @@ an overview of the design structure, followed by a clear explanation of the step
 smooth and accurate movement toward the pallet. Implementation details are then covered, showing how the system 
 components are integrated into a cohesive solution for precise pallet access within the warehouse environment.
 
-\section{Methodology }
+\section{Conceptual Framework}
+\subsection{Choice of Methodology}
+Based on the State of the Art (Chapter 2), we discussed that classic and heuristic approaches have some drawbacks, 
+such as complexity and long planning times. These approaches are typically designed to solve path planning problems 
+in various environments and have been used in multiple applications.However, in our case, the robot operates in a 
+consistent environment—the station. Although stations may differ in 
+position, size, and layout, the components within them remain the same: shelves containing pallets. 
+This consistency suggests that we should 
+develop a solution specifically tailored to the station environment, which would help minimize potential problems 
+and reduce the effort required to solve them. A path planning module has already been developed for the autonomous 
+forklift trucks, utilizing classic sampling-based path planning methods. This module is based on the Open Motion 
+Planning Library (OMPL), an open-source library for motion planning in robotics. OMPL is designed for complex use 
+cases and includes several algorithms, such as probabilistic roadmaps (PRM) and rapidly-exploring random trees 
+(RRT), along with their variants. OMPL performs well in clean environments without obstacles, with a minimum 
+processing time of 150 ms, but in complex environments, processing time can increase to 2 seconds.
+While it can be very fast in the abscence of obstacles this approach presents some limitations:
+\begin{itemize}
+    \item Not Station-Specific: OMPL is built to fit many different environments, so it is not naturally designed 
+    for the station-related pickup/drop operations.
+
+    \item Too Complex for Simple Tasks: OMPL includes advanced algorithms that are more powerful than necessary 
+    for straightforward tasks like picking up and dropping off pallets.
+    
+    \item Longer Processing Times: OMPL can take longer to process in complex situations. 
+\end{itemize}
+
+Considering these limitations of OMPL, it is important to develop a simpler, station-based approach. 
+This new method should be specifically tailored to the consistent environment of the 
+station, allowing for quicker and more efficient path planning. By focusing on the typical tasks of pallet 
+pickup and drop-off, we can create a solution that works effectively in simple and moderately complex 
+situations, reducing processing time and resource usage. This approach would serve as the primary option 
+for linking the robot in the station to the pallet. In case of very complex environments and failure,
+the OMPL based approach becomes the secondary option. 
+
+As highlighted in Section 2.4, Meta-heuristic approaches, while powerful for solving complex problems, often require 
+significant computational time. However, this time can be greatly reduced by 
+optimizing the way these methods are applied. For example, instead of generating a path entirely from scratch, 
+we can start with a pre-built or partially constructed path, which already provides a solid foundation. 
+Additionally, reducing the number of waypoints in the path can streamline the computation, allowing the 
+algorithm to focus on refining an already good solution rather than calculating every detail from the 
+ground up. This approach maintains the strength of meta-heuristics while significantly speeding up the 
+planning process, making it more practical for real-time or near-real-time applications.
+
+
+\subsection{Goal Setting and Work Structure}
 %goals and overall approach of the methodology
-Considered the problems detailed in chapter 1, the following goals were identified based on the company's vision and the 
-general requirements for applications to autonomous mobile robots in intralogistics:
+Considered the problems detailed in chapter 1 and the previous conclusions, the following goals were identified 
+based on the company's vision and the general requirements for applications to autonomous mobile robots in intralogistics:
 \begin{itemize}
     \item \textbf{Predictability and Robustness of Mobile Robot Behavior: }The solution utilizes an intelligent approach to connect 
     the robot to its destination. The developed algorithm generates an explainable navigation process that enables humans 
@@ -35,6 +81,12 @@ general requirements for applications to autonomous mobile robots in intralogist
 
 \end{itemize}
 
+The following sections will detail the chosen methodological approach. Then, the implementation steps are 
+explicited and demonstrated from the simulation point of view. Finally, the tests results are explained 
+and discussed and the outlooks are elaborated. 
+
+\section{Methodology and Design of the Solution}
+
 Starting with the operating environment, the stations, the focus was on the problems inside. The issue of linking 
 the forklifts in the near-field to the pallet is nothing but new to the intralogistics sector. 
 The process is repeated dozens of times daily inside warehouses and factories where forklift drivers take control over 
@@ -46,13 +98,6 @@ enough space for direction changing. To do so, he drives further to the opposite
 the car to comfortably and smoothly drive to its parking place.
 Parking assistance feature is embedded in human-driven and driverless cars to instill safety and order.
 
-Analogically, after the truck arrives in the station, the drivers would drive and steer in the opposite direction of the 
-pallet, until the forks are in a position to allow the truck to easily and correctfully drive to the pallet in fork direction.
-The goal here is to develop a pallet-linking assistance algorithm to facilitate the driving and pallet pickup process for 
-autonomous forklifts as given by figure \ref{pattern}. The truck would autonomously plan the path to its destination
-based on the pattern and on the environment settings that it would navigate in. 
-%TODO: explain predictability
-
 \begin{figure}
     [H]
     \begin{center}
@@ -61,6 +106,17 @@ based on the pattern and on the environment settings that it would navigate in.
     \label{Parking Styles}
     \end{center}
 \end{figure}
+
+Analogically, after the truck arrives in the station, the drivers would drive and steer in the opposite direction of the 
+pallet, until the forks are in a position to allow the truck to easily and correctfully drive to the pallet in fork direction.
+The goal here is to develop a pallet-linking algorithm to automate the driving to the pallet pickup location for 
+autonomous forklifts as given by figure \ref{pattern}. The truck would autonomously plan the path to its destination
+based on the pattern and on the environment settings that it would navigate in. 
+The pattern enhances the explainability in the forklifts behavior. Explainability allows for more order in the warehouse: 
+it simplifies the coordination of safe simultaneous tasks around the truck. This is achieved through the design of an 
+algorithm that aims to create a transparent navigation process, making it easier for humans to understand and trust 
+the technology. Additionally, the approach is intended to ensure secure and reliable decision-making for autonomous trucks.
+
 
 
 \begin{figure}
@@ -87,8 +143,13 @@ From now on, the following definitions of driving directions will be used as gve
 \end{figure} 
  
 The following transition method is suggested: once the truck docks the station, it has the option to transition and change 
-direction on the sides of the station. First, it drives to the transition position, then, to the pallet or the drop-off position
-as given by figure \Ref{subpolygones}. Having two possibilities for transition zones allows for more flexibility
+direction on the sides of the shelf placed inside the station. First, it drives to the transition position, then, to the 
+pallet or the drop-off position as given by figure \Ref{subpolygones}. Having two possibilities for transition zones allows 
+for more flexibility: 
+in case one area is unreachable or presents obstacles, the second one can be used. They present free areas 
+inside the stations where less obstacles and dynamics are expected. In addition the geometric solution is scalable to 
+any station whose properties are explicited. This makes the overall solution and the autonomous forklifts simple to
+commission in new warehouses.
 
 \begin{figure}
     [H]
@@ -99,4 +160,14 @@ as given by figure \Ref{subpolygones}. Having two possibilities for transition z
     \end{center}
 \end{figure}
 
+Write about:
+ optimization method
+ splines interpolation 
+ obstacles 
 
+summarize with psudeo code or flowchart:
+    How to reach the pallet? Pre-defined path: pattern based path
+    Where to transition? Polygones
+    How to optimize transition path? meta-heuristic
+    How to create the path? interpolate waypoints using splines
+    Obstacles? splines + meta-heuristic
