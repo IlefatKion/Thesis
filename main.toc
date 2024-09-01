@@ -39,8 +39,8 @@
 \contentsline {section}{\numberline {1}Conceptual Framework}{46}{section.3.1}%
 \contentsline {subsection}{\numberline {1.1}Choice of Methodology}{46}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {1.2}Goal Setting and Work Structure}{48}{subsection.3.1.2}%
-\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{48}{section.3.2}%
-\contentsline {chapter}{\numberline {4}chapter name }{53}{chapter.4}%
-\contentsline {chapter}{General conclusion}{54}{chapter*.35}%
-\contentsline {chapter}{Bibliography}{55}{chapter*.36}%
-\contentsline {chapter}{Annexes}{59}{chapter*.37}%
+\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{49}{section.3.2}%
+\contentsline {chapter}{\numberline {4}chapter name }{55}{chapter.4}%
+\contentsline {chapter}{General conclusion}{56}{chapter*.36}%
+\contentsline {chapter}{Bibliography}{57}{chapter*.37}%
+\contentsline {chapter}{Annexes}{62}{chapter*.38}%

@@ -46,14 +46,41 @@ situations, reducing processing time and resource usage. This approach would ser
 for linking the robot in the station to the pallet. In case of very complex environments and failure,
 the OMPL based approach becomes the secondary option. 
 
-As highlighted in Section 2.4, Meta-heuristic approaches, while powerful for solving complex problems, often require 
-significant computational time. However, this time can be greatly reduced by 
-optimizing the way these methods are applied. For example, instead of generating a path entirely from scratch, 
-we can start with a pre-built or partially constructed path, which already provides a solid foundation. 
-Additionally, reducing the number of waypoints in the path can streamline the computation, allowing the 
-algorithm to focus on refining an already good solution rather than calculating every detail from the 
-ground up. This approach maintains the strength of meta-heuristics while significantly speeding up the 
-planning process, making it more practical for real-time or near-real-time applications.
+For optimizing paths, various approaches exist.
+Path optimization can be approached mathematically using Jacobians, which map control inputs, like position or wheel 
+speeds, to the desired outcomes. The objective is to minimize a cost function—such as path length, energy use, 
+or time—by adjusting the robot's control inputs to achieve the desired position. A common technique is gradient descent, 
+where control inputs are iteratively updated to reduce the cost. The Jacobian matrix, which links these 
+inputs to the robot's position, guides these adjustments until the most efficient path is found. However, the Jacobian-based 
+optimization method poses several challenges for this use case. For wheeled mobile robots with multiple control inputs, 
+the Jacobian matrix can become complex and large, leading to increased computational costs and making real-time 
+optimization challenging. 
+Frequent updates in dynamic environments further add to this load, potentially leading to delays or suboptimal paths. 
+Mukherjee et al. \cite{R44} noted that their approach to optimal trajectory planning does not guarantee a global 
+optimum but rather an isolated local optimum close to the global one. Additionally, this method relies on precise 
+kinematic and dynamic models, so any inaccuracies, such as sensor errors, can result in poor path optimization. 
+In this context, the kinematic model would need to be refined for the specific truck using it. Managing complex inequality 
+constraints, like obstacle avoidance, can also complicate the optimization process and reduce efficiency.
+
+On the other hand, Reinforcement Learning (RL) can be used to learn optimal paths by interacting with the environment. 
+The robot learns a policy that maximizes cumulative rewards, where rewards are given for reaching the goal, avoiding 
+obstacles, and minimizing path length. The policy is often represented by a neural network, and the path is optimized 
+as the robot learns from its experiences. Reinforcement learning (RL) methods for path planning in wheeled mobile robots 
+face significant limitations due to high computational costs and long training times. These methods require extensive 
+data to cover various scenarios, making the process time-consuming and resource-intensive. Training an RL agent, 
+particularly in complex environments, can take millions of interactions, which is impractical for real-time applications. 
+Additionally, as the environment's complexity increases, the state and action spaces expand, 
+leading to scalability issues and longer training times. When combined with deep learning, RL becomes even more 
+computationally demanding, requiring substantial resources and careful tuning of hyperparameters.
+
+As highlighted in Section 2.4, meta-heuristic approaches, though powerful for solving complex problems, 
+often require significant computational time. However, this can be greatly reduced by optimizing how these 
+methods are applied. For instance, instead of generating a path entirely from scratch, starting with a pre-built 
+or partially constructed path provides a solid foundation. Additionally, reducing the number of waypoints 
+can streamline computation, allowing the algorithm to focus on refining an already good solution rather 
+than calculating every detail from the ground up. This approach preserves the strengths of meta-heuristics 
+while significantly speeding up the planning process, making it more practical for real-time or near-real-time 
+applications.
 
 
 \subsection{Goal Setting and Work Structure}
@@ -147,8 +174,10 @@ direction on the sides of the shelf placed inside the station. First, it drives 
 pallet or the drop-off position as given by figure \Ref{subpolygones}. Having two possibilities for transition zones allows 
 for more flexibility: 
 in case one area is unreachable or presents obstacles, the second one can be used. They present free areas 
-inside the stations where less obstacles and dynamics are expected. In addition the geometric solution is scalable to 
-any station whose properties are explicited. This makes the overall solution and the autonomous forklifts simple to
+inside the stations where less obstacles and dynamics are expected and smooth maneuvering of the truck can be managed. 
+In addition, the geometric solution is scalable to 
+any station that is recognized and whose properties are available to the truck. This makes the overall solution and the 
+autonomous forklifts simple to
 commission in new warehouses.
 
 \begin{figure}
@@ -160,14 +189,26 @@ commission in new warehouses.
     \end{center}
 \end{figure}
 
-Write about:
- optimization method
- splines interpolation 
- obstacles 
+Smooth and continuous paths are generated through spline interpolation of constructed waypoints. This technique ensures 
+that the resulting paths are smooth, operationally seamless, and reduce abrupt changes in direction and speed. 
+By interpolating between waypoints, the method enables the creation of curves that are optimized for driving efficiency 
+and stability.
 
-summarize with psudeo code or flowchart:
-    How to reach the pallet? Pre-defined path: pattern based path
-    Where to transition? Polygones
-    How to optimize transition path? meta-heuristic
-    How to create the path? interpolate waypoints using splines
-    Obstacles? splines + meta-heuristic
+Finally, an optimizer generates an optimal path. 
+generates multiple path candidates and rigorously evaluates each one based on key factors. 
+The evaluation considers the path's length, smoothness, and potential collisions with surrounding objects to ensure the 
+chosen path is both efficient and safe. After testing all options, the path that best meets these 
+criteria—providing the shortest, smoothest, and safest route with minimal collision risk—is selected as the best solution. 
+
+This approach ensures the final path is not only theoretically ideal but also practical and reliable for real-world use. 
+The process is designed to be flexible and effective, even in obstacle environments. The designed methodology 
+is summarized in the following flowchart \ref{design}:
+
+\begin{figure}[!ht]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/Approch_design.jpg}\\
+        \caption{Path planning approach to pallet docking}
+        \label{design}
+        \end{center}
+\end{figure}
+
