@@ -161,7 +161,7 @@ From now on, the following definitions of driving directions will be used as gve
 \end{itemize}
 
 \begin{figure}
-    [H]
+    [!ht]
     \begin{center}
     \includegraphics[width=4in]{images/Chap2/driving_directions.png}\\
     \caption{Truck Driving Directions}
@@ -171,7 +171,7 @@ From now on, the following definitions of driving directions will be used as gve
  
 The following transition method is suggested: once the truck docks the station, it has the option to transition and change 
 direction on the sides of the shelf placed inside the station. First, it drives to the transition position, then, to the 
-pallet or the drop-off position as given by figure \Ref{subpolygones}. Having two possibilities for transition zones allows 
+pallet or the drop-off position as given by figure \Ref{subpolygons}. Having two possibilities for transition zones allows 
 for more flexibility: 
 in case one area is unreachable or presents obstacles, the second one can be used. They present free areas 
 inside the stations where less obstacles and dynamics are expected and smooth maneuvering of the truck can be managed. 
@@ -181,11 +181,11 @@ autonomous forklifts simple to
 commission in new warehouses.
 
 \begin{figure}
-    [H]
+    [!ht]
     \begin{center}
     \includegraphics[width=\linewidth]{images/Chap2/station-without-subpolygones (2).png}\\
     \caption{Linking the robot to goal pallet \cite{R28}}
-    \label{subpolygones}
+    \label{subpolygons}
     \end{center}
 \end{figure}
 
@@ -211,4 +211,149 @@ is summarized in the following flowchart \ref{design}:
         \label{design}
         \end{center}
 \end{figure}
+
+\section{Development phases and Implementation}
+
+This section details the rollout of the module development, providing a comprehensive overview of the process. 
+It is structured to include both the development steps and the corresponding simulation results at each phase.
+Every phase started with a deep investigation of the existing relevant solutions detailed in Chapter 2.
+
+\subsection{Geometric Partitioning of the Station}
+This section explains the development of the geometric Partitioning of the station into 2 polygons used later for 
+transitioning inside the station. \textbf{The input of this step is the station information and the output are the polygons}.
+\subsubsection{Utility}
+As explained previously in Section 3.2, in order to carry out the transitioning of the vehicle inside 
+the station to change the driving direction from the opposite to the main direction, Transition subpolygons are needed. 
+The subpolygons are created according to the station shape and dimensions and the position of the shelf inside of it. 
+As given by figure \ref{warehouse}, the stations can be found at certain positions of the warehouse.
+
+\subsubsection{Implementation}
+The vehicle initially plans its missions: it constructs a plan of the stations that will be visited and the operations
+to do on each station. While the path driven from one station to the other is pre-defined by the global planner, 
+the path linking the vehicle to the pallet is to be planned in real-time. 
+Once the vehicle arrives at the docking position in the stations, it starts the path planning process. 
+The station-related information are stored in a file accessible to the vehicle. These information include, but are 
+not limited to, it position and dimensions and the coordinates of the shelf that it contains.
+For each station represented like figure \ref{Station} the module creates the subpolygons on each side of the shelf, 
+limited by the station and shelf shapes. 
+
+The process that creates the subpolygons is detailed in the following Algorithm \ref{alg:createSubpolygons}.
+The algorithm begins with an initialization step, then the corners of the station and shelf areas are retrieved and 
+transformation matrices are prepared to convert coordinates between global and shelf-specific coordinate systems. 
+The algorithm then iteratively transforms the station and shelf corners from global coordinates to shelf coordinates, 
+storing the transformed corners in dedicated lists. After the transformation, two subpolygons are created: one 
+representing the negative Y subpolygon (NegYsub\_polygon) and the other representing the positive Y subpolygon
+(PosYsub\_polygon). The algorithm concludes by returning the two created subpolygons, effectively segmenting the 
+input areas into distinct, usable geometric entities.
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/warehouse.png}\\
+        \caption{Simulation of the stations in a warehouse}
+        \label{warehouse}
+        \end{center}    
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap2/station.png}\\
+        \caption{Station Simulation}
+        \label{Station}
+        \end{center}    
+\end{figure}
+
+
+\noindent
+
+\begin{algorithm}
+\caption{Creation of Subpolygons}\label{alg:createSubpolygons}
+\KwData{station\_area, shelf\_area}
+\KwResult{created two subpolygons}
+\BlankLine
+\textbf{Initialization}; \\
+station\_corners, shelf\_corners $\gets$ GetCorners(station\_area, shelf\_area)\;
+tm\_station\_corners, tm\_shelf\_corners $\gets$ empty lists\;
+tm\_shelf2global $\gets$ GetTransMatrix(shelf\_area)\;
+tm\_global2shelf $\gets$ InvertMatrix(tm\_shelf2global)\;
+\ForEach{corner $\in$ station\_corners}{
+    corner\_shelf $\gets$ TransformCorner(tm\_global2shelf, corner)\;
+    tm\_station\_corners.append(corner\_shelf)\;
+}
+station\_corners\_shelf.append(tm\_station\_corners[0])\;
+\ForEach{corner $\in$ shelf\_corners}{
+    corner\_shelf $\gets$ TransformCorner(tm\_global2shelf, corner)\;
+    tm\_shelf\_corners.append(corner\_shelf)\;
+}
+NegYsub\_subpolygon $\gets$ CreateNegYsubpolygon(tm\_station\_corners, tm\_shelf\_corners, tm\_shelf2global)\;
+PosYsub\_subpolygon $\gets$ CreatePosYsubpolygon(tm\_station\_corners, tm\_shelf\_corners, tm\_shelf2global)\;
+\Return{created two subpolygons}\;
+\end{algorithm}
+
+\noindent
+\subsubsection{Results}
+
+In figure \ref{Station polygon} stands the simulated result processed using real station data: In purple and orange are 
+the polygons, and in green the outer polygon represenst the station.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap2/Polygons_created.png}\\
+        \caption{Station with created Polygons}
+        \label{Station polygon}
+        \end{center}    
+\end{figure}
+
+In figure \Ref{other station}, stands the result of the module Create subpolygon in a different station:
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap2/Other_station.png}\\
+        \caption{Station with created Polygons}
+        \label{other station}
+        \end{center}    
+\end{figure}
+In figure \ref{} stands a plotted message that shows the creation of the polygons with their coordinates.
+
+\subsection{Path creation}
+This section details the methodology for path creation using splines. \textbf{The input of this section are the polygons besides
+the robot's position and the destination. The output is a spline-based path linking the robot to the destination with a 
+driving direction change}.
+
+\subsubsection{Utility}
+
+Spline-based paths provide several key benefits for robotic navigation. They ensure smooth and continuous movement by 
+creating curved paths that connect waypoints seamlessly. Unlike abrupt turns and sharply angled paths, this smoothness 
+reduces wear on the robot and makes its movements more energy-efficient. Additionally, spline-based paths make it 
+easier to control the robot in real-time, allowing for quick adjustments if the environment changes and preventing 
+oscillations as a response to control corrections. Using mathematical 
+equations to define these paths also makes it simple to calculate important 
+properties like path length and curvature, helping the robot navigate efficiently and safely. 
+
+\subsubsection{Implementation}
+
+Path creation comes after the creation of the subpolygons. After a transitioning point is chosen (see section %TODO
+Path optimization), the waypoints are created. The waypoints depicted on the simulation figure are created relating to the 
+Robot, the destination and the transition positions. In a simple case where no obstacles are around, orientation points are 
+added in front of the 3 positions in order to guide the robot during the first acceleration or deceleration by driving 
+in a straightforward or straightbackward motion depending on the driving direction. 
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap2/Orientation_points.png}\\
+        \caption{Station with created Polygons}
+        \label{other station}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap2/Orientation_points_with_spline.png}\\
+        \caption{Station with created Polygons}
+        \label{other station}
+        \end{center}    
+\end{figure}
+
 
