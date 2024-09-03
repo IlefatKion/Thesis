@@ -334,26 +334,144 @@ properties like path length and curvature, helping the robot navigate efficientl
 \subsubsection{Implementation}
 
 Path creation comes after the creation of the subpolygons. After a transitioning point is chosen (see section %TODO
-Path optimization), the waypoints are created. The waypoints depicted on the simulation figure are created relating to the 
-Robot, the destination and the transition positions. In a simple case where no obstacles are around, orientation points are 
-added in front of the 3 positions in order to guide the robot during the first acceleration or deceleration by driving 
-in a straightforward or straightbackward motion depending on the driving direction. 
+Path optimization), the waypoints are created. The waypoints depicted on the simulation figure \ref{Orientation} are created relating to the 
+Robot, the destination and the transition positions. In a simple scenario where no obstacles are present, orientation points 
+are strategically added in front of the three key positions of the robot. These orientation points serve as reference markers 
+that guide the robot's movement, particularly during the initial phase of acceleration or deceleration. When the robot starts 
+to move, it follows a precise trajectory, either in a straightforward or straight-backward direction, depending on the 
+intended driving direction. This straight-line motion ensures that the robot maintains stability and accuracy as it 
+transitions from a stationary position to motion or vice versa, minimizing any unnecessary deviations or turns that could 
+disrupt its path. The alignment with the orientation points helps the robot to consistently maintain a straight trajectory, 
+which is crucial for precise navigation and control.
 
+Then, the orientaion points are interpolated to create the spline-based path. Given the need to create the driving direction 
+change as a straight section of the path, two different splines will be interpolated using 4 waypoints each:
+\begin{itemize}
+    \item The first spline interpolates the starting points then the transition points.
+    \item The second spline interpolates the transition points then the destination points.
+\end{itemize}
 
+By doing so, two connected splines are obtained. Then they are merged together in the same path data structure to 
+form one path. The first spline is driven in opposite direction driving, the second in main direction driving. 
+The transition section at the polygon enables the robot to have a positioning that facilitates changing the driving direction
+as given by figure \Ref{transition}.
+
+%TODO: remove white space from the next figures
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Orientation_points.png}\\
-        \caption{Station with created Polygons}
-        \label{other station}
+        \caption{Orientation Points}
+        \label{Orientation}
         \end{center}    
 \end{figure}
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Orientation_points_with_spline.png}\\
-        \caption{Station with created Polygons}
-        \label{other station}
+        \caption{Interpolated Splines of Orientation points}
+        \label{Spline ori}
         \end{center}    
 \end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap2/truck_transition.png}\\
+        \caption{Robot at the transition position}
+        \label{transition}
+        \end{center}    
+\end{figure}
+
+The interpolation of the waypoints and the manipulation of splines is through The Spline Library integarted in 
+the RACK framework (See RACK section%TODO add rack section
+). The library provides tools to construct splines through several methods like interpolating points or blending two or more splines 
+together and retrieve their features by segmeting the splines and calculating length and curvature for instance.
+The result is a structure of coordinates through which passes the spline. 
+The Algorithm of the approach to create a spline is explained in Pseudo code \Ref{alg:createSplines}.
+
+\begin{algorithm}[H]
+    \caption{Creation of a Spline by Points Interpolation}\label{alg:createSplines}
+
+    \SetAlgoLined
+    \KwData{points}
+    \KwResult{createdNewSplineFromPoints}
+    
+    Initialize Spline\;
+    
+    SetInterrogationPoints(points)\;
+    CreateCurveByInterpolation()\;
+    
+    max\_par $\gets$ Spline.GetMaxParameterVal()\;
+    min\_par $\gets$ Spline.GetMinParameterVal()\;
+    length $\gets$ Spline.GetFullCordLength()\;
+    curvature\_change $\gets$ Spline.GetCurvatureChange()\;
+    samples $\gets$ round(length / kSegmentLength)\;
+    step $\gets$ (max\_par - min\_par) / samples\;
+    
+    \For{f $\gets$ min\_par + step \KwTo max\_par \textbf{by} step}{
+        Spline.GetPosition(f, position)\;
+        PathData.Spline.Position $\gets$ position\;
+    }
+    
+    \Return{createdNewSplineFromPoints}\;
+    
+    \end{algorithm}
+
+
+\subsubsection{Results}
+The obtained results are of smooth splines adhering to the pattern and linking the truck to the destination pallet 
+while passing by a transition location. 
+The simulated results of a cloned test environment show the pattern spline-based path as given by figure \Ref{Test_clone}.
+The resulting path on the RACK simulation environment which is the real testing environment show as well the creation and 
+plotting of the pattern path on the simulated station as given by \Ref{driving} and \Ref{Test_Simu}. 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap2/spline_split.png} % Replace with your figure
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap2/spline_split_posY.png} % Replace with your figure
+    \end{minipage}
+    \caption{Test Results on Cloned Test Environment}
+    \label{Test_clone}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/Pattern_spline_simulation_3_driving.png}\\
+        \caption{Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path}
+        \label{driving}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap2/Pattern_spline_simulation_1.png} % Replace with your figure
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Chap2/Pattern_spline_simulation_2.png} % Replace with your figure
+    \end{minipage}
+    \caption{Test Results on the Simulated Environment: Truck at the Destination}
+    \label{Test_Simu}
+\end{figure}
+
+%TODO: check if section numbers are correct: ctrl+F section
+\subsection{Path Evaluation}
+Once the path has been created and the relevant information has been retrieved, the foundation is set to evaluate the 
+quality of the generated paths. As discussed in Section 2.3, the literature proposes several approaches to path evaluation 
+that have been tested and assessed in this work. \textbf{The input for this section is a spline-based path pattern, and the 
+output is a scalar value that reflects the quality of the path}.
+
+\subsubsection{Utility}
+Path evaluation allows to assess the quality of a path. From the vehicle's perspective, it enables the 
+prediction of whether the path is mechanically and strategically feasible in terms of curves, sharp turns, direction 
+changes, and other factors. This evaluation prevents the vehicle from following low-quality paths and promotes the 
+optimization and selection of the best possible routes.
+
 
 

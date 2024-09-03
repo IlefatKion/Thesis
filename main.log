@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  2 SEP 2024 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  3 SEP 2024 20:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -822,14 +822,7 @@ Package newfloat Info: float type `Rule'=4 on input line 66.
 Package hyperref Warning: Unexpected value for option `hidelinks'
 (hyperref)                is ignored on input line 67.
 
-(./main.aux
-
-LaTeX Warning: Label `other station' multiply defined.
-
-
-LaTeX Warning: Label `other station' multiply defined.
-
-(./main.acr))
+(./main.aux (./main.acr))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -877,14 +870,14 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
 * v-part:(T,H,B)=(85.35826pt, 645.87756pt, 113.81102pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=426.79135pt
+* \textwidth=455.24411pt
 * \textheight=645.87756pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
 * \topmargin=-23.91173pt
 * \headheight=15.0pt
 * \headsep=25.0pt
@@ -997,76 +990,70 @@ Chapter 1.
 [4
 
 ]
-<images/Chap0/KION_Segments.jpg, id=455, 1204.5pt x 676.5275pt>
+<images/Chap0/KION_Segments.jpg, id=476, 1204.5pt x 676.5275pt>
 File: images/Chap0/KION_Segments.jpg Graphic file (type jpg)
 <use images/Chap0/KION_Segments.jpg>
 Package pdftex.def Info: images/Chap0/KION_Segments.jpg  used on input line 43.
 (pdftex.def)             Requested size: 361.34999pt x 202.95981pt.
  [5 <./images/Chap0/KION_Segments.jpg>]
-<images/Chap0/KION_Hierarchy.png, id=465, 802.197pt x 357.13425pt>
+<images/Chap0/KION_Hierarchy.png, id=486, 802.197pt x 357.13425pt>
 File: images/Chap0/KION_Hierarchy.png Graphic file (type png)
 <use images/Chap0/KION_Hierarchy.png>
 Package pdftex.def Info: images/Chap0/KION_Hierarchy.png  used on input line 73.
-(pdftex.def)             Requested size: 426.79135pt x 190.00502pt.
-<images/Chap0/Reach trucks.png, id=474, 602.25pt x 602.25pt>
+(pdftex.def)             Requested size: 455.24411pt x 202.66948pt.
+<images/Chap0/Reach trucks.png, id=495, 602.25pt x 602.25pt>
 File: images/Chap0/Reach trucks.png Graphic file (type png)
 <use images/Chap0/Reach trucks.png>
 Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 89.
-(pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
-<images/Chap0/hand truck.png, id=475, 602.25pt x 602.25pt>
+(pdftex.def)             Requested size: 204.85846pt x 204.85419pt.
+<images/Chap0/hand truck.png, id=496, 602.25pt x 602.25pt>
 File: images/Chap0/hand truck.png Graphic file (type png)
 <use images/Chap0/hand truck.png>
 Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 95.
-(pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
+(pdftex.def)             Requested size: 204.85846pt x 204.85419pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/Chap0/double-.png, id=476, 602.25pt x 602.25pt>
+<images/Chap0/double-.png, id=497, 602.25pt x 602.25pt>
 File: images/Chap0/double-.png Graphic file (type png)
 <use images/Chap0/double-.png>
 Package pdftex.def Info: images/Chap0/double-.png  used on input line 105.
-(pdftex.def)             Requested size: 192.0548pt x 192.05309pt.
-<images/Chap0/iGoNeo.jpg, id=477, 475.7775pt x 475.7775pt>
+(pdftex.def)             Requested size: 204.85846pt x 204.85419pt.
+<images/Chap0/iGoNeo.jpg, id=498, 475.7775pt x 475.7775pt>
 File: images/Chap0/iGoNeo.jpg Graphic file (type jpg)
 <use images/Chap0/iGoNeo.jpg>
 Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 111.
-(pdftex.def)             Requested size: 192.0548pt x 192.05722pt.
+(pdftex.def)             Requested size: 204.85846pt x 204.8562pt.
 [6 <./images/Chap0/KION_Hierarchy.png>]
-Overfull \hbox (2.81577pt too wide) in paragraph at lines 122--122
-|[]\T1/cmr/bx/n/24.88 2 |[] Grad-u-a-tion project Mo-ti-va-tion and
+Overfull \hbox (41.83675pt too wide) in paragraph at lines 122--122
+|[]\T1/cmr/bx/n/24.88 2 |[] Grad-u-a-tion project Mo-ti-va-tion and Spec-
  []
 
 [7 <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png> <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>] [8]
-<images/Chap0/station-sketch.drawio.png, id=500, 543.02875pt x 411.5375pt>
+<images/Chap0/station-sketch.drawio.png, id=521, 543.02875pt x 411.5375pt>
 File: images/Chap0/station-sketch.drawio.png Graphic file (type png)
 <use images/Chap0/station-sketch.drawio.png>
 Package pdftex.def Info: images/Chap0/station-sketch.drawio.png  used on input line 175.
 (pdftex.def)             Requested size: 361.34999pt x 273.86366pt.
  [9 <./images/Chap0/station-sketch.drawio.png>]
-<images/Chap0/blog-scrum-process-opt.jpg, id=508, 1204.5pt x 629.35126pt>
+<images/Chap0/blog-scrum-process-opt.jpg, id=529, 1204.5pt x 629.35126pt>
 File: images/Chap0/blog-scrum-process-opt.jpg Graphic file (type jpg)
 <use images/Chap0/blog-scrum-process-opt.jpg>
 Package pdftex.def Info: images/Chap0/blog-scrum-process-opt.jpg  used on input line 231.
 (pdftex.def)             Requested size: 433.62pt x 226.56627pt.
-
-Overfull \hbox (6.82864pt too wide) in paragraph at lines 231--231
- [] 
- []
-
-[10] [11 <./images/Chap0/blog-scrum-process-opt.jpg>]) [12] [13
+ [10] [11 <./images/Chap0/blog-scrum-process-opt.jpg>]) [12] [13
 
 ] (./chapters/chap1.tex
 Chapter 2.
-[14
-
-]
-<images/Chap1/AMR-VS-AGV.png, id=538, 1638.12pt x 1505.625pt>
+<images/Chap1/AMR-VS-AGV.png, id=552, 1638.12pt x 1505.625pt>
 File: images/Chap1/AMR-VS-AGV.png Graphic file (type png)
 <use images/Chap1/AMR-VS-AGV.png>
 Package pdftex.def Info: images/Chap1/AMR-VS-AGV.png  used on input line 36.
 (pdftex.def)             Requested size: 289.07999pt x 265.69382pt.
+[14
 
+]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1075,7 +1062,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [15 <./images/Chap1/AMR-VS-AGV.png>]
-<images/Chap1/Fig1.jpg, id=548, 1443.3925pt x 1090.0725pt>
+<images/Chap1/Fig1.jpg, id=569, 1443.3925pt x 1090.0725pt>
 File: images/Chap1/Fig1.jpg Graphic file (type jpg)
 <use images/Chap1/Fig1.jpg>
 Package pdftex.def Info: images/Chap1/Fig1.jpg  used on input line 81.
@@ -1097,7 +1084,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [17]
-<images/Chap1/scan.png, id=566, 420.3705pt x 334.24875pt>
+<images/Chap1/scan.png, id=587, 420.3705pt x 334.24875pt>
 File: images/Chap1/scan.png Graphic file (type png)
 <use images/Chap1/scan.png>
 Package pdftex.def Info: images/Chap1/scan.png  used on input line 170.
@@ -1127,21 +1114,17 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [20]
-<images/Chap1/8dirs_pathPlan.png, id=599, 141.52875pt x 141.52875pt>
+<images/Chap1/8dirs_pathPlan.png, id=620, 141.52875pt x 141.52875pt>
 File: images/Chap1/8dirs_pathPlan.png Graphic file (type png)
 <use images/Chap1/8dirs_pathPlan.png>
 Package pdftex.def Info: images/Chap1/8dirs_pathPlan.png  used on input line 266.
 (pdftex.def)             Requested size: 144.54pt x 144.55176pt.
-
-Overfull \hbox (4.00192pt too wide) in paragraph at lines 272--277
-[]\T1/cmr/m/n/12 As for ar-ti-fi-cial intelligence-based meth-ods, also known as heuris-tic and metheuris-
- []
-
-<images/Chap1/sampling-based.png, id=602, 344.487pt x 364.9635pt>
+<images/Chap1/sampling-based.png, id=623, 344.487pt x 364.9635pt>
 File: images/Chap1/sampling-based.png Graphic file (type png)
 <use images/Chap1/sampling-based.png>
 Package pdftex.def Info: images/Chap1/sampling-based.png  used on input line 281.
 (pdftex.def)             Requested size: 252.94499pt x 267.98042pt.
+
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1158,24 +1141,21 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [22 <./images/Chap1/sampling-based.png>]
-<images/Chap1/R17_simple.png, id=621, 133.6995pt x 104.18925pt>
+<images/Chap1/R17_simple.png, id=643, 133.6995pt x 104.18925pt>
 File: images/Chap1/R17_simple.png Graphic file (type png)
 <use images/Chap1/R17_simple.png>
 Package pdftex.def Info: images/Chap1/R17_simple.png  used on input line 338.
-(pdftex.def)             Requested size: 128.0387pt x 99.78523pt.
-<images/Chap1/R17_intermediate.png, id=622, 132.495pt x 104.18925pt>
+(pdftex.def)             Requested size: 136.57462pt x 106.43854pt.
+<images/Chap1/R17_intermediate.png, id=644, 132.495pt x 104.18925pt>
 File: images/Chap1/R17_intermediate.png Graphic file (type png)
 <use images/Chap1/R17_intermediate.png>
 Package pdftex.def Info: images/Chap1/R17_intermediate.png  used on input line 344.
-(pdftex.def)             Requested size: 128.0387pt x 100.69142pt.
-<images/Chap1/R17_complex.png, id=623, 130.68825pt x 104.7915pt>
+(pdftex.def)             Requested size: 136.57462pt x 107.40514pt.
+<images/Chap1/R17_complex.png, id=645, 130.68825pt x 104.7915pt>
 File: images/Chap1/R17_complex.png Graphic file (type png)
 <use images/Chap1/R17_complex.png>
 Package pdftex.def Info: images/Chap1/R17_complex.png  used on input line 350.
-(pdftex.def)             Requested size: 128.0387pt x 102.66618pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+(pdftex.def)             Requested size: 136.57462pt x 109.51144pt.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1184,20 +1164,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[23]
-
-Package fancyhdr Warning: \headheight is too small (15.0pt): 
-(fancyhdr)                Make it at least 27.11469pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11469pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
-
-[24 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]
-<images/Chap1/DWA_flowchart.png, id=644, 322.20375pt x 464.33475pt>
+[23 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]
+<images/Chap1/DWA_flowchart.png, id=659, 322.20375pt x 464.33475pt>
 File: images/Chap1/DWA_flowchart.png Graphic file (type png)
 <use images/Chap1/DWA_flowchart.png>
 Package pdftex.def Info: images/Chap1/DWA_flowchart.png  used on input line 414.
-(pdftex.def)             Requested size: 213.39568pt x 307.53882pt.
+(pdftex.def)             Requested size: 227.62206pt x 328.04329pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
@@ -1216,13 +1188,21 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[25 <./images/Chap1/DWA_flowchart.png>]
-<images/Chap1/heuristic_barchart.png, id=654, 320.397pt x 200.54926pt>
+[24]
+<images/Chap1/heuristic_barchart.png, id=670, 320.397pt x 200.54926pt>
 File: images/Chap1/heuristic_barchart.png Graphic file (type png)
 <use images/Chap1/heuristic_barchart.png>
 Package pdftex.def Info: images/Chap1/heuristic_barchart.png  used on input line 439.
 (pdftex.def)             Requested size: 252.94499pt x 158.32811pt.
 
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[25 <./images/Chap1/DWA_flowchart.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1247,15 +1227,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [28]
-
-Package fancyhdr Warning: \headheight is too small (15.0pt): 
-(fancyhdr)                Make it at least 27.11469pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11469pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
-
-[29]
-<images/Chap1/control-spline.png, id=705, 545.03625pt x 258.36525pt>
+<images/Chap1/control-spline.png, id=722, 545.03625pt x 258.36525pt>
 File: images/Chap1/control-spline.png Graphic file (type png)
 <use images/Chap1/control-spline.png>
 Package pdftex.def Info: images/Chap1/control-spline.png  used on input line 587.
@@ -1268,8 +1240,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[30 <./images/Chap1/control-spline.png>]
-<images/Chap1/sharp-vs-curved-path.png, id=718, 672.71326pt x 298.716pt>
+[29 <./images/Chap1/control-spline.png>]
+<images/Chap1/sharp-vs-curved-path.png, id=735, 672.71326pt x 298.716pt>
 File: images/Chap1/sharp-vs-curved-path.png Graphic file (type png)
 <use images/Chap1/sharp-vs-curved-path.png>
 Package pdftex.def Info: images/Chap1/sharp-vs-curved-path.png  used on input line 619.
@@ -1282,8 +1254,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[31 <./images/Chap1/sharp-vs-curved-path.png>]
-<images/Chap1/convex-hull.png, id=732, 248.72925pt x 218.61674pt>
+[30 <./images/Chap1/sharp-vs-curved-path.png>]
+<images/Chap1/convex-hull.png, id=749, 248.72925pt x 218.61674pt>
 File: images/Chap1/convex-hull.png Graphic file (type png)
 <use images/Chap1/convex-hull.png>
 Package pdftex.def Info: images/Chap1/convex-hull.png  used on input line 649.
@@ -1296,16 +1268,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[32 <./images/Chap1/convex-hull.png>]
-<images/Chap1/curvature.png, id=745, 387.24675pt x 286.06876pt>
+[31 <./images/Chap1/convex-hull.png>]
+<images/Chap1/curvature.png, id=761, 387.24675pt x 286.06876pt>
 File: images/Chap1/curvature.png Graphic file (type png)
 <use images/Chap1/curvature.png>
 Package pdftex.def Info: images/Chap1/curvature.png  used on input line 692.
 (pdftex.def)             Requested size: 252.94499pt x 186.85915pt.
-
-Overfull \hbox (28.38026pt too wide) in paragraph at lines 699--699
-|[]\T1/cmr/bx/n/24.88 3 |[] Eval-u-at-ing Path Ef-fi-ciency: Key Met-
- []
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1314,7 +1282,15 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[33 <./images/Chap1/curvature.png>]
+[32 <./images/Chap1/curvature.png>]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[33]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1339,15 +1315,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
 [36]
-
-Package fancyhdr Warning: \headheight is too small (15.0pt): 
-(fancyhdr)                Make it at least 27.11469pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11469pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
-
-[37]
-<images/Chap1/Tree_Metaheuristic.png, id=797, 594.42075pt x 559.49025pt>
+<images/Chap1/Tree_Metaheuristic.png, id=814, 594.42075pt x 559.49025pt>
 File: images/Chap1/Tree_Metaheuristic.png Graphic file (type png)
 <use images/Chap1/Tree_Metaheuristic.png>
 Package pdftex.def Info: images/Chap1/Tree_Metaheuristic.png  used on input line 858.
@@ -1360,12 +1328,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[38 <./images/Chap1/Tree_Metaheuristic.png>]
-<images/Chap1/GA.jpg, id=807, 385.44pt x 935.495pt>
+[37 <./images/Chap1/Tree_Metaheuristic.png>]
+<images/Chap1/GA.jpg, id=823, 385.44pt x 935.495pt>
 File: images/Chap1/GA.jpg Graphic file (type jpg)
 <use images/Chap1/GA.jpg>
 Package pdftex.def Info: images/Chap1/GA.jpg  used on input line 882.
-(pdftex.def)             Requested size: 106.69783pt x 258.95345pt.
+(pdftex.def)             Requested size: 113.81102pt x 276.22557pt.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1374,13 +1342,13 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[39 <./images/Chap1/GA.jpg>]
-<images/Chap1/SA.jpg, id=820, 475.7775pt x 536.0025pt>
+[38 <./images/Chap1/GA.jpg>]
+<images/Chap1/SA.jpg, id=837, 475.7775pt x 536.0025pt>
 File: images/Chap1/SA.jpg Graphic file (type jpg)
 <use images/Chap1/SA.jpg>
 Package pdftex.def Info: images/Chap1/SA.jpg  used on input line 905.
-(pdftex.def)             Requested size: 170.71393pt x 192.3228pt.
-<images/Chap1/PSO.png, id=825, 934.692pt x 349.305pt>
+(pdftex.def)             Requested size: 182.09486pt x 205.14705pt.
+<images/Chap1/PSO.png, id=842, 934.692pt x 349.305pt>
 File: images/Chap1/PSO.png Graphic file (type png)
 <use images/Chap1/PSO.png>
 Package pdftex.def Info: images/Chap1/PSO.png  used on input line 937.
@@ -1393,7 +1361,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[40 <./images/Chap1/SA.jpg>]
+[39 <./images/Chap1/SA.jpg>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1401,7 +1369,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[41 <./images/Chap1/PSO.png>]
+[40 <./images/Chap1/PSO.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1409,7 +1377,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[42]
+[41]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1417,7 +1385,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[43])
+[42])
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1425,11 +1393,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[44] [45
+[43] [44
 
 ] (./chapters/chap2.tex
 Chapter 3.
-[46
+[45
 
 ]
 
@@ -1439,7 +1407,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[47]
+[46]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1447,8 +1415,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[48]
-<images/Chap2/perpendicular-parking-a-lot-scaled.jpg, id=874, 1927.2pt x 1196.21906pt>
+[47]
+<images/Chap2/perpendicular-parking-a-lot-scaled.jpg, id=892, 1927.2pt x 1196.21906pt>
 File: images/Chap2/perpendicular-parking-a-lot-scaled.jpg Graphic file (type jpg)
 <use images/Chap2/perpendicular-parking-a-lot-scaled.jpg>
 Package pdftex.def Info: images/Chap2/perpendicular-parking-a-lot-scaled.jpg  used on input line 131.
@@ -1461,12 +1429,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[49]
-<images/Chap2/station-without-subpolygones.png, id=881, 955.11014pt x 472.46115pt>
+[48]
+<images/Chap2/station-without-subpolygones.png, id=898, 955.11014pt x 472.46115pt>
 File: images/Chap2/station-without-subpolygones.png Graphic file (type png)
 <use images/Chap2/station-without-subpolygones.png>
 Package pdftex.def Info: images/Chap2/station-without-subpolygones.png  used on input line 152.
-(pdftex.def)             Requested size: 426.79135pt x 211.12045pt.
+(pdftex.def)             Requested size: 455.24411pt x 225.19275pt.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1475,17 +1443,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[50 <./images/Chap2/perpendicular-parking-a-lot-scaled.jpg>]
-<images/Chap2/driving_directions.png, id=890, 392.77174pt x 132.36407pt>
+[49 <./images/Chap2/perpendicular-parking-a-lot-scaled.jpg>]
+<images/Chap2/driving_directions.png, id=906, 392.77174pt x 132.36407pt>
 File: images/Chap2/driving_directions.png Graphic file (type png)
 <use images/Chap2/driving_directions.png>
 Package pdftex.def Info: images/Chap2/driving_directions.png  used on input line 166.
 (pdftex.def)             Requested size: 289.07999pt x 97.42476pt.
-<images/Chap2/station-without-subpolygones (2).png, id=892, 805.98512pt x 498.63614pt>
-File: images/Chap2/station-without-subpolygones (2).png Graphic file (type png)
-<use images/Chap2/station-without-subpolygones (2).png>
-Package pdftex.def Info: images/Chap2/station-without-subpolygones (2).png  used on input line 186.
-(pdftex.def)             Requested size: 426.79135pt x 264.04002pt.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1494,8 +1457,13 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[51 <./images/Chap2/station-without-subpolygones.png> <./images/Chap2/driving_directions.png>]
-<images/Chap2/Approch_design.jpg, id=902, 914.41624pt x 1719.42375pt>
+[50 <./images/Chap2/station-without-subpolygones.png> <./images/Chap2/driving_directions.png>]
+<images/Chap2/station-without-subpolygones (2).png, id=915, 805.98512pt x 498.63614pt>
+File: images/Chap2/station-without-subpolygones (2).png Graphic file (type png)
+<use images/Chap2/station-without-subpolygones (2).png>
+Package pdftex.def Info: images/Chap2/station-without-subpolygones (2).png  used on input line 186.
+(pdftex.def)             Requested size: 455.24411pt x 281.64624pt.
+<images/Chap2/Approch_design.jpg, id=919, 914.41624pt x 1719.42375pt>
 File: images/Chap2/Approch_design.jpg Graphic file (type jpg)
 <use images/Chap2/Approch_design.jpg>
 Package pdftex.def Info: images/Chap2/Approch_design.jpg  used on input line 209.
@@ -1508,11 +1476,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[52 <./images/Chap2/station-without-subpolygones (2).png>]
-Overfull \hbox (10.1288pt too wide) in paragraph at lines 215--215
-|[]\T1/cmr/bx/n/24.88 3 |[] De-vel-op-ment phases and Im-ple-men-
- []
-
+[51 <./images/Chap2/station-without-subpolygones (2).png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1520,7 +1484,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[53 <./images/Chap2/Approch_design.jpg>]
+[52 <./images/Chap2/Approch_design.jpg>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1528,13 +1492,13 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[54]
-<images/Chap2/warehouse.png, id=920, 414.348pt x 482.40225pt>
+[53]
+<images/Chap2/warehouse.png, id=937, 414.348pt x 482.40225pt>
 File: images/Chap2/warehouse.png Graphic file (type png)
 <use images/Chap2/warehouse.png>
 Package pdftex.def Info: images/Chap2/warehouse.png  used on input line 252.
 (pdftex.def)             Requested size: 289.07999pt x 336.56041pt.
-<images/Chap2/station.png, id=921, 408.3255pt x 286.06876pt>
+<images/Chap2/station.png, id=938, 408.3255pt x 286.06876pt>
 File: images/Chap2/station.png Graphic file (type png)
 <use images/Chap2/station.png>
 Package pdftex.def Info: images/Chap2/station.png  used on input line 262.
@@ -1547,8 +1511,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[55 <./images/Chap2/warehouse.png>]
-<images/Chap2/Polygons_created.png, id=928, 1850.112pt x 891.8118pt>
+[54 <./images/Chap2/warehouse.png>]
+<images/Chap2/Polygons_created.png, id=945, 1850.112pt x 891.8118pt>
 File: images/Chap2/Polygons_created.png Graphic file (type png)
 <use images/Chap2/Polygons_created.png>
 Package pdftex.def Info: images/Chap2/Polygons_created.png  used on input line 303.
@@ -1561,15 +1525,15 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[56 <./images/Chap2/station.png>]
-<images/Chap2/Other_station.png, id=954, 1709.9082pt x 844.1136pt>
+[55 <./images/Chap2/station.png>]
+<images/Chap2/Other_station.png, id=970, 1709.9082pt x 844.1136pt>
 File: images/Chap2/Other_station.png Graphic file (type png)
 <use images/Chap2/Other_station.png>
 Package pdftex.def Info: images/Chap2/Other_station.png  used on input line 312.
 (pdftex.def)             Requested size: 361.34999pt x 178.37677pt.
 
 
-LaTeX Warning: Reference `' on page 57 undefined on input line 317.
+LaTeX Warning: Reference `' on page 56 undefined on input line 317.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1578,17 +1542,31 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[57 <./images/Chap2/Polygons_created.png> <./images/Chap2/Other_station.png>]
-<images/Chap2/Orientation_points.png, id=961, 955.11014pt x 598.85405pt>
+[56 <./images/Chap2/Polygons_created.png> <./images/Chap2/Other_station.png>]
+<images/Chap2/Orientation_points.png, id=980, 955.11014pt x 598.85405pt>
 File: images/Chap2/Orientation_points.png Graphic file (type png)
 <use images/Chap2/Orientation_points.png>
-Package pdftex.def Info: images/Chap2/Orientation_points.png  used on input line 345.
+Package pdftex.def Info: images/Chap2/Orientation_points.png  used on input line 362.
 (pdftex.def)             Requested size: 361.34999pt x 226.56174pt.
-<images/Chap2/Orientation_points_with_spline.png, id=962, 955.11014pt x 598.85405pt>
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[57]
+<images/Chap2/Orientation_points_with_spline.png, id=985, 955.11014pt x 598.85405pt>
 File: images/Chap2/Orientation_points_with_spline.png Graphic file (type png)
 <use images/Chap2/Orientation_points_with_spline.png>
-Package pdftex.def Info: images/Chap2/Orientation_points_with_spline.png  used on input line 353.
+Package pdftex.def Info: images/Chap2/Orientation_points_with_spline.png  used on input line 370.
 (pdftex.def)             Requested size: 361.34999pt x 226.56174pt.
+<images/Chap2/truck_transition.png, id=986, 708.52942pt x 536.59294pt>
+File: images/Chap2/truck_transition.png Graphic file (type png)
+<use images/Chap2/truck_transition.png>
+Package pdftex.def Info: images/Chap2/truck_transition.png  used on input line 378.
+(pdftex.def)             Requested size: 361.34999pt x 273.66696pt.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1597,7 +1575,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[58 <./images/Chap2/Orientation_points.png>])
+[58 <./images/Chap2/Orientation_points.png> <./images/Chap2/Orientation_points_with_spline.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1605,30 +1583,91 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[59 <./images/Chap2/Orientation_points_with_spline.png>] [60
+[59 <./images/Chap2/truck_transition.png>]
+<images/Chap2/spline_split.png, id=1004, 1240.1532pt x 859.2903pt>
+File: images/Chap2/spline_split.png Graphic file (type png)
+<use images/Chap2/spline_split.png>
+Package pdftex.def Info: images/Chap2/spline_split.png  used on input line 431.
+(pdftex.def)             Requested size: 204.85846pt x 141.93411pt.
+<images/Chap2/spline_split_posY.png, id=1005, 1498.1571pt x 863.6265pt>
+File: images/Chap2/spline_split_posY.png Graphic file (type png)
+<use images/Chap2/spline_split_posY.png>
+Package pdftex.def Info: images/Chap2/spline_split_posY.png  used on input line 435.
+(pdftex.def)             Requested size: 204.85846pt x 118.08682pt.
+<images/Chap2/Pattern_spline_simulation_3_driving.png, id=1006, 705.23476pt x 473.97075pt>
+File: images/Chap2/Pattern_spline_simulation_3_driving.png Graphic file (type png)
+<use images/Chap2/Pattern_spline_simulation_3_driving.png>
+Package pdftex.def Info: images/Chap2/Pattern_spline_simulation_3_driving.png  used on input line 443.
+(pdftex.def)             Requested size: 289.07999pt x 194.28587pt.
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[60 <./images/Chap2/spline_split.png> <./images/Chap2/spline_split_posY.png>]
+<images/Chap2/Pattern_spline_simulation_1.png, id=1028, 693.792pt x 445.06274pt>
+File: images/Chap2/Pattern_spline_simulation_1.png Graphic file (type png)
+<use images/Chap2/Pattern_spline_simulation_1.png>
+Package pdftex.def Info: images/Chap2/Pattern_spline_simulation_1.png  used on input line 453.
+(pdftex.def)             Requested size: 204.85846pt x 131.4146pt.
+<images/Chap2/Pattern_spline_simulation_2.png, id=1029, 696.80325pt x 446.26724pt>
+File: images/Chap2/Pattern_spline_simulation_2.png Graphic file (type png)
+<use images/Chap2/Pattern_spline_simulation_2.png>
+Package pdftex.def Info: images/Chap2/Pattern_spline_simulation_2.png  used on input line 457.
+(pdftex.def)             Requested size: 204.85846pt x 131.19826pt.
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[61 <./images/Chap2/Pattern_spline_simulation_3_driving.png> <./images/Chap2/Pattern_spline_simulation_1.png> <./images/Chap2/Pattern_spline_simulation_2.png>])
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[62] [63
 
 ] (./chapters/chap3.tex
 Chapter 4.
-) (./other/conclusion.tex [61
+) (./other/conclusion.tex [64
 
-]) (./other/bibliographie.tex [62
+]) (./other/bibliographie.tex [65
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 4647) in paragraph at lines 9--10
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
 []\T1/cmr/m/n/12 KION group web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . kiongroup . com / en / About-[]us /
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 12--13
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 []\T1/cmr/m/n/12 KION group web-site. URL: []$\T1/cmtt/m/n/12 https : / / www . kiongroup . com / en / About-[]us /
  []
 
 
-Underfull \hbox (badness 7814) in paragraph at lines 21--22
+Underfull \hbox (badness 2384) in paragraph at lines 15--16
+[]\T1/cmr/m/n/12 STILL web-site, iGo Neo page. URL: []$\T1/cmtt/m/n/12 https : / / www . still . de / en-[]DE / trucks /
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 18--19
+[]\T1/cmr/m/n/12 STILL web-site, iGo Neo page. URL: []$\T1/cmtt/m/n/12 https : / / www . still . de / en-[]DE / trucks /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 []\T1/cmr/m/n/12 iGo Neo datasheet. URL: []$\T1/cmtt/m/n/12 data . still . de / assets / products / Vehicles /
  []
 
@@ -1638,48 +1677,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
  []
 
 
-Underfull \hbox (badness 3049) in paragraph at lines 37--39
-[]\T1/cmr/m/n/12 AMR vs. AGV Fig-ure, Vecna Robotics Web-site. URL: []$\T1/cmtt/m/n/12 https : / / www .
- []
-
-
-Underfull \hbox (badness 1122) in paragraph at lines 41--45
+Underfull \hbox (badness 4886) in paragraph at lines 41--45
 \T1/cmr/m/n/12 Path plan-ning tech-niques for mo-bile robots: Re-view and prospect, Ex-
  []
 
-[63
+
+Underfull \hbox (badness 1102) in paragraph at lines 41--45
+\T1/cmr/m/n/12 pert Sys-tems with Ap-pli-ca-tions, Vol-ume 227, 2023, 120254, ISSN 0957-4174,
+ []
+
+[66
 
 ]
-Underfull \hbox (badness 8170) in paragraph at lines 52--60
-[]\T1/cmr/m/n/12 Mohd. Nayab Za-far, J.C. Mo-hanta, Method-ol-ogy for Path Plan-
+Underfull \hbox (badness 3088) in paragraph at lines 71--73
+[]\T1/cmr/m/n/12 Sertac Kara-man and Emilio Fraz-zoli. 2011. Sampling-based al-go-rithms for
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 52--60
-\T1/cmr/m/n/12 ning and Op-ti-miza-tion of Mo-bile Robots: A Re-view, Pro-ce-dia Com-
+Underfull \hbox (badness 3281) in paragraph at lines 71--73
+\T1/cmr/m/n/12 op-ti-mal mo-tion plan-ning. Int. J. Rob. Res. 30, 7 (June 2011), 846^^U894.
  []
 
 
-Underfull \hbox (badness 6592) in paragraph at lines 52--60
-\T1/cmr/m/n/12 puter Sci-ence, Vol-ume 133, 2018, Pages 141-152, ISSN 1877-0509,
+Underfull \hbox (badness 1859) in paragraph at lines 75--78
+\T1/cmr/m/n/12 su-per-lin-ear speedup," 2012 IEEE/RSJ In-ter-na-tional Con-fer-ence on In-tel-li-gent
  []
 
 
-Underfull \hbox (badness 3657) in paragraph at lines 104--106
-[]\T1/cmr/m/n/12 Ohki, T., Na-gatani, K., & Yoshida, K. (2012). Lo-cal Path Plan-
+Underfull \hbox (badness 1184) in paragraph at lines 75--78
+\T1/cmr/m/n/12 Robots and Sys-tems, Vilamoura-Algarve, Por-tu-gal, 2012, pp. 1206-1212, doi:
  []
 
-
-Underfull \hbox (badness 5924) in paragraph at lines 104--106
-\T1/cmr/m/n/12 ner for Mo-bile Robot in Dy-namic En-vi-ron-ment based on Dis-tance
+[67]
+Underfull \hbox (badness 1616) in paragraph at lines 160--162
+[]\T1/cmr/m/n/12 Liu, S., Liu, P. Bench-mark-ing and op-ti-miza-tion of robot mo-tion plan-ning
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
-\T1/cmr/m/n/12 Time Trans-form Method. Ad-vanced Robotics, 26(14), 1623^^U1647.
- []
-
-[64] [65] [66]) [67] (./other/appendix/appendix.tex) [68
+[68]) [69] (./other/appendix/appendix.tex) [70
 
 ] (./main.aux (./main.acr))
 
@@ -1875,6 +1909,12 @@ images/Chap2/Polygons_created.png
 images/Chap2/Other_station.png
 images/Chap2/Orientation_points.png
 images/Chap2/Orientation_points_with_spline.png
+images/Chap2/truck_transition.png
+images/Chap2/spline_split.png
+images/Chap2/spline_split_posY.png
+images/Chap2/Pattern_spline_simulation_3_driving.png
+images/Chap2/Pattern_spline_simulation_1.png
+images/Chap2/Pattern_spline_simulation_2.png
 chapters/chap3.tex
 other/conclusion.tex
 other/bibliographie.tex
@@ -1886,29 +1926,26 @@ other/appendix/appendix.tex
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0C299A3CE5943E180F52FE72E28809CB;10078.
+(rerunfilecheck)             Checksum: 0D37CEA892B5BD4FC98EC5D34E1CC59E;10432.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 70 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 35190 strings out of 478353
- 659679 string characters out of 5848100
- 1056622 words of memory out of 5000000
- 52384 multiletter control sequences out of 15000+600000
- 419574 words of font info for 66 fonts, out of 8000000 for 9000
+ 35273 strings out of 478353
+ 662106 string characters out of 5848100
+ 1056403 words of memory out of 5000000
+ 52436 multiletter control sequences out of 15000+600000
+ 419576 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,80p,777b,3055s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,12n,80p,777b,3075s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (79 pages, 6340605 bytes).
+Output written on main.pdf (81 pages, 6889316 bytes).
 PDF statistics:
- 1163 PDF objects out of 1200 (max. 8388607)
- 953 compressed objects within 10 object streams
- 246 named destinations out of 1000 (max. 500000)
- 606 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1235 PDF objects out of 1440 (max. 8388607)
+ 1010 compressed objects within 11 object streams
+ 271 named destinations out of 1000 (max. 500000)
+ 660 words of extra memory for PDF output out of 10000 (max. 10000000)
 
