@@ -45,4 +45,8 @@
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Test Results on Cloned Test Environment\relax }}{60}{figure.caption.43}%
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path\relax }}{61}{figure.caption.44}%
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Test Results on the Simulated Environment: Truck at the Destination\relax }}{61}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{67}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{67}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{68}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{68}{figure.caption.49}%
 \addvspace {10\p@ }

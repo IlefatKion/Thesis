@@ -240,10 +240,18 @@ limited by the station and shelf shapes.
 The process that creates the subpolygons is detailed in the following Algorithm \ref{alg:createSubpolygons}.
 The algorithm begins with an initialization step, then the corners of the station and shelf areas are retrieved and 
 transformation matrices are prepared to convert coordinates between global and shelf-specific coordinate systems. 
+The need to transform the used coordinates to the shelf frame is derived from the scalability needs.
+As seen on figure \Ref{warehouse}, stations can be placed in different positions and have different orientations.
+If global coordinates are used, it becomes computationally challenging to develop an exhaustive algorithm that fits all the 
+possibilities of station orientation and shelf positioning. On the other hand, using the shelf coordinate frame shifts 
+the point of view to the inside of the station only. It enables the shelf to orchestrate the geometric partitioning 
+of the station based on its position in the station.
 The algorithm then iteratively transforms the station and shelf corners from global coordinates to shelf coordinates, 
 storing the transformed corners in dedicated lists. After the transformation, two subpolygons are created: one 
 representing the negative Y subpolygon (NegYsub\_polygon) and the other representing the positive Y subpolygon
-(PosYsub\_polygon). The algorithm concludes by returning the two created subpolygons, effectively segmenting the 
+(PosYsub\_polygon). For special cases like station3, where one of the subpolygons can be very narrow (lower than a 
+certain threshhold), the algorithm omits it and generates only one subpolygon. 
+The algorithm concludes by returning the created subpolygon(s), effectively segmenting the 
 input areas into distinct, usable geometric entities.
 
 
@@ -291,8 +299,10 @@ NegYsub\_subpolygon $\gets$ CreateNegYsubpolygon(tm\_station\_corners, tm\_shelf
 PosYsub\_subpolygon $\gets$ CreatePosYsubpolygon(tm\_station\_corners, tm\_shelf\_corners, tm\_shelf2global)\;
 \Return{created two subpolygons}\;
 \end{algorithm}
-
 \noindent
+
+
+
 \subsubsection{Results}
 
 In figure \ref{Station polygon} stands the simulated result processed using real station data: In purple and orange are 
@@ -387,6 +397,14 @@ the RACK framework (See RACK section%TODO add rack section
 together and retrieve their features by segmeting the splines and calculating length and curvature for instance.
 The result is a structure of coordinates through which passes the spline. 
 The Algorithm of the approach to create a spline is explained in Pseudo code \Ref{alg:createSplines}.
+The algorithm first acquires the waypoints to be interpolated. Then it creates the curve 
+and measures the minimu and maximum parameter values from the knot vector which are used to evaluate 
+the curve but also to retrieve relevant data about the splines like positions. It guides the exploration
+of the spline. Besides, the spline length and cumulated curvature change are retrieved. 
+The curvature change supervises the abrupt changes in curvature in segment curves of the whole spline.
+Finally a number of positions belonging to the spline is retrieved and transfered to the path data structure,
+this is where the resulting spline is transformed into a path that the robot can follow.
+
 
 \begin{algorithm}[H]
     \caption{Creation of a Spline by Points Interpolation}\label{alg:createSplines}
@@ -470,8 +488,296 @@ output is a scalar value that reflects the quality of the path}.
 \subsubsection{Utility}
 Path evaluation allows to assess the quality of a path. From the vehicle's perspective, it enables the 
 prediction of whether the path is mechanically and strategically feasible in terms of curves, sharp turns, direction 
-changes, and other factors. This evaluation prevents the vehicle from following low-quality paths and promotes the 
-optimization and selection of the best possible routes.
+changes, and other factors. This evaluation prevents the vehicle from following low-quality paths and paves the way 
+towards optimization and selection of the best possible routes.
+
+\subsubsection{Implementation}
+By analyzing the spline,  key characteristics of the path can be determined, such as its length, curvature, and 
+the time required to traverse it. The following requirements are essential for developing a robust path 
+evaluation formula:
+\begin{itemize}
+    \item The formula used to evaluate the path must be \textbf{simple} enough to be easily integrated into an optimization process.
+    During path planning, optimization algorithms are often employed to find the best possible path according to certain 
+    criteria. These algorithms require objective functions that can be computed efficiently. A complex or computationally 
+    expensive formula may slow down the optimization process or make it impractical for real-time applications. 
+    Therefore, the path evaluation formula should be simple, allowing for quick calculations that can be repeatedly 
+    applied within an optimization loop. This simplicity also facilitates its integration with existing optimization 
+    frameworks.
+    \item The formula should include a \textbf{normalization} step to ensure that different paths can be compared on a common scale.
+    Paths can vary significantly in terms of length, curvature, and other characteristics. To make meaningful 
+    comparisons between paths, it’s essential to normalize these metrics. Normalization involves scaling the values of 
+    each metric (e.g., path length, curvature change) relative to a reference value, such as the characteristics of 
+    a potential ideal path. By normalizing the path metrics, it is ensured that the evaluation formula is 
+    dimensionless and that the different aspects of the path (e.g., length versus curvature) are balanced 
+    appropriately. This step is crucial when combining multiple metrics into a single evaluation score, as it 
+    prevents any one metric from disproportionately influencing the final result.
+    \item The evaluation should \textbf{prioritize paths that minimize length and curvature}.  In most path planning scenarios, 
+    especially for vehicles or robots, the goal is to find the most efficient path from point A to point B. 
+    Efficiency can be measured in terms of:
+    \begin{itemize}
+        \item Path Length: Shorter paths are generally preferred because they reduce the distance the vehicle or robot 
+        needs to travel, therefore saving energy and time.
+        \item Curvature: Paths with less curvature are preferred because sharp turns can be difficult for vehicles 
+        to navigate, especially at higher speeds. Minimizing curvature reduces the risk of instability of the vehicle.
+    \end{itemize}
+    
+\end{itemize}
+
+The combination of these requirements leads to a path evaluation formula that is both practical and effective. 
+
+To implement this path evaluation effectively, it was essential to accurately measure the path's length and curvature 
+change, as these are critical components of the evaluation formula. 
+
+The path length was calculated by summing the distances between consecutive points along the spline, ensuring that 
+even small variations in the path's trajectory were captured as given by equation \Ref{length_formula}.
+\begin{equation}
+    L = \sum_{i=\min \ \text{par}}^{\max \ \text{par}} s(i)
+    \label{length_formula}
+\end{equation}
+where \( s(i) \) denotes the length of the \(i\)-th curve segment of the spline measured between two points of the 
+spline using Euclidean distance.
+
+The curvature change of a spline path is quantified by evaluating how the curvature of the path varies along its Length.
+The curvature change (\( cc \)) calculated by:
+
+\begin{equation}
+cc = \int \frac{d(k)}{d(s)} \, ds
+\end{equation}
+
+represents the total variation in curvature along the path, where \( \frac{d(k)}{d(s)} \) measures how curvature itself 
+changes as a function of arc length, and integrating this derivative over the path provides a comprehensive metric of 
+curvature variation.
+
+As this equation involves an integral, it has to be approximated in order to compute it in a programming environment.
+The approximation is conducted through a discretization of the path into a series of small segments. For each segment, 
+the curvature change and segment length are approximated. Let \( \Delta s(i) \) denote the length of the \(i\)-th segment 
+and \( \Delta k(i) \) the change in curvature over this segment.
+Then, the trapezoidal rule is used to approximate the integral. 
+This is achieved by summing up the ratio of curvature change to segment length over all segments as given by 
+equation \Ref{curvature_change}:
+\begin{equation}
+cc = \sum_{i = \min \ \text{par} + \text{step}}^{\max \ \text{par}} \frac{\Delta k(i)}{\Delta s(i)}
+\label{curvature_change}
+\end{equation}
+
+Mathematically, if \(k(i)\) is the curvature at the \(i\)-th segment, then \( \Delta k(i) \) can be expressed as:
+\begin{equation}
+    \Delta k(i) = \left| k(i) - k(i-1) \right|
+\end{equation}
+where \(k(i-1)\) is the curvature of the previous segment. The absolute value is used to prevent cancellation of terms:
+curvature can be negative or positive according to the convexity or concavity of the curve. When summed together,
+a neutralization could happen resulting in an insignificant value. This could be solved by introducing the squarred 
+difference between \(k(i)\) and \(k(i-1)\). However, it will minimize the result to a negligible value for the 
+overall analysis as the curvature values are around the magnitude of \(10^{-2}\) or less.
+
+The summation provides a cumulative measure of curvature changes relative to the segment lengths along the entire path, 
+offering insight into the overall curvature dynamics of the spline. The formula for \(cc\) evaluates the total effect 
+of curvature changes normalized by segment lengths over 
+the path. This metric is useful for understanding how the path’s curvature varies and helps in optimizing paths 
+to ensure smooth and efficient navigation.
+
+To develop a cost function that integrates both path length and curvature, we explore two distinct approaches: 
+Exponential Weighted Path Evaluation and Normalized Weighted Path Evaluation. These approaches use weights to 
+prioritize the significance of each component in the evaluation process. 
+
+\subsubsubsection{First approach: Exponential Weighted Path Evaluation}
+The Exponential Path Evaluation is based on A. Elshamli, et al. method \cite{R17}. As explained in section 2.3,
+they consider path length, smoothness and clearance combined in a weighted cost function.
+Their approach of measuring path length and smoothness is considered here with some changes to fit it into the use case.
+
+Path length term is measured in \cite{R17} as follows:
+\begin{equation}
+d = \sum_{i=1}^{n-1} d(s_i)
+\end{equation}
+
+Whereas, Path smoothness is measured as follows:
+
+\begin{equation}
+d = \sum_{i=2}^{n-1} \exp(a(\theta_i - \alpha))
+\end{equation}
+
+where \( \theta_i \) represent the steering angle at the \(i\)-th segment, and \( \alpha \) denote the desired 
+steering angle.
+
+Besides path clearance, those values are weighted and summed.
+This summation is not normalized given that it adds the distance term which has a unit to the smoothness and 
+clearance terms that are exponential functions results. 
+In this approach of the work, the exponential function is used for normalization of distance and curvature change 
+terms. The length term is given by:
+\begin{equation}
+    \text{Length Term} = e^{\beta \cdot \left(\text{current}_L - \text{ref}_L\right)}
+    \end{equation}
+    
+    \noindent
+    The curvature change term is given by:
+    \noindent
+    
+    \begin{equation}
+    \text{Curvature Change Term} = e^{\alpha \cdot \left(\text{current}_{cc} - \text{ref}_{cc}\right)}
+    \end{equation}
+    
+    \noindent
+    where: 
+    \newline
+    - \textit{current} refers to the path being evaluated and \textit{ref} refers to the reference path.
+    \newline
+    - \(\alpha\) and \(\beta\) are factors that rationalize the exponential terms because the length is in the range 
+    of thousands of millimeters while the curvature is around the magnitude of \(10^{-2}\) or less.
+    Without these factors, the two terms would differ significantly, leading to incorrect analysis of the impact of each term.
+    
+\noindent The cost function of the weighted terms is given by equation \Ref{exp_function}:
+
+\begin{equation}
+Z^{\ast }=\arg \min \left(\omega_{c} \cdot e^{\alpha \cdot \left( \text{current}_{cc} - \text{ref}_{cc} \right)} + \omega_{L} 
+\cdot e^{\beta \cdot \left( \text{current}_L - \text{ref}_L \right)} \right)
+\label{exp_function}
+\end{equation}
+\noindent
+with constraints: \[K(i)\ <\ K_{\max}\]
+\noindent
+
+and \[\text{RobotFootprint}(\mathbf{p}_i) = 0 \quad \text{for all } i\]
 
 
+where \begin{itemize}
+    \item \(\omega_c\) and \(\omega_L\) are the weights assigned to the curvature change term and the length term, 
+    respectively. These weights determine the relative importance of curvature change and path length in the overall 
+    evaluation. 
+    \item \(\ K_{\max}\) the maximum tolerated curvature
+    \item \( \mathbf{p}_i \) represent the \( i \)-th scan point in space. 
+
+    \item \( \text{RobotFootprint}(\mathbf{p}_i) \) be a boolean function that returns 1 if the point \( \mathbf{p}_i \) 
+    lies within the robot's footprint (polygon) and 0 otherwise.
+    
+\end{itemize}
+
+
+\subsubsubsection{Second approach: Normalized Weighted Path Evaluation}
+
+The Normalized Weighted Path Evaluation is based on the division of the path's Length
+and Curvature Change measured respectively using the equations \Ref{Length_formula} and 
+\Ref{curvature_change} respectively by the reference path's Length and Curvature Change. 
+The length term is given by:
+\begin{equation}
+    \text{Length Term} = \frac{\sum_{i=\min \text{ par}}^{\max \text{ par}} s(i)_j}{\sum_{i=\min \text{ par}}^{\max \text{ par}} s(i)_{\text{ref}}}
+\end{equation}
+
+\noindent
+The curvature change term is given by:
+
+\begin{equation}
+    \text{Curvature Change Term} = \frac{\sum_{i=j \min \text{ par}}^{j \max \text{ par}} \frac{\Delta k(i)_j}{\Delta s(i)_j}}{\sum_{i=\text{ref} \min \text{ par}}^{\text{ref} \max \text{ par}} \frac{\Delta k(i)_{\text{ref}}}{\Delta s(i)_{\text{ref}}}}
+\end{equation}
+
+where \( j \) denotes the current path being evaluated.
+
+\noindent The cost function of the weighted terms is given by equation \Ref{Norm_function}:
+\begin{equation}
+    Z^{\ast} = \arg \min \left( \omega_C \cdot \frac{\sum_{i=\text{j min par}}^{\text{j max par}} \frac{\Delta k(i)_j}
+    {\Delta s(i)_j}}{\sum_{i=\text{ref min par}}^{\text{ref max par}} \frac{\Delta k(i)_{\text{ref}}}
+    {\Delta s(i)_{\text{ref}}} } + \omega_L \cdot \frac{\sum_{i=\text{min par}}^{\text{max par}} s(i)_j}
+    {\sum_{i=\text{min par}}^{\text{max par}} s(i)_{\text{ref}}} \right)
+\label{Norm_function}
+\end{equation}
+
+\noindent
+with constraints: \[K(i)\ <\ K_{\max}\]
+\noindent
+
+and \[\text{RobotFootprint}(\mathbf{p}_i) = 0 \quad \text{for all } i\]
+
+
+where \begin{itemize}
+    \item \(\omega_c\) and \(\omega_L\) are the weights assigned to the curvature change term and the length term, 
+    respectively. These weights determine the relative importance of curvature change and path length in the overall 
+    evaluation. 
+    \item \(\ K_{\max}\) the maximum tolerated curvature
+    \item \( \mathbf{p}_i \) represent the \( i \)-th scan point in space. 
+
+    \item \( \text{RobotFootprint}(\mathbf{p}_i) \) be a boolean function that returns 1 if the point \( \mathbf{p}_i \) 
+    lies within the robot's footprint (polygon) and 0 otherwise.
+    
+\end{itemize}
+
+The algorithm that measures the path quality is detailed through Pseudo Code \Ref{EvaluationAlgorithm}.
+
+\subsubsection{Results}
+Both evaluation approaches were tested in the cloned simulation environment. 
+Tests were ran on 10 different spline paths  that were generated with transition points scattered in the station \Ref{Mult_splines}.
+Different locations were used to stress the metric outcomes. 
+The Exponential Weighted Path Evaluation was tested with \(\alpha\) = \(2\), \(\beta\) = \(0.0007\), 
+\(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\).
+The results are shown in figure \Ref{Test_Eval_Exp}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/Mult_Splines.png} % Replace with your figure
+        \caption{Test Results on the Simulated Environment: Multiple Splines Visualization}
+        \label{Mult_splines}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/Exp_Results.png} % Replace with your figure
+        \caption{Test Results on the Simulated Environment: Evaluation results of the Exponential Approach}
+        \label{Test_Eval_Exp}
+        \end{center}    
+\end{figure}
+
+The Normalized Weighted Path Evaluation was ran for two tests on the same splines set with 
+\(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\) as well as 
+\(\omega_c\)= \(0.5\) and \(\omega_L\)=\(0.5\). 
+The results are shown in figures \Ref{Test_Eval_Norm1} and \Ref{Test_Eval_Norm2}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/w_0.7.png} % Replace with your figure
+        \caption{Test Results on the Simulated Environment: Evaluation results of the Normalized Approach
+        with weighing out the curvature}
+        \label{Test_Eval_Norm1}
+        \end{center}    
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/w_0.5.png} % Replace with your figure
+        \caption{Test Results on the Simulated Environment: Evaluation results of the Normalized Approach
+        with equal weights}
+        \label{Test_Eval_Norm2}
+        \end{center}    
+\end{figure}
+
+
+
+\begin{algorithm}[H]
+    \caption{Path Evaluation Algorithm}\label{EvaluationAlgorithm}
+
+    \SetAlgoLined
+    \KwData{Spline Path, set of scan points $P$}
+    \KwResult{Evaluation result}
+    
+    Initialize Metric\;
+    
+    \If{local\_max\_curvature > maximum\_curvature\_}{
+        metric.curvature\_change\_ $\gets$ curvature\_KnockOut\_factor $\cdot$ local\_curv\_change\;
+    }
+    \Else{
+        metric.curvature\_change\_ $\gets$ local\_curv\_change\;
+    }
+    
+    metric.length\_ $\gets$ metric.calculate\_length\_metric(gen)\;
+    
+    \For{each point $p_i$ in $P$}{
+        test $\gets$ RobotFootprint($p_i$)\;
+        
+        \If{test == 0}{
+            result $\gets$ obstacle\_KnockOut\;
+        }
+        \Else{
+            result $\gets$ EvaluationFunction(curvature, length)\;
+        }
+    }
+    
+    \Return{result}\;
+\end{algorithm}
 

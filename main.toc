@@ -50,7 +50,11 @@
 \contentsline {subsubsection}{\numberline {3.2.3}Results}{60}{subsubsection.3.3.2.3}%
 \contentsline {subsection}{\numberline {3.3}Path Evaluation}{61}{subsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Utility}{61}{subsubsection.3.3.3.1}%
-\contentsline {chapter}{\numberline {4}chapter name }{64}{chapter.4}%
-\contentsline {chapter}{General conclusion}{65}{chapter*.47}%
-\contentsline {chapter}{Bibliography}{66}{chapter*.48}%
-\contentsline {chapter}{Annexes}{70}{chapter*.49}%
+\contentsline {subsubsection}{\numberline {3.3.2}Implementation}{62}{subsubsection.3.3.3.2}%
+\contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{64}{subsubsubsection.3.3.3.2.1}%
+\contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{65}{subsubsubsection.3.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Results}{66}{subsubsection.3.3.3.3}%
+\contentsline {chapter}{\numberline {4}chapter name }{71}{chapter.4}%
+\contentsline {chapter}{General conclusion}{72}{chapter*.51}%
+\contentsline {chapter}{Bibliography}{73}{chapter*.52}%
+\contentsline {chapter}{Annexes}{77}{chapter*.53}%
