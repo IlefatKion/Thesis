@@ -54,7 +54,7 @@
 \contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{64}{subsubsubsection.3.3.3.2.1}%
 \contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{65}{subsubsubsection.3.3.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Results}{66}{subsubsection.3.3.3.3}%
-\contentsline {chapter}{\numberline {4}chapter name }{71}{chapter.4}%
-\contentsline {chapter}{General conclusion}{72}{chapter*.51}%
-\contentsline {chapter}{Bibliography}{73}{chapter*.52}%
-\contentsline {chapter}{Annexes}{77}{chapter*.53}%
+\contentsline {chapter}{\numberline {4}chapter name }{72}{chapter.4}%
+\contentsline {chapter}{General conclusion}{73}{chapter*.52}%
+\contentsline {chapter}{Bibliography}{74}{chapter*.53}%
+\contentsline {chapter}{Annexes}{78}{chapter*.54}%

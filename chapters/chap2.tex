@@ -243,7 +243,7 @@ transformation matrices are prepared to convert coordinates between global and s
 The need to transform the used coordinates to the shelf frame is derived from the scalability needs.
 As seen on figure \Ref{warehouse}, stations can be placed in different positions and have different orientations.
 If global coordinates are used, it becomes computationally challenging to develop an exhaustive algorithm that fits all the 
-possibilities of station orientation and shelf positioning. On the other hand, using the shelf coordinate frame shifts 
+possibilities of station orientation and shelf configurations. On the other hand, using the shelf coordinate frame shifts 
 the point of view to the inside of the station only. It enables the shelf to orchestrate the geometric partitioning 
 of the station based on its position in the station.
 The algorithm then iteratively transforms the station and shelf corners from global coordinates to shelf coordinates, 
@@ -363,7 +363,7 @@ change as a straight section of the path, two different splines will be interpol
 
 By doing so, two connected splines are obtained. Then they are merged together in the same path data structure to 
 form one path. The first spline is driven in opposite direction driving, the second in main direction driving. 
-The transition section at the polygon enables the robot to have a positioning that facilitates changing the driving direction
+The transition section at the polygon enables the robot to have an orientation that facilitates changing the driving direction
 as given by figure \Ref{transition}.
 
 %TODO: remove white space from the next figures
@@ -622,7 +622,7 @@ terms. The length term is given by:
     - \textit{current} refers to the path being evaluated and \textit{ref} refers to the reference path.
     \newline
     - \(\alpha\) and \(\beta\) are factors that rationalize the exponential terms because the length is in the range 
-    of thousands of millimeters while the curvature is around the magnitude of \(10^{-2}\) or less.
+    of thousands of millimeters while the curvature is around the magnitude of \(10^{-3}\).
     Without these factors, the two terms would differ significantly, leading to incorrect analysis of the impact of each term.
     
 \noindent The cost function of the weighted terms is given by equation \Ref{exp_function}:
@@ -703,15 +703,63 @@ The algorithm that measures the path quality is detailed through Pseudo Code \Re
 
 \subsubsection{Results}
 Both evaluation approaches were tested in the cloned simulation environment. 
-Tests were ran on 10 different spline paths  that were generated with transition points scattered in the station \Ref{Mult_splines}.
-Different locations were used to stress the metric outcomes. 
+Tests were ran on 10 different spline paths  that were generated with transition points scattered in 
+the station \Ref{Mult_splines}.
+Different locations were used to stress the metric outcomes by creating good and bad paths. 
 The Exponential Weighted Path Evaluation was tested with \(\alpha\) = \(2\), \(\beta\) = \(0.0007\), 
 \(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\).
-The results are shown in figure \Ref{Test_Eval_Exp}
+The results are shown in figure \Ref{Test_Eval_Exp}: The bar chart reflects the Evaluation score of each 
+spline path from figure \Ref{Mult_splines}. Each bar color reflects the same color spline.
+The Normalized Weighted Path Evaluation was ran for two tests on the same splines set with 
+\(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\) as well as 
+\(\omega_c\)= \(0.5\) and \(\omega_L\)=\(0.5\). 
+The results are shown in figures \Ref{Test_Eval_Norm1} and \Ref{Test_Eval_Norm2}
+%comment on results:
+
+For the Exponential Weighted Path Evaluation, the results are correct. It is easy to differentiate poor-quality paths. 
+For example, the Blue spline was used as the reference path, while the Orange, Gray, and Purple paths were intentionally 
+created as bad paths. The Orange and Gray paths generate significant curvature near the destination, making it 
+challenging for the vehicle to navigate and arrive in the correct position and orientation given the narrow aisle 
+that it has to turn and navigate in as shown by figure  \Ref{curv_problem}. Given the high curvature and the proximity to the
+destination, the truck decelerates and moves very slowly. Changes that it stops at the correct orientation 
+that allows it to pickup the pallet are very low. Such path have to be avoided at all costs. The Purple path is longer 
+and curved at the starting area. Furthermore, the Brown path demonstrates the best overall fitness. Although it is 
+short, it introduces high curvatures at the transition and destination areas. Compared to the Blue and Red paths, 
+the Brown path is shorter but less smooth. 
+The Exponential Evaluation also favors the Dark Green path to the Pink one, even though the concentrated 
+curvature at the end of the green path is high.
+In conclusion, this evaluation method is very sensitive to path length and less 
+sensitive to high concentrated curvatures. This is due to the high factor of the length term, in the range 
+of thousands of millimeters, and the low factor of the curvature term which is around the magnitude of \(10^{-3}\).
+It is inconvenient to change the factors \(\omega_c\) and \(\omega_L\) by increasing \(\omega_c\) and 
+decreasing \(\omega_L\) as the difference becomes huge while it is mandatory to attribute 
+importance to both factors. Besides, this Metric is very sensitive to the change of the \(\alpha\) and \(\beta\) factors.
+These factors must be carefully tuned to fit all use cases and account for varying station sizes and configurations. 
+However, finding factors that are scalable across different use cases is not straightforward.
+
+\noindent On the other hand, The Normalized Weighted Path Evaluation, chose the Red path as the best fitness, 
+outperforming the Blue pattern path. This is due to the remarkable less curvature of the Red path at the start 
+and transition locations due to its proximity to the transition polygon and distance to the destination.
+These factors allow for smooth driving along the path.
+Comparing figures \Ref{Test_Eval_Norm1} and \Ref{Test_Eval_Norm2}, the approach of outweighing the curvature 
+over the length outperforms the equal weights approach. The Pink path is visibly better than the Brown due 
+to better smoothness and the first weights approach discriminates them better. 
+Given the challenges associated with driving along smooth paths, it is a strategic decision to prioritize the 
+curvature term over the length term. Navigating a slightly longer path is far less difficult than handling a path 
+with sharp curves.
+This approach is not affected by the difference of range between length and curvature metrics given that 
+they are each divided respectively by the reference path's length and curvature. This not only balances out the 
+two terms but also makes it fit all use cases and account for varying station sizes and configurations given that 
+the reference path is always relevnat to the present station.
+
+As a final point, the champion approach is the Normalized Weighted Path Evaluation with \(\omega_c\)= \(0.7\) 
+and \(\omega_L\)=\(0.3\) given by equation \Ref{Norm_function}.
+
+
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=4in]{images/Chap2/Mult_Splines.png} % Replace with your figure
+        \includegraphics[width=4in]{images/Chap2/Mult_Splines_noted.png} % Replace with your figure
         \caption{Test Results on the Simulated Environment: Multiple Splines Visualization}
         \label{Mult_splines}
         \end{center}    
@@ -724,11 +772,6 @@ The results are shown in figure \Ref{Test_Eval_Exp}
         \label{Test_Eval_Exp}
         \end{center}    
 \end{figure}
-
-The Normalized Weighted Path Evaluation was ran for two tests on the same splines set with 
-\(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\) as well as 
-\(\omega_c\)= \(0.5\) and \(\omega_L\)=\(0.5\). 
-The results are shown in figures \Ref{Test_Eval_Norm1} and \Ref{Test_Eval_Norm2}
 
 \begin{figure}[H]
     \begin{center}
@@ -747,7 +790,13 @@ The results are shown in figures \Ref{Test_Eval_Norm1} and \Ref{Test_Eval_Norm2}
         \end{center}    
 \end{figure}
 
-
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4in]{images/Chap2/curv_problem.png} % Replace with your figure
+        \caption{Navigating high curvatures in narrow areas}
+        \label{curv_problem}
+        \end{center}    
+\end{figure}
 
 \begin{algorithm}[H]
     \caption{Path Evaluation Algorithm}\label{EvaluationAlgorithm}

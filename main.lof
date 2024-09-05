@@ -21,7 +21,7 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces GA Test scenarios \cite {R17}\relax }}{23}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Flowchart of the DWA \cite {R19}\relax }}{25}{figure.2.10}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Application of classic and heuristic approaches in MP \cite {R26} \newline \textbf {Dark gray:} Classic approaches \newline \textbf {Light gray:} Heuristic approaches \relax }}{26}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces NURBS spline example \newline \textbf {Green}: Control points \newline \textbf {Red}: NURBS spline\relax }}{29}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces NURBS spline example. \textbf {Green}: Control points \textbf {Red}: NURBS spline\relax }}{29}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }}{30}{figure.caption.22}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Convex hull contained Spline \cite {R29}\relax }}{31}{figure.caption.23}%
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Curvature of 3 S-shaped splines\relax }}{32}{figure.caption.24}%
@@ -45,8 +45,9 @@
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Test Results on Cloned Test Environment\relax }}{60}{figure.caption.43}%
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path\relax }}{61}{figure.caption.44}%
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Test Results on the Simulated Environment: Truck at the Destination\relax }}{61}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{67}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{67}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{68}{figure.caption.48}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{68}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{68}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{68}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{69}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{69}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Navigating high curvatures in narrow areas\relax }}{70}{figure.caption.50}%
 \addvspace {10\p@ }
