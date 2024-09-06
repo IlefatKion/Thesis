@@ -324,7 +324,6 @@ In figure \Ref{other station}, stands the result of the module Create subpolygon
         \label{other station}
         \end{center}    
 \end{figure}
-In figure \ref{} stands a plotted message that shows the creation of the polygons with their coordinates.
 
 \subsection{Path creation}
 This section details the methodology for path creation using splines. \textbf{The input of this section are the polygons besides
@@ -446,11 +445,11 @@ plotting of the pattern path on the simulated station as given by \Ref{driving} 
     \centering
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/Chap2/spline_split.png} % Replace with your figure
+        \includegraphics[width=3in]{images/Chap2/spline_split.png} % Replace with your figure
     \end{minipage}
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/Chap2/spline_split_posY.png} % Replace with your figure
+        \includegraphics[width=3.5in]{images/Chap2/spline_split_posY.png} % Replace with your figure
     \end{minipage}
     \caption{Test Results on Cloned Test Environment}
     \label{Test_clone}
@@ -830,3 +829,150 @@ and \(\omega_L\)=\(0.3\) given by equation \Ref{Norm_function}.
     \Return{result}\;
 \end{algorithm}
 
+\newpage
+\subsection{Path Optimization}
+After successfully developing the tools to partition the stations, create spline-based pattern paths, and evaluate their quality 
+in line with the trucks' properties and target outcomes, the paths are ready for the optimization phase.
+\textbf{The input of this section is a range of paths along with their evaluation scores and the output is the optimal 
+path to be driven.}
+
+\subsubsection{Utility}
+The utility of the path optimization process lies in its ability to identify the most efficient and effective path for the 
+vehicle to follow, based on various criteria. By considering key factors such as path length, curvature, and smoothness, 
+the optimization algorithm ensures that the selected path not only adheres to the vehicle's operational constraints but 
+also minimizes risks associated with challenging maneuvers. This process plays a crucial role in improving overall system 
+performance, as it helps reduce fuel consumption, wear on vehicle components, and driving complexity. Additionally, 
+the optimized path leads to better time efficiency and safer operations, particularly in complex environments where 
+tight turns or narrow spaces can hinder navigation.
+
+\subsubsection{Implementation}
+As discussed in section 3.1, The meta-heuristic approach is used to optimize the spline-based pattern paths. 
+Based on the Literature review the choice was made around testing 5 meta-heuristic optimization algorithms then 
+assessing each algorithm's performance. The algorithms are: Particle Swarm Optimization (PSO), Differential Evolution (DE),
+Genetic Algorithms (GA), Simulated Annealing (SA), and Ant Colony Optimization (ACO). Those algorithms were selected due 
+to their capabilities of solving the local optima problematic and their applications in robotics path planning although 
+considered recent for some of the algorithms. 
+
+The optimization process is detailed through Algorithm \Ref{optimization}. After initializing the optimization problem-related
+parameters, The algorithm starts the evolution of the generations or the iterations. In each iteration it generates a fixed 
+number of individuals. \textbf{The decision vector of each individual is the transition point. The optimization algorithm
+starts by placing random transition points inside the subpolygons}. First the initial individuals are generated. 
+For Population based algorithms like GA and DE, generate an initial population of candidate points $(x, y)$, for swarm-based algorithms
+like ACO and PSO, 
+initialize particles or ants randomly, For Simulated Annealing (SA), start with a single solution point $(x, y)$.\\
+Each transition point is used to generate a path as explained
+in section 3.3.2 then evaluated through the method in section 3.3.3. The evaluation result is the fitness of the path that the 
+optimization algorithm bases its results on. By now the initial generation is completed. Then, the algorithm iterates until 
+the maximum number of iterations is met. The reason behind choosing a maximum number of iterations is that the fitness function 
+is not tangible. It can vary according to many factors like station configuration and dimensions and navigation environments.
+Tuning a goal fitness that fits all cases can be limiting if it set higher than the possible optimal fitness and causes sinking in 
+suboptimal solutions or can constrain the optimizer if set too low: the optimizer can quit without solutions.
+Then the algorithm proceeds to generate new points following the meta-heuristic algorithm:
+\begin{itemize}
+    \item GA: Apply selection, crossover, and mutation to generate new points $(x, y)$.
+    \item DE: Create new trial points by combining the difference between vectors of points.
+    \item PSO: Update positions of particles based on their velocities, influenced by the personal and global best.
+    \item SA: Randomly perturb the current point $(x, y)$ and generate a new path.
+    \item ACO: Ants select the next points $(x, y)$ based on pheromone trails and heuristic information.
+\end{itemize}
+Afterwards, it generates Corresponding Paths, evaluates Fitness of New Paths and updates the Population or Solution Set
+in relevance to the meta-heuristic algorithm: 
+\begin{itemize}
+    \item GA: Select the next generation of points based on fitness, using techniques like elitism or tournament selection.
+    \item DE: Retain points with better fitness, replacing weaker ones.
+    \item PSO: Update the personal best positions and global best positions of particles.
+    \item SA: Accept or reject new points based on a probabilistic function that includes temperature.
+    \item ACO: Update pheromone trails based on the quality of the paths found, and reduce pheromone levels globally (evaporation).
+\end{itemize}
+The last step of each iteration is to update the algorithm parameters:
+\begin{itemize}
+    \item GA/DE/PSO: Adjust crossover rates, mutation rates, or particle velocities.
+    \item SA: Reduce temperature according to the cooling schedule to reduce acceptance of worse solutions over time.
+    \item ACO: Evaporate pheromone globally and reinforce the best paths with additional pheromone.
+\end{itemize}
+Once the stopping criteria is met, the algorithm returns the best path that it found.
+
+For the application of these algorithms, Pagmo library was used. Pagmo is an open-source scientific library designed for 
+C++ that specializes in optimizing massively parallel problems. It was developed between the Max Planck Institute for 
+Astronomy and the Advanced Concepts Team, at the European Space Research and Technology Center \cite{R45}.
+Pagmo provides an exhaustive toolset of meta-heuristic optimization techniques including the original Algorithms
+and the improved versions. 
+
+
+
+\begin{algorithm}[H]
+    \caption{Generic Optimization Algorithm with Path Evaluation}\label{optimization}
+    \KwIn{Problem parameters, Population size, Max iterations, Algorithm-specific parameters}
+    \KwOut{GeneratedOptimalPath}
+    
+    \SetKwBlock{Begin}{begin}{end}
+    
+    Initialize  
+    population size, max iterations,algorithm-specific parameters;\\
+    \textbf{Initialize Population of Points}\\
+    Generate an initial population of candidate points $(x, y)$.\\
+
+    \textbf{Evaluate Fitness for Initial Paths}\\
+    CreateEvaluationPath$(x, y)$;\\
+    MeasureNormalizedMetric(path);    
+    \textbf{Repeat until Termination Condition Met (max iterations ):}\\
+    \Begin{
+        Generate New Points\\
+        Generate Corresponding Paths\\
+        Evaluate Fitness of New Paths\\
+        Update Population or Solution Set\\
+
+        \textbf{Algorithm-Specific Update Step}\\
+    }
+    
+    \textbf{Return Best Point and its Path:}\\
+    Return the best point $(x, y)$ and its corresponding path found during the search process.
+    \end{algorithm}
+
+    
+\begin{table}[ht]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{3.5cm}|p{5cm}|p{5cm}|}
+    \hline
+    \textbf{Algorithm} & \textbf{Planning Time (Simple Environment) (ms)} & \textbf{Planning Time (Complicated Environment) (ms)} \\
+    \hline
+    Genetic Algorithm & 57 & 73 \\
+    \hline
+    PSO & 59 & 67 \\
+    \hline
+    ACO & 56 & 65 \\
+    \hline
+    Simulated Annealing & 80 & 78 \\
+    \hline
+    Differential Evolution & 27 & 44 \\
+    \hline
+    \end{tabular}%
+    }
+    \caption{Comparison of Planning Time for Different Algorithms in Simple and Complicated Environments (in milliseconds)}
+\end{table}
+
+\begin{table}[ht]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{4cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+    \hline
+    \multirow{2}{*}{\textbf{Algorithm}} & \multicolumn{2}{c|}{\textbf{Simple Environment}} & \multicolumn{2}{c|}{\textbf{Complicated Environment}} \\
+    \cline{2-5}
+     & \textbf{Fitness 1} & \textbf{Fitness 2} & \textbf{Fitness 1} & \textbf{Fitness 2} \\
+    \hline
+    Genetic Algorithm       & X1  & X2  & Y1  & Y2 \\
+    \hline
+    PSO                    & X1  & X2  & Y1  & Y2 \\
+    \hline
+    ACO                    & X1  & X2  & Y1  & Y2 \\
+    \hline
+    Simulated Annealing     & X1  & X2  & Y1  & Y2 \\
+    \hline
+    Differential Evolution  & X1  & X2  & Y1  & Y2 \\
+    \hline
+    \end{tabular}%
+    }
+    \caption{Comparison of Fitness Values for Different Algorithms in Simple and Complicated Environments}
+    \end{table}
+    
