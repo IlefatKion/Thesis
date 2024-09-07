@@ -119,9 +119,10 @@ of such advanced technology brings up several challenges, particularly in ensuri
 behavior under all operating conditions. This leads to a key motivation for further investigation and improvement 
 in the field.
 
-\section{Graduation project Motivation and Specifications}
+\section{Graduation project Motivation and Problem Statement}
 
-\subsection{Motivation and Problem statement}
+\subsection{Motivation}
+
 
 While autonomous vehicles can be highly reliable and efficient in carrying out various 
 tasks, their behavior is not always predictable or easily explained. The output often 
@@ -137,89 +138,117 @@ reducing confidence.
 
 Adding to these concerns, many autonomous systems, particularly in the intralogistics 
 sector, require significant commissioning efforts before they can be implemented in 
-a new environment and begin their service. Whether it's a required software, sensors, or 
-measurements, these systems demand substantial time and financial investment—two 
-crucial resources that we aim to optimize. 
-
-As engineers, we are committed to developing optimal solutions that are easy to 
+a new environment and begin their service. Whether it's a required software integration, 
+sensors installations, or 
+measurements, these systems demand substantial time, information and financial investment—three 
+crucial resources that we aim to optimize. Innovation in automation should involve 
+the development of optimal solutions that are easy to 
 commission in a new environment. These so-called "plug-and-play" solutions reduce 
 the effort required and allow customers to start benefiting from the autonomous 
-features with just the physical truck on-site and some basic input from the 
-warehouse map, the rest, is online recognition and processing. This approach 
+features with just the physical truck on-site and available information about the 
+warehouse. the rest, is online recognition and processing. This approach 
 significantly enhances the impact and convenience of the technology. 
 
-To address these issues, the autonomous vehicles department is dedicated to creating 
-solutions that are not only reliable and efficient but also transparent and 
-understandable. By focusing on explainable autonomous systems, the department aims 
-to build greater trust with customers, ensuring they feel confident in the technology 
-and are more likely to adopt and utilize these advanced robotic solutions. 
+The autonomous vehicles department focuses on creating reliable, efficient, and 
+explainable systems to build trust with customers, encouraging adoption of the technology. 
+With a focus on explainable AI, the technology becomes more interpretable, helping customers 
+understand decision-making processes and increasing their confidence in its safety and reliability.
 
-This thesis discusses one such possible application of autonomous vehicles. The use 
-case involves solving the following problem: as illustrated on Figure \Ref{docked station}, 
-after the vehicle enters the station- a limited area inside the warehouse where the shelf stands 
-to palletize/depalletize, in predefined positions, it faces the following problematics:  
+\newpage
+\subsection{Problem statement}
 
+Autonomous navigation is a topic where explainable intelligence can be integrated. 
+Robotic forklifts execute missions such as transporting pallets from one place to another: 
+picking up or dropping pallets.
+The mission is splitted into:
 \begin{itemize}
-    \item The vehicle’s forks are not facing the destination shelf but rather the opposite direction, 
+    \item a movement to a source
+    \item a pickup
+    \item a movement to the destination
+    \item a drop
+\end{itemize}
+The movement to the source or the destination is the movement in figure \Ref{move} where \(station1\) 
+is considered the source station that the truck is headed to.
+This movement is planned globally and is not the scope of this work. 
+
+However, the truck arrives at a distant pose from the shelf or pallet,
+the distance is clearly seen in figure \Ref{dock}. In addition, its forks are facing the 
+wrong direction because driving the truck should happen like the arrow shows on figure \Ref{move} 
+to avoid hitting humans or materials with the forks.
+
+The distance is intended because the truck needs a maneuver to make its forks dock (enter) the shelf
+as they are the part that picks up or drops the pallet.
+
+
+The path that involves this maneuver is called the link path that guides the truck to to the pallet or the drop 
+pose (the shelf inside the station in figure \Ref{dock}). 
+
+Actions like picking up or dropping are performed in specific locations inside the warehouse called 
+stations, examples of which are named \(station1\), \(station2\), and \(station3\) on figure \Ref{move}.
+Each station is designed to support specific warehouse functions and their general mission
+is to facilitate and organize material handling operations. 
+Each station contains a shelf that contains the pallets to be picked or dropped. 
+Online linking of the robotic forklift to the goal pallet or location takes place inside
+the station.
+
+\begin{figure}[H]
+    \begin{center}
+       \includegraphics[width=5in]{images/Chap0/move.png}\\
+       \caption{Pallet pickup from station 1}
+       \label{move}
+       \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+       \includegraphics[width=5in]{images/Chap0/arrive.png}\\
+       \caption{Vehicle arrival at station 2 to drop the pallet}
+       \label{dock}
+       \end{center}
+\end{figure}
+
+This thesis focuses on the subtask of an autonoumous online linking of the vehicle to shelf
+independantly from the task to be performed (pick up/drop). 
+Online planning for linking is mandatory because shelves can be shifted from their expected
+position but the vehicle needs precise recognition of the coordinates that it will reach. 
+Precise recognition allows for correctness of the picking or dropping processes, otherwise, 
+the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside 
+of the station and avoid collisioning with them when driving to the destination shelf.
+When it arrives at the station, the vehicle is fronted by these constraints:
+
+%TODO: check these
+\begin{itemize}
+    \item The vehicle’s forks are not facing the destination shelf as shown in figure \Ref{dock} 
+    but rather the opposite direction, 
     so a driving direction change is needed. 
 
-    \item The vehicle is heavy (1200 to 1500 KG) with an overall length of 2500 to 4000 mm  
-    which makes it both challenging and dangerous to change directions: turning on the spot or 
-    navigating in highly curved paths\cite{R5}. 
+    \item The vehicle is bulky in volume and mass (1200 to 4000 kg) with an overall 
+    length of 2500 to 4000 mm  \cite{R5}
+    which makes it challenging  to change directions: turning on the spot or 
+    navigating in highly curved paths. 
     
     \item The pallet docking process has to be very precise to avoid shifts and mistakes. 
 \end{itemize}
 
+$\Rightarrow$ \textbf{The goal} is to autonomously and optimally transport the vehicle from the position of entering the station in
+figure \Ref{dock_wait} to the position of docking the shelf in figure \Ref{dock_done} while accounting for obstacles,
+kinematics of the vehicle, and maximizing speed. 
+
 \begin{figure}[H]
     \begin{center}
-       \includegraphics[width=5in]{images/Chap0/station-sketch.drawio.png}\\
-       \caption{Vehicle setting in the station}
-       \label{docked station}
-       \end{center}
+    \begin{minipage}[b]{0.6\linewidth}  % First figure is larger (55% of the width)
+        \includegraphics[width=\linewidth]{images/Chap0/dock_wait.png}
+        \caption{Vehicle entered the station waiting for docking the shelf}
+        \label{dock_wait}
+    \end{minipage}
+    \hspace{0.02\linewidth}  % Space between the figures (2%)
+    \begin{minipage}[b]{0.5\linewidth}  % Second figure is smaller (42% of the width)
+        \includegraphics[width=\linewidth]{images/Chap0/dock_done.png}
+        \caption{Vehicle docked the shelf}
+        \label{dock_done}
+    \end{minipage}
+    \end{center}
 \end{figure}
-
-
-The first inspiration for the proposed solution was the forklift drivers themselves. The experienced 
-drivers all agree to solve the problematic – if it was to be solved manually, in the same way: to drive 
-in an arc shape to a point, then to change the driving direction and orienting the vehicle to the 
-destination position. 
-
-We would like to solve this problematic in a manner that: 
-
-\begin{itemize}
-    \item Imitates the manual driving process to pick a pallet when in the same situation (facing backward 
-    of the pallet).
-    \item Implements a predictable local path planning algorithm for the vehicle operations inside a station. 
-    \item Reduce the computational expense used with the global dynamic path planning algorithms implemented 
-    through a pattern 
-    \item Chooses an optimal path out of the various paths that can be driven.
-
-\end{itemize}
-\subsection{Project specifications}
-The aim of this thesis is to devise and assess a methodology for automated path planning of a mobile 
-robot, taking into account environmental obstacles. The proposed path should optimally connect the 
-robot to a nearby target pose, whereby optimality is defined as achieving maximum speed while adhering 
-to the robot’s kinematic constraints. Moreover, the path planning process should employ an online 
-pattern-based approach, ensuring that the robot’s behavior is explainable, and that all environmental 
-recognition information is utilized during path planning. 
-The work should build on existing work in the Robotics Application Construction Kit (RACK) and satisfy 
-real-time processing capabilities. Currently, existing methods in the literature shall be taken into 
-consideration so that the functionality is sufficient for typical intralogistics applications and 
-available computing power on the mobile robot itself. 
-
-The thesis consists of the following steps: 
-\begin{itemize}
-    \item 	getting acquainted with the current topic area with subsequent clustering and discrimination 
-    of available approaches based on a scientific literature review.
-    \item  	design methods for evolving B-Spline based path planning approaches under consideration of 
-    typical patterns used by manual driven trucks in intralogistics.
-    \item   design methods for determining optimization approaches and related metrics to enable 
-    real-time capable path planning.
-    \item  	implement the derived approaches in the RACK framework and evaluate the performance of 
-    the developed methods. 
-    \item	verify and evaluate the developed robotic application on a mobile robot under consideration 
-    of intralogistics boundary conditions.
-\end{itemize}
 
 \section{Work Structure and Methodology}
 
