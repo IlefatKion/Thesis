@@ -9,55 +9,57 @@
 \contentsline {section}{\numberline {2}Graduation project Motivation and Problem Statement}{8}{section.1.2}%
 \contentsline {subsection}{\numberline {2.1}Motivation}{8}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {2.2}Problem statement}{9}{subsection.1.2.2}%
-\contentsline {section}{\numberline {3}Work Structure and Methodology}{11}{section.1.3}%
+\contentsline {section}{\numberline {3}Work Structure and Methodology}{12}{section.1.3}%
 \contentsline {subsection}{\numberline {3.1}Agile Scrum Framework}{12}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {3.2}Version Management}{13}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {3.3}Communication and Collaboration:}{13}{subsection.1.3.3}%
 \contentsline {chapter}{\numberline {2}State of the Art: Optimal path planning for autonomous robots}{15}{chapter.2}%
-\contentsline {section}{\numberline {1}Path Planning}{18}{section.2.1}%
-\contentsline {subsection}{\numberline {1.1}Path Planning for autonomous robots: Opportunities and challenges}{18}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {1.2}Comprehensive Path Planning Approaches}{21}{subsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Global Path Planning}{21}{subsubsection.2.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Local Path Planning}{25}{subsubsection.2.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Hybrid Path Planning}{25}{subsubsection.2.1.2.3}%
-\contentsline {subsection}{\numberline {1.3}Discussion}{26}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2}Spline based Paths}{28}{section.2.2}%
-\contentsline {subsection}{\numberline {2.1}Definitions and Basic Concepts}{28}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2}Applications of Splines in Robotics}{31}{subsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Trajectory Planning}{31}{subsubsection.2.2.2.1}%
-\contentsline {subsection}{\numberline {2.3}Discussion}{33}{subsection.2.2.3}%
-\contentsline {section}{\numberline {3}Evaluating Path Efficiency: Key Metrics}{34}{section.2.3}%
-\contentsline {subsection}{\numberline {3.1}Core Metrics for Path Evaluation}{34}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {3.2}Combinations of single metrics}{36}{subsection.2.3.2}%
-\contentsline {section}{\numberline {4}Heuristic Approaches to Path Optimization in Robotics}{37}{section.2.4}%
-\contentsline {subsection}{\numberline {4.1}}{37}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {4.2}Heuristic Optimization Algorithms : An Overview}{38}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {4.3}Application of Heuristic Optimization in Robotic Path Planning}{39}{subsection.2.4.3}%
-\contentsline {section}{\numberline {5}Summary and Discussion}{43}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Discussion of the problem and the proposed solution }{46}{chapter.3}%
-\contentsline {section}{\numberline {1}Conceptual Framework}{46}{section.3.1}%
-\contentsline {subsection}{\numberline {1.1}Choice of Methodology}{46}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {1.2}Goal Setting and Work Structure}{48}{subsection.3.1.2}%
-\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{49}{section.3.2}%
-\contentsline {section}{\numberline {3}Development phases and Implementation}{54}{section.3.3}%
-\contentsline {subsection}{\numberline {3.1}Geometric Partitioning of the Station}{54}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Utility}{54}{subsubsection.3.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Implementation}{54}{subsubsection.3.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Results}{56}{subsubsection.3.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}Path creation}{57}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Utility}{58}{subsubsection.3.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Implementation}{58}{subsubsection.3.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Results}{61}{subsubsection.3.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Path Evaluation}{62}{subsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Utility}{62}{subsubsection.3.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Implementation}{63}{subsubsection.3.3.3.2}%
-\contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{65}{subsubsubsection.3.3.3.2.1}%
-\contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{66}{subsubsubsection.3.3.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Results}{67}{subsubsection.3.3.3.3}%
-\contentsline {subsection}{\numberline {3.4}Path Optimization}{72}{subsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Utility}{72}{subsubsection.3.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Implementation}{72}{subsubsection.3.3.4.2}%
-\contentsline {chapter}{\numberline {4}chapter name }{77}{chapter.4}%
-\contentsline {chapter}{General conclusion}{78}{chapter*.56}%
-\contentsline {chapter}{Bibliography}{79}{chapter*.57}%
-\contentsline {chapter}{Annexes}{84}{chapter*.58}%
+\contentsline {section}{\numberline {1}Intralogistics Environments}{15}{section.2.1}%
+\contentsline {section}{\numberline {2}AMRs in Intralogistics Environments}{16}{section.2.2}%
+\contentsline {section}{\numberline {3}Path Planning}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {3.1}Path Planning for autonomous robots: Opportunities and challenges}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {3.2}Comprehensive Path Planning Approaches}{22}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Global Path Planning}{22}{subsubsection.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Local Path Planning}{25}{subsubsection.2.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Hybrid Path Planning}{26}{subsubsection.2.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Discussion}{27}{subsection.2.3.3}%
+\contentsline {section}{\numberline {4}Spline based Paths}{29}{section.2.4}%
+\contentsline {subsection}{\numberline {4.1}Definitions and Basic Concepts}{29}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {4.2}Applications of Splines in Robotics}{32}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Trajectory Planning}{32}{subsubsection.2.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Discussion}{34}{subsection.2.4.3}%
+\contentsline {section}{\numberline {5}Evaluating Path Efficiency: Key Metrics}{35}{section.2.5}%
+\contentsline {subsection}{\numberline {5.1}Core Metrics for Path Evaluation}{35}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {5.2}Combinations of single metrics}{37}{subsection.2.5.2}%
+\contentsline {section}{\numberline {6}Heuristic Approaches to Path Optimization in Robotics}{38}{section.2.6}%
+\contentsline {subsection}{\numberline {6.1}}{38}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {6.2}Heuristic Optimization Algorithms : An Overview}{39}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {6.3}Application of Heuristic Optimization in Robotic Path Planning}{40}{subsection.2.6.3}%
+\contentsline {section}{\numberline {7}Summary and Discussion}{44}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Discussion of the problem and the proposed solution }{47}{chapter.3}%
+\contentsline {section}{\numberline {1}Conceptual Framework}{47}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Choice of Methodology}{47}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {1.2}Goal Setting and Work Structure}{49}{subsection.3.1.2}%
+\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{50}{section.3.2}%
+\contentsline {section}{\numberline {3}Development phases and Implementation}{55}{section.3.3}%
+\contentsline {subsection}{\numberline {3.1}Geometric Partitioning of the Station}{55}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Utility}{55}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Implementation}{55}{subsubsection.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Results}{57}{subsubsection.3.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Path creation}{58}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Utility}{59}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Implementation}{59}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Results}{62}{subsubsection.3.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Path Evaluation}{63}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Utility}{63}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Implementation}{64}{subsubsection.3.3.3.2}%
+\contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{66}{subsubsubsection.3.3.3.2.1}%
+\contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{67}{subsubsubsection.3.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Results}{68}{subsubsection.3.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Path Optimization}{73}{subsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Utility}{73}{subsubsection.3.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Implementation}{73}{subsubsection.3.3.4.2}%
+\contentsline {chapter}{\numberline {4}chapter name }{78}{chapter.4}%
+\contentsline {chapter}{General conclusion}{79}{chapter*.57}%
+\contentsline {chapter}{Bibliography}{80}{chapter*.58}%
+\contentsline {chapter}{Annexes}{85}{chapter*.59}%

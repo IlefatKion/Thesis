@@ -170,6 +170,26 @@ The mission is splitted into:
 The movement to the source or the destination is the movement in figure \Ref{move} where \(station1\) 
 is considered the source station that the truck is headed to.
 This movement is planned globally and is not the scope of this work. 
+Figure \Ref{move} is a section of the model of a real warehouse. In this work,
+the interest is around the following items of the model:
+\begin{itemize}
+    \item Dark Blue outline: walls of the warehouse
+    \item Yellow Rectancles marked as stations: Warehouse stations: Actions like picking up or 
+    dropping are performed in specific locations inside the warehouse called 
+    stations, examples of which are named \(station1\), \(station2\), and \(station3\) on the figure \Ref{move}.
+    Each station is designed to support specific warehouse functions and their general mission
+    is to facilitate and organize material handling operations. 
+    Each station contains a \textbf{shelf} that contains the pallets to be picked or dropped. 
+    \item Black rectangles: storage shelves (also called racks), where the  pallets and material are 
+    stored. 
+    \item Turquoise blue lines: Global paths that connect the stations.
+    The truck takes these routes when navigating from a station to the other while avoiding 
+    obstacles online if they occur.
+    \item Gray rectangles are starting position of the truck around the warehouse. For instance,
+    the truck can be placed at these positions before starting its autonomous navigation and 
+    task fulfillment.
+
+\end{itemize}
 
 However, the truck arrives at a distant pose from the shelf or pallet,
 the distance is clearly seen in figure \Ref{dock}. In addition, its forks are facing the 
@@ -183,18 +203,13 @@ as they are the part that picks up or drops the pallet.
 The path that involves this maneuver is called the link path that guides the truck to to the pallet or the drop 
 pose (the shelf inside the station in figure \Ref{dock}). 
 
-Actions like picking up or dropping are performed in specific locations inside the warehouse called 
-stations, examples of which are named \(station1\), \(station2\), and \(station3\) on figure \Ref{move}.
-Each station is designed to support specific warehouse functions and their general mission
-is to facilitate and organize material handling operations. 
-Each station contains a shelf that contains the pallets to be picked or dropped. 
 Online linking of the robotic forklift to the goal pallet or location takes place inside
 the station.
 
 \begin{figure}[H]
     \begin{center}
        \includegraphics[width=5in]{images/Chap0/move.png}\\
-       \caption{Pallet pickup from station 1}
+       \caption{Vehicle Moving towards station 1}
        \label{move}
        \end{center}
 \end{figure}
@@ -202,7 +217,7 @@ the station.
 \begin{figure}[H]
     \begin{center}
        \includegraphics[width=5in]{images/Chap0/arrive.png}\\
-       \caption{Vehicle arrival at station 2 to drop the pallet}
+       \caption{Vehicle arrives at station 1 and ready to execute the task}
        \label{dock}
        \end{center}
 \end{figure}
@@ -249,6 +264,8 @@ kinematics of the vehicle, and maximizing speed.
     \end{minipage}
     \end{center}
 \end{figure}
+
+The next section focuses on the process followed during the development of the project. 
 
 \section{Work Structure and Methodology}
 
