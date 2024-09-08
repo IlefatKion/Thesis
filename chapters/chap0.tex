@@ -204,7 +204,13 @@ The path that involves this maneuver is called the link path that guides the tru
 pose (the shelf inside the station in figure \Ref{dock}). 
 
 Online linking of the robotic forklift to the goal pallet or location takes place inside
-the station.
+the station. Online linking is mandatory because warehouse areas are subject to constant changes for instance,
+shelves can be shifted from their expected
+position and dynamic obstacles can show up, but, the vehicle needs precise recognition of the coordinates 
+that it will reach. 
+Precise recognition allows for correctness of the picking or dropping processes, otherwise, 
+the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside 
+of the station and avoid collisioning with them when driving to the destination shelf.
 
 \begin{figure}[H]
     \begin{center}
@@ -224,11 +230,6 @@ the station.
 
 This thesis focuses on the subtask of an autonoumous online linking of the vehicle to shelf
 independantly from the task to be performed (pick up/drop). 
-Online planning for linking is mandatory because shelves can be shifted from their expected
-position but the vehicle needs precise recognition of the coordinates that it will reach. 
-Precise recognition allows for correctness of the picking or dropping processes, otherwise, 
-the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside 
-of the station and avoid collisioning with them when driving to the destination shelf.
 When it arrives at the station, the vehicle is fronted by these constraints:
 
 %TODO: check these
