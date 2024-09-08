@@ -1,5 +1,5 @@
-\chapter{Discussion of the problem and the
-proposed solution
+\chapter{Design and Development of the
+Proposed Solution
 }
 
 \renewcommand{\chaptername}{Chapter}
@@ -13,80 +13,10 @@ smooth and accurate movement toward the pallet. Implementation details are then 
 components are integrated into a cohesive solution for precise pallet access within the warehouse environment.
 
 \section{Conceptual Framework}
-\subsection{Choice of Methodology}
-Based on the State of the Art (Chapter 2), we discussed that classic and heuristic approaches have some drawbacks, 
-such as complexity and long planning times. These approaches are typically designed to solve path planning problems 
-in various environments and have been used in multiple applications.However, in our case, the robot operates in a 
-consistent environment—the station. Although stations may differ in 
-position, size, and layout, the components within them remain the same: shelves containing pallets. 
-This consistency suggests that we should 
-develop a solution specifically tailored to the station environment, which would help minimize potential problems 
-and reduce the effort required to solve them. A path planning module has already been developed for the autonomous 
-forklift trucks, utilizing classic sampling-based path planning methods. This module is based on the Open Motion 
-Planning Library (OMPL), an open-source library for motion planning in robotics. OMPL is designed for complex use 
-cases and includes several algorithms, such as probabilistic roadmaps (PRM) and rapidly-exploring random trees 
-(RRT), along with their variants. OMPL performs well in clean environments without obstacles, with a minimum 
-processing time of 150 ms, but in complex environments, processing time can increase to 2 seconds.
-While it can be very fast in the abscence of obstacles this approach presents some limitations:
-\begin{itemize}
-    \item Not Station-Specific: OMPL is built to fit many different environments, so it is not naturally designed 
-    for the station-related pickup/drop operations.
-
-    \item Too Complex for Simple Tasks: OMPL includes advanced algorithms that are more powerful than necessary 
-    for straightforward tasks like picking up and dropping off pallets.
-    
-    \item Longer Processing Times: OMPL can take longer to process in complex situations. 
-\end{itemize}
-
-Considering these limitations of OMPL, it is important to develop a simpler, station-based approach. 
-This new method should be specifically tailored to the consistent environment of the 
-station, allowing for quicker and more efficient path planning. By focusing on the typical tasks of pallet 
-pickup and drop-off, we can create a solution that works effectively in simple and moderately complex 
-situations, reducing processing time and resource usage. This approach would serve as the primary option 
-for linking the robot in the station to the pallet. In case of very complex environments and failure,
-the OMPL based approach becomes the secondary option. 
-
-For optimizing paths, various approaches exist.
-Path optimization can be approached mathematically using Jacobians, which map control inputs, like position or wheel 
-speeds, to the desired outcomes. The objective is to minimize a cost function—such as path length, energy use, 
-or time—by adjusting the robot's control inputs to achieve the desired position. A common technique is gradient descent, 
-where control inputs are iteratively updated to reduce the cost. The Jacobian matrix, which links these 
-inputs to the robot's position, guides these adjustments until the most efficient path is found. However, the Jacobian-based 
-optimization method poses several challenges for this use case. For wheeled mobile robots with multiple control inputs, 
-the Jacobian matrix can become complex and large, leading to increased computational costs and making real-time 
-optimization challenging. 
-Frequent updates in dynamic environments further add to this load, potentially leading to delays or suboptimal paths. 
-Mukherjee et al. \cite{R44} noted that their approach to optimal trajectory planning does not guarantee a global 
-optimum but rather an isolated local optimum close to the global one. Additionally, this method relies on precise 
-kinematic and dynamic models, so any inaccuracies, such as sensor errors, can result in poor path optimization. 
-In this context, the kinematic model would need to be refined for the specific truck using it. Managing complex inequality 
-constraints, like obstacle avoidance, can also complicate the optimization process and reduce efficiency.
-
-On the other hand, Reinforcement Learning (RL) can be used to learn optimal paths by interacting with the environment. 
-The robot learns a policy that maximizes cumulative rewards, where rewards are given for reaching the goal, avoiding 
-obstacles, and minimizing path length. The policy is often represented by a neural network, and the path is optimized 
-as the robot learns from its experiences. Reinforcement learning (RL) methods for path planning in wheeled mobile robots 
-face significant limitations due to high computational costs and long training times. These methods require extensive 
-data to cover various scenarios, making the process time-consuming and resource-intensive. Training an RL agent, 
-particularly in complex environments, can take millions of interactions, which is impractical for real-time applications. 
-Additionally, as the environment's complexity increases, the state and action spaces expand, 
-leading to scalability issues and longer training times. When combined with deep learning, RL becomes even more 
-computationally demanding, requiring substantial resources and careful tuning of hyperparameters.
-
-As highlighted in Section 2.4, meta-heuristic approaches, though powerful for solving complex problems, 
-often require significant computational time. However, this can be greatly reduced by optimizing how these 
-methods are applied. For instance, instead of generating a path entirely from scratch, starting with a pre-built 
-or partially constructed path provides a solid foundation. Additionally, reducing the number of waypoints 
-can streamline computation, allowing the algorithm to focus on refining an already good solution rather 
-than calculating every detail from the ground up. This approach preserves the strengths of meta-heuristics 
-while significantly speeding up the planning process, making it more practical for real-time or near-real-time 
-applications.
-
-
-\subsection{Goal Setting and Work Structure}
+\subsection{Goal Setting}
 %goals and overall approach of the methodology
 Considered the problems detailed in chapter 1 and the previous conclusions, the following goals were identified 
-based on the company's vision and the general requirements for applications to autonomous mobile robots in intralogistics:
+based on the former detailed requirements for applications to autonomous mobile robots in intralogistics:
 \begin{itemize}
     \item \textbf{Predictability and Robustness of Mobile Robot Behavior: }The solution utilizes an intelligent approach to connect 
     the robot to its destination. The developed algorithm generates an explainable navigation process that enables humans 
@@ -107,6 +37,33 @@ based on the company's vision and the general requirements for applications to a
     prioritize safety while maintaining an efficient and effective route to the target location.
 
 \end{itemize}
+
+
+\subsection{Work Structure}
+To achieve the aforementioned goals, this work will follow a structured approach, consisting of the following key 
+development chapters: 
+
+\begin{itemize}
+    \item Station Layout Analysis: An analysis of the station layout enhances the development 
+    of station-specific solution. The analysis considers the differences in the stations dimensions
+    and configurations and the solution is created in station relation to ensure precision and accuracy
+    to potential changes like shelf shifts and unkown obstacles (obstacles that do not initially 
+    belong to the station). Understanding station layouts can improve path optimization, reduce the need for 
+    frequent replanning, and enhance the overall efficiency of operations.
+
+    \item Path Generation: A robust and efficient path generation algorithm is developed and tailored to 
+    the station environment. The path follows human-driving patterns along with specific rules and constraints 
+    which enhances efficiency, predictability and makes use of explainable AI concepts.
+
+    \item Path Optimization: Metaheuristic Algorithms are tested in different station configuration scenarios 
+    and discriminated. The most suitable algorithm in terms of processing time is considered. The optimizer 
+    generates an optimum path for specific criteria. 
+
+    \item Obstacle Avoidance: obstacles are avoided using the pattern path and optimizer constraints.
+
+\end{itemize}
+
+The structure ensures direct 
 
 The following sections will detail the chosen methodological approach. Then, the implementation steps are 
 explicited and demonstrated from the simulation point of view. Finally, the tests results are explained 
