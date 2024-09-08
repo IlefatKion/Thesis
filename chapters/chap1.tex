@@ -339,7 +339,7 @@ or vertically. This can be inefficient or even impossible in environments where 
 or more complex movements are required.
 On the Other hand, 
 
-Lavalle created a method called Rapidly-exploring Random Trees (RRT), a randomized data structure used 
+Lavalle \cite{R47} created a method called Rapidly-exploring Random Trees (RRT), a randomized data structure used 
 for various path planning tasks. It starts with a single node (usually the starting point)
 and iteratively grows a tree by adding new nodes. At each iteration, a random point is sampled from 
 the search space. The nearest node in the tree is found, and a new node is added along the path to 
@@ -357,13 +357,6 @@ RRTs require collision checks for each new node, which can be computationally ex
 especially in environments with numerous obstacles, heavy traffic, or complex paths.
 
 
-As for artificial intelligence-based methods, also known as heuristic and metheuristic approaches, 
-leverage the use of neural networks, machine learning and deep learning, and evolutionary algorithms. 
-These methods learn from experience, adapt to changes, and optimize paths in complex environments. 
-They are good at handling dynamic and unpredictable scenarios, making them suitable for tasks like 
-autonomous driving, robot navigation, and logistics. 
-
-
 \begin{figure}[H]
     \begin{center}
        \includegraphics[width=3.5in]{images/Chap1/sampling-based.png}\\
@@ -373,6 +366,11 @@ autonomous driving, robot navigation, and logistics.
        \end{center}
 \end{figure}
 
+\textbf{artificial intelligence-based methods} 
+leverage the use of Neural Networks, Fuzzy Logic, Reinforcement Learning, and Evolutionary algorithms. 
+These methods learn from experience, adapt to changes, and optimize paths in complex environments. 
+
+
 To start with, Neural networks (NN) are inspired from the biological harmonious connection of the brain neurons
 that gives it the ability to process big amounts of data and generate ideas and decisions and solve problems. 
 The NN is built in a way that enables it to get its input in a form of data and process it by learning, improving 
@@ -380,13 +378,24 @@ and adjusting the output to the desired results. NN are able to perform Parallel
 transmitted in two
 directions to the neuron in the case of Recurrent Neural Networks (RNN) that allows for learning fron current and 
 past inputs to the NN. This approach improves the computation time and overall performance. 
-The NN is then able to process complex solutions and create paths for difficult environments. 
-It is well suited for unpredictable situations as it is built to adapt to the available input and the desired output.
-However, it presents a practicality challenge. Althugh the performance an results can be impressive, yet, in a 
+The NN is then able to process solutions that create paths for difficult environments. 
+However, it presents a practicality challenge. Although the performance an results can be impressive, yet, in a 
 real-time context, 
-it is hard to rely on solutions that require extensive computational efforts and need long durations to 
+it is unfeasible to rely on solutions that require extensive computational efforts and need long durations to 
 process solutions. In addition, the number of neurons and layers have to be scalable and depends closely on the 
-level of complexity that the vehicle is to deal with \cite{R12}. 
+level of complexity that the vehicle is to deal with: NN are trained using a usecase so the 
+outcome is tightly related to that use case and is not as efficient in other applications \cite{R12}. 
+
+On the other hand, Reinforcement Learning (RL) can be used to learn optimal paths by interacting with the environment. 
+The robot learns a policy that maximizes cumulative rewards, where rewards are given for reaching the goal, avoiding 
+obstacles, and minimizing path length. The policy is often represented by a neural network, and the path is optimized 
+as the robot learns from its experiences. Reinforcement learning (RL) methods for path planning in wheeled mobile robots 
+face significant limitations due to high computational costs and long training times. These methods require extensive 
+data to cover various scenarios, making the process time-consuming and resource-intensive. Training an RL agent, 
+particularly in complex environments, can take millions of interactions, which is impractical for real-time applications. 
+Additionally, as the environment's complexity increases, the state and action spaces expand, 
+leading to scalability issues and longer training times. When combined with deep learning, RL becomes even more 
+computationally demanding, requiring substantial resources and careful tuning of hyperparameters.
 
 Fuzzy Logic (FL), on the other hand, is a way of thinking that mimics how humans make decisions, especially when things are unclear 
 or uncertain. Instead of working with exact numbers, it uses "fuzzy" terms like "good", "average" or "bad" to make 
@@ -396,19 +405,19 @@ In robotics and path planning, FL helps robots navigate by allowing them to hand
 like avoiding obstacles or finding the best route, even when the environment is not fully known. Instead of needing 
 exact data, the robot can employ fuzzy terms like "close" or "far" to understand its surroundings. For example, if an 
 obstacle is "somewhat close," the robot can smoothly adjust its path to avoid it. FL also helps the robot choose the best 
-route by weighing various factors like distance and safety, even when the information is not perfect. This makes the 
-robot better at handling unpredictable environments and making flexible and optimal decisions.
+route by weighing factors like distance, even when the information is not fine-tuned. This improves the 
+robot's handling of dynamic environments and making flexible and optimal decisions.
 However, one 
 disadvantage is that it can be tricky to create the right rules for the robot to follow, and the system can become 
 complicated as more rules are added. It may present a scalability problem because in unpredictable and dynamic environments
-it is not simple to decide about fixed fuzzy sets that would be practical in all of the cases \cite{R12}.
+it is not evident to overfit fixed fuzzy sets to be practical in all of the cases \cite{R12}.
 
 While Neural Networks and Fuzzy Logic offer powerful approaches for handling uncertainty and complex decision-making, 
 another key area in artificial intelligence for path planning is the use of meta-heuristic algorithms.
 Meta-Heuristoc algorithms are inspired from biological and natural processes for evolution and survival. 
-Unlike NN and FL, that rely on data as input to generate decisions, meta-heuristic algorithms explore the solution
+Relying on environmental input like obstacles and targets, meta-heuristic algorithms explore the solution
 space by evolving random solutions for the problem and optimizing them by rounds until a stopping criterion or set
-of criteria is satisfied (see more in section ...: Optimization Algorithms).
+of criteria is satisfied (see more in section 4: Heuristic Approaches).
 Approaches like Genetic Algorithms (GA) have been used for path planning by Ahmed Elshamli et al. \cite{R17}. The The robusteness of their 
 solution is its adaption to dynamic environments. They evolve their GA using variable size chromosomes, where each node 
 represents a waypoint of the path, then they measure the quality of each path using an evaluation function. A modified Genetic Approach is then 
@@ -418,7 +427,14 @@ The approach is tested in static and dynamic environments and has achieved prove
 to local optima challenges and survivig the best elements of the population. While the use of the GA itself is robust
 and successful, it can be challenging to recreate the algorithm and to add the improvements. In addition, the tests
 the ran are limited to a simple simulation with unrealistic situations and obstacle setting as displayed in 
-figure \Ref{R17 test scenarios}. 
+figure \Ref{R17 test scenarios}: In reality, the hardware used to detect surrounding objects are scan based sensors
+for instance LiDAR. They scan \(360^{\circ}\) of the surrounding starting from the robot as the origin.
+This scan provides a polar perception of the obstacles (see figure \Ref{scamSim}). 
+A polar perception only renders the perceivable surface of the objects.
+The objects' depth and dimensions are not available through this sensorial input.
+Obstacle perception is challenging due to limited knowledge of their exact contours and the 
+discrete nature of optical sensor scanning. Connecting perceived points to form closed contours can 
+be ambiguous, especially at a distance.
 
 \begin{figure}[h!]
     \centering
@@ -444,78 +460,8 @@ figure \Ref{R17 test scenarios}.
     \label{R17 test scenarios}
 \end{figure}
 
-\subsubsection {Local Path Planning}
-Local path planning has as the role to make real-time decisions about how to move 
-safely and efficiently in their surroundings. Unlike global path planning, which focuses on 
-finding the best overall route from a starting point to a destination based on a static map, local path 
-planning deals with navigating the environment directly around the robot while considering real-time
-data input from sensors without prior knowledge about the surroundings\cite{R18}. This involves quickly 
-responding to obstacles that appear or changes in the terrain, ensuring the robot can 
-continue moving without collisions. Unlike Global Path planning, it functions without prior localization
-and mapping of the surrounding environment. Local path planning is crucial for the safe and effective 
-operation of robots, especially in 
-dynamic and unkown environments. For example, in busy spaces with moving people 
-or vehicles, a robot needs to be able to make quick adjustments to avoid accidents. This type of 
-planning allows the robot to react immediately to new information, making it essential for applications 
-where unpredictability and quick responses are vital, such as in autonomous vehicles or service robots in 
-warehouses and factories.
-
-Common Techniques involve Reactive methods which are approaches in local path planning that focus on real-time
-obstacle avoidance and online adjustements on the path that are processed while the robot is navigating.
-Techniques like the Potential Fields, 
-Dynamic Window Approach (DWA), and Bug Algorithms are commonly used. In their research paper \cite{R25},
-Buniyamin, N. et al. propose the point to point Bug algorithm to navigate in unkown environments. 
-Bug algorithms are based on range sensors input. The robot at the starting point, plans to move directly to the 
-target. Then it rotates scanning for obstacle points. If it encounters a sudden point, it navigates in its direction.
-The robot rotates in the target's direction until it is able to resume its direct path to the target based on the 
-constant search for the shortest distance from the current standpoint or find the next obstacle. 
-While this approach is simple from the computational point of view and the hardware used, it may not be 
-optimal considering other metrics.
-Its path length optimality depends on the nature of the environments and its effciency decreases if the complexity
-of the test area increases. 
-Local path planning approaches are effective in navigating through cluttered environments, but when it comes to 
-long-range planning, a hybrid approach that integrates both local and global path planning strategies can provide 
-more robust and efficient results.
-
-\subsubsection {Hybrid Path Planning}
-
-In recent years, path planning approaches that combine both global and local techniques have gained popularity. 
-By integrating global and local path planning approaches, robots and autonomous vehicles can take advantage of 
-the strengths of both methods. This hybrid approach is a promising area of research, with the potential to benefit 
-a wide range of applications. Hybrid path planning approaches are becoming increasingly popular due to their ability 
-to handle complex environments and dynamic obstacles.
-
-\noindent
-\begin{minipage}{0.5\textwidth}  
-    In \cite{R19}, Liu et al. used Djikstra ALgorithm for Global path planning and 
-    the DWA as the local path planner for sudden unkown obstacles that could 
-    appear for smart cars while following the global path.
-    It works by evaluating different possible movements the robot could make within a short time frame 
-    and choosing the one that avoids obstacles while also moving towards the goal. The "window" refers 
-    to a limited set of possible velocities of the velocity space the robot can use based on its current 
-    speed and capabilities. Figure \Ref{flowchart of the DWA} details the flowchart of the DWA. 
-    The combined algorithms were tested on 3 spaces with 3 stages of environment complexity ranging from 
-    simple to complex. The tests showed that the hybrid path planning approach was efficient for navigating the 
-    robot and avoiding collisions. However, the tests were effected with dynamic obstacles only inside the simulation.
-\end{minipage} 
-\begin{minipage}{0.5\textwidth}  
-    \centering  
-    \includegraphics[width=\linewidth]{images/Chap1/DWA_flowchart.png}  
-    \captionof{figure}{Flowchart of the DWA \cite{R19}}  
-    \label{flowchart of the DWA}  
-\end{minipage}  
-
-
-Sensor-based approaches, on the other hand, rely on data collected by the robot's sensors, such as LIDAR, 
-sonar, or cameras, to make decisions about where to go next. These sensors help the robot create a map of 
-its surroundings, which can then be used to identify obstacles and safe paths. Occupancy grids and Point 
-cloud processing are techniques used to interpret the sensor data and guide the 
-robot's movements. This approach allows the robot to have a detailed understanding of its immediate 
-environment, making it more capable of avoiding obstacles and navigating complex spaces.
-
-\subsection{Discussion}
-
-While traditional path planning methods have proven effective across various applications and usecases, 
+While Classic path planning methods (Path-generating, Velocity-generating, and Direction-Generating) 
+have proven effective across various applications and usecases, 
 they often face challenges when applied to highly structured, repetitive environments like those found 
 in industrial automation. To overcome these limitations, the research in the previous years became rather 
 oriented to investigating and using heuristic approaches. In \cite{R26}, Masehian et al. conducted a 
@@ -532,26 +478,28 @@ The application of Heuristic approaches in MP went from 0\% to 54\% from 1977 to
     \label{heuristic barchart} 
 \end{figure}
 
-The classic algorithms have the drawback of traps in local minima and increased complexity in sophisticated environments.
-In practice, the conditions where the robot operates are cluttered and complex than we can imagine which makes the classic 
-approaches impractical. Consequently, it is necessary to tackle these issues in a different way. Although 
-probabilistic methods proved high computational capabilities, scientists tend to combine 2 algorithms to 
-benefit from the classic and heuristic advantages simultaneously. In \cite{R27}, Chen et al. delve into a hybrid
-approach for online motion planning. Their approach is based on space exploration and heuristic search to determine 
-optimal path linking a start point to an end goal. Tested on both low and high speed scenarios, the algorithm ensured
-a low planning time: it outperformed RRT and had similar results in terms of planning time to Hybrid A*. 
-
-To draw to a close, even though researches confirm that the heuristic approach prevails the classic one:
+To draw to a close, even though the heuristic approach prevails the classic one:
 \cite{R20} and \cite{R25}, these approaches are not without their limitations. Heuristic methods, while good at 
 navigating complex environments and avoiding local minima, sometimes fall short in finding the best possible 
-solutions, especially in high-dimensional spaces. In contrast, classical methods, though computationally 
-expensive, provide a more systematic and theoretically solid approach to path planning. To address these trade-offs, 
-there is growing interest in hybrid methods that combine the strengths of both approaches. 
-These hybrids use the precision and reliability of classical methods along with the flexibility and 
-speed of heuristics. By doing so, they reduce the weaknesses of each approach, offering a more 
-balanced and effective solution for path planning in complex environments. As a result, hybrid 
-methods hold promise for future research, potentially leading to more efficient and dependable 
-path planning algorithms.
+solutions, especially in high-dimensional spaces.
+
+\subsection{Discussion: Selection of the Path Planning Method}
+
+Path-generating methods are particularly promising for intralogistics applications involving autonomous 
+mobile robots (AMRs). Unlike direction-generating methods, these methods are well-suited for dynamic environments. 
+These methods effectively handle dynamic environments and disturbances while minimizing oscillations and 
+computational costs.
+They can also incorporate kinematic constraints and generate optimal trajectories in complex, unstructured areas. 
+Compared to speed-generating methods, path-generating methods allow for dynamic planning horizons, enabling the 
+calculation of optimal routes that avoid dynamic obstacles and disturbances. Given these advantages, this work 
+will focus on path-generating methods for subsequent developments.
+
+
+To enhance the efficiency and effectiveness of path planning, innovative approaches are emerging. 
+By combining traditional methods with cutting-edge optimization techniques, we can overcome the 
+computational challenges and achieve more robust solutions. These hybrid strategies offer a 
+promising path forward, paving the way for advancements in path planning technology.
+
 
 \newpage
 \section{Spline based Paths}
@@ -902,25 +850,25 @@ usecases as in \cite{R23}.
 
 \newpage
 
-\section{Heuristic Approaches to Path Optimization in Robotics}
+\section{Heuristic Approaches}
 %intro
 This section will focus on the Application of heuristic algorithms for solving robotic path planning 
 problematics. 
 
-\subsection{}
+\subsection{Optimization Techniques}
 Optimization refers to the decision making led by the machine with availability of certain circumstances and constraints
 thet either help or limit the outcomes of the optimizer \cite{R37}. In the case of path planning, optimization aims
 to modify some properties of the generated solutions to cope with the surrounding conditions.
-In stochastic environments, it is challenging to plan feasible paths.
+In stochastic environments, it is challenging to plan feasible paths given the high dynamics 
+and obstacles.
 The increase in the complexity of the environment and the constant dynamics increase the number of variables involved 
 in the mathematical representation of the problem. As a consequence, it raises the computation efforts that need to be 
 deployed for the creation and optimization of the solution and decreases feasibility \cite{R7}.
-The integration of an optimizer that takes charge of the solution and fits it into the constraints that bound it is necssary.
 In order to get optimal results like smooth and short paths, finding a feasible path is not enough. The evaluation 
 of the generated path and the optimization are helpful to ensure that the robot is driving the optimal path.
 There exists a range of planners and optimizers which are clustered as classic and Heuristic approaches \cite{R12}.
 Classic approaches include \textbf{Analytical} and \textbf{Enumerative} methods. 
-The former rely on mathematical modeling, which can become increasingly complex as the navigation environment becomes more 
+The former rely on mathematical modeling, which can become unsolvable as the navigation environment becomes more 
 cluttered. Additionally, applying these models can be challenging in scenarios where the necessary models for different 
 components are not readily available. The latter have the drawback of increased intricacy in bigger or more elaborate 
 search spaces. On the other hand, Heuristic approaches can be sub-categorized into \textbf{Meta-Heuristic} and \textbf{Evolutionary algorithms}.
@@ -933,9 +881,7 @@ can thus become infeasible in a later stage if the environment changes. Metaheur
 on parallel search mechanisms that can have updated input of the conditions and thus are more adaptive and 
 practical in real-world scenarios.
 
-
-\subsection{Heuristic Optimization Algorithms : An Overview}
-In this section, we will dive into Meta-Heuristics which are defined by Bilal et al. as 'the optimization
+Next, this section dive into Meta-Heuristics which are defined by Bilal et al. as 'the optimization
 techniques mainly based on function evaluation and make little
 or no use of the properties of objective functions and constraints.
 Meta-heuristics are thus problem independent techniques not taking
@@ -961,47 +907,52 @@ For instance, Ant Colony Optimization (1992)and Particle Swarm Optimization (199
 On the other hand, Evolutionary algorithms rather copy the species evolution theory, among which are Differential 
 Evolution (1995) and Genetic Algorithm (1957) \cite{R37}.
 
-\subsection{Application of Heuristic Optimization in Robotic Path Planning}
-These algorithms have been used multiple times for robotic path planning, as noted in the literature. 
-Each algorithm has its own unique search methods and strengths, providing different benefits and areas for optimization.
+Metaheuristics, mainly Swarm-based methods and Genetic Algorithms, 
+have been used multiple times for robotic path planning, as noted in the literature. 
+Each algorithm has its own unique search methods and strengths, providing different benefits and 
+areas for optimization.
   
 
 
-\begin{wrapfigure}{r}{0.3\textwidth}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{images/Chap1/GA.jpg}
+    \includegraphics[width=2in]{images/Chap1/GA.jpg}
     \caption{Flowchart of the GA \cite{R39}}
     \label{GA}
-\end{wrapfigure}
+\end{figure}
 
-Elshamli, A. et al. \cite{R17} have employed the Genetic Algorithm (See algorithm steps in figure \Ref{GA}) to solve 
+Elshamli, A. et al. \cite{R17} have employed the Genetic Algorithm (GA) (See algorithm steps in figure \Ref{GA}) to solve 
 the problem of path planning in dynamic environments. They represent their paths using chromosomes where each node of the chromosome represents 
 a waypoint and develop a variable chromosome length approach that accommodates obstacle avoidance and efficiency 
 in reaching the goal. The fitness of each chromosome is evaluated according to an objective function that includes path length, smoothness, 
 and clearance to obstacles. A modified genetic Algorithm is applied where after crossover and mutation, paths are 
-shortened and smoothed if it is possible. The implemented strategies guaranteed low convergence for the different 
-complexity stages. Saving the best individuals generated by the GA was effective in delivering the overall best solutions.
-Tamilselvi, D. et al. also modified the GA by applying the elitism concept. They save the best solution
-\(S_{best}\) then they replace the worst element of the next population with \(S_{best}\). This approach guarantees
-landing on a global optimum and was able to find feasible paths for environments with limited 
-dynamic obstacles and integrate a motion prediction mechanism for dynamic obstacles based on the grid map \cite{R38}.
+shortened and smoothed if it is possible. Saving the best individuals generated by the GA was effective in delivering the overall best solutions.
+Tamilselvi, D. et al. also modified the GA by applying the elitism concept. 
 
-Miao, H. et al. also worked on the path planning in dynamic environments problem. They crtic the GA to be computationally
-intensive and to require long planning time \cite{R40}. Instead they suggest the Simulated Annealing algorithm (SA)
+This is achieved by saving the best individual, denoted as \(S_{best}\), and replacing the worst individual in the 
+next generation with \(S_{best}\). This approach helps to prevent premature convergence to local optima, increasing 
+the likelihood of finding the global optimum. In the context of path planning, elitism has proven effective 
+in discovering feasible paths in environments with limited dynamic obstacles. Additionally, by incorporating 
+a motion prediction mechanism based on the grid map, elitism can be adapted to handle dynamic obstacles more 
+effectively \cite{R38}.
+
+Authors of \cite{R40} also worked on the path planning in dynamic environments problem. They crtic the GA to be computationally
+intensive and to require long planning time. Instead they suggest the Simulated Annealing algorithm (SA)
 to solve the path finding problem. 
-\newpage 
-\begin{wrapfigure}{r}{0.45\textwidth}
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{images/Chap1/SA.jpg}
+    \includegraphics[width=3.5in]{images/Chap1/SA.jpg}
     \caption{Flowchart of the SA \cite{R41}}
     \label{SA}
-\end{wrapfigure}
+\end{figure}
 
 Being a probabilistic meta-heuristic algorithm it is designed to guide the local
 optimum to a global optimum. The approach is based on the evaluation of the path length to discriminate 
 path candidates: the shorter the path the better. It works by trying out different paths for the robot, beginning 
-with a high "temperature" that lets the algorithm accept both good and bad paths. This helps it explore a wide range of 
-options and avoid getting stuck in a local minima. As the process continues, the temperature slowly decreases, 
+with a high "temperature" that lets the algorithm accept good paths and bad paths with a accepted with a certain probability,
+which decreases over time (simulating the cooling process in annealing). This helps it explore a wide range of 
+options and avoid getting stuck in a local minima . As the process continues, the temperature slowly decreases, 
 making the algorithm less likely to accept bad paths, and helping it to focus on finding the global minima as given by 
 figure \Ref{SA}. algorithm was tested in four environments with different static and moving obstacles. The algorithm 
 successfully found the best or nearly best paths and could quickly adjust to avoid collisions in real-time. 
@@ -1024,7 +975,7 @@ Planning time is rather high for simply organized environments (18.35s) and high
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=3.5in]{images/Chap1/PSO.png}\\
+        \includegraphics[width=4in]{images/Chap1/PSO.png}\\
         \caption{Particle Swarm Optimization \cite{R42}}
         \label{pso}
     \end{center}
@@ -1067,42 +1018,36 @@ large compared to the robot or have overly simple shapes that don’t accurately
 lack of realism can result in algorithms that work well in simulations but fail when used in real environments. Additionally, 
 because these algorithms are mostly tested in controlled, simulated settings, they may be too finely 
 tuned to those specific conditions. This can make them less reliable when applied to the unpredictable conditions 
-of the real world. In summary, while meta-heuristic algorithms show promise for robotic path planning, more real-world 
+of the real world gap. In summary, while meta-heuristic algorithms show promise for robotic path planning, more real-world 
 testing and realistic obstacle modeling are needed to ensure they work effectively in practical situations. 
 Addressing these issues is key to advancing the use of robotics in intralogistics and other fields.
 \newpage
-\section{Summary and Discussion}
-To synthesize the research conducted, it is paramount to summarize the key concepts comprehensively. This 
+\section{Discussion}
+To synthesize the research conducted, it is paramount to summarize the \textbf{key concepts} comprehensively and 
+pont out the general \textbf{drawbacks}. This 
 State of the Art report focuses on mobile robot path planning, a critical component of the overall 
 robotic planning process. Effective path planning not only organizes and optimizes a robot's navigation 
 but also significantly enhances its productivity by enabling it to execute missions more efficiently. 
 In dynamic environments, a well-designed path planner is essential for ensuring safe operations and 
-maximizing the robot's resource utilization and operational capacities. Moreover, Spline-based path planning represents a cutting-edge approach to achieving smooth and safe 
-robot motion. This technique is particularly vital for managing heavy autonomous robots, such as 
-forklifts, that handle sensitive materials and must operate with precision and stability. By utilizing 
-constrained splines, it is possible to control various motion properties, including steering and 
-the handling of abrupt turns, thereby reducing wear and tear on the robot and extending its operational 
-lifespan. Nevertheless, there has to be a mean of quantifying the path qualities in order to test the 
-performance of the used approach and to compare different approaches. This tool must be based on the 
-properties of the path itself like length, direction changes, and clearance to obstacles.
-These information are useful in a later stage to optimize the paths by optimizing the supervised 
-properties of the paths. 
-
+maximizing the robot's resource utilization and operational capacities.
 Meta-heuristic optimization algorithms are highly effective for refining mobile robot paths, particularly 
 when building routes from scratch while considering both static and dynamic obstacles.
 They also have the capability to solve problems without information about their mathematical model.
 This has the great advantage of reducing the burden of expliciting the situation in order to solve it especially 
 in complex cases where the effort to model the problem and the contsraints is higher and, later, the computation 
 is harder. Instead, meta-heuristic algorithms focus on optimizing the fitness function related to the specific 
-usecase. However, these algorithms are 
-also computationally demanding due to their iterative nature, which involves repeatedly constructing and refining the path 
-segments from the starting point to the end goal. Previously reviewed literature reveals that these algorithms often 
-require significant computation 
-time, which is acceptable in simulation environments but problematic in real-world applications. In a dynamic warehouse 
-setting, blocking the area for extended periods to perform path planning is impractical. Such delays can disrupt 
-warehouse operations, interfere with other vehicles and personnel, decrease overall productivity, and lead to 
-increased time and energy costs. In addition the applications of meta-heuristic optimization approaches to robotics
-in the intralogistics field is limited to mission scheduling and rarely tackles path planning problems.
+usecase. 
+
+The path planning methods discussed have several drawbacks. Grid-based methods can be easily misled by noisy 
+sensor data, and their generated paths might not be the shortest possible, particularly in crowded areas. 
+Some methods excel at high speeds but struggle with dynamic environments, while others may have limitations 
+in planning for non-holonomic vehicles. Computational efficiency is a concern, as some methods are slow and 
+resource-intensive, especially in complex environments. Heuristic methods, while effective, might not always 
+find the optimal solution. Real-world applications pose additional challenges. In dynamic warehouse settings, 
+blocking areas for extended path planning can disrupt operations, interfere with other vehicles, and reduce 
+productivity. Metaheuristic optimization approaches have been limited to mission scheduling in intralogistics 
+robotics, with fewer applications in path planning. Addressing these limitations requires innovative solutions 
+that balance computational efficiency, real-time performance, and path quality.
 
 Furthermore, the classical and the heuristic approaches are capable of creating new different paths every time the 
 algorithms are ran even in the same environment setting. While this phenomenon proves of the intelligence of the algorithms
@@ -1113,9 +1058,81 @@ plan their actions accordingly. If a predictable vehicle behavior is available, 
 generation, reducing computational complexity and improving path quality.
 
 Combining an optimal path planning approach that accomodates the kinematic constraints of Autonomous forklifts in the
-intralogistics environment and generates smooth paths, is behaviorally explainable and deploys meta-heuristic Algorithms
-is a new approach that would have an added value to mobile robot path planning in Intralogistics of reducing 
-computation time and travel distance and improving AI driven solutions explainability. 
+intralogistics environment and generates smooth paths, is behaviorally explainable and deploys meta-heuristic 
+Algorithms is a new approach that would have an added value to mobile robot path planning in Intralogistics of 
+reducing computation time and travel distance and improving AI driven solutions explainability. 
+
+\section{Choice of Methodology}
+The discussed Path Planning approaches are typically
+designed to solve path planning problems in various environments and have been used in multiple
+applications.
+For this problem statement, the robot operates in a consistent environment—the station. 
+Although stations may differ in 
+position, size, and layout, the components within them remain the same: shelves containing pallets. 
+This consistency suggests that we should 
+develop a solution specifically tailored to the station environment, which would help minimize potential problems 
+and reduce the effort required to solve them. A path planning module has already been developed for the autonomous 
+forklift trucks, utilizing classic sampling-based path planning methods. This module is based on the Open Motion 
+Planning Library (OMPL), an open-source library for motion planning in robotics. OMPL is designed for complex use 
+cases and includes several algorithms, such as probabilistic roadmaps (PRM) and rapidly-exploring random trees 
+(RRT), along with their variants. OMPL performs well in clean environments without obstacles, with a minimum 
+processing time of \(200ms\) , but in complex environments, processing time can increase to \(2s\).
+While it can be very fast in the abscence of obstacles this approach presents some limitations:
+\begin{itemize}
+    \item Not Station-Specific: While OMPL is a versatile and powerful motion planning library, its general-purpose 
+    nature can be a limitation for station-specific pickup/drop operations. OMPL is designed to handle a wide range 
+    of environments and tasks, but it may not be as efficient or tailored to the specific constraints and 
+    requirements of station-related operations. OMPL may not have built-in knowledge or optimizations for tasks 
+    like docking at specific stations, handling different station configurations, or considering constraints 
+    related to station-specific equipment.
+
+    \item Too Complex for Simple Tasks: OMPL's advanced algorithms, while powerful, can be overkill for simple tasks 
+    like pallet handling. Its general-purpose nature can also lead to computational overhead, 
+    especially in less complex environments. This suggests that tailoring OMPL to specific station-related 
+    operations could improve its efficiency and effectiveness.
+    
+    \item Long Processing Time: OMPL's processing times can be substantial, particularly in complex environments 
+    with numerous obstacles, tight spaces, or frequent changes in the environment. 
+    This can lead to delays in decision-making and potentially hinder the overall efficiency of operations. 
+\end{itemize}
+
+Given OMPL's limitations, a more specialized, station-based approach is warranted. This approach should be tailored 
+to the structured environment of the station, enabling faster and more efficient path planning. 
+By minimizing directional changes and adhering to station boundaries, we can achieve shorter and repeatable 
+path calculation times, optimizing the overall efficiency of operations. By focusing on the typical tasks of pallet 
+pickup and drop-off, we can create a solution that works effectively in simple and moderately complex 
+situations, reducing processing time and resource usage. 
+
+For optimizing paths, various approaches exist.
+Path optimization can be approached mathematically using Jacobians, which map control inputs, like position or wheel 
+speeds, to the desired outcomes. The objective is to minimize a cost function—such as path length, energy use, 
+or time—by adjusting the robot's control inputs to achieve the desired position. A common technique is gradient descent, 
+where control inputs are iteratively updated to reduce the cost. The Jacobian matrix, which links these 
+inputs to the robot's position, guides these adjustments until the most efficient path is found. However, the Jacobian-based 
+optimization method poses several challenges for this use case. For wheeled mobile robots with multiple control inputs, 
+the Jacobian matrix can become complex and large, leading to increased computational costs and making real-time 
+optimization challenging. 
+Frequent updates in dynamic environments further add to this load, potentially leading to delays or suboptimal paths. 
+Mukherjee et al. \cite{R44} noted that their approach to optimal trajectory planning does not guarantee a global 
+optimum but rather an isolated local optimum close to the global one. Additionally, this method relies on precise 
+kinematic and dynamic models, so any inaccuracies, such as sensor errors, can result in poor path optimization. 
+In this context, the kinematic model would need to be refined for the specific truck using it. Managing complex inequality 
+constraints, like obstacle avoidance, can also complicate the optimization process and reduce efficiency.
+
+Reinforcement Learning (RL) offers a promising approach to learning optimal paths for mobile robots. By interacting 
+with the environment and maximizing rewards, RL agents can develop effective policies. However, RL methods for 
+path planning in wheeled mobile robots face significant challenges, including high computational costs, long 
+training times, and the need for extensive data. These limitations make RL impractical for real-time applications 
+in complex environments.
+
+As highlighted in the previous Section , meta-heuristic approaches, though powerful for solving complex problems, 
+often require significant computational time. However, this can be greatly reduced by optimizing how these 
+methods are applied. For instance, instead of generating a path entirely from scratch, starting with a pre-built 
+or partially constructed path provides a solid foundation. Additionally, reducing the number of waypoints 
+can streamline computation, allowing the algorithm to focus on refining an already good solution rather 
+than calculating every detail from the ground up. This approach preserves the strengths of meta-heuristics 
+while significantly speeding up the planning process, making it more practical for real-time or near-real-time 
+applications.
 
 
 
