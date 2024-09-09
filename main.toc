@@ -51,7 +51,8 @@
 \contentsline {subsection}{\numberline {3.4}Path Optimization}{77}{subsection.3.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Utility}{77}{subsubsection.3.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Implementation}{77}{subsubsection.3.3.4.2}%
-\contentsline {chapter}{\numberline {4}chapter name }{82}{chapter.4}%
-\contentsline {chapter}{General conclusion}{83}{chapter*.59}%
-\contentsline {chapter}{Bibliography}{84}{chapter*.60}%
-\contentsline {chapter}{Annexes}{89}{chapter*.61}%
+\contentsline {subsubsubsection}{\numberline {3.4.2.1}Obstacle Avoidance in the Pattern Based Approach}{79}{subsubsubsection.3.3.4.2.1}%
+\contentsline {chapter}{\numberline {4}Test and Validation of the Proposed Solution }{84}{chapter.4}%
+\contentsline {chapter}{General conclusion}{85}{chapter*.61}%
+\contentsline {chapter}{Bibliography}{86}{chapter*.62}%
+\contentsline {chapter}{Annexes}{91}{chapter*.63}%
