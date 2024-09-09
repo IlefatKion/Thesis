@@ -1,0 +1,58 @@
+\acswitchoff 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces KION segment services and companies \cite {R1}\relax }}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces KION Executive Board responsibilities as of 01.2024 \cite {R2}\relax }}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces STILL tractor\relax }}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces STILL hand truck\relax }}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces STILL rider truck\relax }}{7}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces STILL iGo neo\relax }}{7}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Vehicle Moving towards station 1\relax }}{10}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Vehicle arrives at station 1 and ready to execute the task\relax }}{10}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Vehicle entered the station waiting for docking the shelf\relax }}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Vehicle docked the shelf\relax }}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Agile Scrum Process \cite {R6}\relax }}{12}{figure.caption.14}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Common Intralogistics Environment Areas \cite {R46}\relax }}{16}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces AMR and AGV behaviors at presence of an obstacle \cite {R9}\relax }}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Simulation of the robot's perception of surrounding obstacles. \newline \textbf {Yellow rectangle:} Station limits \newline \textbf {Black rectangle:} Shelf limits: where to pick or to place pallets \newline \textbf {In gray:} Robot in simulation \newline \textbf {Blue polygones:} Simulated obstacles \newline \textbf {Black lines:} Perceived obstacle points\relax }}{20}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Model of a local minima problem due to limited sensor output \cite {R28}\relax }}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Clustering Of Near-Field Path Planning Approaches \cite {R28}\relax }}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Bug Algorithm Path Solution to navigate from Start to Goal while avoiding the obstacle\relax }}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Flowchart of the DWA \cite {R19}\relax }}{25}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces RRT ran on a non-holonomic robot using 1, 4, then 32-core processors \cite {R16}\relax }}{26}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Simple obstacle environment \relax }}{28}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Intermediate obstacle environment\relax }}{28}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Complex obstacle environment\relax }}{28}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces GA Test scenarios \cite {R17}\relax }}{28}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Application of classic and heuristic approaches in MP \cite {R26} \newline \textbf {Dark gray:} Classic approaches \newline \textbf {Light gray:} Heuristic approaches \relax }}{29}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Tree of Meta-Heuristic Algorithms \cite {R37}\relax }}{31}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Flowchart of the GA \cite {R39}\relax }}{32}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Flowchart of the SA \cite {R41}\relax }}{33}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Particle Swarm Optimization \cite {R42}\relax }}{34}{figure.caption.29}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Parking Styles\relax }}{44}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Linking the robot to goal destination \cite {R28}\relax }}{45}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Truck Driving Directions\relax }}{45}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Linking the robot to goal pallet \cite {R28}\relax }}{46}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Path planning approach to pallet docking\relax }}{47}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Station Simulation with added Station, Shelf, and Global (World) frames\relax }}{49}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Simulation of the stations in a warehouse\relax }}{51}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Station with created Polygons\relax }}{52}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Station with created Polygons\relax }}{53}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Orientation Points\relax }}{54}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }}{55}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Convex hull contained Spline \cite {R29}\relax }}{56}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces NURBS spline example. \textbf {Green}: Control points \textbf {Red}: NURBS spline\relax }}{59}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Interpolated Splines of Orientation points\relax }}{60}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Robot at the transition position\relax }}{61}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Transformations From the Robot to the Pallet Frame Passing by the Reflector Frame\relax }}{63}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Test Results on Cloned Test Environment\relax }}{64}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path\relax }}{64}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Test Results on the Simulated Environment: Truck at the Destination\relax }}{65}{figure.caption.50}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{74}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{74}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{75}{figure.caption.53}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{75}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Navigating high curvatures in narrow areas\relax }}{76}{figure.caption.55}%
+\addvspace {10\p@ }
