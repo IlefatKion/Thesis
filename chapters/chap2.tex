@@ -5,16 +5,21 @@ Proposed Solution
 \renewcommand{\chaptername}{Chapter}
 \section*{Introduction}
 
-This chapter details the methodology and implementation of the proposed path planning system for logistics forklifts, 
-focusing on guiding the robot to a pallet in the tight spaces of a warehouse. The system uses pattern-based paths with 
-splines, optimized by meta-heuristic algorithms, to navigate efficiently in these confined areas. The chapter begins with 
-an overview of the design structure, followed by a clear explanation of the steps and techniques used to ensure 
+This chapter details the design and development of the proposed path planning solution for logistics forklifts. 
+The focus is on linking the robot to a pallet in the tight stations of a warehouse as a last maneuver to the 
+pickup/drop process. The system uses pattern-based paths, elevated by meta-heuristic algorithms, to navigate 
+efficiently in these confined areas. 
+The chapter begins with 
+an overview of the goals and the work structure, followed by an outline of the development steps used to ensure 
 smooth and accurate movement toward the pallet. Implementation details are then covered, showing how the system 
 components are integrated into a cohesive solution for precise pallet access within the warehouse environment.
 
 \section{Conceptual Framework}
 \subsection{Goal Setting}
 %goals and overall approach of the methodology
+As mentioned in the introduction, this project does not tackle the navigation system of the AMRs in 
+general, but is focusing on a specific movement that the AMR must perform in order to accurately dock the pallet/shelf. 
+More details are explained in chapter 1, section 2.
 Considered the problems detailed in chapter 1 and the previous conclusions, the following goals were identified 
 based on the former detailed requirements for applications to autonomous mobile robots in intralogistics:
 \begin{itemize}
@@ -118,7 +123,7 @@ Parking assistance feature is embedded in human-driven and driverless cars to in
     \begin{center}
     \includegraphics[width=4in]{images/Chap2/perpendicular-parking-a-lot-scaled.jpg}\\
     \caption{Parking Styles}
-    \label{Parking Styles}
+    \label{The Possible Parking Styles that a driver can follow }
     \end{center}
 \end{figure}
 
@@ -138,7 +143,7 @@ the technology. Additionally, the approach is intended to ensure secure and reli
     [H]
     \begin{center}
     \includegraphics[width=\linewidth]{images/Chap2/station-without-subpolygones.png}\\
-    \caption{Linking the robot to goal destination \cite{R28}}
+    \caption{Representation of Linking the robot to goal destination \cite{R28}}
     \label{pattern}
     \end{center}
 \end{figure}
@@ -176,30 +181,32 @@ commission in new warehouses.
     [!ht]
     \begin{center}
     \includegraphics[width=\linewidth]{images/Chap2/station-without-subpolygones (2).png}\\
-    \caption{Linking the robot to goal pallet \cite{R28}}
+    \caption{Step1: Station Partitioning for Linking the robot to goal pallet \cite{R28}}
     \label{subpolygons}
     \end{center}
 \end{figure}
 
-Smooth and continuous paths are generated through spline interpolation of constructed waypoints. This technique ensures 
+Smooth and continuous paths are generated through spline interpolation of constructed waypoints (see section 3.2.2). 
+This technique ensures 
 that the resulting paths are smooth, operationally seamless, and reduce abrupt changes in direction and speed. 
 By interpolating between waypoints, the method enables the creation of curves that are optimized for driving efficiency 
 and stability.
 
-Finally, an optimizer generates an optimal path. 
+Finally, an optimizer  
 generates multiple path candidates and rigorously evaluates each one based on key factors. 
 The evaluation considers the path's length, smoothness, and potential collisions with surrounding objects to ensure the 
 chosen path is both efficient and safe. After testing all options, the path that best meets these 
-criteria—providing the shortest, smoothest, and safest route with minimal collision risk—is selected as the best solution. 
+criteria—providing the shortest and smoothest route with minimal collision risk—is selected as the best solution
+following Evaluation methods expalined more in section 3.3. 
 
 This approach ensures the final path is not only theoretically ideal but also practical and reliable for real-world use. 
 The process is designed to be flexible and effective, even in obstacle environments. The designed methodology 
 is summarized in the following flowchart \ref{design}:
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \begin{center}
         \includegraphics[width=4in]{images/Chap2/Approch_design.jpg}\\
-        \caption{Path planning approach to pallet docking}
+        \caption{Milestones of the Path planning approach to pallet docking}
         \label{design}
         \end{center}
 \end{figure}
@@ -317,7 +324,7 @@ representing the Negative Y Subpolygon (Negative Y of the robot-related frame) ,
 Positive Y Subpolygon (Positive Y of the robot-related frame)
 (PosYsub\_polygon). 
 The subpolygons are data structures recognized by their global position and dimensions.
-\textbf{Definitions:}
+\newline \textbf{Definitions:}
 
 \begin{itemize}
     \item \texttt{max\_st\_x}: Maximum x-coordinate of the station corners in the station frame.
@@ -370,7 +377,7 @@ The Pseudocode of the General Algorithm is given in \Ref{alg:createSubpolygons}
 
 \noindent
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Creation of Subpolygons}\label{alg:createSubpolygons}
 \KwData{station\_area, shelf\_area}
 \KwResult{created two subpolygons}
@@ -401,11 +408,12 @@ PosYsub\_subpolygon $\gets$ CreatePosYsubpolygon(tm\_station\_corners, tm\_shelf
 
 In figure \ref{Station polygon} stands the simulated result processed using real station data: In purple and orange are 
 the polygons, and in green the outer polygon represenst the station.
+%TODO: write here 
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Polygons_created.png}\\
-        \caption{Station with created Polygons}
+        \caption{Partitioning: Station divided into subpolygons}
         \label{Station polygon}
         \end{center}    
 \end{figure}
@@ -414,7 +422,7 @@ In figure \Ref{other station}, stands the result of the module Create subpolygon
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Other_station.png}\\
-        \caption{Station with created Polygons}
+        \caption{Partitioning: Station divided into subpolygons}
         \label{other station}
         \end{center}    
 \end{figure}
@@ -441,7 +449,7 @@ which is crucial for precise navigation and control.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Orientation_points.png}\\
-        \caption{Orientation Points}
+        \caption{Step2: Orientation Points creation using the 3 origin path points}
         \label{Orientation}
         \end{center}    
 \end{figure}
@@ -704,7 +712,7 @@ as given by figure \Ref{transition}.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Orientation_points_with_spline.png}\\
-        \caption{Interpolated Splines of Orientation points}
+        \caption{Step3: Interpolation of the waypoints and creation of the spline-based paths}
         \label{Spline ori}
         \end{center}    
 \end{figure}
@@ -1281,7 +1289,7 @@ The Implementation of an obstacle avoidance feature is necessary.
 This feature remains in the simplicity level of the General approach.
 The Obstacle Avoidance feature of the Pattern Based Solution is ensured by the 
 Optimizer: It highly penalizes paths that collide or border an obstacle by affecting a high 
-Knockout value to its corresponding cost function. The penalty approach is explained 
+Knockout value (Fitness values $\lll$ Knockout) to its corresponding cost function. The penalty approach is explained 
 in Algorithm \Ref{EvaluationAlgorithm}.
 Figure \Ref{Obstacle} illustrates a case of obstacles blocking one of the subpolygons of the station.
 In this situation The Optimizer chooses the remaining subpolygon. 

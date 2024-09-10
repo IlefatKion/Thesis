@@ -215,15 +215,215 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Goal Setting}{41}{subsection.3.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Work Structure}{42}{subsection.3.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{43}{section.3.2}\protected@file@percent }
-\citation{R28}
-\citation{R28}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Parking Styles\relax }}{44}{figure.caption.31}\protected@file@percent }
-\newlabel{Parking Styles}{{3.1}{44}{Parking Styles\relax }{figure.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Linking the robot to goal destination \cite  {R28}\relax }}{45}{figure.caption.32}\protected@file@percent }
-\newlabel{pattern}{{3.2}{45}{Linking the robot to goal destination \cite {R28}\relax }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Truck Driving Directions\relax }}{45}{figure.caption.33}\protected@file@percent }
-\newlabel{driving directions}{{3.3}{45}{Truck Driving Directions\relax }{figure.caption.33}{}}
+\newlabel{The Possible Parking Styles that a driver can follow }{{3.1}{44}{Parking Styles\relax }{figure.caption.31}{}}
 \citation{R28}
 \citation{R28}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Linking the robot to goal pallet \cite  {R28}\relax }}{46}{figure.caption.34}\protected@file@percent }
-\newlabel{subpolygons}{{3.4}{46}{Linking the robot to goal pallet \cite {R28}\relax }{figure.caption.34}{}}
+\citation{R28}
+\citation{R28}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Representation of Linking the robot to goal destination \cite  {R28}\relax }}{45}{figure.caption.32}\protected@file@percent }
+\newlabel{pattern}{{3.2}{45}{Representation of Linking the robot to goal destination \cite {R28}\relax }{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Truck Driving Directions\relax }}{46}{figure.caption.33}\protected@file@percent }
+\newlabel{driving directions}{{3.3}{46}{Truck Driving Directions\relax }{figure.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Step1: Station Partitioning for Linking the robot to goal pallet \cite  {R28}\relax }}{46}{figure.caption.34}\protected@file@percent }
+\newlabel{subpolygons}{{3.4}{46}{Step1: Station Partitioning for Linking the robot to goal pallet \cite {R28}\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Milestones of the Path planning approach to pallet docking\relax }}{48}{figure.caption.35}\protected@file@percent }
+\newlabel{design}{{3.5}{48}{Milestones of the Path planning approach to pallet docking\relax }{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Development phases and Implementation}{49}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Geometric Partitioning of the Station}{49}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Implementation of the Station Partitioning}{49}{subsubsection.3.3.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Station Simulation with added Station, Shelf, and Global (World) frames\relax }}{50}{figure.caption.36}\protected@file@percent }
+\newlabel{Station}{{3.6}{50}{Station Simulation with added Station, Shelf, and Global (World) frames\relax }{figure.caption.36}{}}
+\newlabel{shToGlob}{{3.1}{50}{Implementation of the Station Partitioning}{equation.3.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Simulation of the stations in a warehouse\relax }}{52}{figure.caption.37}\protected@file@percent }
+\newlabel{warehouse}{{3.7}{52}{Simulation of the stations in a warehouse\relax }{figure.caption.37}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Creation of Subpolygons\relax }}{53}{algocf.1}\protected@file@percent }
+\newlabel{alg:createSubpolygons}{{1}{53}{Implementation of the Station Partitioning}{algocf.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Results}{53}{subsubsection.3.3.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Partitioning: Station divided into subpolygons\relax }}{53}{figure.caption.38}\protected@file@percent }
+\newlabel{Station polygon}{{3.8}{53}{Partitioning: Station divided into subpolygons\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Partitioning: Station divided into subpolygons\relax }}{54}{figure.caption.39}\protected@file@percent }
+\newlabel{other station}{{3.9}{54}{Partitioning: Station divided into subpolygons\relax }{figure.caption.39}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Path creation}{54}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Choice of Path Creation Methodology}{54}{subsubsection.3.3.2.1}\protected@file@percent }
+\citation{R30}
+\citation{R30}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Step2: Orientation Points creation using the 3 origin path points\relax }}{55}{figure.caption.40}\protected@file@percent }
+\newlabel{Orientation}{{3.10}{55}{Step2: Orientation Points creation using the 3 origin path points\relax }{figure.caption.40}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Spline Based Paths}{55}{subsubsection.3.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.2.2.1}Splines Applications in Robotics}{55}{subsubsubsection.3.3.2.2.1}\protected@file@percent }
+\citation{R30}
+\citation{R30}
+\citation{R30}
+\citation{R31}
+\citation{R31}
+\citation{R33}
+\citation{R29}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite  {R30}\relax }}{56}{figure.caption.41}\protected@file@percent }
+\newlabel{paths}{{3.11}{56}{Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }{figure.caption.41}{}}
+\citation{R29}
+\citation{R29}
+\citation{R30}
+\citation{R30}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Convex hull contained Spline \cite  {R29}\relax }}{57}{figure.caption.42}\protected@file@percent }
+\newlabel{convex-hull}{{3.12}{57}{Convex hull contained Spline \cite {R29}\relax }{figure.caption.42}{}}
+\citation{R29}
+\citation{R29}
+\citation{R28}
+\citation{R29}
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.2.2.2}Splines Mathematical concepts}{58}{subsubsubsection.3.3.2.2.2}\protected@file@percent }
+\newlabel{eq:curve}{{3.9}{58}{Splines Mathematical concepts}{equation.3.3.9}{}}
+\citation{R28}
+\citation{R28}
+\citation{R29}
+\newlabel{Bezier curve}{{3.13}{59}{Splines Mathematical concepts}{equation.3.3.13}{}}
+\citation{R29}
+\citation{R32}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces NURBS spline example.  \textbf  {Green}: Control points  \textbf  {Red}: NURBS spline\relax }}{60}{figure.caption.43}\protected@file@percent }
+\newlabel{NURBS}{{3.13}{60}{NURBS spline example.\\ \textbf {Green}: Control points\\ \textbf {Red}: NURBS spline\relax }{figure.caption.43}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Implementation of the Pattern Path Creation Approach}{61}{subsubsection.3.3.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Step3: Interpolation of the waypoints and creation of the spline-based paths\relax }}{61}{figure.caption.44}\protected@file@percent }
+\newlabel{Spline ori}{{3.14}{61}{Step3: Interpolation of the waypoints and creation of the spline-based paths\relax }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Robot at the transition position\relax }}{62}{figure.caption.45}\protected@file@percent }
+\newlabel{transition}{{3.15}{62}{Robot at the transition position\relax }{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Transformations From the Robot to the Pallet Frame Passing by the Reflector Frame\relax }}{64}{figure.caption.46}\protected@file@percent }
+\newlabel{Transformation}{{3.16}{64}{Transformations From the Robot to the Pallet Frame Passing by the Reflector Frame\relax }{figure.caption.46}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Creation of a Spline by Points Interpolation\relax }}{64}{algocf.2}\protected@file@percent }
+\newlabel{alg:createSplines}{{2}{64}{Implementation of the Pattern Path Creation Approach}{algocf.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Path Evaluation}{64}{subsection.3.3.3}\protected@file@percent }
+\citation{R20}
+\citation{R23}
+\citation{R34}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Path Evaluation Techniques in Robotics}{65}{subsubsection.3.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.3.1.1}Core Metrics for Path Evaluation}{65}{subsubsubsection.3.3.3.1.1}\protected@file@percent }
+\citation{R23}
+\citation{R35}
+\citation{R17}
+\citation{R17}
+\newlabel{kurv}{{3.23}{66}{Core Metrics for Path Evaluation}{equation.3.3.23}{}}
+\newlabel{clear}{{3.25}{66}{Core Metrics for Path Evaluation}{equation.3.3.25}{}}
+\citation{R36}
+\citation{R23}
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.3.1.2}Combinations of single metrics}{67}{subsubsubsection.3.3.3.1.2}\protected@file@percent }
+\newlabel{evaluation}{{3.26}{67}{Combinations of single metrics}{equation.3.3.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Implementation of Path Evaluation Techniques}{67}{subsubsection.3.3.3.2}\protected@file@percent }
+\newlabel{length_formula}{{3.27}{68}{Implementation of Path Evaluation Techniques}{equation.3.3.27}{}}
+\citation{R17}
+\citation{R17}
+\newlabel{curvature_change}{{3.29}{69}{Implementation of Path Evaluation Techniques}{equation.3.3.29}{}}
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{69}{subsubsubsection.3.3.3.2.1}\protected@file@percent }
+\newlabel{exp_function}{{3.35}{70}{First approach: Exponential Weighted Path Evaluation}{equation.3.3.35}{}}
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{71}{subsubsubsection.3.3.3.2.2}\protected@file@percent }
+\newlabel{Norm_function}{{3.38}{71}{Second approach: Normalized Weighted Path Evaluation}{equation.3.3.38}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces Path Evaluation Algorithm\relax }}{72}{algocf.3}\protected@file@percent }
+\newlabel{EvaluationAlgorithm}{{3}{72}{Second approach: Normalized Weighted Path Evaluation}{algocf.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Path Optimization}{73}{subsection.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Utility}{73}{subsubsection.3.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Implementation}{73}{subsubsection.3.3.4.2}\protected@file@percent }
+\citation{R45}
+\@writefile{toc}{\contentsline {subsubsubsection}{\numberline {3.4.2.1}Obstacle Avoidance in the Pattern Based Approach}{75}{subsubsubsection.3.3.4.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces Simulated Environment of the Station With Obstacles Blocking a Transition side\relax }}{76}{figure.caption.47}\protected@file@percent }
+\newlabel{Obstacle}{{3.17}{76}{Simulated Environment of the Station With Obstacles Blocking a Transition side\relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.18}{\ignorespaces Simulated Environment of the Station with the added waypoints for enhance obstacle avoidance\relax }}{76}{figure.caption.48}\protected@file@percent }
+\newlabel{Add_waypoints}{{3.18}{76}{Simulated Environment of the Station with the added waypoints for enhance obstacle avoidance\relax }{figure.caption.48}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {4}{\ignorespaces Generic Optimization Algorithm with Path Evaluation\relax }}{77}{algocf.4}\protected@file@percent }
+\newlabel{optimization}{{4}{77}{Obstacle Avoidance in the Pattern Based Approach}{algocf.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Test and Validation of the Proposed Solution }{79}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lor}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Path Creation Test Results and Validation}{80}{section.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Test Results on Cloned Test Environment\relax }}{81}{figure.caption.50}\protected@file@percent }
+\newlabel{Test_clone}{{4.1}{81}{Test Results on Cloned Test Environment\relax }{figure.caption.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path\relax }}{81}{figure.caption.51}\protected@file@percent }
+\newlabel{driving}{{4.2}{81}{Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Test Results on the Simulated Environment: Truck at the Destination\relax }}{82}{figure.caption.52}\protected@file@percent }
+\newlabel{Test_Simu}{{4.3}{82}{Test Results on the Simulated Environment: Truck at the Destination\relax }{figure.caption.52}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Path Evaluation Test Results and Validation}{82}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{84}{figure.caption.53}\protected@file@percent }
+\newlabel{Mult_splines}{{4.4}{84}{Test Results on the Simulated Environment: Multiple Splines Visualization\relax }{figure.caption.53}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{84}{figure.caption.54}\protected@file@percent }
+\newlabel{Test_Eval_Exp}{{4.5}{84}{Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }{figure.caption.54}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{85}{figure.caption.55}\protected@file@percent }
+\newlabel{Test_Eval_Norm1}{{4.6}{85}{Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }{figure.caption.55}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{85}{figure.caption.56}\protected@file@percent }
+\newlabel{Test_Eval_Norm2}{{4.7}{85}{Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }{figure.caption.56}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Navigating high curvatures in narrow areas\relax }}{86}{figure.caption.57}\protected@file@percent }
+\newlabel{curv_problem}{{4.8}{86}{Navigating high curvatures in narrow areas\relax }{figure.caption.57}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Path Optimization Test Results and Validation}{86}{section.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Optimizer results in empty station of one of 10 generations with the overall best paths visualized in bold red and brown\relax }}{87}{figure.caption.58}\protected@file@percent }
+\newlabel{OptResult1}{{4.9}{87}{Optimizer results in empty station of one of 10 generations with the overall best paths visualized in bold red and brown\relax }{figure.caption.58}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Optimizer results in presence of obstacles of one of 10 generations with the overall best paths visualized in bold red and brown\relax }}{87}{figure.caption.59}\protected@file@percent }
+\newlabel{OptResult2}{{4.10}{87}{Optimizer results in presence of obstacles of one of 10 generations with the overall best paths visualized in bold red and brown\relax }{figure.caption.59}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Optimizer results in presence of obstacles and influence of increasing path waypoints\relax }}{88}{figure.caption.60}\protected@file@percent }
+\newlabel{OptResult3}{{4.11}{88}{Optimizer results in presence of obstacles and influence of increasing path waypoints\relax }{figure.caption.60}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Optimizer results in a simple environment tested inside the RACK simulation: Start Position\relax }}{89}{figure.caption.61}\protected@file@percent }
+\newlabel{OptResult4}{{4.12}{89}{Optimizer results in a simple environment tested inside the RACK simulation: Start Position\relax }{figure.caption.61}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Optimizer results in a simple environment tested inside the RACK simulation: Target Position\relax }}{89}{figure.caption.62}\protected@file@percent }
+\newlabel{OptResult5}{{4.13}{89}{Optimizer results in a simple environment tested inside the RACK simulation: Target Position\relax }{figure.caption.62}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Optimizer results in a Complicated environment tested inside the RACK simulation: Start Position\relax }}{90}{figure.caption.63}\protected@file@percent }
+\newlabel{OptResult6}{{4.14}{90}{Optimizer results in a Complicated environment tested inside the RACK simulation: Start Position\relax }{figure.caption.63}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Optimizer results in a Complicated environment tested inside the RACK simulation: AMR Navigating the path\relax }}{91}{figure.caption.64}\protected@file@percent }
+\newlabel{OptResult7}{{4.15}{91}{Optimizer results in a Complicated environment tested inside the RACK simulation: AMR Navigating the path\relax }{figure.caption.64}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Optimizer results in a Complicated environment tested inside the RACK simulation: Target Position\relax }}{92}{figure.caption.65}\protected@file@percent }
+\newlabel{OptResult8}{{4.16}{92}{Optimizer results in a Complicated environment tested inside the RACK simulation: Target Position\relax }{figure.caption.65}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Obstacle Used for Metaheuristic Algorithms comparison in the complicated scenario\relax }}{94}{figure.caption.66}\protected@file@percent }
+\newlabel{OptResult9}{{4.17}{94}{Obstacle Used for Metaheuristic Algorithms comparison in the complicated scenario\relax }{figure.caption.66}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of Planning Time for Different Algorithms in Simple and Complicated Environments (in milliseconds)\relax }}{94}{table.caption.67}\protected@file@percent }
+\newlabel{tab:planning_time}{{4.1}{94}{Comparison of Planning Time for Different Algorithms in Simple and Complicated Environments (in milliseconds)\relax }{table.caption.67}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of Fitness Values of the optimum paths generated by Different Algorithms in Simple and Complicated Environments\relax }}{95}{table.caption.68}\protected@file@percent }
+\newlabel{tab:fitness_values}{{4.2}{95}{Comparison of Fitness Values of the optimum paths generated by Different Algorithms in Simple and Complicated Environments\relax }{table.caption.68}{}}
+\@writefile{toc}{\contentsline {chapter}{General conclusion}{96}{chapter*.69}\protected@file@percent }
+\bibcite{R1}{1}
+\bibcite{R2}{2}
+\bibcite{R3}{3}
+\bibcite{R4}{4}
+\bibcite{R5}{5}
+\bibcite{R6}{6}
+\bibcite{R7}{7}
+\bibcite{R8}{8}
+\bibcite{R9}{9}
+\bibcite{R10}{10}
+\bibcite{R11}{11}
+\bibcite{R12}{12}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{97}{chapter*.70}\protected@file@percent }
+\bibcite{R13}{13}
+\bibcite{R14}{14}
+\bibcite{R15}{15}
+\bibcite{R16}{16}
+\bibcite{R17}{17}
+\bibcite{R18}{18}
+\bibcite{R19}{19}
+\bibcite{R20}{20}
+\bibcite{R21}{21}
+\bibcite{R22}{22}
+\bibcite{R23}{23}
+\bibcite{R24}{24}
+\bibcite{R25}{25}
+\bibcite{R26}{26}
+\bibcite{R27}{27}
+\bibcite{R28}{28}
+\bibcite{R29}{29}
+\bibcite{R30}{30}
+\bibcite{R31}{31}
+\bibcite{R32}{W1}
+\bibcite{R33}{33}
+\bibcite{R34}{34}
+\bibcite{R35}{35}
+\bibcite{R36}{36}
+\bibcite{R37}{37}
+\bibcite{R38}{38}
+\bibcite{R39}{39}
+\bibcite{R40}{40}
+\bibcite{R41}{41}
+\bibcite{R42}{42}
+\bibcite{R43}{43}
+\bibcite{R44}{44}
+\bibcite{R45}{45}
+\bibcite{R46}{46}
+\bibcite{R47}{47}
+\ACRO{readaux}
+\csname bt@set@cnt\endcsname{0}
+\@writefile{toc}{\contentsline {chapter}{Annexes}{102}{chapter*.71}\protected@file@percent }
+\gdef \@abspage@last{115}
