@@ -379,6 +379,8 @@ with a planning time of \(78ms\). It is noticeable that the planning time increa
 for almost all the algorithms in the complicated environment scenario. 
 This is due to the checking of the scan points that increase as more objects are introduced around the AMR.
 
+Using the planning time based comparison the DE algorithm is the most performing in terms of planning time. 
+
 Table \Ref{tab:fitness_values} details the fitness values for both scenarios. It is worth mentioning
 that the obstacle is placed inside subpolygon1 in this case.
 For the Simple Environment, the GA was able to find the fittest candidate at an evaluation score of 
@@ -399,7 +401,8 @@ The values can be clustered into two groups:
 \end{itemize}
 
 Using this comparison, the PSO algorithm outperforms the other algorithms in complicated environments as it 
-finds the best path and also finds a path in the constrained polygon where the obstacle stands.
+finds the fittests path which refers to the shortest path and the least curvature change and also finds a path in 
+the constrained subpolygon where the obstacle stands.
 
 \begin{figure}[H]
     \begin{center}
