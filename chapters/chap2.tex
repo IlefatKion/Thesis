@@ -20,15 +20,16 @@ components are integrated into a cohesive solution for precise pallet access wit
 As mentioned in the introduction, this project does not tackle the navigation system of the AMRs in 
 general, but is focusing on a specific movement that the AMR must perform in order to accurately dock the pallet/shelf. 
 More details are explained in chapter 1, section 2.
-Considered the problems detailed in chapter 1 and the previous conclusions, the following goals were identified 
+Considered the problems detailed in chapter 1 and the state of the art outputs in chapter 2, 
+the following goals were identified 
 based on the former detailed requirements for applications to autonomous mobile robots in intralogistics:
 \begin{itemize}
-    \item \textbf{Predictability and Robustness of Mobile Robot Behavior: }The solution utilizes an intelligent approach to connect 
+    \item \textbf{Predictability and Robustness of Mobile Robot Behavior: }The solution we propose utilizes an intelligent approach to connect 
     the robot to its destination. The developed algorithm generates an explainable navigation process that enables humans 
     to understand and trust the technology. Additionally, secure decision-making for autonomous trucks is ensured by the 
     developers. 
 
-    \item \textbf{Accuracy of the solution and station relation: }The developed solution is stable, repeatable and flexible: this 
+    \item \textbf{Accuracy of the solution and station relation: }The developed solution has to be stable, repeatable and flexible: this 
     means that it would work for almost all stations in warehouses where it operates. The linking to the destination is 
     accurate and precise to avoid failures. Precision and accuracy are guaranteed by the fact that the planning is done 
     in the limited station space: a narrow field that allows short distance perception and planning. The solution is 
@@ -44,9 +45,9 @@ based on the former detailed requirements for applications to autonomous mobile 
 \end{itemize}
 
 
-\subsection{Work Structure}
-To achieve the aforementioned goals, this work will follow a structured approach, consisting of the following key 
-development chapters: 
+\subsection{Development Methodology} %TODO: hedhi design
+To achieve the aforementioned goals, the design  will follow a structured approach, consisting of the following key 
+development steps: 
 
 \begin{itemize}
     \item Station Layout Analysis: An analysis of the station layout enhances the development 
@@ -68,7 +69,7 @@ development chapters:
 
 \end{itemize}
 
-To overcome the drawbacks of existing methods, this approach aims to focus on:
+To overcome the drawbacks of the methods in Chapter 2, Our approach focuses on:
 \begin{itemize}
     \item Repeatability: by generating pattern based paths, the AMR's behavior is explainable at 
     the linking phase: the AMR uses the pattern to create optimized trajectories and takes into 
@@ -90,7 +91,7 @@ To overcome the drawbacks of existing methods, this approach aims to focus on:
     constraints and optimizing path generation.
 \end{itemize}
 
-The following sections will detail the chosen methodological approach. Then, the implementation steps are 
+The following sections will detail the design  approach. Then, the implementation steps are 
 explicited and demonstrated from the simulation point of view. Finally, the tests results are explained 
 and discussed and the outlooks are elaborated. 
 
@@ -102,7 +103,7 @@ The process is repeated dozens of times daily inside warehouses and factories wh
 resolving the problem. Taking a deeper look at their approaches to resolve the same issue, the autonomous vehicles team 
 noticed that forklift drivers have certain driving styles that are repeated according to the current situation.
 Similarily to car parking, depending on the type of the parking slot, there are some patterns to reproduce in order to fit 
-the car inside its assigned spot as given by figure \ref{Parking Styles}. 
+the car inside its assigned spot as given by figure \ref{Parking_Styles}. 
 Each situation has an according pattern that is relevant to the car's orientation, the parking slot, 
 and the direction of parking. The parking styles were set to teach beginners the way to park a car 
 smoothly: stopping and changing directions are minimized by the shape of the path.
@@ -122,8 +123,8 @@ Parking assistance feature is embedded in human-driven and driverless cars to in
     [H]
     \begin{center}
     \includegraphics[width=4in]{images/Chap2/perpendicular-parking-a-lot-scaled.jpg}\\
-    \caption{Parking Styles}
-    \label{The Possible Parking Styles that a driver can follow }
+    \caption{The Possible Parking Styles that a driver can follow}
+    \label{Parking_Styles}
     \end{center}
 \end{figure}
 
@@ -143,7 +144,7 @@ the technology. Additionally, the approach is intended to ensure secure and reli
     [H]
     \begin{center}
     \includegraphics[width=\linewidth]{images/Chap2/station-without-subpolygones.png}\\
-    \caption{Representation of Linking the robot to goal destination \cite{R28}}
+    \caption{Design of Linking the robot to goal destination \cite{R28}}
     \label{pattern}
     \end{center}
 \end{figure}
@@ -249,7 +250,7 @@ The transformation matrix from the shelf to Global is illustrated in figure \Ref
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=4in]{images/Chap2/station_frames.png}\\
+        \includegraphics[width=5in]{images/Chap2/Fixed_frames.png}\\
         \caption{Station Simulation with added Station, Shelf, and Global (World) frames}
         \label{Station}
         \end{center}    
@@ -362,7 +363,7 @@ For special cases like station3, where one of the subpolygons can be very narrow
 certain threshhold), the algorithm omits it and generates only one subpolygon. 
 The algorithm concludes by returning the created subpolygon(s), effectively segmenting the 
 input areas into distinct, usable geometric entities.
-The Pseudocode of the General Algorithm is given in \Ref{alg:createSubpolygons}
+The Pseudocode of the General Algorithm is given in Algorithm \Ref{alg:createSubpolygons}
 
 
 \begin{figure}[H]
@@ -372,6 +373,26 @@ The Pseudocode of the General Algorithm is given in \Ref{alg:createSubpolygons}
         \label{warehouse}
         \end{center}    
 \end{figure}
+
+The colored elements in this figure are explained here:
+\begin{itemize}
+    \item Dark Blue outline: walls of the warehouse
+    \item Yellow Rectancles marked as stations: Warehouse stations: Actions like picking up or 
+    dropping are performed in specific locations inside the warehouse called 
+    stations, examples of which are named \(station1\), \(station2\), and \(station3\) on the figure \Ref{move}.
+    Each station is designed to support specific warehouse functions and their general mission
+    is to facilitate and organize material handling operations. 
+    Each station contains a \textbf{shelf} that contains the pallets to be picked or dropped. 
+    \item Black rectangles: storage shelves (also called racks), where the  pallets and material are 
+    stored. 
+    \item Turquoise blue lines: Global paths that connect the stations.
+    The truck takes these routes when navigating from a station to the other while avoiding 
+    obstacles online if they occur.
+    \item Gray rectangles are starting position of the truck around the warehouse. For instance,
+    the truck can be placed at these positions before starting its autonomous navigation and 
+    task fulfillment.
+
+\end{itemize}
 
 
 
@@ -404,28 +425,21 @@ PosYsub\_subpolygon $\gets$ CreatePosYsubpolygon(tm\_station\_corners, tm\_shelf
 
 
 
-\subsubsection{Results}
+\subsubsection{Results of the Station Partitioning}
 
 In figure \ref{Station polygon} stands the simulated result processed using real station data: In purple and orange are 
 the polygons, and in green the outer polygon represenst the station.
+The station used is the Station \(Empty Pallets\) of the warehouse.
 %TODO: write here 
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=5in]{images/Chap2/Polygons_created.png}\\
+        \includegraphics[width=4in]{images/Chap2/subpolygons.png}\\
         \caption{Partitioning: Station divided into subpolygons}
         \label{Station polygon}
         \end{center}    
 \end{figure}
 
-In figure \Ref{other station}, stands the result of the module Create subpolygon in a different station:
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=5in]{images/Chap2/Other_station.png}\\
-        \caption{Partitioning: Station divided into subpolygons}
-        \label{other station}
-        \end{center}    
-\end{figure}
 
 \subsection{Path creation}
 This section details the methodology for path creation. \textbf{The input of this section are the polygons besides
@@ -566,7 +580,8 @@ spline’s features like curvature or approximate its length.
 
 \subsubsubsection{Splines Mathematical concepts}
 
-In mathematics and computer graphics, a \textbf{curve} is a continuous and smooth flowing line without sharp angles. 
+In mathematics and computer graphics, a \textbf{curve} is a continuous and smooth flowing line without 
+sharp angles \Ref{R29}. 
 It can be defined parametrically or implicitly and represents a path that can be traced by a moving point.
 A curve can be defined using a parameter 
 \(u\), where \(u\)varies over an interval, and the coordinates of the curve are given by functions of:
@@ -793,10 +808,7 @@ Where:
     \item \( \beta \) is the orientation angle of $Reflector^{Robot}$
 \end{itemize}
 
-The transformations between the different objects are illustrated by figure \Ref{label}.
-The Green Arrow represents the Transformation from the Reflector to the Robot $T_{Reflector}^{Robot}$.
-The Orange Arrow represents the Transformation from the Pallet to the Reflector $T_{Pallet}^{Reflector}$.
-The Blue Arrow represents the Transformation from the Robot to the Pallet $T_{Robot}^{Pallet}$.
+
 
 \begin{figure}[H]
     \begin{center}
@@ -806,6 +818,10 @@ The Blue Arrow represents the Transformation from the Robot to the Pallet $T_{Ro
         \label{Transformation}
         \end{center}    
 \end{figure}
+The transformations between the different objects are illustrated by figure \Ref{Transformation}.
+\textbf{The Green Arrow} represents the Transformation from the Reflector to the Robot $T_{Reflector}^{Robot}$.
+\textbf{The Orange Arrow} represents the Transformation from the Pallet to the Reflector $T_{Pallet}^{Reflector}$.
+\textbf{The Blue Arrow} represents the Transformation from the Robot to the Pallet $T_{Robot}^{Pallet}$.
 
 The general Pseudocode of the Path Generation is explained through Algorithm \Ref{alg:createSplines}.
 
@@ -1281,28 +1297,21 @@ Pagmo provides an exhaustive toolset of meta-heuristic optimization techniques i
 and the improved versions. 
 
 \subsubsubsection{Obstacle Avoidance in the Pattern Based Approach}
-
-This approach is designed for complex and dynamic environments. 
-Those environments are characterized by obstacle abundance: Operators, Pallets, 
-Materials, Shelves, and other vehicles, found outside as well as inside the station perimeter.
-The Implementation of an obstacle avoidance feature is necessary. 
-This feature remains in the simplicity level of the General approach.
-The Obstacle Avoidance feature of the Pattern Based Solution is ensured by the 
-Optimizer: It highly penalizes paths that collide or border an obstacle by affecting a high 
-Knockout value (Fitness values $\lll$ Knockout) to its corresponding cost function. The penalty approach is explained 
-in Algorithm \Ref{EvaluationAlgorithm}.
-Figure \Ref{Obstacle} illustrates a case of obstacles blocking one of the subpolygons of the station.
-In this situation The Optimizer chooses the remaining subpolygon. 
-Although this approach can be effective by eliminating the colliding paths, it limits 
-the solution: In case an obstacle blocks both subpolygons, the pattern is not able to contour 
-the obstacles and find a solution.
-To address this issue, two additional points were added to the path. The first Point is placed 
-Between the Robot and the Transition Point, the second between the transition points and the destination. 
-This approach increases the flexibility of the solution: The extra waypoints pull the sections of the path 
-away from the obstacles if they occur close to the path. 
-The position of the waypoints is included in the optimization process. The new decision vector of the optimization 
-problem is composed of the transition point and the wapoints A and B as illustrated in figure \Ref{Add_waypoints}.
-Each path candidate is created and evaluated using the same Evaluation approach. 
+This approach is designed for complex, dynamic environments characterized by an abundance of obstacles, such 
+as Operators, Pallets, Materials, Shelves, and other vehicles, both inside and outside the station perimeter. 
+To navigate these environments, an obstacle avoidance feature is essential. The obstacle avoidance mechanism, 
+integrated into the Pattern-Based Solution, is managed by the Optimizer, which assigns high penalties 
+(referred to as "Knockout" values) to paths that collide with or come too close to obstacles 
+(Fitness values $\lll$ Knockout). This approach, as detailed in Algorithm \Ref{EvaluationAlgorithm}, 
+effectively eliminates colliding paths by making them unfavorable during optimization. For instance, 
+as shown in Figure \Ref{Obstacle}, when obstacles block one of the subpolygons of the station, the 
+Optimizer selects an alternate subpolygon. However, this method has limitations—if both subpolygons 
+are blocked, the pattern cannot navigate around the obstacles. To address this, two additional 
+waypoints are introduced: one between the robot and the transition point, and the other between 
+the transition point and the destination. These waypoints increase flexibility by allowing the path 
+to deviate from nearby obstacles. Their positions are optimized along with the transition points, as 
+illustrated in Figure \Ref{Add_waypoints}, ensuring that each path candidate is created and evaluated 
+using the same Evaluation approach.
 
 
 \begin{figure}[H]
@@ -1317,7 +1326,7 @@ Each path candidate is created and evaluated using the same Evaluation approach.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=4.5in]{images/Chap2/Add_waypoints.png} % Replace with your figure
-        \caption{Simulated Environment of the Station with the added waypoints for enhance obstacle avoidance}
+        \caption{Simulated Environment of the Station with the added waypoints to enhance obstacle avoidance}
         \label{Add_waypoints}
         \end{center}    
 \end{figure}

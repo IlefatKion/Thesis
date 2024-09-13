@@ -160,16 +160,51 @@ understand decision-making processes and increasing their confidence in its safe
 Autonomous navigation is a topic where explainable intelligence can be integrated. 
 Robotic forklifts execute missions such as transporting pallets from one place to another: 
 picking up or dropping pallets.
-The mission is splitted into:
+This mission is splitted into:
 \begin{itemize}
     \item a movement to a source
     \item a pickup
     \item a movement to the destination
     \item a drop
 \end{itemize}
-The movement to the source or the destination is the movement in figure \Ref{move} where \(station1\) 
-is considered the source station that the truck is headed to.
-This movement is planned globally and is not the scope of this work. 
+The movement to the source or the destination is exemplified by figure \Ref{move} where 
+\(station1\) is considered the source station that the truck is headed to.
+However, the truck arrives at a distant pose from the shelf or pallet,
+the distance is clearly seen in figure \Ref{dock}. In addition, its forks are facing the 
+wrong direction because driving the truck should happen like the arrow shows on figure \Ref{move} 
+to avoid hitting humans or materials with the forks.
+The distance is intended because the truck needs a maneuver to make its forks dock (enter) the shelf
+as they are the part that picks up or drops the pallet.
+This work focuses on the subtask of an autonoumous online linking of the vehicle to the shelf
+independantly from the task to be performed (pick up/drop). 
+
+The path that involves this maneuver is called the "link path" that guides the truck to the pallet or the drop 
+pose which is the shelf inside the station as illustrates figure \Ref{dock}. Online linking of the robotic 
+forklift to the goal pallet or location takes place inside
+the station. Online linking is mandatory because warehouse areas are subject to constant changes for instance,
+shelves can be shifted from their expected
+position and dynamic obstacles can show up, but, the vehicle needs precise recognition of the coordinates 
+that it will reach. 
+Precise recognition allows for correctness of the picking or dropping processes, otherwise, 
+the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside 
+of the station and avoid collisioning with them when driving to the destination shelf.
+
+When it arrives at the station, the vehicle is fronted by these constraints:
+%TODO: check these
+\begin{itemize}
+    \item The vehicle’s forks are not facing the destination shelf as shown in figure \Ref{dock} 
+    but rather the opposite direction, 
+    so a driving direction change is needed. 
+
+    \item The vehicle is bulky in volume and mass (1200 to 4000 kg) with an overall 
+    length of 2500 to 4000 mm  \cite{R5}
+    which makes it challenging  to change directions: turning on the spot or 
+    navigating in highly curved paths. 
+    
+    \item The pallet docking process has to be very precise to avoid shifts and mistakes. 
+\end{itemize}
+
+
 Figure \Ref{move} is a section of the model of a real warehouse. In this work,
 the interest is around the following items of the model:
 \begin{itemize}
@@ -191,27 +226,6 @@ the interest is around the following items of the model:
 
 \end{itemize}
 
-However, the truck arrives at a distant pose from the shelf or pallet,
-the distance is clearly seen in figure \Ref{dock}. In addition, its forks are facing the 
-wrong direction because driving the truck should happen like the arrow shows on figure \Ref{move} 
-to avoid hitting humans or materials with the forks.
-
-The distance is intended because the truck needs a maneuver to make its forks dock (enter) the shelf
-as they are the part that picks up or drops the pallet.
-
-
-The path that involves this maneuver is called the link path that guides the truck to to the pallet or the drop 
-pose (the shelf inside the station in figure \Ref{dock}). 
-
-Online linking of the robotic forklift to the goal pallet or location takes place inside
-the station. Online linking is mandatory because warehouse areas are subject to constant changes for instance,
-shelves can be shifted from their expected
-position and dynamic obstacles can show up, but, the vehicle needs precise recognition of the coordinates 
-that it will reach. 
-Precise recognition allows for correctness of the picking or dropping processes, otherwise, 
-the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside 
-of the station and avoid collisioning with them when driving to the destination shelf.
-
 \begin{figure}[H]
     \begin{center}
        \includegraphics[width=5in]{images/Chap0/move.png}\\
@@ -228,25 +242,7 @@ of the station and avoid collisioning with them when driving to the destination 
        \end{center}
 \end{figure}
 
-This thesis focuses on the subtask of an autonoumous online linking of the vehicle to shelf
-independantly from the task to be performed (pick up/drop). 
-When it arrives at the station, the vehicle is fronted by these constraints:
-
-%TODO: check these
-\begin{itemize}
-    \item The vehicle’s forks are not facing the destination shelf as shown in figure \Ref{dock} 
-    but rather the opposite direction, 
-    so a driving direction change is needed. 
-
-    \item The vehicle is bulky in volume and mass (1200 to 4000 kg) with an overall 
-    length of 2500 to 4000 mm  \cite{R5}
-    which makes it challenging  to change directions: turning on the spot or 
-    navigating in highly curved paths. 
-    
-    \item The pallet docking process has to be very precise to avoid shifts and mistakes. 
-\end{itemize}
-
-$\Rightarrow$ \textbf{The goal} is to autonomously and optimally transport the vehicle from the position of entering the station in
+To summarize, the goal is to autonomously and optimally transport the vehicle from the position of entering the station in
 figure \Ref{dock_wait} to the position of docking the shelf in figure \Ref{dock_done} while accounting for obstacles,
 kinematics of the vehicle, and maximizing speed. 
 
@@ -282,6 +278,7 @@ efficient and flexible project management. Here’s how we approach our work:
 \end{figure}
 
 \subsection{Agile Scrum Framework} 
+To follow the Agile Scrum framework 4 main tools/ are used:
 \begin{itemize}
     \item \textbf{Jira: } We use Jira to organize and track our tasks and progress. Jira allows us to create 
     and manage tickets, which are detailed records of tasks, bugs, or features that need attention. 
@@ -308,21 +305,31 @@ efficient and flexible project management. Here’s how we approach our work:
 \end{itemize}
 
 \subsection{Version Management}
-\begin{itemize}
-    \item \textbf{GitHub: } We use GitHub for version control and code management. GitHub allows us to 
+For Version Management, the team collaborates over \textbf{GitHub: }We use GitHub for version control and 
+code management. GitHub allows us to 
     collaborate on code, track changes, and manage different versions of our project. Each team member 
     can contribute to the codebase, and we use pull requests to review and integrate new features.
-\end{itemize}
 
-\subsection{Communication and Collaboration:}
 
+\subsection{Communication and Collaboration}
+For daily communication and effective organization, the following tools are put to use:
 \begin{itemize}
-\item  \textbf{Microsoft Teams: } We use Microsoft Teams for real-time communication and collaboration. 
+\item  \textbf{Microsoft Teams: }We use Microsoft Teams for real-time communication and collaboration. 
 Teams provides a platform for chatting, video calls, and sharing files, facilitating smooth and efficient 
 interactions among team members.
 
-\item  \textbf{Microsoft Outlook: } Outlook is used for email communication and scheduling. It helps us 
+\item  \textbf{Microsoft Outlook: }Outlook is used for email communication and scheduling. It helps us 
 manage meetings, track important messages, and coordinate tasks and deadlines.
 \end{itemize}
 
+\subsection{Project Timeline}
+
 By integrating these tools and practices, we ensure a structured yet flexible workflow, enabling us to adapt to changes, communicate effectively, and deliver high-quality results.
+
+\section*{Conclusion}
+This chapter introduced the host company, STILL GmbH, and its role within the KION Group, highlighting its 
+management structure and product offerings. It also outlined the motivation behind the graduation project 
+and the specific problem statement it aims to address. The chapter provided an overview of the work structure 
+and methodology, focusing on the Agile Scrum framework and key tools for version management. Additionally, 
+the importance of effective communication and collaboration throughout the project was emphasized. These 
+foundational elements set the stage for the detailed work in subsequent chapters.

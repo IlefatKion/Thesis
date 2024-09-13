@@ -3,20 +3,20 @@
 \renewcommand{\chaptername}{Chapter}
 
 \section*{Introduction}
-This chapter focuses on the research conducted around Optimal Near-field Path planning
+This chapter focuses on a sythesis of the literature around Optimal Near-field Path planning
 for robots in Intralogistics environments. 
-It starts with an explanation of the fundamemental aspects that this work is based on 
-like Automated Mobile Robots (AMRs), Near-field Path planning and Optimization techniques 
+It starts with an explanation of the fundamemental aspects this work is based on 
+as Automated Mobile Robots (AMRs), Near-field Path planning and Optimization techniques 
 with a focus on Intralogistics.
-Then it focuses on the path planning approaches followed to rise to the existing challenges.
+Then it focuses on the path planning approaches proposed to rise to the existing challenges.
 Later, the topic of optimization is outlined, investigating the decision-making science
 that leads to the elimination of some path planning drawbacks.
-It concludes with a discussion around the relevance of the litertaure and ways it can be exploited
-for this work. 
+It concludes with a discussion around which works from the literature can be used for this problem 
+statement and how they can be exploited for this work.
 
 \section{Intralogistics Environments}
 Intralogistics refers to the management, control, and optimization of internal material and 
-information flow within a warehouse. It encompasses all physical and operational processes 
+information flow within a warehouse \Ref{R28}. It encompasses all physical and operational processes 
 involved in the movement of materials and goods. This concept was introduced and defined by 
 the German Engineering Association (VDMA). Figure \Ref{Areas} covers various aspects of 
 intralogistics areas, including 
@@ -26,11 +26,11 @@ The scope of this work is focused around the warehouse
 area where storage: picking, and placing, takes place. 
 In brownfield applications, introduced in the General Introduction, the warehouse environment is 
 usually a crowded and cluttered 
-atmosphere: The nature of activities like manufacturing storing install a high level of 
-dynamics, whether it is operators or other vehicles, and obstacles like boxes and pallets. 
+atmosphere: The nature of activities like manufacturing storing installs a high level of 
+dynamics, whether it is operators or other vehicles, and obstacles as boxes and pallets. 
 The cluttered 
 and highly dynamic nature of this environment makes it challenging to successfully 
-implement robotic solutions.
+implement robotic based solutions.
 
 \begin{figure}[H]
     \begin{center}
@@ -47,18 +47,19 @@ sensors, cameras, and advanced software, AMRs can move around facilities like wa
 factories, adjusting their paths based on real-time conditions. They are commonly used 
 for material handling and transporting goods.
 
-In the Intralogistics field, AMRs were introduced as a revolution to Automated Guided Vehicles (AGVs). 
+In the Intralogistics field, AMRs were introduced as a revolution to Automated Guided Vehicles (AGVs) \cite{R7}. 
 First introduced in 1955, AGVs performed tasks like 
 material handling. AGVs are managed by top-level software that handles task planning, 
 providing the vehicles with intermediate waypoints to navigate from start to end points \cite{R7}.
-On the other hand, AMRs are automated in a way that makes them find the solution to unexpected problems. 
+On the other hand, AMRs are automated in a way that makes them find the solution to unexpected problems, 
+in fact:
 Figure \Ref{AMR-VS-AGV}, shows the difference in behavior between an AMR and an AGV in the case of a 
 new obstacle. While AMRs are able to surpass the obstacle through sensors recognition and obstacle 
 avoidance algorithms, AGVs require human intervention to eliminate the obstacle before restarting the navigation.
 
 AMRs fit in the cluttered ares of warehouses. Their perception of the surrounding information allows for
-low commissioning efforts: they are able them to localize themselves, plan then navigate to the goal and reach their 
-destinations autonomously. Their functioning does not require an expert or an engineer's intervention which 
+low commissioning efforts: they are able to localize themselves, plan then navigate to the goal and reach their 
+destinations autonomously. Their operation does not require an expert or an engineer's intervention which 
 limits the commissioning and utilization costs.
 
 \begin{figure}[H]
@@ -77,10 +78,10 @@ limits the commissioning and utilization costs.
 %       \end{center}
 %\end{figure}
 
-\newpage
 \section{Path Planning}
-This section will dive into the path planning state of the art: presenting its promising 
-opportuniities and current challenges, detailing the different approaches, and discussing
+This section will dive into the path planning state of the art: outlining its promising 
+opportunities and current challenges, detailing the different approaches, and discussing
+%how to employ their efficienyćy for this 
 their efficiency and compatibility with the problem statement.
 
 \subsection{Path Planning for autonomous robots: Opportunities and challenges}
@@ -89,7 +90,7 @@ Path planning for mobile robots involves creating and generating efficient route
 for the robot to travel from a starting position (A) to a target position (B), 
 ensuring minimal time and travel distance while avoiding collisions with nearby objects \cite{R7}. Literature 
 differentiates between two main types of path planning: 
-global and local path planning. Global planning involves finding an optimal path from 
+global and local path planning \cite{R11}. Global planning involves finding an optimal path from 
 the start to the target position based on sensor input within a known, static environment, 
 whereas local planning focuses on real-time path planning and obstacle avoidance, typically used online while 
 moving to avoid dynamic obstacles \cite{R11}.
@@ -98,7 +99,7 @@ In complex environments, movement and task fulfillment must be done carefully an
 the volume of the vehicle and the value of the handled material. With appropriate input from various sensors, 
 such as laser 
 scanners, cameras, and LiDAR providing robots can perceive of their surrounding environment and plan the right path
-accordingly. The innovation in hardware made navigation flexibility and autonomous recovery 
+accordingly. This hardware innovation made navigation flexibility and autonomous recovery 
 after failure possible\cite{R7}.
 The relevance of efficient path planning, mainly in the intralogistics sector, is derived from the constant need 
 of optimizing material flow, productivity rates, and cost effectiveness. Path planning reduces
@@ -114,7 +115,7 @@ based on the space settings. This flexibility offers several benefits, such as:
 \begin{itemize}
     \item Independence from Human intervention if an unexpected situation raises 
     -AMRs do not require assistance, unike AGVs \cite{R7}.
-    \item Reduced energy consumption thanks to optimal: smooth and short paths that adhere to 
+    \item Reduced energy consumption thanks to optimal, smooth and short paths that adhere to 
     the vehicles' kinematics, allocated task and travel time.
     \item Robustness and responsiveness thanks to decentralized decison making: enables fast 
     recovery and change of strategy after failure\cite{R7}.
@@ -133,12 +134,13 @@ efficient paths. Path planning serves as the crucial
 link between the robot’s sensor input and its motion control \cite{R10}.
 
 
-%challenges
+%challenges 
+%Todo: add reference for 
 More that 60 years have elapsed since "Shaky" the first wheeled robot was running it first tests
 in Stanford University' labs. However, most of the robotic related topic are still being researched and improved.
 Dealing with all the aspects and challenges that robotics comes with can be very intricate. One of the major 
 topics posing challenges to researchers is path planning. 
-In a research by S. H. Tang et al. \cite{R20}, the authors reviewed recent path planning approaches and challenges
+In \cite{R20}, authors reviewed recent path planning approaches and challenges
 in dynamic unkown environments. 
 % safety
 Saftey in path planning was the main concern for 29 \% of the reviewed studies. Navigating efficient 
@@ -170,15 +172,15 @@ it can scan and does not see the hidden depth beyond these surfaces.
 
 As a result, algorithms are to compensate the shadowed depth of obstacles by enforcing safety measures like 
 keeping the vehicle at a safe distance from the obstacles and deccelerating at the proximity 
-of static and dynamic objects to avoid collisions.
+of static and dynamic objects to avoid collisions \Ref{R28}.
 In addition, this input contains noises caused by the sensors reflections of other objects
-or inaccuracies. 
+or inaccuracies \Ref{R28}. 
 This makes it challenging to interpret the input and create deliberative systems as the built algorithms have to 
 deal with the given data
 in all cases and detect the inaccuracies and noises.
 Beyond that, it is complex to generate feasible solutions in all types of environments,
 some planners and algorithms risk stagnating in a local minima and not converging to the optimal routes
-due to the limited knowledge of the environment and the sensory limitations previously mentioned. 
+due to the limited knowledge of the environment and the sensory limitations previously mentioned \Ref{R28}. 
 Figure \Ref{local_minima} shows a simplified example of a potential wrong decision. A vehicle encounters two possible 
 driving paths, similar to what might happen in a racking system. Based solely on sensor data 
 (grey shaded area), the correct path cannot be determined. Only with global path planning (green path) 
@@ -247,7 +249,7 @@ environment as the basis for future tracking strategies.
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=4in]{images/Chap1/clusters.png}\\
+        \includegraphics[width=6in]{images/Chap1/PP_Approaches.jpg}\\
         \caption{Clustering Of Near-Field Path Planning Approaches \cite{R28}}
         \label{cluster}
         \end{center}
@@ -300,6 +302,7 @@ It works by evaluating different possible movements the robot could make within 
 and choosing the one that avoids obstacles while also moving towards the goal. The "window" refers 
 to a limited set of possible velocities of the velocity space the robot can use based on its current 
 speed and capabilities. Figure \Ref{flowchart of the DWA} details the flowchart of the DWA. 
+
 The DWA algorithm starts by analyzing the car's position and base data. It then samples the speed and 
 generates a range of possible trajectories. Each trajectory is evaluated to check if it will collide with 
 obstacles. If a trajectory is collision-free, it's considered for optimal trajectory selection. This process 
@@ -366,12 +369,12 @@ especially in environments with numerous obstacles, heavy traffic, or complex pa
        \end{center}
 \end{figure}
 
-\textbf{artificial intelligence-based methods} 
+\textbf{Artificial Intelligence-based methods} 
 leverage the use of Neural Networks, Fuzzy Logic, Reinforcement Learning, and Evolutionary algorithms. 
 These methods learn from experience, adapt to changes, and optimize paths in complex environments. 
 
 
-To start with, Neural networks (NN) are inspired from the biological harmonious connection of the brain neurons
+To start with, Neural Networks (NN) are inspired from the biological harmonious connection of the brain neurons
 that gives it the ability to process big amounts of data and generate ideas and decisions and solve problems. 
 The NN is built in a way that enables it to get its input in a form of data and process it by learning, improving 
 and adjusting the output to the desired results. NN are able to perform Parallel processing: the information is 
@@ -674,7 +677,7 @@ of the real world gap. In summary, while meta-heuristic algorithms show promise 
 testing and realistic obstacle modeling are needed to ensure they work effectively in practical situations. 
 Addressing these issues is key to advancing the use of robotics in intralogistics and other fields.
 \newpage
-\section{Discussion}
+\section{Discussion} %TODO: change name it is soa here
 To synthesize the research conducted, it is paramount to summarize the \textbf{key concepts} comprehensively and 
 pont out the general \textbf{drawbacks}. This 
 State of the Art report focuses on mobile robot path planning, a critical component of the overall 
@@ -714,16 +717,19 @@ intralogistics environment and generates smooth paths, is behaviorally explainab
 Algorithms is a new approach that would have an added value to mobile robot path planning in Intralogistics of 
 reducing computation time and travel distance and improving AI driven solutions explainability. 
 
-\section{Choice of Methodology}
-The discussed Path Planning approaches are typically
+\section{Adopted Path Planning and Optimization Methods}
+
+The obove discussed Path Planning approaches are typically
 designed to solve path planning problems in various environments and have been used in multiple
 applications.
-For this problem statement, the robot operates in a consistent environment—the station. 
+For this project's problem, the robot operates in a consistent environment—the station. 
 Although stations may differ in 
 position, size, and layout, the components within them remain the same: shelves containing pallets. 
 This consistency suggests that we should 
 develop a solution specifically tailored to the station environment, which would help minimize potential problems 
-and reduce the effort required to solve them. A path planning module has already been developed for the autonomous 
+and reduce the effort required to solve them. 
+
+A path planning module has already been developed at STILL for the autonomous 
 forklift trucks, utilizing classic sampling-based path planning methods. This module is based on the Open Motion 
 Planning Library (OMPL), an open-source library for motion planning in robotics. OMPL is designed for complex use 
 cases and includes several algorithms, such as probabilistic roadmaps (PRM) and rapidly-exploring random trees 
@@ -748,7 +754,7 @@ While it can be very fast in the abscence of obstacles this approach presents so
     This can lead to delays in decision-making and potentially hinder the overall efficiency of operations. 
 \end{itemize}
 
-Given OMPL's limitations, a more specialized, station-based approach is warranted. This approach should be tailored 
+Given OMPL's limitations, I propose a station-based approach is needed. This approach will be tailored 
 to the structured environment of the station, enabling faster and more efficient path planning. 
 By minimizing directional changes and adhering to station boundaries, we can achieve shorter and repeatable 
 path calculation times, optimizing the overall efficiency of operations. By focusing on the typical tasks of pallet 
@@ -764,6 +770,7 @@ inputs to the robot's position, guides these adjustments until the most efficien
 optimization method poses several challenges for this use case. For wheeled mobile robots with multiple control inputs, 
 the Jacobian matrix can become complex and large, leading to increased computational costs and making real-time 
 optimization challenging. 
+
 Frequent updates in dynamic environments further add to this load, potentially leading to delays or suboptimal paths. 
 Mukherjee et al. \cite{R44} noted that their approach to optimal trajectory planning does not guarantee a global 
 optimum but rather an isolated local optimum close to the global one. Additionally, this method relies on precise 
@@ -779,7 +786,7 @@ in complex environments.
 
 As highlighted in the previous Section , meta-heuristic approaches, though powerful for solving complex problems, 
 often require significant computational time. However, this can be greatly reduced by optimizing how these 
-methods are applied. For instance, instead of generating a path entirely from scratch, starting with a pre-built 
+methods are applied. Instead of generating a path entirely from scratch, this work proposes starting with a pre-built 
 or partially constructed path provides a solid foundation. Additionally, reducing the number of waypoints 
 can streamline computation, allowing the algorithm to focus on refining an already good solution rather 
 than calculating every detail from the ground up. This approach preserves the strengths of meta-heuristics 
@@ -788,7 +795,7 @@ applications.
 
 \section*{Conclusion}
 
-In this chapter the State of the Art related to Intralogistics, AMRs, Near-Field Planning, and Heuristic 
+In this chapter a detailed State of the Art related to Intralogistics, AMRs, Near-Field Planning, and Heuristic 
 Optimization was laid out. The investigation of the literature helped to address the advantages and limitations
 of individual approaches and decide around the relevant approaches to the Problem Statement. 
 A Choice of the methodology was conducted at the end taking into account the compiled information.

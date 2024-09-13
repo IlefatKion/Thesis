@@ -3,21 +3,25 @@
 \renewcommand{\chaptername}{Chapter}
 
 \section*{Introduction}
-After the development conducted in the previous chapter, the results of the implementation 
-and concrete tests are highlighted and discussed.
-This part outlines:
+%After the development conducted in the previous chapter, the results of the implementation 
+%and concrete tests are highlighted and discussed.
+%This part outlines:
+%
+%* the initial conditions of the test: Coordiantes of the robot, and the coordinates of the station 
+%and its configuration and constraints. and the test scenarios.
+%* the results of path planning of the pattern path. 
+%* results of the evaluation approach 
+%* results of the path optimization
+%* Analysis of the Metaheuristics
+%* Comparison to OMPL
+%* the robot following the generated path. Screenshots of the robot at 3 intermediate positions and mention 
+%the coordinates. the robot in its final position.
 
-* the initial conditions of the test: Coordiantes of the robot, and the coordinates of the station 
-and its configuration and constraints. and the test scenarios.
-* the results of path planning of the pattern path. 
-* results of the evaluation approach 
-* results of the path optimization
-* Analysis of the Metaheuristics
-* Comparison to OMPL
-* the robot following the generated path. Screenshots of the robot at 3 intermediate positions and mention 
-the coordinates. the robot in its final position.
-
-Fot this section 3 test environments are used:
+This chapter presents the results of testing and validating our proposed path planning and optimization algorithms. 
+We conducted experiments under various conditions, evaluating factors such as path quality, algorithm 
+performance, and robot execution. By comparing our approach to OMPL and analyzing the results, we aim 
+to demonstrate the effectiveness of our solution for real-world AMR applications.
+For this section 3 test environments are used:
 \begin{itemize}
     \item Independant Simulation Environment: This environment is created outside of the RACK 
     environment to validate the chosen approaches before implementing the developed features 
@@ -39,7 +43,7 @@ Fot this section 3 test environments are used:
         tool available for interpretation of results, debugging, and optimization.
     \end{itemize}
 
-    \item AMR tests: the AMR is commissioned with the test algorithms, validated through the RACK simulation
+    \item AMR Field Tests: the AMR is commissioned with the test algorithms, validated through the RACK simulation
     environment tests. The truck navigates the planned paths in the real warehouse and deals with real stations, 
     shelves, pallets, obstacles and general surrounding objects.
 \end{itemize}
@@ -61,7 +65,7 @@ The Independant Simulation Environment tests show the pattern spline-based path 
 The path start at the truck's position, transitions in one of the transition subpolygons to change driving 
 direction and joins the target. 
 The resulting path on the RACK simulation environment which is the real testing environment show as well 
-the creation and plotting of the pattern path on the simulated station as given by \Ref{driving} and \Ref{Test_Simu}.
+the creation and plotting of the pattern path on the simulated station as given by \Ref{TestResults} and \Ref{Test_Simu}.
 
 This approach is validated and is ready as a basis for the next test steps. 
 The validation is for the following reasons:
@@ -81,22 +85,33 @@ The validation is for the following reasons:
     \centering
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=3in]{images/Chap2/spline_split.png} 
+        \includegraphics[width=3in]{images/Chap3/station1_pattern.png} 
     \end{minipage}
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=3.5in]{images/Chap2/spline_split_posY.png}
+        \includegraphics[width=3.5in]{images/Chap3/station2_pattern.png}
     \end{minipage}
     \caption{Test Results on Cloned Test Environment}
     \label{Test_clone}
 \end{figure}
 
 \begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=4in]{images/Chap2/Pattern_spline_simulation_3_driving.png}\\
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Chap3/Start_neksa.png}
+        \caption{Test Results on the Simulated Environment: Truck at the start position}
+        \label{fig:start}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Chap2/Pattern_spline_simulation_3_driving.png}
         \caption{Test Results on the Simulated Environment: Truck driving the Spline-based Pattern path}
-        \label{driving}
-        \end{center}    
+        \label{fig:spline}
+    \end{subfigure}
+    \caption{Test Results on the Simulated Environment}
+    \label{TestResults}
 \end{figure}
 
 \begin{figure}[H]
@@ -125,9 +140,12 @@ The Exponential Weighted Path Evaluation was tested with \(\alpha\) = \(2\), \(\
 \(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\).
 The results are shown in figure \Ref{Test_Eval_Exp}: The bar chart reflects the Evaluation score of each 
 spline path from figure \Ref{Mult_splines}. Each bar color reflects the same color spline.
-The Normalized Weighted Path Evaluation was ran for two tests on the same splines set with 
-\(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\) as well as 
-\(\omega_c\)= \(0.5\) and \(\omega_L\)=\(0.5\). 
+The Normalized Weighted Path Evaluation was ran for two tests on the same splines set with:
+\begin{itemize}
+    \item \(\omega_c\)= \(0.7\) and \(\omega_L\)=\(0.3\)
+    \item \(\omega_c\)= \(0.5\) and \(\omega_L\)=\(0.5\). 
+\end{itemize}
+ 
 The results are shown in figures \Ref{Test_Eval_Norm1} and \Ref{Test_Eval_Norm2}
 %comment on results:
 
@@ -262,7 +280,7 @@ quadrilateral obstacle. However, the red path is smoother at the start and desti
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=4in]{images/Chap3/scenario3_crop.png} % Replace with your figure
+        \includegraphics[width=5in]{images/Chap3/scenario3_crop.png} % Replace with your figure
         \caption{Optimizer results in presence of obstacles of one of 10 generations with the overall best paths 
         visualized in bold red and brown}
         \label{OptResult2}
@@ -288,11 +306,11 @@ The approach is validated for a moderate complexity environment.
 
 Given that the approach was validated in the Independant Simulation Environment, the tests are 
 ran on the RACK Simulation Environment. Two test scenarios are created: 
-The first is called the \(Simple Environment\) which is an obstacle-free station and the second is
-called the \(Complicated Environment\) where an obstacle is placed in one side of the station. 
-In reality, the \(Simple Environment\) is not simple because the sensors detect the warehouse walls,
+The first is called the \(Simple~Environment\) which is an obstacle-free station and the second is
+called the \(Complex~Environment\) where an obstacle is placed in one side of the station. 
+In reality, the \(Simple~Environment\) is not simple because the sensors detect the warehouse walls,
 shelves, objects, and other vehicles but the station area is free of stranger objects.
-The test in the \(Simple Environment\) illustrated by figure \Ref{OptResult4} was done by placing the 
+The test in the \(Simple~Environment\) illustrated by figure \Ref{OptResult4} was done by placing the 
 AMR in the simulation in the starting position (green rectangle) and selecting the target position on 
 the simulation model. The expected target position is the red rectangle. 
 The path is planned following the pattern and links the AMR from its start position to the target position.
@@ -316,7 +334,7 @@ validate the optimizer's ability to avoid obstacles.
         \end{center}    
 \end{figure}
 
-As for the \(Complicated Environment\), an obstacle was placed at the side of the station 
+As for the \(Complex~Environment\), an obstacle was placed at the side of the station 
 blocking one of the subpolygons as illustrated in figure \Ref{OptResult6}: the blue rectangle at the bottom 
 of the figure.
 The planned pattern path (red path) transitions in the opposite subpolygon as it is clear of obstacles.
@@ -334,7 +352,7 @@ control improvement.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=4in]{images/Chap3/4.png} % Replace with your figure
-        \caption{Optimizer results in a Complicated environment tested inside the RACK simulation: Start Position}
+        \caption{Optimizer results in a Complex environment tested inside the RACK simulation: Start Position}
         \label{OptResult6}
         \end{center}    
 \end{figure}
@@ -342,7 +360,7 @@ control improvement.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=4in]{images/Chap3/2.png} % Replace with your figure
-        \caption{Optimizer results in a Complicated environment tested inside the RACK simulation: AMR Navigating the path}
+        \caption{Optimizer results in a Complex environment tested inside the RACK simulation: AMR Navigating the path}
         \label{OptResult7}
         \end{center}    
 \end{figure}
@@ -350,16 +368,16 @@ control improvement.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=4in]{images/Chap3/3.png} % Replace with your figure
-        \caption{Optimizer results in a Complicated environment tested inside the RACK simulation: Target Position}
+        \caption{Optimizer results in a Complex environment tested inside the RACK simulation: Target Position}
         \label{OptResult8}
         \end{center}    
 \end{figure}
 
-Using the \(Simple Environment\) and the \(Complicated Environment\) tests were ran inside the 
+Using the \(Simple~Environment\) and the \(Complex~Environment\) tests were ran inside the 
 RACK Simulation Environment to compare the performance of the Metaheuristic Algorithms: GA, DE, PSO,
 ACO, and SA. 
 
-The same starting and Target Positions were used for each scenario. For the \(Complicated Environment\),
+The same starting and Target Positions were used for each scenario. For the \(Complex~Environment\),
 the same obstacle was used for all the algorithm tests to create the same test conditions, the obstacle used is 
 marked in green on figure \Ref{OptResult9}. All algorithms were configured to evolve around 200 candidates.
 The comparison between the Algorithms in the simulation is based on: 
@@ -368,15 +386,15 @@ The comparison between the Algorithms in the simulation is based on:
     \item The Created Path's Fitness Values.
 \end{itemize}
 
-Table \Ref{tab:planning_time} shows the planning times for simple and complicated Environment 
+Table \Ref{tab:planning_time} shows the planning times for simple and complex Environment 
 for each algorithm. 
 For the Simple Environment, the DE algorithm prevails at a planning time of \(27ms\).
 The worst planning time is with the SA algorithm at \(80ms\). 
 GA, PSO, and ACO have the same range of Planning time \(56\) to \(59ms\).
-For the Complicated Environment, The raking is the same: the best algorithm in terms of planning time 
+For the complex Environment, The raking is the same: the best algorithm in terms of planning time 
 is the DE at \(44ms\), next comes the ACO at \(65ms\). The least performing algorithm remains the SA 
 with a planning time of \(78ms\). It is noticeable that the planning time increased overall
-for almost all the algorithms in the complicated environment scenario. 
+for almost all the algorithms in the complex environment scenario. 
 This is due to the checking of the scan points that increase as more objects are introduced around the AMR.
 
 Using the planning time based comparison the DE algorithm is the most performing in terms of planning time. 
@@ -386,7 +404,7 @@ that the obstacle is placed inside subpolygon1 in this case.
 For the Simple Environment, the GA was able to find the fittest candidate at an evaluation score of 
 \(0.32\) in subpolygon2, however, the DE has the highest fitness values \(0.652\) in subpolygon1 and \(0.56\) in subpolygon2 
 even though it was the fastest in terms of planning time.
-For the Complicated Environment, the PSO was the fittest with an evaluation score of \(0.38\) in subpolygon2 and very 
+For the complex Environment, the PSO was the fittest with an evaluation score of \(0.38\) in subpolygon2 and very 
 close was the DE with \(0.384\). As for subpolygon1 where the obstacle stands, the fitness values are very high.
 The values can be clustered into two groups:
 \begin{itemize}
@@ -400,14 +418,14 @@ The values can be clustered into two groups:
     to get around the obstacle. 
 \end{itemize}
 
-Using this comparison, the PSO algorithm outperforms the other algorithms in complicated environments as it 
+Using this comparison, the PSO algorithm outperforms the other algorithms in complex environments as it 
 finds the fittests path which refers to the shortest path and the least curvature change and also finds a path in 
 the constrained subpolygon where the obstacle stands.
 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=4in]{images/Chap3/obstacle_complicated.png} % Replace with your figure
-        \caption{Obstacle Used for Metaheuristic Algorithms comparison in the complicated scenario}
+        \caption{Obstacle Used for Metaheuristic Algorithms comparison in the complex scenario}
         \label{OptResult9}
         \end{center}    
 \end{figure}
@@ -417,7 +435,7 @@ the constrained subpolygon where the obstacle stands.
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{|p{3.5cm}|p{5cm}|p{5cm}|}
     \hline
-    \textbf{Algorithm} & \textbf{Planning Time (Simple Environment) (ms)} & \textbf{Planning Time (Complicated Environment) (ms)} \\
+    \textbf{Algorithm} & \textbf{Planning Time (Simple Environment) (ms)} & \textbf{Planning Time (Complex Environment) (ms)} \\
     \hline
     Genetic Algorithm & 57 & 73 \\
     \hline
@@ -431,7 +449,7 @@ the constrained subpolygon where the obstacle stands.
     \hline
     \end{tabular}%
     }
-    \caption{Comparison of Planning Time for Different Algorithms in Simple and Complicated Environments (in milliseconds)}
+    \caption{Comparison of Planning Time for Different Algorithms in Simple and Complex Environments (in milliseconds)}
     \label{tab:planning_time}
 \end{table}
 
@@ -440,7 +458,7 @@ the constrained subpolygon where the obstacle stands.
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{|p{4cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
     \hline
-    \multirow{2}{*}{\textbf{Algorithm}} & \multicolumn{2}{c|}{\textbf{Simple Environment}} & \multicolumn{2}{c|}{\textbf{Complicated Environment}} \\
+    \multirow{2}{*}{\textbf{Algorithm}} & \multicolumn{2}{c|}{\textbf{Simple Environment}} & \multicolumn{2}{c|}{\textbf{Complex Environment}} \\
     \cline{2-5}
      & \textbf{Subpolygon1 Fitness} & \textbf{Subpolygon2 Fitness} & \textbf{Subpolygon1 Fitness} & \textbf{Subpolygon2 Fitness} \\
     \hline
@@ -456,6 +474,290 @@ the constrained subpolygon where the obstacle stands.
     \hline
     \end{tabular}%
     }
-    \caption{Comparison of Fitness Values of the optimum paths generated by Different Algorithms in Simple and Complicated Environments}
+    \caption{Comparison of Fitness Values of the optimum paths generated by Different Algorithms in Simple and Complex Environments}
     \label{tab:fitness_values}    
 \end{table}
+
+\section{Field-Testing of the Solution on the AMR}
+This section sums up the developed module for a field test on the iGo Neo Truck. 
+First the test Conditions are outlined, then the the planning process with the sensor input are explained.
+Finally the planned path and navigation of the truck in each scenario are discussed.
+
+The Approach is tested in 3 different scenarios:
+\begin{itemize}
+    \item A Simple Test Environment where The station is free of obstacles.
+    \item Moderate complexity Test Environments where  obstacles are placed in 2 areas of the station:
+    left and right sides of the shelf. The obstacles are intended to block one subpolgon.
+\end{itemize}
+
+\subsection{Simple Test Environment}
+The truck was placed at position \(x = 33026\), \(y = 28070\), and \(\rho = 100.0^\circ\) 
+as illustrated by 
+figure \Ref{OptResult10}.
+The sensor input of the truck as scan points which detects the obstacles is represented by blackpoints
+on the figure. Figure \Ref{label} shows the start position of the Truck inside the warehouse.
+The RACK simulation is now a real-time visualization of the real warehouse.
+The goal is to dock the shelf which is represented in the real warehouse image \Ref{OptResult11}
+by the yellow floor anchors at position \(x = 33426\), \(y = 22696\), and \(\rho = 0.0^\circ\). 
+They hold the reflectors that return the shelf's position.
+After station, shelf an target recognition, and station partitioning,
+the optimizer starts generating and evaluationg the candidate paths.
+After successful processing of an optimum path, the truck start driving it.
+The optimum path is illustrated on figure \Ref{i} in red. The path is followed by the truck 
+that moves in opposite direction and negative speed until the transition location.
+Starting from the transition location, it drives in main direction orienting the forks 
+towards the shelf in preparation to dock then pickup or drop. 
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/StartSimpleEnv.png} % Replace with your figure
+        \caption{Environment and Start position of the Simple Test Scenario}
+        \label{OptResult10}
+        \end{center}    
+\end{figure}
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap3/Start_Sc1.jpg} % Replace with your figure
+        \caption{Environment and Start position of the Simple Test Scenario in a real warehouse
+        with iGo Neo}
+        \label{OptResult11}
+        \end{center}    
+\end{figure}
+
+On this picture is a real warehouse where the field test took place.
+The test truck is an iGo Neo and the station used is station \(Empty pallets\) at a 
+global position inside the warehouse \(x = 34121\), \(y = 23752\), and \(\rho = 0.0^\circ\).
+The station limits are fictious they are not outlined in the warehouse 
+but they can be seen on figure \ref{OptResult10}.
+The shelf is marked by the yellow floor anchors fixed on the floor.
+The environment for this test is not completely simple and empty as 
+other trucks, objects, and people are in the warehouse, yet, the station is 
+empty. 
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test1_transition.png} % Replace with your figure
+        \caption{Truck in the simulation navigating the planned path: Transition phase}
+        \label{OptResult10}
+        \end{center}    
+\end{figure}
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap3/Test1_real_transition.png} % Replace with your figure
+        \caption{Real Truck navigating the planned path: Transition phase}
+        \label{OptResult11}
+        \end{center}    
+\end{figure}
+
+The Truck follows the planned path and successfully 
+transitions in the transition area while changing direction to orient the 
+fork to the target.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test1_dock.png} % Replace with your figure
+        \caption{Truck in the simulation navigating the planned path: Docking phase}
+        \label{OptResult10}
+        \end{center}    
+\end{figure}
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test1_real_dock.png} % Replace with your figure
+        \caption{Real Truck navigating the planned path: Docking phase}
+        \label{OptResult11}
+        \end{center}    
+\end{figure}
+
+The Truck arrives at the planned target and successfully 
+docks the shelf with forks oriented towards it in perepartion for
+pickup / drop.
+
+To summarize, for the test on the AMR, the PSO Algorithm is used. The duration of Planning of the optimized 
+path was \(286ms\). 
+
+
+
+\subsection{Complex Test Environments}
+The Field-Tests in Complex Environments are conducted by placing obstacles on two sides of the 
+station. 
+Two test cases were carried out using two obstacle setups: Placing obstacles to the AMR's left then right
+as illustrate figures \Ref{label} and \Ref{label}. %TODO: here les schemas bel distances
+The goal is to block one of the Transition zones, in order to test the system's flexibilty,
+exploration and exploitation of the transition possibilities.
+
+
+
+\subsubsection{Obstacle Setup 1: Obstacle on the left of the AMR}
+
+The truck was placed at position \(x = \), \(y = \), and \(\rho = ^\circ\) as illustrated by figure 
+\Ref{label}. The target is set at position \(x = \), \(y = \), and \(\rho = ^\circ\).
+The obstacle is as represented by figure \Ref{OptResult12}, a two-box block set one above the other. 
+This obstacle was scanned and represented on the RACK Simulation 
+Environment by its corner marked by the green arrow as illustrated by figure \Ref{OptResult13}.
+The black dots seen on the same figure are scan points that represent obstacles in the warehouse. 
+Usually there is more scan points, that cover for example the visible surface of an object.
+For instance, the obstacle represented in figure \Ref{OptResult9} has scan points on its front side.
+In the case illustrated by figure \Ref{OptResult13}, the scan points are reduced by using a RACK module 
+that minimizes scan points concentrated in one area. The goal is to keep the necessary data about the surrounding 
+objects and limit the amout of information to be processed 
+for collision checking and path generation, thus optimizing processing time.
+The optimum path is planned and the optimizer generates a pattern-based trajectory that transitions
+inside the empty Transition Subpolygon. 
+The generated path is illustrated in red on figure \Ref{OptResult15}. It is followed 
+by the truck from the start, passing by the transition area and changing directions, and docking the 
+target at the assigned position as represented on figure \Ref{OptResult16}. 
+
+For this test setup, the planning duration of an optimum path is of \(303ms\). During this time
+the optimzer processed a paths that optimizes to a certain extent the path length and 
+the curvature change proportinally to the path length.
+
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test2_ObsLeftVehic/Start_real.png} % Replace with your figure
+        \caption{Start Position}
+        \label{OptResult12}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test2_ObsLeftVehic/Start_simu.png} % Replace with your figure
+        \caption{Start Position}
+        \label{OptResult13}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test2_ObsLeftVehic/Transition_real.png} % Replace with your figure
+        \caption{Transition Position}
+        \label{OptResult14}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test2_ObsLeftVehic/Transition_simu.png} % Replace with your figure
+        \caption{Transition Position}
+        \label{OptResult15}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test2_ObsLeftVehic/Target_real.png} % Replace with your figure
+        \caption{Target Position}
+        \label{OptResult16}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test2_ObsLeftVehic/Target_simu.png} % Replace with your figure
+        \caption{Target Position}
+        \label{OptResult17}
+        \end{center}    
+\end{figure}
+
+\subsubsection{Obstacle Setup 2: Obstacle on the right of the AMR}
+
+The truck was placed at position \(x = \), \(y = \), and \(\rho = ^\circ\) as illustrated by figure 
+\Ref{label}. The target is set at position \(x = \), \(y = \), and \(\rho = ^\circ\).
+The obstacle is a box represented by figure \Ref{OptResult18}. 
+This obstacle was scanned and represented on the RACK Simulation 
+Environment by its corner marked by the green arrow as illustrated by figure \Ref{OptResult19}.
+The optimum path is planned and the optimizer generates a pattern-based trajectory that transitions
+inside the empty Transition Subpolygon. 
+The generated path is illustrated in red on figure \Ref{OptResult21}. It is followed 
+by the truck from the start, passing by the transition area and changing directions, and docking the 
+target at the assigned position as represented on figures \Ref{OptResult22} and \Ref{OptResult23}. 
+
+For this test setup, the planning duration of an optimum path is of \(295ms\). During this time
+the optimzer processed a paths that optimizes to a certain extent the path length and 
+the curvature change proportinally to the path length.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test3/Start_real.png} % Replace with your figure
+        \caption{Start Position}
+        \label{OptResult18}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test3/Start_simu.png} % Replace with your figure
+        \caption{Start Position}
+        \label{OptResult19}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test3/Transition_real.png} % Replace with your figure
+        \caption{Transition Position}
+        \label{OptResult20}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test3/Transition_simu.png} % Replace with your figure
+        \caption{Transition Position}
+        \label{OptResult21}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test3/Target_Real.png} % Replace with your figure
+        \caption{Target Position}
+        \label{OptResult22}
+        \end{center}    
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=3in]{images/Chap3/Test3/Target_simu.png} % Replace with your figure
+        \caption{Target Position}
+        \label{OptResult23}
+        \end{center}    
+\end{figure}
+
+
+
+\subsection{Discussion of the results}
+
+The Pattern-based path planning approach was tested in 3 different scenarios.
+The PSO Algorithm was used for the 3 scenarios and successfully generated feasible paths for each 
+test case. In the cases were obstacles were presented to the station the optimizer 
+showcased the obstacle avoidance feature by rejecting colliding paths and opting for optimum
+candidates that scored least fitness values among the 200 generated individuals.
+The previous test cases and events proved that the proposed approach is a simple and feasible 
+solution to the docking process.
+While the planning time in the RACK Simulation Environment was as low as \(59ms\) for the Simple Environment
+and \(67ms\) for the Complex Environment, The field-test scenarios scored planning times of 
+\(286ms\) up to \(303ms\). 
+This duration is significantly higher than the duration 
+on the simulation. This is due to the high number of objects surrounding the vehicle which are 
+represented by scan points that the truck needs to check for collisions for every path candidate.  
+The traveled path can be shorter: the used Evaluation approach favors the optimization of the 
+curvature term over the length, in other words, a longer path is better than a curved path.
+This minimizes the curvature but creates long paths that have room for improvement. 
+
+\subsection*{Conclusion}
+In this chapter, the proposed solution was rigorously tested and validated through a series of evaluations, 
+beginning with path creation and extending to path optimization and real-world field testing. 
+The results demonstrated the effectiveness of the solution in creating, evaluating, and optimizing paths, 
+with each stage providing valuable insights into its performance. The field tests conducted in a simple 
+environment using an Autonomous Mobile Robot (AMR) confirmed that the proposed solution could be effectively 
+deployed in practical scenarios. The discussion highlighted key takeaways, underscoring the robustness 
+and applicability of the solution in real-world settings.
