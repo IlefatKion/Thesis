@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  14 SEP 2024 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.12.6)  14 SEP 2024 16:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -998,12 +998,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 <to be read again> 
                    \relax 
 l.94 \begin{abstract}
-                      [1]
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
-
- []
-
-)pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
+                      [1])pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.88 \tableofcontents
@@ -1044,23 +1039,23 @@ Chapter 1.
 [4
 
 ]
-<images/Chap0/KION_Segments.jpg, id=628, 1204.5pt x 676.5275pt>
+<images/Chap0/KION_Segments.jpg, id=629, 1204.5pt x 676.5275pt>
 File: images/Chap0/KION_Segments.jpg Graphic file (type jpg)
 <use images/Chap0/KION_Segments.jpg>
 Package pdftex.def Info: images/Chap0/KION_Segments.jpg  used on input line 43.
 (pdftex.def)             Requested size: 361.34999pt x 202.95981pt.
  [5 <./images/Chap0/KION_Segments.jpg>]
-<images/Chap0/KION_Hierarchy.png, id=638, 802.197pt x 357.13425pt>
+<images/Chap0/KION_Hierarchy.png, id=639, 802.197pt x 357.13425pt>
 File: images/Chap0/KION_Hierarchy.png Graphic file (type png)
 <use images/Chap0/KION_Hierarchy.png>
 Package pdftex.def Info: images/Chap0/KION_Hierarchy.png  used on input line 73.
 (pdftex.def)             Requested size: 512.14963pt x 228.00385pt.
-<images/Chap0/Reach trucks.png, id=647, 602.25pt x 602.25pt>
+<images/Chap0/Reach trucks.png, id=648, 602.25pt x 602.25pt>
 File: images/Chap0/Reach trucks.png Graphic file (type png)
 <use images/Chap0/Reach trucks.png>
 Package pdftex.def Info: images/Chap0/Reach trucks.png  used on input line 91.
 (pdftex.def)             Requested size: 230.46576pt x 230.46555pt.
-<images/Chap0/hand truck.png, id=648, 602.25pt x 602.25pt>
+<images/Chap0/hand truck.png, id=649, 602.25pt x 602.25pt>
 File: images/Chap0/hand truck.png Graphic file (type png)
 <use images/Chap0/hand truck.png>
 Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 97.
@@ -1069,55 +1064,55 @@ Package pdftex.def Info: images/Chap0/hand truck.png  used on input line 97.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/Chap0/double-.png, id=649, 602.25pt x 602.25pt>
+<images/Chap0/double-.png, id=650, 602.25pt x 602.25pt>
 File: images/Chap0/double-.png Graphic file (type png)
 <use images/Chap0/double-.png>
 Package pdftex.def Info: images/Chap0/double-.png  used on input line 107.
 (pdftex.def)             Requested size: 230.46576pt x 230.46555pt.
-<images/Chap0/iGoNeo.jpg, id=650, 475.7775pt x 475.7775pt>
+<images/Chap0/iGoNeo.jpg, id=651, 475.7775pt x 475.7775pt>
 File: images/Chap0/iGoNeo.jpg Graphic file (type jpg)
 <use images/Chap0/iGoNeo.jpg>
 Package pdftex.def Info: images/Chap0/iGoNeo.jpg  used on input line 113.
 (pdftex.def)             Requested size: 230.46576pt x 230.46867pt.
 [6 <./images/Chap0/KION_Hierarchy.png>]
-<images/Chap0/blog-scrum-process-opt.jpg, id=660, 722.7pt x 377.61075pt>
+<images/Chap0/blog-scrum-process-opt.jpg, id=661, 722.7pt x 377.61075pt>
 File: images/Chap0/blog-scrum-process-opt.jpg Graphic file (type jpg)
 <use images/Chap0/blog-scrum-process-opt.jpg>
 Package pdftex.def Info: images/Chap0/blog-scrum-process-opt.jpg  used on input line 134.
 (pdftex.def)             Requested size: 433.62pt x 226.56819pt.
  [7 <./images/Chap0/Reach trucks.png> <./images/Chap0/hand truck.png> <./images/Chap0/double-.png> <./images/Chap0/iGoNeo.jpg>] [8 <./images/Chap0/blog-scrum-process-opt.jpg>] [9] [10] [11]
-<images/Chap0/move.png, id=698, 554.67226pt x 234.27525pt>
+<images/Chap0/move.png, id=699, 554.67226pt x 234.27525pt>
 File: images/Chap0/move.png Graphic file (type png)
 <use images/Chap0/move.png>
 Package pdftex.def Info: images/Chap0/move.png  used on input line 299.
 (pdftex.def)             Requested size: 361.34999pt x 152.62386pt.
-<images/Chap0/arrive.png, id=699, 556.479pt x 233.673pt>
+<images/Chap0/arrive.png, id=700, 556.479pt x 233.673pt>
 File: images/Chap0/arrive.png Graphic file (type png)
 <use images/Chap0/arrive.png>
 Package pdftex.def Info: images/Chap0/arrive.png  used on input line 307.
 (pdftex.def)             Requested size: 361.34999pt x 151.73589pt.
  [12 <./images/Chap0/move.png>]
-<images/Chap0/dock_wait.png, id=708, 500.46976pt x 281.853pt>
+<images/Chap0/dock_wait.png, id=709, 500.46976pt x 281.853pt>
 File: images/Chap0/dock_wait.png Graphic file (type png)
 <use images/Chap0/dock_wait.png>
-Package pdftex.def Info: images/Chap0/dock_wait.png  used on input line 320.
-(pdftex.def)             Requested size: 307.2929pt x 173.06976pt.
-<images/Chap0/dock_done.png, id=709, 392.667pt x 274.626pt>
+Package pdftex.def Info: images/Chap0/dock_wait.png  used on input line 319.
+(pdftex.def)             Requested size: 289.07999pt x 162.81253pt.
+<images/Chap0/dock_done.png, id=710, 392.667pt x 274.626pt>
 File: images/Chap0/dock_done.png Graphic file (type png)
 <use images/Chap0/dock_done.png>
 Package pdftex.def Info: images/Chap0/dock_done.png  used on input line 326.
-(pdftex.def)             Requested size: 256.07481pt x 179.09563pt.
- [13 <./images/Chap0/arrive.png>]) [14 <./images/Chap0/dock_wait.png> <./images/Chap0/dock_done.png>] [15] [16
+(pdftex.def)             Requested size: 289.07999pt x 202.18082pt.
+ [13 <./images/Chap0/arrive.png> <./images/Chap0/dock_wait.png>]) [14 <./images/Chap0/dock_done.png>] [15
 
 ] (./chapters/chap1.tex
 Chapter 2.
 
-LaTeX Warning: Reference `R28' on page 17 undefined on input line 19.
+LaTeX Warning: Reference `R28' on page 16 undefined on input line 19.
 
-[17
+[16
 
 ]
-<images/Chap1/common-warehouse-areas.jpg, id=735, 1581.65906pt x 643.6547pt>
+<images/Chap1/common-warehouse-areas.jpg, id=732, 1581.65906pt x 643.6547pt>
 File: images/Chap1/common-warehouse-areas.jpg Graphic file (type jpg)
 <use images/Chap1/common-warehouse-areas.jpg>
 Package pdftex.def Info: images/Chap1/common-warehouse-areas.jpg  used on input line 37.
@@ -1130,8 +1125,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[18 <./images/Chap1/common-warehouse-areas.jpg>]
-<images/Chap1/AMR-VS-AGV.png, id=749, 1638.12pt x 1505.625pt>
+[17 <./images/Chap1/common-warehouse-areas.jpg>]
+<images/Chap1/AMR-VS-AGV.png, id=745, 1638.12pt x 1505.625pt>
 File: images/Chap1/AMR-VS-AGV.png Graphic file (type png)
 <use images/Chap1/AMR-VS-AGV.png>
 Package pdftex.def Info: images/Chap1/AMR-VS-AGV.png  used on input line 73.
@@ -1144,7 +1139,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[19 <./images/Chap1/AMR-VS-AGV.png>]
+[18 <./images/Chap1/AMR-VS-AGV.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1152,8 +1147,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[20]
-<images/Chap1/scan.png, id=772, 420.3705pt x 334.24875pt>
+[19]
+<images/Chap1/scan.png, id=769, 420.3705pt x 334.24875pt>
 File: images/Chap1/scan.png Graphic file (type png)
 <use images/Chap1/scan.png>
 Package pdftex.def Info: images/Chap1/scan.png  used on input line 167.
@@ -1166,17 +1161,17 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[21]
+[20]
 
-LaTeX Warning: Reference `R28' on page 22 undefined on input line 181.
-
-
-LaTeX Warning: Reference `R28' on page 22 undefined on input line 183.
+LaTeX Warning: Reference `R28' on page 21 undefined on input line 181.
 
 
-LaTeX Warning: Reference `R28' on page 22 undefined on input line 189.
+LaTeX Warning: Reference `R28' on page 21 undefined on input line 183.
 
-<images/Chap1/local_minima.png, id=781, 666.69075pt x 197.538pt>
+
+LaTeX Warning: Reference `R28' on page 21 undefined on input line 189.
+
+<images/Chap1/local_minima.png, id=778, 666.69075pt x 197.538pt>
 File: images/Chap1/local_minima.png Graphic file (type png)
 <use images/Chap1/local_minima.png>
 Package pdftex.def Info: images/Chap1/local_minima.png  used on input line 199.
@@ -1188,7 +1183,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[22 <./images/Chap1/scan.png>]
+[21 <./images/Chap1/scan.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1196,8 +1191,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[23 <./images/Chap1/local_minima.png>]
-<images/Chap1/PP_Approaches.jpg, id=801, 1541.76pt x 723.45282pt>
+[22 <./images/Chap1/local_minima.png>]
+<images/Chap1/PP_Approaches.jpg, id=798, 1541.76pt x 723.45282pt>
 File: images/Chap1/PP_Approaches.jpg Graphic file (type jpg)
 <use images/Chap1/PP_Approaches.jpg>
 Package pdftex.def Info: images/Chap1/PP_Approaches.jpg  used on input line 258.
@@ -1210,8 +1205,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[24 <./images/Chap1/PP_Approaches.jpg>]
-<images/Chap1/Bug_Algo.png, id=814, 782.925pt x 667.293pt>
+[23 <./images/Chap1/PP_Approaches.jpg>]
+<images/Chap1/Bug_Algo.png, id=810, 782.925pt x 667.293pt>
 File: images/Chap1/Bug_Algo.png Graphic file (type png)
 <use images/Chap1/Bug_Algo.png>
 Package pdftex.def Info: images/Chap1/Bug_Algo.png  used on input line 291.
@@ -1224,8 +1219,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[25 <./images/Chap1/Bug_Algo.png>]
-<images/Chap1/DWA_flowchart.png, id=824, 322.20375pt x 464.33475pt>
+[24 <./images/Chap1/Bug_Algo.png>]
+<images/Chap1/DWA_flowchart.png, id=821, 322.20375pt x 464.33475pt>
 File: images/Chap1/DWA_flowchart.png Graphic file (type png)
 <use images/Chap1/DWA_flowchart.png>
 Package pdftex.def Info: images/Chap1/DWA_flowchart.png  used on input line 327.
@@ -1238,8 +1233,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[26 <./images/Chap1/DWA_flowchart.png>]
-<images/Chap1/sampling-based.png, id=836, 344.487pt x 364.9635pt>
+[25 <./images/Chap1/DWA_flowchart.png>]
+<images/Chap1/sampling-based.png, id=833, 344.487pt x 364.9635pt>
 File: images/Chap1/sampling-based.png Graphic file (type png)
 <use images/Chap1/sampling-based.png>
 Package pdftex.def Info: images/Chap1/sampling-based.png  used on input line 371.
@@ -1252,7 +1247,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[27]
+[26]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1260,7 +1255,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[28 <./images/Chap1/sampling-based.png>]
+[27 <./images/Chap1/sampling-based.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1268,18 +1263,18 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[29]
-<images/Chap1/R17_simple.png, id=859, 133.6995pt x 104.18925pt>
+[28]
+<images/Chap1/R17_simple.png, id=856, 133.6995pt x 104.18925pt>
 File: images/Chap1/R17_simple.png Graphic file (type png)
 <use images/Chap1/R17_simple.png>
 Package pdftex.def Info: images/Chap1/R17_simple.png  used on input line 452.
 (pdftex.def)             Requested size: 153.64644pt x 119.74355pt.
-<images/Chap1/R17_intermediate.png, id=860, 132.495pt x 104.18925pt>
+<images/Chap1/R17_intermediate.png, id=857, 132.495pt x 104.18925pt>
 File: images/Chap1/R17_intermediate.png Graphic file (type png)
 <use images/Chap1/R17_intermediate.png>
 Package pdftex.def Info: images/Chap1/R17_intermediate.png  used on input line 458.
 (pdftex.def)             Requested size: 153.64644pt x 120.83098pt.
-<images/Chap1/R17_complex.png, id=861, 130.68825pt x 104.7915pt>
+<images/Chap1/R17_complex.png, id=858, 130.68825pt x 104.7915pt>
 File: images/Chap1/R17_complex.png Graphic file (type png)
 <use images/Chap1/R17_complex.png>
 Package pdftex.def Info: images/Chap1/R17_complex.png  used on input line 464.
@@ -1289,7 +1284,7 @@ Overfull \hbox (27.70311pt too wide) in paragraph at lines 472--480
 []\T1/cmr/m/n/12 While Clas-sic path plan-ning meth-ods (Path-generating, Velocity-generating, and Direction-Generating)
  []
 
-<images/Chap1/heuristic_barchart.png, id=866, 320.397pt x 200.54926pt>
+<images/Chap1/heuristic_barchart.png, id=863, 320.397pt x 200.54926pt>
 File: images/Chap1/heuristic_barchart.png Graphic file (type png)
 <use images/Chap1/heuristic_barchart.png>
 Package pdftex.def Info: images/Chap1/heuristic_barchart.png  used on input line 483.
@@ -1301,7 +1296,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[30 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]
+[29 <./images/Chap1/R17_simple.png> <./images/Chap1/R17_intermediate.png> <./images/Chap1/R17_complex.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1309,7 +1304,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[31 <./images/Chap1/heuristic_barchart.png>]
+[30 <./images/Chap1/heuristic_barchart.png>]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1317,12 +1312,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[32]
-<images/Chap1/Tree_Metaheuristic.png, id=897, 594.42075pt x 559.49025pt>
+[31]
+<images/Chap1/Tree_Metaheuristic.png, id=894, 594.42075pt x 559.49025pt>
 File: images/Chap1/Tree_Metaheuristic.png Graphic file (type png)
 <use images/Chap1/Tree_Metaheuristic.png>
 Package pdftex.def Info: images/Chap1/Tree_Metaheuristic.png  used on input line 555.
-(pdftex.def)             Requested size: 505.89pt x 476.16655pt.
+(pdftex.def)             Requested size: 512.14963pt x 482.08278pt.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1331,8 +1326,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[33 <./images/Chap1/Tree_Metaheuristic.png>]
-<images/Chap1/GA.jpg, id=906, 385.44pt x 935.495pt>
+[32 <./images/Chap1/Tree_Metaheuristic.png>]
+<images/Chap1/GA.jpg, id=903, 385.44pt x 935.495pt>
 File: images/Chap1/GA.jpg Graphic file (type jpg)
 <use images/Chap1/GA.jpg>
 Package pdftex.def Info: images/Chap1/GA.jpg  used on input line 580.
@@ -1345,8 +1340,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[34 <./images/Chap1/GA.jpg>]
-<images/Chap1/SA.jpg, id=917, 475.7775pt x 536.0025pt>
+[33 <./images/Chap1/GA.jpg>]
+<images/Chap1/SA.jpg, id=914, 475.7775pt x 536.0025pt>
 File: images/Chap1/SA.jpg Graphic file (type jpg)
 <use images/Chap1/SA.jpg>
 Package pdftex.def Info: images/Chap1/SA.jpg  used on input line 606.
@@ -1359,8 +1354,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[35 <./images/Chap1/SA.jpg>]
-<images/Chap1/PSO.png, id=930, 934.692pt x 349.305pt>
+[34 <./images/Chap1/SA.jpg>]
+<images/Chap1/PSO.png, id=927, 934.692pt x 349.305pt>
 File: images/Chap1/PSO.png Graphic file (type png)
 <use images/Chap1/PSO.png>
 Package pdftex.def Info: images/Chap1/PSO.png  used on input line 639.
@@ -1373,11 +1368,19 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[36 <./images/Chap1/PSO.png>]
+[35 <./images/Chap1/PSO.png>]
 Overfull \hbox (1.87045pt too wide) in paragraph at lines 669--685
 []\T1/cmr/m/n/12 Meta-heuristic al-go-rithms, such as Ge-netic Al-go-rithms (GA), Par-ti-cle Swarm Op-ti-miza-tion (PSO),
  []
 
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.11469pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11469pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
+
+[36]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1409,7 +1412,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[40]
+[40])
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 27.11469pt, for example:
@@ -1417,51 +1420,43 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
 
-[41])
-
-Package fancyhdr Warning: \headheight is too small (15.0pt): 
-(fancyhdr)                Make it at least 27.11469pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11469pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-12.11469pt}.
-
-[42] [43
+[41] [42
 
 ] (./chapters/chap2.tex
 Chapter 3.
-[44
+[43
 
-] [45] [46]
-<images/Chap2/perpendicular-parking-a-lot-scaled.jpg, id=988, 1927.2pt x 1196.21906pt>
+] [44] [45]
+<images/Chap2/perpendicular-parking-a-lot-scaled.jpg, id=985, 1927.2pt x 1196.21906pt>
 File: images/Chap2/perpendicular-parking-a-lot-scaled.jpg Graphic file (type jpg)
 <use images/Chap2/perpendicular-parking-a-lot-scaled.jpg>
 Package pdftex.def Info: images/Chap2/perpendicular-parking-a-lot-scaled.jpg  used on input line 125.
 (pdftex.def)             Requested size: 289.07999pt x 179.42511pt.
- [47 <./images/Chap2/perpendicular-parking-a-lot-scaled.jpg>]
-<images/Chap2/station-without-subpolygones.png, id=995, 955.11014pt x 472.46115pt>
+ [46 <./images/Chap2/perpendicular-parking-a-lot-scaled.jpg>]
+<images/Chap2/station-without-subpolygones.png, id=992, 955.11014pt x 472.46115pt>
 File: images/Chap2/station-without-subpolygones.png Graphic file (type png)
 <use images/Chap2/station-without-subpolygones.png>
 Package pdftex.def Info: images/Chap2/station-without-subpolygones.png  used on input line 146.
 (pdftex.def)             Requested size: 512.14963pt x 253.35176pt.
-<images/Chap2/driving_directions.png, id=999, 392.77174pt x 132.36407pt>
+<images/Chap2/driving_directions.png, id=996, 392.77174pt x 132.36407pt>
 File: images/Chap2/driving_directions.png Graphic file (type png)
 <use images/Chap2/driving_directions.png>
 Package pdftex.def Info: images/Chap2/driving_directions.png  used on input line 162.
 (pdftex.def)             Requested size: 289.07999pt x 97.42476pt.
- [48 <./images/Chap2/station-without-subpolygones.png>]
-<images/Chap2/Gen_Approach_desing.png, id=1009, 437.635pt x 529.98pt>
+ [47 <./images/Chap2/station-without-subpolygones.png>]
+<images/Chap2/Gen_Approach_desing.png, id=1005, 437.635pt x 529.98pt>
 File: images/Chap2/Gen_Approach_desing.png Graphic file (type png)
 <use images/Chap2/Gen_Approach_desing.png>
 Package pdftex.def Info: images/Chap2/Gen_Approach_desing.png  used on input line 206.
 (pdftex.def)             Requested size: 289.07999pt x 350.079pt.
- [49 <./images/Chap2/driving_directions.png>] [50 <./images/Chap2/Gen_Approach_desing.png>]
-<images/Chap2/station-without-subpolygones (2).png, id=1021, 805.98512pt x 498.63614pt>
+ [48 <./images/Chap2/driving_directions.png>] [49 <./images/Chap2/Gen_Approach_desing.png>]
+<images/Chap2/station-without-subpolygones (2).png, id=1018, 805.98512pt x 498.63614pt>
 File: images/Chap2/station-without-subpolygones (2).png Graphic file (type png)
 <use images/Chap2/station-without-subpolygones (2).png>
 Package pdftex.def Info: images/Chap2/station-without-subpolygones (2).png  used on input line 229.
 (pdftex.def)             Requested size: 512.14963pt x 316.86629pt.
- [51 <./images/Chap2/station-without-subpolygones (2).png>]
-<images/Chap2/Fixed_frames.png, id=1033, 585.97298pt x 401.19617pt>
+ [50 <./images/Chap2/station-without-subpolygones (2).png>]
+<images/Chap2/Fixed_frames.png, id=1030, 585.97298pt x 401.19617pt>
 File: images/Chap2/Fixed_frames.png Graphic file (type png)
 <use images/Chap2/Fixed_frames.png>
 Package pdftex.def Info: images/Chap2/Fixed_frames.png  used on input line 259.
@@ -1471,103 +1466,103 @@ Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
-[52 <./images/Chap2/Fixed_frames.png>] [53]
-<images/Chap2/warehouse.png, id=1056, 416.15475pt x 482.40225pt>
+[51 <./images/Chap2/Fixed_frames.png>] [52]
+<images/Chap2/warehouse.png, id=1052, 416.15475pt x 482.40225pt>
 File: images/Chap2/warehouse.png Graphic file (type png)
 <use images/Chap2/warehouse.png>
 Package pdftex.def Info: images/Chap2/warehouse.png  used on input line 379.
 (pdftex.def)             Requested size: 289.07999pt x 335.11769pt.
- [54] [55 <./images/Chap2/warehouse.png>]
-<images/Chap2/subpolygons.png, id=1072, 2218.2875pt x 1221.56375pt>
+ [53] [54 <./images/Chap2/warehouse.png>]
+<images/Chap2/subpolygons.png, id=1069, 2218.2875pt x 1221.56375pt>
 File: images/Chap2/subpolygons.png Graphic file (type png)
 <use images/Chap2/subpolygons.png>
 Package pdftex.def Info: images/Chap2/subpolygons.png  used on input line 445.
 (pdftex.def)             Requested size: 289.07999pt x 159.18166pt.
- [56]
-<images/Chap2/Orientation_points.png, id=1096, 955.11014pt x 598.85405pt>
+ [55]
+<images/Chap2/Orientation_points.png, id=1093, 955.11014pt x 598.85405pt>
 File: images/Chap2/Orientation_points.png Graphic file (type png)
 <use images/Chap2/Orientation_points.png>
 Package pdftex.def Info: images/Chap2/Orientation_points.png  used on input line 473.
 (pdftex.def)             Requested size: 361.34999pt x 226.56174pt.
- [57 <./images/Chap2/subpolygons.png>] [58 <./images/Chap2/Orientation_points.png>]
-<images/Chap2/sharp-vs-curved-path.png, id=1111, 672.71326pt x 298.716pt>
+ [56 <./images/Chap2/subpolygons.png>] [57 <./images/Chap2/Orientation_points.png>]
+<images/Chap2/sharp-vs-curved-path.png, id=1108, 672.71326pt x 298.716pt>
 File: images/Chap2/sharp-vs-curved-path.png Graphic file (type png)
 <use images/Chap2/sharp-vs-curved-path.png>
 Package pdftex.def Info: images/Chap2/sharp-vs-curved-path.png  used on input line 518.
 (pdftex.def)             Requested size: 289.07999pt x 128.36787pt.
- [59 <./images/Chap2/sharp-vs-curved-path.png>]
-<images/Chap2/convex-hull.png, id=1125, 248.72925pt x 218.61674pt>
+ [58 <./images/Chap2/sharp-vs-curved-path.png>]
+<images/Chap2/convex-hull.png, id=1122, 248.72925pt x 218.61674pt>
 File: images/Chap2/convex-hull.png Graphic file (type png)
 <use images/Chap2/convex-hull.png>
 Package pdftex.def Info: images/Chap2/convex-hull.png  used on input line 549.
 (pdftex.def)             Requested size: 216.81pt x 190.56863pt.
- [60 <./images/Chap2/convex-hull.png>]
+ [59 <./images/Chap2/convex-hull.png>]
 
-LaTeX Warning: Reference `R29' on page 61 undefined on input line 592.
+LaTeX Warning: Reference `R29' on page 60 undefined on input line 592.
 
-[61] [62]
-<images/Chap2/control-spline.png, id=1163, 444.4605pt x 216.81pt>
+[60] [61]
+<images/Chap2/control-spline.png, id=1160, 444.4605pt x 216.81pt>
 File: images/Chap2/control-spline.png Graphic file (type png)
 <use images/Chap2/control-spline.png>
 Package pdftex.def Info: images/Chap2/control-spline.png  used on input line 703.
 (pdftex.def)             Requested size: 289.07999pt x 141.02077pt.
- [63]
-<images/Chap2/Orientation_points_with_spline.png, id=1173, 955.11014pt x 598.85405pt>
+ [62]
+<images/Chap2/Orientation_points_with_spline.png, id=1170, 955.11014pt x 598.85405pt>
 File: images/Chap2/Orientation_points_with_spline.png Graphic file (type png)
 <use images/Chap2/Orientation_points_with_spline.png>
 Package pdftex.def Info: images/Chap2/Orientation_points_with_spline.png  used on input line 737.
 (pdftex.def)             Requested size: 361.34999pt x 226.56174pt.
- [64 <./images/Chap2/control-spline.png>]
-<images/Chap2/truck_transition.png, id=1180, 708.52942pt x 536.59294pt>
+ [63 <./images/Chap2/control-spline.png>]
+<images/Chap2/truck_transition.png, id=1177, 708.52942pt x 536.59294pt>
 File: images/Chap2/truck_transition.png Graphic file (type png)
 <use images/Chap2/truck_transition.png>
 Package pdftex.def Info: images/Chap2/truck_transition.png  used on input line 745.
 (pdftex.def)             Requested size: 361.34999pt x 273.66696pt.
- [65 <./images/Chap2/Orientation_points_with_spline.png> <./images/Chap2/truck_transition.png>] [66]
-<images/Chap2/Transformation.png, id=1199, 678.6969pt x 396.31935pt>
+ [64 <./images/Chap2/Orientation_points_with_spline.png> <./images/Chap2/truck_transition.png>] [65]
+<images/Chap2/Transformation.png, id=1195, 678.6969pt x 396.31935pt>
 File: images/Chap2/Transformation.png Graphic file (type png)
 <use images/Chap2/Transformation.png>
 Package pdftex.def Info: images/Chap2/Transformation.png  used on input line 823.
 (pdftex.def)             Requested size: 289.07999pt x 168.8054pt.
- [67 <./images/Chap2/Transformation.png>] [68] [69] [70] [71] [72] [73] [74]
+ [66 <./images/Chap2/Transformation.png>] [67] [68] [69] [70] [71] [72] [73]
 
-LaTeX Warning: Reference `Length_formula' on page 75 undefined on input line 1177.
+LaTeX Warning: Reference `Length_formula' on page 74 undefined on input line 1177.
 
-[75] [76] [77]
+[74] [75] [76]
 Underfull \hbox (badness 10000) in paragraph at lines 1299--1306
 
  []
 
-[78] [79]
-<images/Chap2/Opt_chart.png, id=1358, 600.44325pt x 611.886pt>
+[77] [78]
+<images/Chap2/Opt_chart.png, id=1355, 600.44325pt x 611.886pt>
 File: images/Chap2/Opt_chart.png Graphic file (type png)
 <use images/Chap2/Opt_chart.png>
 Package pdftex.def Info: images/Chap2/Opt_chart.png  used on input line 1381.
 (pdftex.def)             Requested size: 361.34999pt x 368.23615pt.
- [80] [81 <./images/Chap2/Opt_chart.png>]
-<images/Chap2/Obstacles_In_Station.png, id=1372, 874.23387pt x 598.55879pt>
+ [79] [80 <./images/Chap2/Opt_chart.png>]
+<images/Chap2/Obstacles_In_Station.png, id=1369, 874.23387pt x 598.55879pt>
 File: images/Chap2/Obstacles_In_Station.png Graphic file (type png)
 <use images/Chap2/Obstacles_In_Station.png>
 Package pdftex.def Info: images/Chap2/Obstacles_In_Station.png  used on input line 1414.
 (pdftex.def)             Requested size: 361.34999pt x 247.40173pt.
-<images/Chap2/Add_waypoints.png, id=1373, 771.36569pt x 437.11693pt>
+<images/Chap2/Add_waypoints.png, id=1370, 771.36569pt x 437.11693pt>
 File: images/Chap2/Add_waypoints.png Graphic file (type png)
 <use images/Chap2/Add_waypoints.png>
 Package pdftex.def Info: images/Chap2/Add_waypoints.png  used on input line 1423.
 (pdftex.def)             Requested size: 325.215pt x 184.29486pt.
- [82 <./images/Chap2/Obstacles_In_Station.png>]) [83 <./images/Chap2/Add_waypoints.png>] [84
+ [81 <./images/Chap2/Obstacles_In_Station.png>]) [82 <./images/Chap2/Add_waypoints.png>] [83
 
 ] (./chapters/chap3.tex
 Chapter 4.
-[85
+[84
 
-] [86]
-<images/Chap3/station1_pattern.png, id=1404, 376.24689pt x 350.47931pt>
+] [85]
+<images/Chap3/station1_pattern.png, id=1400, 376.24689pt x 350.47931pt>
 File: images/Chap3/station1_pattern.png Graphic file (type png)
 <use images/Chap3/station1_pattern.png>
 Package pdftex.def Info: images/Chap3/station1_pattern.png  used on input line 88.
 (pdftex.def)             Requested size: 216.81pt x 201.96255pt.
-<images/Chap3/station2_pattern.png, id=1405, 439.16452pt x 339.1719pt>
+<images/Chap3/station2_pattern.png, id=1401, 439.16452pt x 339.1719pt>
 File: images/Chap3/station2_pattern.png Graphic file (type png)
 <use images/Chap3/station2_pattern.png>
 Package pdftex.def Info: images/Chap3/station2_pattern.png  used on input line 92.
@@ -1577,67 +1572,67 @@ Overfull \hbox (22.47923pt too wide) in paragraph at lines 92--93
  [][] 
  []
 
-<images/Chap3/Start_neksa.png, id=1406, 320.99925pt x 281.25075pt>
+<images/Chap3/Start_neksa.png, id=1402, 320.99925pt x 281.25075pt>
 File: images/Chap3/Start_neksa.png Graphic file (type png)
 <use images/Chap3/Start_neksa.png>
 Package pdftex.def Info: images/Chap3/Start_neksa.png  used on input line 102.
 (pdftex.def)             Requested size: 230.46576pt x 201.93388pt.
-<images/Chap2/Pattern_spline_simulation_3_driving.png, id=1407, 705.23476pt x 473.97075pt>
+<images/Chap2/Pattern_spline_simulation_3_driving.png, id=1403, 705.23476pt x 473.97075pt>
 File: images/Chap2/Pattern_spline_simulation_3_driving.png Graphic file (type png)
 <use images/Chap2/Pattern_spline_simulation_3_driving.png>
 Package pdftex.def Info: images/Chap2/Pattern_spline_simulation_3_driving.png  used on input line 109.
 (pdftex.def)             Requested size: 230.46576pt x 154.89206pt.
-<images/Chap2/Pattern_spline_simulation_1.png, id=1408, 693.792pt x 445.06274pt>
+<images/Chap2/Pattern_spline_simulation_1.png, id=1404, 693.792pt x 445.06274pt>
 File: images/Chap2/Pattern_spline_simulation_1.png Graphic file (type png)
 <use images/Chap2/Pattern_spline_simulation_1.png>
 Package pdftex.def Info: images/Chap2/Pattern_spline_simulation_1.png  used on input line 121.
 (pdftex.def)             Requested size: 230.46576pt x 147.84229pt.
-<images/Chap2/Pattern_spline_simulation_2.png, id=1409, 696.80325pt x 446.26724pt>
+<images/Chap2/Pattern_spline_simulation_2.png, id=1405, 696.80325pt x 446.26724pt>
 File: images/Chap2/Pattern_spline_simulation_2.png Graphic file (type png)
 <use images/Chap2/Pattern_spline_simulation_2.png>
 Package pdftex.def Info: images/Chap2/Pattern_spline_simulation_2.png  used on input line 125.
 (pdftex.def)             Requested size: 230.46576pt x 147.6023pt.
-[87 <./images/Chap3/station1_pattern.png> <./images/Chap3/station2_pattern.png> <./images/Chap3/Start_neksa.png> <./images/Chap2/Pattern_spline_simulation_3_driving.png>] [88 <./images/Chap2/Pattern_spline_simulation_1.png> <./images/Chap2/Pattern_spline_simulation_2.png>] [89]
-<images/Chap2/Mult_Splines_noted.png, id=1438, 335.45325pt x 257.16075pt>
+[86 <./images/Chap3/station1_pattern.png> <./images/Chap3/station2_pattern.png> <./images/Chap3/Start_neksa.png> <./images/Chap2/Pattern_spline_simulation_3_driving.png>] [87 <./images/Chap2/Pattern_spline_simulation_1.png> <./images/Chap2/Pattern_spline_simulation_2.png>] [88]
+<images/Chap2/Mult_Splines_noted.png, id=1435, 335.45325pt x 257.16075pt>
 File: images/Chap2/Mult_Splines_noted.png Graphic file (type png)
 <use images/Chap2/Mult_Splines_noted.png>
 Package pdftex.def Info: images/Chap2/Mult_Splines_noted.png  used on input line 204.
 (pdftex.def)             Requested size: 289.07999pt x 221.61694pt.
-<images/Chap2/Exp_Results.png, id=1439, 505.89pt x 408.3255pt>
+<images/Chap2/Exp_Results.png, id=1436, 505.89pt x 408.3255pt>
 File: images/Chap2/Exp_Results.png Graphic file (type png)
 <use images/Chap2/Exp_Results.png>
 Package pdftex.def Info: images/Chap2/Exp_Results.png  used on input line 212.
 (pdftex.def)             Requested size: 289.07999pt x 233.33362pt.
-<images/Chap2/w_0.7.png, id=1440, 520.344pt x 419.76825pt>
+<images/Chap2/w_0.7.png, id=1437, 520.344pt x 419.76825pt>
 File: images/Chap2/w_0.7.png Graphic file (type png)
 <use images/Chap2/w_0.7.png>
 Package pdftex.def Info: images/Chap2/w_0.7.png  used on input line 220.
 (pdftex.def)             Requested size: 289.07999pt x 233.21751pt.
-<images/Chap2/w_0.5.png, id=1441, 523.35526pt x 416.757pt>
+<images/Chap2/w_0.5.png, id=1438, 523.35526pt x 416.757pt>
 File: images/Chap2/w_0.5.png Graphic file (type png)
 <use images/Chap2/w_0.5.png>
 Package pdftex.def Info: images/Chap2/w_0.5.png  used on input line 228.
 (pdftex.def)             Requested size: 289.07999pt x 230.20273pt.
- [90 <./images/Chap2/Mult_Splines_noted.png> <./images/Chap2/Exp_Results.png>]
-<images/Chap2/curv_problem.png, id=1449, 332.68594pt x 239.98518pt>
+ [89 <./images/Chap2/Mult_Splines_noted.png> <./images/Chap2/Exp_Results.png>]
+<images/Chap2/curv_problem.png, id=1445, 332.68594pt x 239.98518pt>
 File: images/Chap2/curv_problem.png Graphic file (type png)
 <use images/Chap2/curv_problem.png>
 Package pdftex.def Info: images/Chap2/curv_problem.png  used on input line 237.
 (pdftex.def)             Requested size: 289.07999pt x 208.5474pt.
- [91 <./images/Chap2/w_0.7.png> <./images/Chap2/w_0.5.png>]
-<images/Chap3/Gen1_crop.png, id=1457, 362.7954pt x 270.2898pt>
+ [90 <./images/Chap2/w_0.7.png> <./images/Chap2/w_0.5.png>]
+<images/Chap3/Gen1_crop.png, id=1454, 362.7954pt x 270.2898pt>
 File: images/Chap3/Gen1_crop.png Graphic file (type png)
 <use images/Chap3/Gen1_crop.png>
 Package pdftex.def Info: images/Chap3/Gen1_crop.png  used on input line 263.
 (pdftex.def)             Requested size: 289.07999pt x 215.37428pt.
- [92 <./images/Chap2/curv_problem.png>]
-<images/Chap3/scenario3_crop.png, id=1464, 2250.60825pt x 1144.87724pt>
+ [91 <./images/Chap2/curv_problem.png>]
+<images/Chap3/scenario3_crop.png, id=1461, 2250.60825pt x 1144.87724pt>
 File: images/Chap3/scenario3_crop.png Graphic file (type png)
 <use images/Chap3/scenario3_crop.png>
 Package pdftex.def Info: images/Chap3/scenario3_crop.png  used on input line 283.
 (pdftex.def)             Requested size: 361.34999pt x 183.813pt.
- [93 <./images/Chap3/Gen1_crop.png>]
-<images/Chap3/Figure_6.png, id=1471, 679.94025pt x 479.391pt>
+ [92 <./images/Chap3/Gen1_crop.png>]
+<images/Chap3/Figure_6.png, id=1468, 679.94025pt x 479.391pt>
 File: images/Chap3/Figure_6.png Graphic file (type png)
 <use images/Chap3/Figure_6.png>
 Package pdftex.def Info: images/Chap3/Figure_6.png  used on input line 299.
@@ -1647,41 +1642,41 @@ Overfull \hbox (24.10605pt too wide) in paragraph at lines 307--320
 \OML/cmm/m/it/12 Simple Environment$ \T1/cmr/m/n/12 which is an obstacle-free sta-tion and the sec-ond is called the $\OML/cmm/m/it/12 Complex Environment$
  []
 
-[94 <./images/Chap3/scenario3_crop.png> <./images/Chap3/Figure_6.png>]
-<images/Chap3/Start.png, id=1479, 409.53pt x 317.988pt>
+[93 <./images/Chap3/scenario3_crop.png> <./images/Chap3/Figure_6.png>]
+<images/Chap3/Start.png, id=1476, 409.53pt x 317.988pt>
 File: images/Chap3/Start.png Graphic file (type png)
 <use images/Chap3/Start.png>
 Package pdftex.def Info: images/Chap3/Start.png  used on input line 323.
 (pdftex.def)             Requested size: 289.07999pt x 224.47754pt.
-<images/Chap3/Target.png, id=1480, 409.53pt x 333.6465pt>
+<images/Chap3/Target.png, id=1477, 409.53pt x 333.6465pt>
 File: images/Chap3/Target.png Graphic file (type png)
 <use images/Chap3/Target.png>
 Package pdftex.def Info: images/Chap3/Target.png  used on input line 331.
 (pdftex.def)             Requested size: 289.07999pt x 235.53136pt.
- [95 <./images/Chap3/Start.png>]
-<images/Chap3/4.png, id=1490, 405.31425pt x 331.2375pt>
+ [94 <./images/Chap3/Start.png>]
+<images/Chap3/4.png, id=1487, 405.31425pt x 331.2375pt>
 File: images/Chap3/4.png Graphic file (type png)
 <use images/Chap3/4.png>
 Package pdftex.def Info: images/Chap3/4.png  used on input line 354.
 (pdftex.def)             Requested size: 289.07999pt x 236.2467pt.
- [96 <./images/Chap3/Target.png>]
-<images/Chap3/2.png, id=1497, 395.076pt x 355.3275pt>
+ [95 <./images/Chap3/Target.png>]
+<images/Chap3/2.png, id=1493, 395.076pt x 355.3275pt>
 File: images/Chap3/2.png Graphic file (type png)
 <use images/Chap3/2.png>
 Package pdftex.def Info: images/Chap3/2.png  used on input line 362.
 (pdftex.def)             Requested size: 289.07999pt x 259.99957pt.
-<images/Chap3/3.png, id=1498, 397.485pt x 364.9635pt>
+<images/Chap3/3.png, id=1494, 397.485pt x 364.9635pt>
 File: images/Chap3/3.png Graphic file (type png)
 <use images/Chap3/3.png>
 Package pdftex.def Info: images/Chap3/3.png  used on input line 370.
 (pdftex.def)             Requested size: 289.07999pt x 265.43544pt.
- [97 <./images/Chap3/4.png> <./images/Chap3/2.png>] [98 <./images/Chap3/3.png>]
-<images/Chap3/obstacle_complicated.png, id=1513, 293.898pt x 289.08pt>
+ [96 <./images/Chap3/4.png> <./images/Chap3/2.png>] [97 <./images/Chap3/3.png>]
+<images/Chap3/obstacle_complicated.png, id=1510, 293.898pt x 289.08pt>
 File: images/Chap3/obstacle_complicated.png Graphic file (type png)
 <use images/Chap3/obstacle_complicated.png>
 Package pdftex.def Info: images/Chap3/obstacle_complicated.png  used on input line 427.
 (pdftex.def)             Requested size: 289.07999pt x 284.35951pt.
- [99]
+ [98]
 Underfull \hbox (badness 2253) in paragraph at lines 453--453
 []|\T1/cmr/bx/n/12 Planning Time (Com-
  []
@@ -1721,109 +1716,116 @@ Overfull \hbox (4.59962pt too wide) in paragraph at lines 479--479
 []|\T1/cmr/bx/n/12 Subpolygon2
  []
 
-[100 <./images/Chap3/obstacle_complicated.png>] [101]
-<images/Chap3/StartSimpleEnv.png, id=1531, 532.99126pt x 358.941pt>
+[99 <./images/Chap3/obstacle_complicated.png>] [100]
+<images/Chap3/StartSimpleEnv.png, id=1528, 532.99126pt x 358.941pt>
 File: images/Chap3/StartSimpleEnv.png Graphic file (type png)
 <use images/Chap3/StartSimpleEnv.png>
 Package pdftex.def Info: images/Chap3/StartSimpleEnv.png  used on input line 516.
 (pdftex.def)             Requested size: 289.07999pt x 194.68513pt.
-<images/Chap3/Start_Sc1.jpg, id=1532, 4044.10875pt x 1694.33pt>
+<images/Chap3/Start_Sc1.jpg, id=1529, 4044.10875pt x 1694.33pt>
 File: images/Chap3/Start_Sc1.jpg Graphic file (type jpg)
 <use images/Chap3/Start_Sc1.jpg>
 Package pdftex.def Info: images/Chap3/Start_Sc1.jpg  used on input line 525.
 (pdftex.def)             Requested size: 361.34999pt x 151.37143pt.
-<images/Chap3/Test1_transition.png, id=1534, 448.67625pt x 357.7365pt>
+<images/Chap3/Test1_transition.png, id=1531, 448.67625pt x 357.7365pt>
 File: images/Chap3/Test1_transition.png Graphic file (type png)
 <use images/Chap3/Test1_transition.png>
 Package pdftex.def Info: images/Chap3/Test1_transition.png  used on input line 544.
 (pdftex.def)             Requested size: 216.81pt x 172.86333pt.
- [102 <./images/Chap3/StartSimpleEnv.png> <./images/Chap3/Start_Sc1.jpg>]
-<images/Chap3/Test1_real_transition.png, id=1541, 1316.5185pt x 814.242pt>
+ [101 <./images/Chap3/StartSimpleEnv.png> <./images/Chap3/Start_Sc1.jpg>]
+<images/Chap3/Test1_real_transition.png, id=1537, 1316.5185pt x 814.242pt>
 File: images/Chap3/Test1_real_transition.png Graphic file (type png)
 <use images/Chap3/Test1_real_transition.png>
 Package pdftex.def Info: images/Chap3/Test1_real_transition.png  used on input line 553.
 (pdftex.def)             Requested size: 361.34999pt x 223.4886pt.
-<images/Chap3/Test1_dock.png, id=1542, 342.68025pt x 363.15675pt>
+<images/Chap3/Test1_dock.png, id=1538, 342.68025pt x 363.15675pt>
 File: images/Chap3/Test1_dock.png Graphic file (type png)
 <use images/Chap3/Test1_dock.png>
 Package pdftex.def Info: images/Chap3/Test1_dock.png  used on input line 565.
 (pdftex.def)             Requested size: 216.81pt x 229.76523pt.
- [103 <./images/Chap3/Test1_transition.png> <./images/Chap3/Test1_real_transition.png>]
-<images/Chap3/Test1_real_dock.png, id=1550, 1314.1095pt x 993.7125pt>
+ [102 <./images/Chap3/Test1_transition.png> <./images/Chap3/Test1_real_transition.png>]
+<images/Chap3/Test1_real_dock.png, id=1547, 1314.1095pt x 993.7125pt>
 File: images/Chap3/Test1_real_dock.png Graphic file (type png)
 <use images/Chap3/Test1_real_dock.png>
 Package pdftex.def Info: images/Chap3/Test1_real_dock.png  used on input line 574.
 (pdftex.def)             Requested size: 289.07999pt x 218.5871pt.
- [104 <./images/Chap3/Test1_dock.png> <./images/Chap3/Test1_real_dock.png>]
-<images/Chap3/Test2_ObsLeftVehic/Start_real.png, id=1566, 668.4975pt x 328.8285pt>
+ [103 <./images/Chap3/Test1_dock.png> <./images/Chap3/Test1_real_dock.png>]
+<images/Chap3/Test2_ObsLeftVehic/Start_real.png, id=1563, 668.4975pt x 328.8285pt>
 File: images/Chap3/Test2_ObsLeftVehic/Start_real.png Graphic file (type png)
 <use images/Chap3/Test2_ObsLeftVehic/Start_real.png>
 Package pdftex.def Info: images/Chap3/Test2_ObsLeftVehic/Start_real.png  used on input line 626.
 (pdftex.def)             Requested size: 361.34999pt x 177.7504pt.
- [105]
-<images/Chap3/Test2_ObsLeftVehic/Start_simu.png, id=1571, 754.61925pt x 493.845pt>
+ [104]
+<images/Chap3/Test2_ObsLeftVehic/Start_simu.png, id=1568, 754.61925pt x 493.845pt>
 File: images/Chap3/Test2_ObsLeftVehic/Start_simu.png Graphic file (type png)
 <use images/Chap3/Test2_ObsLeftVehic/Start_simu.png>
 Package pdftex.def Info: images/Chap3/Test2_ObsLeftVehic/Start_simu.png  used on input line 634.
 (pdftex.def)             Requested size: 289.07999pt x 189.1852pt.
-<images/Chap3/Test2_ObsLeftVehic/Transition_real.png, id=1572, 725.109pt x 392.667pt>
+<images/Chap3/Test2_ObsLeftVehic/Transition_real.png, id=1569, 725.109pt x 392.667pt>
 File: images/Chap3/Test2_ObsLeftVehic/Transition_real.png Graphic file (type png)
 <use images/Chap3/Test2_ObsLeftVehic/Transition_real.png>
 Package pdftex.def Info: images/Chap3/Test2_ObsLeftVehic/Transition_real.png  used on input line 642.
 (pdftex.def)             Requested size: 361.34999pt x 195.67993pt.
- [106 <./images/Chap3/Test2_ObsLeftVehic/Start_real.png> <./images/Chap3/Test2_ObsLeftVehic/Start_simu.png>]
-<images/Chap3/Test2_ObsLeftVehic/Transition_simu.png, id=1579, 626.94225pt x 470.9595pt>
+ [105 <./images/Chap3/Test2_ObsLeftVehic/Start_real.png> <./images/Chap3/Test2_ObsLeftVehic/Start_simu.png>]
+<images/Chap3/Test2_ObsLeftVehic/Transition_simu.png, id=1576, 626.94225pt x 470.9595pt>
 File: images/Chap3/Test2_ObsLeftVehic/Transition_simu.png Graphic file (type png)
 <use images/Chap3/Test2_ObsLeftVehic/Transition_simu.png>
 Package pdftex.def Info: images/Chap3/Test2_ObsLeftVehic/Transition_simu.png  used on input line 650.
 (pdftex.def)             Requested size: 325.215pt x 244.29669pt.
-<images/Chap3/Test2_ObsLeftVehic/Target_real.png, id=1580, 672.71326pt x 512.51476pt>
+<images/Chap3/Test2_ObsLeftVehic/Target_real.png, id=1577, 672.71326pt x 512.51476pt>
 File: images/Chap3/Test2_ObsLeftVehic/Target_real.png Graphic file (type png)
 <use images/Chap3/Test2_ObsLeftVehic/Target_real.png>
 Package pdftex.def Info: images/Chap3/Test2_ObsLeftVehic/Target_real.png  used on input line 658.
 (pdftex.def)             Requested size: 289.07999pt x 220.2441pt.
- [107 <./images/Chap3/Test2_ObsLeftVehic/Transition_real.png> <./images/Chap3/Test2_ObsLeftVehic/Transition_simu.png>]
-<images/Chap3/Test2_ObsLeftVehic/Target_simu.png, id=1587, 472.76625pt x 439.04025pt>
+ [106 <./images/Chap3/Test2_ObsLeftVehic/Transition_real.png> <./images/Chap3/Test2_ObsLeftVehic/Transition_simu.png>]
+<images/Chap3/Test2_ObsLeftVehic/Target_simu.png, id=1584, 472.76625pt x 439.04025pt>
 File: images/Chap3/Test2_ObsLeftVehic/Target_simu.png Graphic file (type png)
 <use images/Chap3/Test2_ObsLeftVehic/Target_simu.png>
 Package pdftex.def Info: images/Chap3/Test2_ObsLeftVehic/Target_simu.png  used on input line 666.
 (pdftex.def)             Requested size: 289.07999pt x 268.46399pt.
- [108 <./images/Chap3/Test2_ObsLeftVehic/Target_real.png> <./images/Chap3/Test2_ObsLeftVehic/Target_simu.png>]
-<images/Chap3/Test3/Start_real.png, id=1601, 554.07pt x 325.81725pt>
+ [107 <./images/Chap3/Test2_ObsLeftVehic/Target_real.png> <./images/Chap3/Test2_ObsLeftVehic/Target_simu.png>]
+<images/Chap3/Test3/Start_real.png, id=1597, 554.07pt x 325.81725pt>
 File: images/Chap3/Test3/Start_real.png Graphic file (type png)
 <use images/Chap3/Test3/Start_real.png>
 Package pdftex.def Info: images/Chap3/Test3/Start_real.png  used on input line 691.
 (pdftex.def)             Requested size: 289.07999pt x 169.99269pt.
-<images/Chap3/Test3/Start_simu.png, id=1602, 607.068pt x 495.65175pt>
+<images/Chap3/Test3/Start_simu.png, id=1598, 607.068pt x 495.65175pt>
 File: images/Chap3/Test3/Start_simu.png Graphic file (type png)
 <use images/Chap3/Test3/Start_simu.png>
 Package pdftex.def Info: images/Chap3/Test3/Start_simu.png  used on input line 699.
 (pdftex.def)             Requested size: 289.07999pt x 236.01938pt.
- [109 <./images/Chap3/Test3/Start_real.png>]
-<images/Chap3/Test3/Transition_real.png, id=1608, 443.256pt x 287.8755pt>
+ [108 <./images/Chap3/Test3/Start_real.png>]
+<images/Chap3/Test3/Transition_real.png, id=1605, 443.256pt x 287.8755pt>
 File: images/Chap3/Test3/Transition_real.png Graphic file (type png)
 <use images/Chap3/Test3/Transition_real.png>
 Package pdftex.def Info: images/Chap3/Test3/Transition_real.png  used on input line 707.
 (pdftex.def)             Requested size: 289.07999pt x 187.745pt.
-<images/Chap3/Test3/Transition_simu.png, id=1609, 589.0005pt x 512.51476pt>
+<images/Chap3/Test3/Transition_simu.png, id=1606, 589.0005pt x 512.51476pt>
 File: images/Chap3/Test3/Transition_simu.png Graphic file (type png)
 <use images/Chap3/Test3/Transition_simu.png>
 Package pdftex.def Info: images/Chap3/Test3/Transition_simu.png  used on input line 715.
 (pdftex.def)             Requested size: 289.07999pt x 251.54889pt.
- [110 <./images/Chap3/Test3/Start_simu.png> <./images/Chap3/Test3/Transition_real.png>]
-<images/Chap3/Test3/Target_Real.png, id=1616, 440.24475pt x 322.20375pt>
+ [109 <./images/Chap3/Test3/Start_simu.png> <./images/Chap3/Test3/Transition_real.png>]
+<images/Chap3/Test3/Target_Real.png, id=1613, 440.24475pt x 322.20375pt>
 File: images/Chap3/Test3/Target_Real.png Graphic file (type png)
 <use images/Chap3/Test3/Target_Real.png>
 Package pdftex.def Info: images/Chap3/Test3/Target_Real.png  used on input line 723.
 (pdftex.def)             Requested size: 289.07999pt x 211.57843pt.
-<images/Chap3/Test3/Target_simu.png, id=1617, 643.80525pt x 589.60275pt>
+<images/Chap3/Test3/Target_simu.png, id=1614, 643.80525pt x 589.60275pt>
 File: images/Chap3/Test3/Target_simu.png Graphic file (type png)
 <use images/Chap3/Test3/Target_simu.png>
 Package pdftex.def Info: images/Chap3/Test3/Target_simu.png  used on input line 731.
 (pdftex.def)             Requested size: 289.07999pt x 264.743pt.
- [111 <./images/Chap3/Test3/Transition_simu.png> <./images/Chap3/Test3/Target_Real.png>]) [112 <./images/Chap3/Test3/Target_simu.png>] (./other/conclusion.tex [113] [114
+ [110 <./images/Chap3/Test3/Transition_simu.png> <./images/Chap3/Test3/Target_Real.png>]) [111 <./images/Chap3/Test3/Target_simu.png>] (./other/conclusion.tex [112] [113
 
-]) (./other/bibliographie.tex [115]
+]) [114] (./other/appendix/appendix.tex
+Overfull \hbox (13.65692pt too wide) in paragraph at lines 3--3
+|\T1/cmr/bx/n/24.88 RACK: Robotics Ap-pli-ca-tion Con-struc-tion Kit| 
+ []
+
+) (./other/bibliographie.tex [115
+
+]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -1844,9 +1846,7 @@ Underfull \hbox (badness 3271) in paragraph at lines 133--135
 []\T1/cmr/m/n/12 Krüger-Basjmeleh, T. (2024). Be-fähi-gung au-tonomer, mo-biler roboter zum one-shot-
  []
 
-[118] [119]) [120] (./other/appendix/appendix.tex) [121
-
-] (./main.aux (./main.acr))
+[118] [119]) [120] (./main.aux (./main.acr))
 
  *File List*
   report.cls    2021/10/04 v1.4n Standard LaTeX document class
@@ -2097,9 +2097,9 @@ images/Chap3/Test3/Transition_simu.png
 images/Chap3/Test3/Target_Real.png
 images/Chap3/Test3/Target_simu.png
 other/conclusion.tex
+other/appendix/appendix.tex
 other/bibliographie.tex
   t1cmtt.fd    2019/12/16 v2.5j Standard LaTeX font definitions
-other/appendix/appendix.tex
     main.acr
  ***********
 
@@ -2107,7 +2107,7 @@ other/appendix/appendix.tex
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9A7C2148E3C8056C5D3806609707F925;14198.
+(rerunfilecheck)             Checksum: 2DB5671A2DFF6FB9E422BBFE9E8B5199;14198.
  )
 (\end occurred inside a group at level 1)
 
@@ -2115,16 +2115,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 ### bottom level 
 Here is how much of TeX's memory you used:
  36806 strings out of 478353
- 693261 string characters out of 5848100
- 1092085 words of memory out of 5000000
+ 693270 string characters out of 5848100
+ 1092121 words of memory out of 5000000
  53733 multiletter control sequences out of 15000+600000
- 420398 words of font info for 67 fonts, out of 8000000 for 9000
+ 420397 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,15n,80p,777b,3240s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,15n,80p,777b,3241s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (134 pages, 29126930 bytes).
+Output written on main.pdf (133 pages, 29127761 bytes).
 PDF statistics:
- 1880 PDF objects out of 2073 (max. 8388607)
+ 1879 PDF objects out of 2073 (max. 8388607)
  1509 compressed objects within 16 object streams
  437 named destinations out of 1000 (max. 500000)
  932 words of extra memory for PDF output out of 10000 (max. 10000000)

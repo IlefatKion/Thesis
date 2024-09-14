@@ -1,5 +1,15 @@
 \chapter* {Annexes}
 \addcontentsline{toc}{chapter}{Annexes}
+\section*{RACK: Robotics Application Construction Kit}
 
+The RACK is a middleware for robotic applications that provides tools and libraries for developing these 
+applications. It was developed by the University of Hannover and supports real-time requirements. The RACK 
+offers advantages for large development teams through abstraction and standardization. It also simplifies 
+communication between processes through standardized mechanisms. The RACK can be used in individual systems 
+and distributed systems with real-time requirements \cite{R28}.
 
+The RACK is based on real-time processes and drivers, and each functional component is called a module. 
+Modules communicate through mailboxes using the publish-subscribe and client-server models. Each module 
+has a command task and a data task, and the main task handles non-real-time initialization. The data 
+processing tasks work with a data buffer that stores processed data. Modules are implemented in C++ \cite{R28}.
 
