@@ -328,36 +328,38 @@ The subpolygons are data structures recognized by their global position and dime
 \newline \textbf{Definitions:}
 
 \begin{itemize}
-    \item \texttt{max\_st\_x}: Maximum x-coordinate of the station corners in the station frame.
-    \item \texttt{min\_sh\_y}: Minimum y-coordinate of the shelf corners in the shelf frame.
-    \item \texttt{SubPolygon\_Width}: Width of the subpolygon (previously measured)
-    \item \texttt{SubPolygon\_Height}: Height of the subpolygon (previously measured)
+    \item $x_{\text{station}}^{\text{max}}$: Maximum x-coordinate of the station corners in the station frame.
+    \item $y_{\text{shelf}}^{\text{min}}$: Minimum y-coordinate of the shelf corners in the shelf frame.
+    \item $\text{width}_{\text{SubPolygon}}$: Width of the subpolygon (previously measured).
+    \item $\text{height}_{\text{SubPolygon}}$: Height of the subpolygon (previously measured).
 \end{itemize}
+
 
 The position of the sub-polygon is thus measured:
 \begin{equation}
-\text{SubPolygon.x} = \text{max\_sh\_x} + \frac{\text{SubPolygon\_Width}}{2}
+x_{\text{SubPolygon}} = x_{\text{shelf}}^{\text{max}} + \frac{\text{width}_{\text{SubPolygon}}}{2}
 \end{equation}
 \begin{equation}
-\text{SubPolygon.y} = \text{min\_sh\_y} + \frac{\text{SubPolygon\_Height}}{2}
+y_{\text{SubPolygon}} = y_{\text{shelf}}^{\text{min}} + \frac{\text{height}_{\text{SubPolygon}}}{2}
 \end{equation}
 
 Then the subpolygon is transformed back to the global frame using the Transformation 
-Matrix \Ref{shToGlob}:
+Matrix \ref{shToGlob}:
 \begin{equation}
 \begin{pmatrix}
-\text{GlobalSubPolygon.x} \\
-\text{GlobalSubPolygon.y} \\
+x_{\text{GlobalSubPolygon}} \\
+y_{\text{GlobalSubPolygon}} \\
 1
 \end{pmatrix}
 =
-T_{shelf}^{Global}
+T_{\text{shelf}}^{\text{Global}}
 \begin{pmatrix}
-\text{SubPolygon.x} \\
-\text{SubPolygon.y} \\
+x_{\text{SubPolygon}} \\
+y_{\text{SubPolygon}} \\
 1
 \end{pmatrix}
 \end{equation}
+
 
 For special cases like station3, where one of the subpolygons can be very narrow (lower than a 
 certain threshhold), the algorithm omits it and generates only one subpolygon. 
@@ -1026,29 +1028,31 @@ where \( s(i) \) denotes the length of the \(i\)-th curve segment of the spline 
 spline using Euclidean distance.
 
 The curvature change of a spline path is quantified by evaluating how the curvature of the path varies along its Length.
-The curvature change (\( cc \)) calculated by:
+The curvature change (\( CC\)) calculated by:
 
 \begin{equation}
-cc = \int \frac{d(k)}{d(s)} \, ds
-\end{equation}
+    CC = \int_{\text{min par}}^{\text{max par}} \frac{dk}{ds} \
+    \end{equation}
+    
 
-represents the total variation in curvature along the path, where \( \frac{d(k)}{d(s)} \) measures how curvature itself 
-changes as a function of arc length, and integrating this derivative over the path provides a comprehensive metric of 
-curvature variation.
+represents the total variation in curvature along the path, where \( \frac{dk}{ds} \) measures how curvature itself 
+changes as a function of arc length, and integrating the curvature derivative over the path length derivative 
+provides a comprehensive metric of curvature variation.
 
 As this equation involves an integral, it has to be approximated in order to compute it in a programming environment.
 The approximation is conducted through a discretization of the path into a series of small segments. For each segment, 
-the curvature change and segment length are approximated. Let \( \Delta s(i) \) denote the length of the \(i\)-th segment 
+the curvature change and segment length are approximated using Finite Difference Approximation. 
+Let \( \Delta s(i) \) denote the length of the \(i\)-th segment 
 and \( \Delta k(i) \) the change in curvature over this segment.
 Then, the trapezoidal rule is used to approximate the integral. 
 This is achieved by summing up the ratio of curvature change to segment length over all segments as given by 
 equation \Ref{curvature_change}:
 \begin{equation}
-cc = \sum_{i = \min \ \text{par} + \text{step}}^{\max \ \text{par}} \frac{\Delta k(i)}{\Delta s(i)}
+CC = \sum_{i = \min \ \text{par} + \text{step}}^{\max \ \text{par}} \frac{\Delta k(i)}{\Delta s(i)}
 \label{curvature_change}
 \end{equation}
 
-Mathematically, if \(k(i)\) is the curvature at the \(i\)-th segment, then \( \Delta k(i) \) can be expressed as:
+If \(k(i)\) is the curvature at the \(i\)-th segment, then \( \Delta k(i) \) can be expressed as:
 \begin{equation}
     \Delta k(i) = \left| k(i) - k(i-1) \right|
 \end{equation}
@@ -1075,117 +1079,159 @@ Their approach of measuring path length and smoothness is considered here with s
 
 Path length term is measured in \cite{R17} as follows:
 \begin{equation}
-d = \sum_{i=1}^{n-1} d(s_i)
+L = \sum_{i=1}^{n-1} d(s_i)
 \end{equation}
 
 Whereas, Path smoothness is measured as follows:
 
 \begin{equation}
-d = \sum_{i=2}^{n-1} \exp(a(\theta_i - \alpha))
+S = \sum_{i=2}^{n-1} \exp(a(\theta_i - \alpha))
 \end{equation}
 
 where \( \theta_i \) represent the steering angle at the \(i\)-th segment, and \( \alpha \) denote the desired 
 steering angle.
 
-Besides path clearance, those values are weighted and summed.
-This summation is not normalized given that it adds the distance term which has a unit to the smoothness and 
-clearance terms that are exponential functions results. 
-In this approach of the work, the exponential function is used for normalization of distance and curvature change 
-terms. The length term is given by:
+In addition to path clearance, the values are weighted and summed. However, this summation is not normalized, 
+as it combines a distance term (which has physical units) with smoothness and clearance terms derived from 
+exponential functions. In this approach, the exponential function is employed to normalize both the distance 
+and curvature change terms. Normalization is needed in the evaluation function to ensure that different terms 
+with varying units and scales contribute proportionally to the overall score. It balances the influence of each 
+term, such as distance and smoothness, making the evaluation fair and consistent across different dimensions. 
+Without normalization, terms with larger magnitudes or units could disproportionately affect the outcome.
+
+\noindent The cost function of the weighted terms is given by equation \Ref{exp_Costfunction}:
 \begin{equation}
-    \text{Length Term} = e^{\beta \cdot \left(\text{current}_L - \text{ref}_L\right)}
+    CF_{\text{exponential}} = \omega_{c} \cdot \underbrace{e^{\alpha \cdot \left( \text{current}_{cc} - \text{ref}_{cc} \right)}}_{\text{A}} + \omega_{L} \cdot \underbrace{e^{\beta \cdot \left( \text{current}_L - \text{ref}_L \right)}}_{\text{B}}
+    \label{exp_Costfunction}
+\end{equation}
+where \begin{itemize}
+    \item \(\omega_c\) and \(\omega_L\) are the weights assigned to the curvature change term and the length term, 
+    respectively. These weights determine the relative importance of curvature change and path length in the overall 
+    evaluation. 
+    \item A is the Curvature Change term of the cost function
+    \item B is the Length term of the cost function
+\end{itemize}
+
+The length term is given by:
+\begin{equation}
+    \text{A} = e^{\beta \cdot \left(\text{current}_L - \text{ref}_L\right)}
     \end{equation}
     
-    \noindent
-    The curvature change term is given by:
+The curvature change term is given by:
     \noindent
     
     \begin{equation}
-    \text{Curvature Change Term} = e^{\alpha \cdot \left(\text{current}_{cc} - \text{ref}_{cc}\right)}
+    \text{B} = e^{\alpha \cdot \left(\text{current}_{cc} - \text{ref}_{cc}\right)}
     \end{equation}
     
     \noindent
-    where: 
+where: 
     \newline
-    - \textit{current} refers to the path being evaluated and \textit{ref} refers to the reference path.
+    - \textit{current} refers to the path being evaluated
+    \newline
+    - \textit{ref} refers to the reference path.
     \newline
     - \(\alpha\) and \(\beta\) are factors that rationalize the exponential terms because the length is in the range 
     of thousands of millimeters while the curvature is around the magnitude of \(10^{-3}\).
     Without these factors, the two terms would differ significantly, leading to incorrect analysis of the impact of each term.
     
-\noindent The cost function of the weighted terms is given by equation \Ref{exp_function}:
+Using the cost function from equation \Ref{exp_Costfunction}, the minimization problem is deduced:
 
 \begin{equation}
-Z^{\ast }=\arg \min \left(\omega_{c} \cdot e^{\alpha \cdot \left( \text{current}_{cc} - \text{ref}_{cc} \right)} + \omega_{L} 
+Z_{\text{exponential}}^{\ast }=\arg \min \left(\omega_{c} \cdot e^{\alpha \cdot \left( \text{current}_{cc} - \text{ref}_{cc} \right)} + \omega_{L} 
 \cdot e^{\beta \cdot \left( \text{current}_L - \text{ref}_L \right)} \right)
 \label{exp_function}
 \end{equation}
 \noindent
-with constraints: \[K(i)\ <\ K_{\max}\]
+with constraints: \[K_i\ <\ K_{\max} \quad \text{for all }  i=1,.., N_{segements}\]
 \noindent
 
-and \[\text{RobotFootprint}(\mathbf{p}_i) = 0 \quad \text{for all } i\]
+and \[\text{CollisionCheck}(\mathbf{point}_j) = 0 \quad \text{for all } j=1,..,N_{ScanPoints}\]
 
 
 where \begin{itemize}
     \item \(\omega_c\) and \(\omega_L\) are the weights assigned to the curvature change term and the length term, 
     respectively. These weights determine the relative importance of curvature change and path length in the overall 
     evaluation. 
-    \item \(\ K_{\max}\) the maximum tolerated curvature
-    \item \( \mathbf{p}_i \) represent the \( i \)-th scan point in space. 
+    \item \(K_i\) the curvature at the \(i^{\mathrm{th}}\) path segment.
 
-    \item \( \text{RobotFootprint}(\mathbf{p}_i) \) be a boolean function that returns 1 if the point \( \mathbf{p}_i \) 
-    lies within the robot's footprint (polygon) and 0 otherwise.
+    \item \(\ K_{\max}\) the maximum tolerated curvature
+    \item \( \mathbf{point}_j \) represent the \( j^{\mathrm{th}} \) scan point in space. 
+
+    \item \( \text{CollisionCheck}(\mathbf{point}_j) \) be a boolean function that returns 1 if the point \( \mathbf{point}_j \) 
+    collides with the robot and 0 otherwise.
     
 \end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsubsection{Second approach: Normalized Weighted Path Evaluation}
 
 The Normalized Weighted Path Evaluation is based on the division of the path's Length
 and Curvature Change measured respectively using the equations \Ref{Length_formula} and 
 \Ref{curvature_change} respectively by the reference path's Length and Curvature Change. 
-The length term is given by:
+
+\noindent The normalized cost function is given by equation \Ref{Norm_function}:
 \begin{equation}
-    \text{Length Term} = \frac{\sum_{i=\min \text{ par}}^{\max \text{ par}} s(i)_j}{\sum_{i=\min \text{ par}}^{\max \text{ par}} s(i)_{\text{ref}}}
+    CF_{\text{Normalized}} = \omega_{C} \cdot \underbrace{\frac{\sum_{i=\text{j min par}}^{\text{j max par}} 
+    \frac{\Delta k(i)_j}{\Delta s(i)_j}}{\sum_{i=\text{ref min par}}^{\text{ref max par}} 
+    \frac{\Delta k(i)_{\text{ref}}}{\Delta s(i)_{\text{ref}}}}}_{\text{C}} 
+    + \omega_{L} \cdot \underbrace{\frac{\sum_{i=\text{min par}}^{\text{max par}} s(i)_j}
+    {\sum_{i=\text{min par}}^{\text{max par}} s(i)_{\text{ref}}}}_{\text{D}}
+    \label{Norm_function}
 \end{equation}
+
+Where:
+- \(\omega_c\) and \(\omega_L\) are the weights assigned to the curvature change term and the length term, 
+    respectively. These weights determine the relative importance of curvature change and path length in the overall 
+    evaluation. 
+\newline - C is the Curvature Change Term
+\newline - D is the Length Term
 
 \noindent
 The curvature change term is given by:
 
 \begin{equation}
-    \text{Curvature Change Term} = \frac{\sum_{i=j \min \text{ par}}^{j \max \text{ par}} \frac{\Delta k(i)_j}{\Delta s(i)_j}}{\sum_{i=\text{ref} \min \text{ par}}^{\text{ref} \max \text{ par}} \frac{\Delta k(i)_{\text{ref}}}{\Delta s(i)_{\text{ref}}}}
+    \text{C} = \frac{\sum_{i=j \min \text{ par}}^{j \max \text{ par}} \frac{\Delta k(i)_j}{\Delta s(i)_j}}{\sum_{i=\text{ref} \min \text{ par}}^{\text{ref} \max \text{ par}} \frac{\Delta k(i)_{\text{ref}}}{\Delta s(i)_{\text{ref}}}}
 \end{equation}
 
-where \( j \) denotes the current path being evaluated.
+where \( \mathbf{j} \) denotes the current path being evaluated.
 
-\noindent The cost function of the weighted terms is given by equation \Ref{Norm_function}:
+
+The length term is given by:
 \begin{equation}
-    Z^{\ast} = \arg \min \left( \omega_C \cdot \frac{\sum_{i=\text{j min par}}^{\text{j max par}} \frac{\Delta k(i)_j}
+    \text{D} = \frac{\sum_{i=\min \text{ par}}^{\max \text{ par}} s(i)_j}{\sum_{i=\min \text{ par}}^{\max \text{ par}} s(i)_{\text{ref}}}
+\end{equation}
+
+
+\noindent Using the cost function \Ref{Norm_function}, the minimization problem is deduced :
+\begin{equation}
+    Z_{Normalized}^{\ast} = \arg \min \left( \omega_C \cdot \frac{\sum_{i=\text{j min par}}^{\text{j max par}} \frac{\Delta k(i)_j}
     {\Delta s(i)_j}}{\sum_{i=\text{ref min par}}^{\text{ref max par}} \frac{\Delta k(i)_{\text{ref}}}
     {\Delta s(i)_{\text{ref}}} } + \omega_L \cdot \frac{\sum_{i=\text{min par}}^{\text{max par}} s(i)_j}
     {\sum_{i=\text{min par}}^{\text{max par}} s(i)_{\text{ref}}} \right)
-\label{Norm_function}
 \end{equation}
 
 \noindent
-with constraints: \[K(i)\ <\ K_{\max}\]
+with constraints: \[K_i\ <\ K_{\max} \quad \text{for all }  i=1,.., N_{segements}\]
 \noindent
 
-and \[\text{RobotFootprint}(\mathbf{p}_i) = 0 \quad \text{for all } i\]
+and \[\text{CollisionCheck}(\mathbf{point}_j) = 0 \quad \text{for all } j=1,..,N_{ScanPoints}\]
 
 
-where \begin{itemize}
+Where \begin{itemize}
     \item \(\omega_c\) and \(\omega_L\) are the weights assigned to the curvature change term and the length term, 
     respectively. These weights determine the relative importance of curvature change and path length in the overall 
     evaluation. 
+    \item \(K_i\) the curvature at the \(i^{\mathrm{th}}\) path segment.
     \item \(\ K_{\max}\) the maximum tolerated curvature
-    \item \( \mathbf{p}_i \) represent the \( i \)-th scan point in space. 
+    \item \( \mathbf{point}_j \) represent the \( j^{\mathrm{th}} \) scan point in space. 
 
-    \item \( \text{RobotFootprint}(\mathbf{p}_i) \) be a boolean function that returns 1 if the point \( \mathbf{p}_i \) 
-    lies within the robot's footprint (polygon) and 0 otherwise.
+    \item \( \text{CollisionCheck}(\mathbf{point}_j) \) be a boolean function that returns 1 if the point \( \mathbf{point}_j \) 
+    collides with the robot and 0 otherwise.
     
 \end{itemize}
+
 
 The algorithm that measures the path quality is detailed through Pseudo Code \Ref{EvaluationAlgorithm}.
 
@@ -1208,7 +1254,7 @@ The algorithm that measures the path quality is detailed through Pseudo Code \Re
     metric.length\_ $\gets$ metric.calculate\_length\_metric(gen)\;
     
     \For{each point $p_i$ in $P$}{
-        test $\gets$ RobotFootprint($p_i$)\;
+        test $\gets$ CollisionCheck($p_i$)\;
         
         \If{test == 0}{
             result $\gets$ obstacle\_KnockOut\;
@@ -1228,7 +1274,6 @@ in line with the trucks' properties and target outcomes, the paths are ready for
 \textbf{The input of this section is a range of paths along with their evaluation scores and the output is the optimal 
 path to be driven.}
 
-\subsubsection{Utility}
 The utility of the path optimization process lies in its ability to identify the most efficient and effective path for the 
 vehicle to follow, based on various criteria. By considering key factors such as path length, curvature, and smoothness, 
 the optimization algorithm ensures that the selected path not only adheres to the vehicle's operational constraints but 

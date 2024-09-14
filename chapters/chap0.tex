@@ -80,6 +80,8 @@ As STILL specializes in forklift trucks, it counts many other products. Trucks a
 Gas fueled, or electric trucks that use Li-Ion batteries. Depending on the client's warehouse type, they can
 choose from a vast range of reach trucks Figure \ref{Reach trucks}, hand pallet trucks Figure \Ref{hand truck}, 
 double stacker trucks Figure \Ref{double-}, and Automated industrial Trucks Figure \Ref{iGoNeo} \cite{R4}.
+A small selection of the vast range of STILL products is presented here. 
+Automation can be applied to driver-requiring trucks to fully automate them.
 
 
 \begin{figure}[h!]
@@ -87,7 +89,7 @@ double stacker trucks Figure \Ref{double-}, and Automated industrial Trucks Figu
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/Chap0/Reach trucks.png} % Replace with your figure
-        \caption{STILL tractor}
+        \caption{STILL reach truck}
         \label{Reach trucks}
     \end{minipage}
     \begin{minipage}{0.45\textwidth}
@@ -109,7 +111,7 @@ double stacker trucks Figure \Ref{double-}, and Automated industrial Trucks Figu
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/Chap0/iGoNeo.jpg} % Replace with your figure
-        \caption{STILL iGo neo}
+        \caption{STILL Autonomous order picker}
         \label{iGoNeo}
     \end{minipage}
 \end{figure}
@@ -118,6 +120,73 @@ Despite the impressive capabilities of the iGo neo and similar autonomous vehicl
 of such advanced technology brings up several challenges, particularly in ensuring reliable and predictable 
 behavior under all operating conditions. This leads to a key motivation for further investigation and improvement 
 in the field.
+The next section focuses on the process followed during the development of the project. 
+
+
+
+\section{Work Structure and Methodology}
+
+Our team adopts an Agile Scrum methodology showcased in Figure \Ref{Agile Scrum Process} to ensure 
+efficient and flexible project management. Here’s how we approach our work:
+
+\begin{figure}[H]
+    \begin{center}
+       \includegraphics[width=6in]{images/Chap0/blog-scrum-process-opt.jpg}\\
+       \caption{Agile Scrum Process \cite{R6}}
+       \label{Agile Scrum Process}
+       \end{center}
+\end{figure}
+
+\subsection{Agile Scrum Framework} 
+To follow the Agile Scrum framework 4 main tools/ are used:
+\begin{itemize}
+    \item \textbf{Jira: } We use Jira to organize and track our tasks and progress. Jira allows us to create 
+    and manage tickets, which are detailed records of tasks, bugs, or features that need attention. 
+    Each ticket is assigned to team members and tracked through its development stages until completion.
+
+    \item \textbf{Sprints: } Our work is organized into 2-week sprints. Each sprint is a focused period 
+    where we aim to complete a set of predefined tasks. At the start of each sprint, we hold a meeting to 
+    review the previous sprint: every team member presents their completed tickets, and communicates the 
+    changes or blockers that appeared during the process and plan for the next sprint: decide which tasks 
+    will be tackled during the sprint. 
+    This helps us maintain a steady pace and regularly deliver increments of our project.
+
+    \item  \textbf{PI Planning: } Every quarter, we engage in Program Increment (PI) planning with the 
+    mobile automation teams. The PI happens in two phases: each team prepares their planning for the next 3
+    months, then it is discussed and tailored again in a bigger round. This planning session helps us align 
+    our goals and strategies for the upcoming quarter. We review progress, set objectives, and coordinate 
+    with other teams to ensure that our work is aligned with broader project goals and company vision.
+
+    \item \textbf{Daily Standups: } We hold 15 minutes long daily standup meetings to keep everyone on the 
+    same page. During these meetings, team members share updates on their progress, discuss any challenges 
+    they are facing, and outline their plans for the day. This practice promotes transparency, communication and quick 
+    problem-solving through collaboration.
+
+\end{itemize}
+
+\subsection{Version Management}
+For Version Management, the team collaborates over \textbf{GitHub: }We use GitHub for version control and 
+code management. GitHub allows us to 
+    collaborate on code, track changes, and manage different versions of our project. Each team member 
+    can contribute to the codebase, and we use pull requests to review and integrate new features.
+
+
+\subsection{Communication and Collaboration}
+For daily communication and effective organization, the following tools are put to use:
+\begin{itemize}
+\item  \textbf{Microsoft Teams: }We use Microsoft Teams for real-time communication and collaboration. 
+Teams provides a platform for chatting, video calls, and sharing files, facilitating smooth and efficient 
+interactions among team members.
+
+\item  \textbf{Microsoft Outlook: }Outlook is used for email communication and scheduling. It helps us 
+manage meetings, track important messages, and coordinate tasks and deadlines.
+\end{itemize}
+
+\subsection{Project Timeline}
+
+By integrating these tools and practices, we ensure a structured yet flexible workflow, enabling us to adapt 
+to changes, communicate effectively, and deliver high-quality results.
+
 
 \section{Graduation project Motivation and Problem Statement}
 
@@ -141,7 +210,7 @@ sector, require significant commissioning efforts before they can be implemented
 a new environment and begin their service. Whether it's a required software integration, 
 sensors installations, or 
 measurements, these systems demand substantial time, information and financial investment—three 
-crucial resources that we aim to optimize. Innovation in automation should involve 
+crucial resources that STILL aims to optimize. Innovation in automation should involve 
 the development of optimal solutions that are easy to 
 commission in a new environment. These so-called "plug-and-play" solutions reduce 
 the effort required and allow customers to start benefiting from the autonomous 
@@ -154,13 +223,12 @@ explainable systems to build trust with customers, encouraging adoption of the t
 With a focus on explainable AI, the technology becomes more interpretable, helping customers 
 understand decision-making processes and increasing their confidence in its safety and reliability.
 
-\newpage
 \subsection{Problem statement}
 
 Autonomous navigation is a topic where explainable intelligence can be integrated. 
 Robotic forklifts execute missions such as transporting pallets from one place to another: 
 picking up or dropping pallets.
-This mission is splitted into:
+A typical mission is splitted into:
 \begin{itemize}
     \item a movement to a source
     \item a pickup
@@ -262,69 +330,9 @@ kinematics of the vehicle, and maximizing speed.
     \end{center}
 \end{figure}
 
-The next section focuses on the process followed during the development of the project. 
+The next chapters lead to the available approaches, the goals to be fulfilled, and the methodology to adress
+the problem statement.
 
-\section{Work Structure and Methodology}
-
-Our team adopts an Agile Scrum methodology showcased in Figure \Ref{Agile Scrum Process} to ensure 
-efficient and flexible project management. Here’s how we approach our work:
-
-\begin{figure}[H]
-    \begin{center}
-       \includegraphics[width=6in]{images/Chap0/blog-scrum-process-opt.jpg}\\
-       \caption{Agile Scrum Process \cite{R6}}
-       \label{Agile Scrum Process}
-       \end{center}
-\end{figure}
-
-\subsection{Agile Scrum Framework} 
-To follow the Agile Scrum framework 4 main tools/ are used:
-\begin{itemize}
-    \item \textbf{Jira: } We use Jira to organize and track our tasks and progress. Jira allows us to create 
-    and manage tickets, which are detailed records of tasks, bugs, or features that need attention. 
-    Each ticket is assigned to team members and tracked through its development stages until completion.
-
-    \item \textbf{Sprints: } Our work is organized into 2-week sprints. Each sprint is a focused period 
-    where we aim to complete a set of predefined tasks. At the start of each sprint, we hold a meeting to 
-    review the previous sprint: every team member presents their completed tickets, and communicates the 
-    changes or blockers that appeared during the process and plan for the next sprint: decide which tasks 
-    will be tackled during the sprint. 
-    This helps us maintain a steady pace and regularly deliver increments of our project.
-
-    \item  \textbf{PI Planning: } Every quarter, we engage in Program Increment (PI) planning with the 
-    mobile automation teams. The PI happens in two phases: each team prepares their planning for the next 3
-    months, then it is discussed and tailored again in a bigger round. This planning session helps us align 
-    our goals and strategies for the upcoming quarter. We review progress, set objectives, and coordinate 
-    with other teams to ensure that our work is aligned with broader project goals and company vision.
-
-    \item \textbf{Daily Standups: } We hold 15 minutes long daily standup meetings to keep everyone on the 
-    same page. During these meetings, team members share updates on their progress, discuss any challenges 
-    they are facing, and outline their plans for the day. This practice promotes transparency, communication and quick 
-    problem-solving through collaboration.
-
-\end{itemize}
-
-\subsection{Version Management}
-For Version Management, the team collaborates over \textbf{GitHub: }We use GitHub for version control and 
-code management. GitHub allows us to 
-    collaborate on code, track changes, and manage different versions of our project. Each team member 
-    can contribute to the codebase, and we use pull requests to review and integrate new features.
-
-
-\subsection{Communication and Collaboration}
-For daily communication and effective organization, the following tools are put to use:
-\begin{itemize}
-\item  \textbf{Microsoft Teams: }We use Microsoft Teams for real-time communication and collaboration. 
-Teams provides a platform for chatting, video calls, and sharing files, facilitating smooth and efficient 
-interactions among team members.
-
-\item  \textbf{Microsoft Outlook: }Outlook is used for email communication and scheduling. It helps us 
-manage meetings, track important messages, and coordinate tasks and deadlines.
-\end{itemize}
-
-\subsection{Project Timeline}
-
-By integrating these tools and practices, we ensure a structured yet flexible workflow, enabling us to adapt to changes, communicate effectively, and deliver high-quality results.
 
 \section*{Conclusion}
 This chapter introduced the host company, STILL GmbH, and its role within the KION Group, highlighting its 

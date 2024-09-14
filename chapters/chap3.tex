@@ -1,4 +1,4 @@
-\chapter{Test and Validation of the Proposed Solution }
+\chapter{Test and Validation of the Proposed Solution}
 
 \renewcommand{\chaptername}{Chapter}
 
@@ -23,7 +23,7 @@ performance, and robot execution. By comparing our approach to OMPL and analyzin
 to demonstrate the effectiveness of our solution for real-world AMR applications.
 For this section 3 test environments are used:
 \begin{itemize}
-    \item Independant Simulation Environment: This environment is created outside of the RACK 
+    \item Independant Simulation Environment: This environment is created outside the RACK 
     environment to validate the chosen approaches before implementing the developed features 
     on the real system. It recreates the Station and the Shelf without sensor inputs or kinematic constraints.
     To simplify the test, the robot is modeled by a point instead of its proportional chassis size.
@@ -36,7 +36,7 @@ For this section 3 test environments are used:
         \item Offline Testing: is the re-creation of the warehouse and the test environment in a complete model
         as seen on figure \Ref{warehouse}. A simulated robot is available to place at a starting point, 
         to navigate the planned paths as well
-        as to perceive its surroundings and use the sensor input for it processings. Objects like simulated 
+        as to perceive its surroundings and use the sensor input for its processing. Objects like simulated 
         obstacles can be added. 
         \item Online Testing: is a projection of the test on the AMR to the Simulation environment.
         The simulation visualizes the output of the sensors like scan points and makes a debugging 
@@ -61,7 +61,7 @@ different target locations.
 
 The obtained results are of smooth splines adhering to the pattern and linking the truck to the destination pallet 
 while passing by a transition location. 
-The Independant Simulation Environment tests show the pattern spline-based path as given by figure \Ref{Test_clone}:
+The independant Simulation Environment tests show the pattern spline-based path as given by figure \Ref{Test_clone}:
 The path start at the truck's position, transitions in one of the transition subpolygons to change driving 
 direction and joins the target. 
 The resulting path on the RACK simulation environment which is the real testing environment show as well 
@@ -377,12 +377,12 @@ Using the \(Simple~Environment\) and the \(Complex~Environment\) tests were ran 
 RACK Simulation Environment to compare the performance of the Metaheuristic Algorithms: GA, DE, PSO,
 ACO, and SA. 
 
-The same starting and Target Positions were used for each scenario. For the \(Complex~Environment\),
+The same starting and Target Positions were used for each scenario. For the \(Complex~\\Environment\),
 the same obstacle was used for all the algorithm tests to create the same test conditions, the obstacle used is 
 marked in green on figure \Ref{OptResult9}. All algorithms were configured to evolve around 200 candidates.
 The comparison between the Algorithms in the simulation is based on: 
 \begin{itemize}
-    \item The Planning Time: the time that each algorithm takes to evolprocess a solution.
+    \item The Planning Time: the time that each algorithm takes to evolve a solution.
     \item The Created Path's Fitness Values.
 \end{itemize}
 
@@ -480,28 +480,28 @@ the constrained subpolygon where the obstacle stands.
 
 \section{Field-Testing of the Solution on the AMR}
 This section sums up the developed module for a field test on the iGo Neo Truck. 
-First the test Conditions are outlined, then the the planning process with the sensor input are explained.
+First the test Conditions are outlined, then the planning process with the sensor input are explained.
 Finally the planned path and navigation of the truck in each scenario are discussed.
 
 The Approach is tested in 3 different scenarios:
 \begin{itemize}
     \item A Simple Test Environment where The station is free of obstacles.
     \item Moderate complexity Test Environments where  obstacles are placed in 2 areas of the station:
-    left and right sides of the shelf. The obstacles are intended to block one subpolgon.
+    left and right sides of the shelf. The obstacles are intended to block one subpolygon.
 \end{itemize}
 
 \subsection{Simple Test Environment}
 The truck was placed at position \(x = 33026\), \(y = 28070\), and \(\rho = 100.0^\circ\) 
 as illustrated by 
 figure \Ref{OptResult10}.
-The sensor input of the truck as scan points which detects the obstacles is represented by blackpoints
+The sensor input of the truck as scan points which detects the obstacles is represented by black points
 on the figure. Figure \Ref{label} shows the start position of the Truck inside the warehouse.
 The RACK simulation is now a real-time visualization of the real warehouse.
 The goal is to dock the shelf which is represented in the real warehouse image \Ref{OptResult11}
 by the yellow floor anchors at position \(x = 33426\), \(y = 22696\), and \(\rho = 0.0^\circ\). 
 They hold the reflectors that return the shelf's position.
-After station, shelf an target recognition, and station partitioning,
-the optimizer starts generating and evaluationg the candidate paths.
+After station, shelf and target recognition, and station partitioning,
+the optimizer starts generating and evaluating the candidate paths.
 After successful processing of an optimum path, the truck start driving it.
 The optimum path is illustrated on figure \Ref{i} in red. The path is followed by the truck 
 that moves in opposite direction and negative speed until the transition location.
@@ -530,7 +530,7 @@ towards the shelf in preparation to dock then pickup or drop.
 On this picture is a real warehouse where the field test took place.
 The test truck is an iGo Neo and the station used is station \(Empty pallets\) at a 
 global position inside the warehouse \(x = 34121\), \(y = 23752\), and \(\rho = 0.0^\circ\).
-The station limits are fictious they are not outlined in the warehouse 
+The station limits are fictious they are not outlined in the warehouse, 
 but they can be seen on figure \ref{OptResult10}.
 The shelf is marked by the yellow floor anchors fixed on the floor.
 The environment for this test is not completely simple and empty as 
