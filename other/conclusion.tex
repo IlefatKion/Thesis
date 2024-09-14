@@ -1,32 +1,60 @@
 \chapter*{General conclusion}
 \addcontentsline{toc}{chapter}{General conclusion}
 
-This project has explored the complex and rapidly evolving field of intralogistics, focusing on the optimization of 
-local path planning for the autonomous forklifts' AMRs produced by STILL. The technique introduced by this thesis 
-concerns a specific part of the global path that allows the AMR to properly dock the target. The work was structured 
-across four key chapters, each building towards a comprehensive understanding and solution to the challenges faced 
-in modern industrial environments.
+This project has explored the complex and rapidly evolving field of intralogistics, with a focus on optimizing 
+local path planning for the autonomous forklift AMRs produced by STILL. The technique introduced by this 
+thesis addresses a specific segment of the global path, enabling the AMR to accurately dock at its target. 
+The research was structured into four key chapters, each contributing to a comprehensive understanding of the 
+challenges faced in modern industrial environments and presenting innovative solutions.
 
-Chapter 1 provided a thorough introduction to the host company, STILL, detailing its structure, and contributions 
-to the intralogistics industry. By outlining the project’s context, motivations, and core problematics, this chapter 
-laid the groundwork for understanding the broader objectives and the specific goals of this thesis, particularly 
-in optimizing path planning near pallet stations.
+First, the state-of-the-art chapter reviewed existing solutions in autonomous robotics path planning and 
+optimization techniques. This section highlighted the shortcomings in current approaches and emphasized 
+the need for new optimization strategies, particularly in environments like brownfield warehouses, where 
+obstacles such as disorganization and uneven terrain hinder automation efforts. After analyzing these 
+existing approaches and studying the necessary tools to address the problem statement, the adopted methodology 
+was thoroughly designed and documented.
 
-\noindent Chapter 2 delved into the state-of-the-art literature, offering a review of existing solutions in autonomous 
-robotics and path planning. This chapter underscored the gaps in current approaches and the opportunity for 
-innovative optimization strategies, especially in environments like brownfield warehouses, where challenges such 
-as disorganization and uneven terrain present significant obstacles to automation.
+The technical core of the thesis followed, focusing on the mathematical and geometric principles underlying 
+the proposed solution. The geometric division of warehouse stations into transition zones and the incorporation 
+of splines for path creation emphasized the importance of precision and flexibility in near-field navigation. 
+Through a detailed discussion of path discrimination and optimization techniques, this chapter demonstrated 
+how smart algorithms enable autonomous vehicles to plan and execute efficient routes while avoiding obstacles.
 
-\noindent Chapter 3 marked the technical core of the thesis, focusing on the mathematical and geometric principles behind 
-the proposed solution. The exploration of splines in path planning, combined with the geometric division of 
-warehouse stations into transition zones, highlighted the need for precision and flexibility in near-field 
-navigation. Through a detailed discussion of path discrimination and optimization methods, this chapter 
-demonstrated how smart algorithms can enable autonomous vehicles to plan and execute efficient routes 
-while avoiding obstacles.
+Lastly, the practical implementation of these ideas was realized within the RACK framework and simulation 
+system, detailing the tests conducted on autonomous forklifts and the results achieved. The successful 
+trials underscored the effectiveness of the optimized local path planning approach, proving that the 
+developed solution is both theoretically robust and practically viable in real-world scenarios. The use 
+of metaheuristic optimization algorithms, such as DE and PSO, proved highly effective in significantly 
+reducing planning time, leading to the recommendation of these algorithms for path optimization.
 
-\noindent Finally, Chapter 4 presented the practical implementation of these ideas in the RACK framework and simulation 
-system, detailing the tests conducted on autonomous forklifts and the results obtained. The successful trials 
-showcased the efficacy of the optimized local path planning approach, proving that the developed solution is 
-not only theoretically sound but also practically applicable in real-world scenarios.
+This project has shown that desired optimizations can be achieved through the application of less complex 
+path planning techniques, without resorting to overly sophisticated solutions. The integration of explainable 
+AI and a station-specific design has contributed to creating a solution that enhances safety, efficiency, 
+and predictability, paving the way for customers to trust autonomous forklifts in complex intralogistics 
+environments that meet European standards.
 
-In conclusion, this thesis has demonstrated that the desired optimizations can be be achieved by implementing less sophisticated path planning techniques and without the need to implement over-kill solutions like AI-based. The proposed approach contributes to the growing body of knowledge in autonomous robotics and intralogistics, offering a solution that enhances safety, efficiency, and predictability which opens the door for customers and potential customers to trust the presence of the autonomous forklifts in complex intralogistics environments with the european standards.
+However, limitations exist when the AMR operates within transition zones. In such cases, the optimizer may 
+generate curved paths that are not ideal for driving. Additionally, the transition zones created are not 
+the only open areas in the station and are optimal only for the predefined test scenarios. If the truck 
+is positioned elsewhere, such as next to a shelf, transitioning through these zones becomes suboptimal. 
+Furthermore, when the station is cluttered with obstacles, the path planner struggles to generate feasible 
+routes, necessitating the use of more advanced planners like those based on OMPL.
+
+Looking ahead, expanding the number of transition zones is recommended. These zones could be placed in 
+free areas of the station, such as the space between existing transition polygons, and adjusted based on 
+the truck's location. For instance, if the truck is already positioned within a transition area, that 
+zone should be excluded from the path planning process. Additionally, scans for surrounding obstacles 
+should be confined to the station's interior, as there is no practical need to account for obstacles 
+outside the station. This can be done by algorithmically checking for collisions only within the station. 
+Care must be taken, however, as the AMR sometimes reaches areas outside the station. This refinement 
+can significantly reduce planning time and further optimize the solution.
+
+In conclusion, this project has successfully addressed critical challenges in AMR path planning within 
+intralogistics, offering a practical, efficient, and scalable solution. The proposed methodology not 
+only enhances operational performance but also introduces flexibility in adapting to real-world constraints. 
+By further refining the transition zones and limiting obstacle scans, the approach holds promise for 
+even greater optimization, reducing complexity while maintaining high standards of safety and efficiency.
+
+
+
+

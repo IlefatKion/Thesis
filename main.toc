@@ -23,43 +23,43 @@
 \contentsline {subsection}{\numberline {3.3}Discussion: Selection of the Path Planning Method}{31}{subsection.2.3.3}%
 \contentsline {section}{\numberline {4}Heuristic Approaches}{32}{section.2.4}%
 \contentsline {subsection}{\numberline {4.1}Optimization Techniques}{32}{subsection.2.4.1}%
-\contentsline {section}{\numberline {5}Discussion}{38}{section.2.5}%
-\contentsline {section}{\numberline {6}Adopted Path Planning and Optimization Methods}{39}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Design and Development of the Proposed Solution }{43}{chapter.3}%
-\contentsline {section}{\numberline {1}Conceptual Framework}{43}{section.3.1}%
-\contentsline {subsection}{\numberline {1.1}Goal Setting}{43}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {1.2}Development Methodology}{44}{subsection.3.1.2}%
-\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{46}{section.3.2}%
+\contentsline {section}{\numberline {5}Discussion}{39}{section.2.5}%
+\contentsline {section}{\numberline {6}Adopted Path Planning and Optimization Methods}{40}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Design and Development of the Proposed Solution }{44}{chapter.3}%
+\contentsline {section}{\numberline {1}Conceptual Framework}{44}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}Goal Setting}{44}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {1.2}Development Methodology}{45}{subsection.3.1.2}%
+\contentsline {section}{\numberline {2}Methodology and Design of the Solution}{47}{section.3.2}%
 \contentsline {section}{\numberline {3}Development phases and Implementation}{50}{section.3.3}%
 \contentsline {subsection}{\numberline {3.1}Geometric Partitioning of the Station}{50}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Implementation of the Station Partitioning}{50}{subsubsection.3.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Results of the Station Partitioning}{55}{subsubsection.3.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Path creation}{56}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Choice of Path Creation Methodology}{56}{subsubsection.3.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Spline Based Paths}{57}{subsubsection.3.3.2.2}%
-\contentsline {subsubsubsection}{\numberline {3.2.2.1}Splines Applications in Robotics}{57}{subsubsubsection.3.3.2.2.1}%
-\contentsline {subsubsubsection}{\numberline {3.2.2.2}Splines Mathematical concepts}{60}{subsubsubsection.3.3.2.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Implementation of the Pattern Path Creation Approach}{63}{subsubsection.3.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Path Evaluation}{67}{subsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Path Evaluation Techniques in Robotics}{67}{subsubsection.3.3.3.1}%
-\contentsline {subsubsubsection}{\numberline {3.3.1.1}Core Metrics for Path Evaluation}{68}{subsubsubsection.3.3.3.1.1}%
-\contentsline {subsubsubsection}{\numberline {3.3.1.2}Combinations of single metrics}{69}{subsubsubsection.3.3.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.3.2}Implementation of Path Evaluation Techniques}{70}{subsubsection.3.3.3.2}%
-\contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{73}{subsubsubsection.3.3.3.2.1}%
-\contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{75}{subsubsubsection.3.3.3.2.2}%
-\contentsline {subsection}{\numberline {3.4}Path Optimization}{77}{subsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Implementation}{77}{subsubsection.3.3.4.1}%
-\contentsline {subsubsubsection}{\numberline {3.4.1.1}Obstacle Avoidance in the Pattern Based Approach}{79}{subsubsubsection.3.3.4.1.1}%
-\contentsline {chapter}{\numberline {4}Test and Validation of the Proposed Solution}{83}{chapter.4}%
-\contentsline {section}{\numberline {1}Path Creation Test Results and Validation}{84}{section.4.1}%
-\contentsline {section}{\numberline {2}Path Evaluation Test Results and Validation}{86}{section.4.2}%
-\contentsline {section}{\numberline {3}Path Optimization Test Results and Validation}{90}{section.4.3}%
-\contentsline {section}{\numberline {4}Field-Testing of the Solution on the AMR}{99}{section.4.4}%
-\contentsline {subsection}{\numberline {4.1}Simple Test Environment}{99}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.2}Complex Test Environments}{103}{subsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Obstacle Setup 1: Obstacle on the left of the AMR}{103}{subsubsection.4.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Obstacle Setup 2: Obstacle on the right of the AMR}{105}{subsubsection.4.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Discussion of the results}{108}{subsection.4.4.3}%
-\contentsline {chapter}{General conclusion}{110}{chapter*.86}%
-\contentsline {chapter}{Bibliography}{112}{chapter*.87}%
-\contentsline {chapter}{Annexes}{117}{chapter*.88}%
+\contentsline {subsubsection}{\numberline {3.1.1}Implementation of the Station Partitioning}{51}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Results of the Station Partitioning}{56}{subsubsection.3.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Path creation}{57}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Choice of Path Creation Methodology}{57}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Spline Based Paths}{58}{subsubsection.3.3.2.2}%
+\contentsline {subsubsubsection}{\numberline {3.2.2.1}Splines Applications in Robotics}{58}{subsubsubsection.3.3.2.2.1}%
+\contentsline {subsubsubsection}{\numberline {3.2.2.2}Splines Mathematical concepts}{61}{subsubsubsection.3.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Implementation of the Pattern Path Creation Approach}{64}{subsubsection.3.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Path Evaluation}{68}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Path Evaluation Techniques in Robotics}{68}{subsubsection.3.3.3.1}%
+\contentsline {subsubsubsection}{\numberline {3.3.1.1}Core Metrics for Path Evaluation}{69}{subsubsubsection.3.3.3.1.1}%
+\contentsline {subsubsubsection}{\numberline {3.3.1.2}Combinations of single metrics}{70}{subsubsubsection.3.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.3.2}Implementation of Path Evaluation Techniques}{71}{subsubsection.3.3.3.2}%
+\contentsline {subsubsubsection}{\numberline {3.3.2.1}First approach: Exponential Weighted Path Evaluation}{74}{subsubsubsection.3.3.3.2.1}%
+\contentsline {subsubsubsection}{\numberline {3.3.2.2}Second approach: Normalized Weighted Path Evaluation}{76}{subsubsubsection.3.3.3.2.2}%
+\contentsline {subsection}{\numberline {3.4}Path Optimization}{78}{subsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Implementation}{78}{subsubsection.3.3.4.1}%
+\contentsline {subsubsubsection}{\numberline {3.4.1.1}Obstacle Avoidance in the Pattern Based Approach}{81}{subsubsubsection.3.3.4.1.1}%
+\contentsline {chapter}{\numberline {4}Test and Validation of the Proposed Solution}{85}{chapter.4}%
+\contentsline {section}{\numberline {1}Path Creation Test Results and Validation}{86}{section.4.1}%
+\contentsline {section}{\numberline {2}Path Evaluation Test Results and Validation}{88}{section.4.2}%
+\contentsline {section}{\numberline {3}Path Optimization Test Results and Validation}{92}{section.4.3}%
+\contentsline {section}{\numberline {4}Field-Testing of the Solution on the AMR}{101}{section.4.4}%
+\contentsline {subsection}{\numberline {4.1}Simple Test Environment}{101}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.2}Complex Test Environments}{105}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Obstacle Setup 1: Obstacle on the left of the AMR}{105}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Obstacle Setup 2: Obstacle on the right of the AMR}{109}{subsubsection.4.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Discussion of the results}{112}{subsection.4.4.3}%
+\contentsline {chapter}{General conclusion}{114}{chapter*.87}%
+\contentsline {chapter}{Bibliography}{116}{chapter*.88}%
+\contentsline {chapter}{Annexes}{121}{chapter*.89}%

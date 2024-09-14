@@ -31,56 +31,57 @@
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Flowchart of the SA \cite {R41}\relax }}{35}{figure.caption.28}%
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Particle Swarm Optimization \cite {R42}\relax }}{36}{figure.caption.29}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The Possible Parking Styles that a driver can follow\relax }}{46}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Design of Linking the robot to goal destination \cite {R28}\relax }}{47}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Truck Driving Directions\relax }}{48}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Step1: Station Partitioning for Linking the robot to goal pallet \cite {R28}\relax }}{49}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Milestones of the Path planning approach to pallet docking\relax }}{49}{figure.caption.35}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Station Simulation with added Station, Shelf, and Global (World) frames\relax }}{51}{figure.caption.36}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Simulation of the stations in a warehouse\relax }}{54}{figure.caption.37}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Partitioning: Station divided into subpolygons\relax }}{56}{figure.caption.38}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Step2: Orientation Points creation using the 3 origin path points\relax }}{57}{figure.caption.39}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }}{58}{figure.caption.40}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Convex hull contained Spline \cite {R29}\relax }}{59}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces NURBS spline example. \textbf {Green}: Control points \textbf {Red}: NURBS spline\relax }}{63}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Step3: Interpolation of the waypoints and creation of the spline-based paths\relax }}{64}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Robot at the transition position\relax }}{64}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Transformations From the Robot to the Pallet Frame Passing by the Reflector Frame\relax }}{66}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Simulated Environment of the Station With Obstacles Blocking a Transition side\relax }}{80}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Simulated Environment of the Station with the added waypoints to enhance obstacle avoidance\relax }}{80}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The Possible Parking Styles that a driver can follow\relax }}{47}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Design of Linking the robot to goal destination \cite {R28}\relax }}{48}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Truck Driving Directions\relax }}{49}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Milestones of the Path planning approach to pallet docking from Step1 to Step4\relax }}{50}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Step1: Station Partitioning for Linking the robot to goal pallet \cite {R28}\relax }}{51}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Station Simulation with added Station, Shelf, and Global (World) frames\relax }}{52}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Simulation of the stations in a warehouse\relax }}{55}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Partitioning: Station divided into subpolygons\relax }}{57}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Step2: Orientation Points creation using the 3 origin path points\relax }}{58}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Morphological difference between a path connecting waypoints (left) and a curved path (right) \cite {R30}\relax }}{59}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Convex hull contained Spline \cite {R29}\relax }}{60}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces NURBS spline example. \textbf {Green}: Control points \textbf {Red}: NURBS spline\relax }}{64}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Step3: Interpolation of the waypoints and creation of the spline-based paths\relax }}{65}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Robot at the transition position\relax }}{65}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Transformations From the Robot to the Pallet Frame Passing by the Reflector Frame\relax }}{67}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Flowchart of the evaluation and evolution of the optimum path process in consideration of constraints\relax }}{81}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Simulated Environment of the Station With Obstacles Blocking a Transition side\relax }}{82}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Simulated Environment of the Station with the added waypoints to enhance obstacle avoidance\relax }}{83}{figure.caption.48}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Test Results on Cloned Test Environment\relax }}{85}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Test Results on the Simulated Environment\relax }}{85}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Test Results on the Simulated Environment: Truck at the Destination\relax }}{86}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{88}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{88}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{89}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{89}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Navigating high curvatures in narrow areas\relax }}{90}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Optimizer results in empty station of one of 10 generations with the overall best paths visualized in bold red and brown\relax }}{91}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Optimizer results in presence of obstacles of one of 10 generations with the overall best paths visualized in bold red and brown\relax }}{92}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Optimizer results in presence of obstacles and influence of increasing path waypoints\relax }}{92}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Optimizer results in a simple environment tested inside the RACK simulation: Start Position\relax }}{93}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Optimizer results in a simple environment tested inside the RACK simulation: Target Position\relax }}{94}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Optimizer results in a Complex environment tested inside the RACK simulation: Start Position\relax }}{95}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Optimizer results in a Complex environment tested inside the RACK simulation: AMR Navigating the path\relax }}{95}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Optimizer results in a Complex environment tested inside the RACK simulation: Target Position\relax }}{96}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Obstacle Used for Metaheuristic Algorithms comparison in the complex scenario\relax }}{98}{figure.caption.65}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Environment and Start position of the Simple Test Scenario\relax }}{100}{figure.caption.68}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Environment and Start position of the Simple Test Scenario in a real warehouse with iGo Neo\relax }}{100}{figure.caption.69}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Truck in the simulation navigating the planned path: Transition phase\relax }}{101}{figure.caption.70}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Real Truck navigating the planned path: Transition phase\relax }}{101}{figure.caption.71}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Truck in the simulation navigating the planned path: Docking phase\relax }}{102}{figure.caption.72}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Real Truck navigating the planned path: Docking phase\relax }}{102}{figure.caption.73}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Start Position\relax }}{103}{figure.caption.74}%
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Start Position\relax }}{104}{figure.caption.75}%
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Transition Position\relax }}{104}{figure.caption.76}%
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Transition Position\relax }}{104}{figure.caption.77}%
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Target Position\relax }}{105}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.29}{\ignorespaces Target Position\relax }}{105}{figure.caption.79}%
-\contentsline {figure}{\numberline {4.30}{\ignorespaces Start Position\relax }}{106}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.31}{\ignorespaces Start Position\relax }}{106}{figure.caption.81}%
-\contentsline {figure}{\numberline {4.32}{\ignorespaces Transition Position\relax }}{107}{figure.caption.82}%
-\contentsline {figure}{\numberline {4.33}{\ignorespaces Transition Position\relax }}{107}{figure.caption.83}%
-\contentsline {figure}{\numberline {4.34}{\ignorespaces Target Position\relax }}{107}{figure.caption.84}%
-\contentsline {figure}{\numberline {4.35}{\ignorespaces Target Position\relax }}{108}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Test Results on Cloned Test Environment\relax }}{87}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Test Results on the Simulated Environment\relax }}{87}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Test Results on the Simulated Environment: Truck at the Destination\relax }}{88}{figure.caption.52}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Test Results on the Simulated Environment: Multiple Splines Visualization\relax }}{90}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Exponential Approach\relax }}{90}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with weighing out the curvature\relax }}{91}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Test Results on the Simulated Environment: Evaluation results of the Normalized Approach with equal weights\relax }}{91}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Navigating high curvatures in narrow areas\relax }}{92}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Optimizer results in empty station of one of 10 generations with the overall best paths visualized in bold red and brown\relax }}{93}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Optimizer results in presence of obstacles of one of 10 generations with the overall best paths visualized in bold red and brown\relax }}{94}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Optimizer results in presence of obstacles and influence of increasing path waypoints\relax }}{94}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Optimizer results in a simple environment tested inside the RACK simulation: Start Position\relax }}{95}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Optimizer results in a simple environment tested inside the RACK simulation: Target Position\relax }}{96}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Optimizer results in a Complex environment tested inside the RACK simulation: Start Position\relax }}{97}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Optimizer results in a Complex environment tested inside the RACK simulation: AMR Navigating the path\relax }}{97}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Optimizer results in a Complex environment tested inside the RACK simulation: Target Position\relax }}{98}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Obstacle Used for Metaheuristic Algorithms comparison in the complex scenario\relax }}{100}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Environment and Start position of the Simple Test Scenario\relax }}{102}{figure.caption.69}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Environment and Start position of the Simple Test Scenario in a real warehouse with iGo Neo\relax }}{102}{figure.caption.70}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Truck in the simulation navigating the planned path: Transition phase\relax }}{103}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Real Truck navigating the planned path: Transition phase\relax }}{103}{figure.caption.72}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Truck in the simulation navigating the planned path: Docking phase\relax }}{104}{figure.caption.73}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Real Truck navigating the planned path: Docking phase\relax }}{104}{figure.caption.74}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Environment and Start position of the Complex Test Scenario: First Obstacle setup in the warehouse\relax }}{106}{figure.caption.75}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Environment and Start position of the Complex Test Scenario: First Obstacle setup in the simulation\relax }}{106}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Transition Position of the Complex Test Scenario: First Obstacle setup in the warehouse\relax }}{107}{figure.caption.77}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Transition Position of the Complex Test Scenario: First Obstacle setup in the simulation\relax }}{107}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Target Position of the Complex Test Scenario: First Obstacle setup in the warehouse\relax }}{108}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Target Position of the Complex Test Scenario: First Obstacle setup in the simulation\relax }}{108}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Start Position of the Complex Test Scenario: Second Obstacle setup in the warehouse\relax }}{109}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Start Position of the Complex Test Scenario: Second Obstacle setup in the simulation\relax }}{110}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.32}{\ignorespaces Transition Position of the Complex Test Scenario: Second Obstacle setup in the warehouse\relax }}{110}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.33}{\ignorespaces Transition Position of the Complex Test Scenario: Second Obstacle setup in the simulation\relax }}{111}{figure.caption.84}%
+\contentsline {figure}{\numberline {4.34}{\ignorespaces Target Position of the Complex Test Scenario: Second Obstacle setup in the warehouse\relax }}{111}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.35}{\ignorespaces Target Position of the Complex Test Scenario: Second Obstacle setup in the simulation\relax }}{112}{figure.caption.86}%

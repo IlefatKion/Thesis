@@ -166,10 +166,11 @@ From now on, the following definitions of driving directions will be used as gve
 \end{figure} 
  
 The designed approach is illustrated in figure \Ref{design}.
-The following transition method is prposed: 
+The following transition method is proposed: Step 1 consists of the geometric partitioning of the station.
 Once the AMR docks the station, it has the option to transition and change 
 direction on the sides of the shelf placed inside the station. First, it drives to the transition position, then, to the 
-pallet or the drop-off position as given by figure \Ref{subpolygons}. Having two possibilities for transition zones allows 
+pallet or the drop-off position as given by figure \Ref{subpolygons} that will be deeply explained in the next section. 
+Having two possibilities for transition zones allows 
 for more flexibility: 
 in case one area is unreachable or presents obstacles, the second one can be used. They present free areas 
 inside the stations where less obstacles and dynamics are expected and smooth maneuvering of the truck can be managed. 
@@ -178,36 +179,32 @@ any station that is recognized and whose properties are available to the truck. 
 autonomous forklifts simple to
 commission in new warehouses.
 
-\begin{figure}
-    [!ht]
-    \begin{center}
-    \includegraphics[width=\linewidth]{images/Chap2/station-without-subpolygones (2).png}\\
-    \caption{Step1: Station Partitioning for Linking the robot to goal pallet \cite{R28}}
-    \label{subpolygons}
-    \end{center}
-\end{figure}
-
-Smooth and continuous paths are generated through spline interpolation of constructed waypoints (see section 3.2.2). 
+Step 2 consists of the path creation. Smooth and continuous paths are generated through spline interpolation of constructed waypoints (see section 3.2.2). 
 This technique ensures 
 that the resulting paths are smooth, operationally seamless, and reduce abrupt changes in direction and speed. 
 By interpolating between waypoints, the method enables the creation of curves that are optimized for driving efficiency 
 and stability.
 
-Finally, an optimizer  
-generates multiple path candidates and rigorously evaluates each one based on key factors. 
-The evaluation considers the path's length, smoothness, and potential collisions with surrounding objects to ensure the 
-chosen path is both efficient and safe. After testing all options, the path that best meets these 
-criteria—providing the shortest and smoothest route with minimal collision risk—is selected as the best solution
-following Evaluation methods expalined more in section 3.3. 
+Step 3 involves evaluating the paths generated in Step 2. This evaluation, which forms the basis for optimization, 
+assesses each path's length, smoothness, and potential collisions with surrounding objects to ensure efficiency 
+and safety.
 
-This approach ensures the final path is not only theoretically ideal but also practical and reliable for real-world use. 
+In Step 4, the optimizer selects the optimal path from the evaluated candidates. Based on the criteria established 
+during evaluation, the optimizer chooses the path that best meets the optimization requirements, ensuring the 
+shortest, smoothest route with minimal collision risk.
+
+Ultimately, the optimizer generates multiple path candidates, evaluates them rigorously, and selects the path 
+that best satisfies the criteria outlined, as detailed in section 3.3.
+
+This approach ensures the final path is not only theoretically ideal but also practical and reliable for real-world 
+use. 
 The process is designed to be flexible and effective, even in obstacle environments. The designed methodology 
 is summarized in the following flowchart \ref{design}:
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=4in]{images/Chap2/Approch_design.jpg}\\
-        \caption{Milestones of the Path planning approach to pallet docking}
+        \includegraphics[width=4in]{images/Chap2/Gen_Approach_desing.png}\\
+        \caption{Milestones of the Path planning approach to pallet docking from Step1 to Step4}
         \label{design}
         \end{center}
 \end{figure}
@@ -225,6 +222,15 @@ As explained previously in Section 3.2, in order to carry out the transitioning 
 the station to change the driving direction from the opposite to the main direction, Transition subpolygons are needed. 
 The subpolygons are created according to the station shape and dimensions and the position of the shelf inside of it. 
 As given by figure \ref{warehouse}, the stations can be found at certain positions of the warehouse.
+
+\begin{figure}
+    [!ht]
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/Chap2/station-without-subpolygones (2).png}\\
+    \caption{Step1: Station Partitioning for Linking the robot to goal pallet \cite{R28}}
+    \label{subpolygons}
+    \end{center}
+\end{figure}
 
 \subsubsection{Implementation of the Station Partitioning}
 The vehicle initially plans its missions: it constructs a plan of the stations that will be visited and the operations
@@ -1297,6 +1303,39 @@ starts by placing random transition points inside the subpolygons}. First the in
 For Population based algorithms like GA and DE, generate an initial population of candidate points $(x, y)$, for swarm-based algorithms
 like ACO and PSO, 
 initialize particles or ants randomly, For Simulated Annealing (SA), start with a single solution point $(x, y)$.\\
+
+
+\begin{algorithm}[H]
+    \caption{Generic Optimization Algorithm with Path Evaluation}\label{optimization}
+    \KwIn{Problem parameters, Population size, Max iterations, Algorithm-specific parameters}
+    \KwOut{GeneratedOptimalPath}
+    
+    \SetKwBlock{Begin}{begin}{end}
+    
+    Initialize  
+    population size, max iterations,algorithm-specific parameters;\\
+    \textbf{Initialize Population of Points}\\
+    Generate an initial population of candidate points $(x, y)$.\\
+
+    \textbf{Evaluate Fitness for Initial Paths}\\
+    CreateEvaluationPath$(x, y)$;\\
+    MeasureNormalizedMetric(path);    
+    \textbf{Repeat until Termination Condition Met (max iterations ):}\\
+    \Begin{
+        Generate New Points\\
+        Generate Corresponding Paths\\
+        Evaluate Fitness of New Paths\\
+        Update Population or Solution Set\\
+
+        \textbf{Algorithm-Specific Update Step}\\
+    }
+    
+    \textbf{Return Best Point and its Path:}\\
+    Return the best point $(x, y)$ and its corresponding path found during the search process.
+    \end{algorithm}
+
+
+
 Each transition point is used to generate a path as explained
 in section 3.3.2 then evaluated through the method in section 3.3.3. The evaluation result is the fitness of the path that the 
 optimization algorithm bases its results on. By now the initial generation is completed. Then, the algorithm iterates until 
@@ -1334,6 +1373,17 @@ This Algorithm is ran once for each of the subpolygons. The optimization happens
 optimizer returns an optimal path that uses the corresponding subpolygon.
 Then, the results from both optimizers are compared and the fittest is considered as the overall
 fittest path. 
+The general optimization approach is summarized by flowchart \Ref{Opt_chart}.
+It explains the evolution process and creation of the optimum path.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5in]{images/Chap2/Opt_chart.png} % Replace with your figure
+        \caption{Flowchart of the evaluation and evolution of the optimum path process in consideration of constraints}
+        \label{Opt_chart}
+        \end{center}    
+\end{figure}
+
 
 For the application of these algorithms, Pagmo library was used. Pagmo is an open-source scientific library designed for 
 C++ that specializes in optimizing massively parallel problems. It was developed between the Max Planck Institute for 
@@ -1377,34 +1427,7 @@ using the same Evaluation approach.
 \end{figure}
 
 
-\begin{algorithm}[H]
-    \caption{Generic Optimization Algorithm with Path Evaluation}\label{optimization}
-    \KwIn{Problem parameters, Population size, Max iterations, Algorithm-specific parameters}
-    \KwOut{GeneratedOptimalPath}
-    
-    \SetKwBlock{Begin}{begin}{end}
-    
-    Initialize  
-    population size, max iterations,algorithm-specific parameters;\\
-    \textbf{Initialize Population of Points}\\
-    Generate an initial population of candidate points $(x, y)$.\\
 
-    \textbf{Evaluate Fitness for Initial Paths}\\
-    CreateEvaluationPath$(x, y)$;\\
-    MeasureNormalizedMetric(path);    
-    \textbf{Repeat until Termination Condition Met (max iterations ):}\\
-    \Begin{
-        Generate New Points\\
-        Generate Corresponding Paths\\
-        Evaluate Fitness of New Paths\\
-        Update Population or Solution Set\\
-
-        \textbf{Algorithm-Specific Update Step}\\
-    }
-    
-    \textbf{Return Best Point and its Path:}\\
-    Return the best point $(x, y)$ and its corresponding path found during the search process.
-    \end{algorithm}
 
     
 
