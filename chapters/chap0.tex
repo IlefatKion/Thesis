@@ -34,8 +34,8 @@ KION Group is one of the global leaders in the fields of industrial trucks and s
 It is the mother company of: Linde, Dematic Baoli, OM, Fenwick, and STILL who produce the goods and services of the group as 
 detailed in Figure \ref{KION Segments}. 
 
-Present in 4 continents and hiring more than 42000 employees, KION's startegy is to ensure profitable ans sustainable growth 
-while focusing on Automation and robotics deplyment as one of the main leaders of this growth. 
+Present in 4 continents and hiring more than 42000 employees, KION's startegy is to ensure profitable and sustainable growth 
+while focusing on Automation and robotics deployment as one of the main leaders of this growth. 
 
 \begin{figure}[H]
     \begin{center}
@@ -157,7 +157,7 @@ To follow the Agile Scrum framework 4 main tools/ are used:
     our goals and strategies for the upcoming quarter. We review progress, set objectives, and coordinate 
     with other teams to ensure that our work is aligned with broader project goals and company vision.
 
-    \item \textbf{Daily Standups: } We hold 15 minutes long daily standup meetings to keep everyone on the 
+    \item \textbf{Daily Stand-ups: } We hold 15 minutes long daily stand-up meetings to keep everyone on the 
     same page. During these meetings, team members share updates on their progress, discuss any challenges 
     they are facing, and outline their plans for the day. This practice promotes transparency, communication and quick 
     problem-solving through collaboration.
@@ -175,7 +175,7 @@ code management. GitHub allows us to
 For daily communication and effective organization, the following tools are put to use:
 \begin{itemize}
 \item  \textbf{Microsoft Teams: }We use Microsoft Teams for real-time communication and collaboration. 
-Teams provides a platform for chatting, video calls, and sharing files, facilitating smooth and efficient 
+Team provides a platform for chatting, video calls, and sharing files, facilitating smooth and efficient 
 interactions among team members.
 
 \item  \textbf{Microsoft Outlook: }Outlook is used for email communication and scheduling. It helps us 
@@ -215,7 +215,7 @@ the development of optimal solutions that are easy to
 commission in a new environment. These so-called "plug-and-play" solutions reduce 
 the effort required and allow customers to start benefiting from the autonomous 
 features with just the physical truck on-site and available information about the 
-warehouse. the rest, is online recognition and processing. This approach 
+warehouse. The rest, is online recognition and processing. This approach 
 significantly enhances the impact and convenience of the technology. 
 
 The autonomous vehicles department focuses on creating reliable, efficient, and 
@@ -228,23 +228,29 @@ understand decision-making processes and increasing their confidence in its safe
 Autonomous navigation is a topic where explainable intelligence can be integrated. 
 Robotic forklifts execute missions such as transporting pallets from one place to another: 
 picking up or dropping pallets.
-A typical mission is splitted into:
+A typical mission is separated into:
 \begin{itemize}
     \item a movement to a source
     \item a pickup
     \item a movement to the destination
     \item a drop
 \end{itemize}
+
 The movement to the source or the destination is exemplified by figure \Ref{move} where 
 \(station1\) is considered the source station that the truck is headed to.
 However, the truck arrives at a distant pose from the shelf or pallet,
-the distance is clearly seen in figure \Ref{dock}. In addition, its forks are facing the 
-wrong direction because driving the truck should happen like the arrow shows on figure \Ref{move} 
-to avoid hitting humans or materials with the forks.
+the distance is clearly seen in figure \Ref{dock}. In order to reach the station as quickly as possible, the 
+vehicle typically operates in its primary drive direction, which, in this case, is opposite to the direction 
+of the forks. As a result, upon arriving at the destination station, the autonomous mobile robot (AMR) often 
+faces an incorrect orientation, inhibiting its ability to directly pick up or drop off the pallet efficiently.
 The distance is intended because the truck needs a maneuver to make its forks dock (enter) the shelf
 as they are the part that picks up or drops the pallet.
-This work focuses on the subtask of an autonoumous online linking of the vehicle to the shelf
-independantly from the task to be performed (pick up/drop). 
+This work focuses on the subtask of an autonomous online linking of the vehicle to the shelf
+independently of the task to be performed (pick up/drop). 
+
+\textbf{Definition}: A station is an area where the pickup or drop process takes place. 
+It is a rectangular area of the warehouse (yellow rectangle on figure \Ref{dock}) that consists of a 
+shelf placed inside. It is used for the linking process as it limits the range of maneuvers for the truck.
 
 The path that involves this maneuver is called the "link path" that guides the truck to the pallet or the drop 
 pose which is the shelf inside the station as illustrates figure \Ref{dock}. Online linking of the robotic 
@@ -254,8 +260,8 @@ shelves can be shifted from their expected
 position and dynamic obstacles can show up, but, the vehicle needs precise recognition of the coordinates 
 that it will reach. 
 Precise recognition allows for correctness of the picking or dropping processes, otherwise, 
-the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside 
-of the station and avoid collisioning with them when driving to the destination shelf.
+the task can fail. Furthermore, the vehicle has to account for the new obstacles and clutter inside the 
+station and avoid collision with them when driving to the destination shelf.
 
 When it arrives at the station, the vehicle is fronted by these constraints:
 %TODO: check these
@@ -277,7 +283,7 @@ Figure \Ref{move} is a section of the model of a real warehouse. In this work,
 the interest is around the following items of the model:
 \begin{itemize}
     \item Dark Blue outline: walls of the warehouse
-    \item Yellow Rectancles marked as stations: Warehouse stations: Actions like picking up or 
+    \item Yellow Rectangles marked as stations: Warehouse stations: Actions like picking up or 
     dropping are performed in specific locations inside the warehouse called 
     stations, examples of which are named \(station1\), \(station2\), and \(station3\) on the figure \Ref{move}.
     Each station is designed to support specific warehouse functions and their general mission
@@ -316,7 +322,7 @@ kinematics of the vehicle, and maximizing speed.
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=4in]{images/Chap0/dock_wait.png}
+        \includegraphics[width=5in]{images/Chap0/dock_wait.png}
         \caption{Vehicle entered the station waiting for docking the shelf}
         \label{dock_wait}
        \end{center}

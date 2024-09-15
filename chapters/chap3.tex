@@ -23,7 +23,7 @@ performance, and robot execution. By comparing our approach to OMPL and analyzin
 to demonstrate the effectiveness of our solution for real-world AMR applications.
 For this section 3 test environments are used:
 \begin{itemize}
-    \item Independant Simulation Environment: This environment is created outside the RACK 
+    \item Independent Simulation Environment: This environment is created outside the RACK 
     environment to validate the chosen approaches before implementing the developed features 
     on the real system. It recreates the Station and the Shelf without sensor inputs or kinematic constraints.
     To simplify the test, the robot is modeled by a point instead of its proportional chassis size.
@@ -61,7 +61,7 @@ different target locations.
 
 The obtained results are of smooth splines adhering to the pattern and linking the truck to the destination pallet 
 while passing by a transition location. 
-The independant Simulation Environment tests show the pattern spline-based path as given by figure \Ref{Test_clone}:
+The independent Simulation Environment tests show the pattern spline-based path as given by figure \Ref{Test_clone}:
 The path start at the truck's position, transitions in one of the transition subpolygons to change driving 
 direction and joins the target. 
 The resulting path on the RACK simulation environment which is the real testing environment show as well 
@@ -132,7 +132,7 @@ The validation is for the following reasons:
 
 \section{Path Evaluation Test Results and Validation}
 In order to discriminate the Path Evaluation methods,
-both approaches (3.3.2.1 and 3.3.2.2) were tested in the Independant Simulation Environment. 
+both approaches (3.3.2.1 and 3.3.2.2) were tested in the Independent Simulation Environment. 
 Tests were ran on 10 different spline paths  that were generated with transition points scattered in 
 the station \Ref{Mult_splines}.
 Different locations of transition points were used to stress the metric outcomes by creating good and bad paths. 
@@ -246,11 +246,11 @@ Using the Path Creation and the Selected Evaluation approach, the optimization a
 First the Optimizer is tested in an empty station, then it is tested against obstacles placed inside the station 
 in different locations. 
 The optimization algorithm is ran first on The 
-Independant Simulation Environment to verify the relevance of the optimization approach to the pattern-based 
+Independent Simulation Environment to verify the relevance of the optimization approach to the pattern-based 
 path. 
 For this test, The Optimizer evaluates 10 generations of 10 paths for each subpolygon, it calculates the fitness value 
 for each path and saves the overall best fitness value from both subpolygons. 
-Figure \Ref{OptResult1} shows the result inside the Independant Simulation Environment for a station empty of obstacles:
+Figure \Ref{OptResult1} shows the result inside the Independent Simulation Environment for a station empty of obstacles:
 The figure illustrates the candidate paths of the first of the 10 generations, along with the optimum paths from 
 both subpolygons in bold Red and Brown "champion paths" as called in the algorithm. 
 The algorithm successfully rejects poor quality paths like the lowest right red path which has two direction changes 
@@ -304,17 +304,17 @@ The optimizer was effective in finding collision free paths.
 
 The approach is validated for a moderate complexity environment.
 
-Given that the approach was validated in the Independant Simulation Environment, the tests are 
+Given that the approach was validated in the Independent Simulation Environment, the tests are 
 ran on the RACK Simulation Environment. Two test scenarios are created: 
 The first is called the \(Simple~Environment\) which is an obstacle-free station and the second is
 called the \(Complex~Environment\) where an obstacle is placed in one side of the station. 
 In reality, the \(Simple~Environment\) is not simple because the sensors detect the warehouse walls,
-shelves, objects, and other vehicles but the station area is free of stranger objects.
+shelves, objects, and other vehicles, but the station area is free of stranger objects.
 The test in the \(Simple~Environment\) illustrated by figure \Ref{OptResult4} was done by placing the 
 AMR in the simulation in the starting position (green rectangle) and selecting the target position on 
 the simulation model. The expected target position is the red rectangle. 
 The path is planned following the pattern and links the AMR from its start position to the target position.
-The blue prints along the path represents the positions that the AMR will be at when driving the path.
+The blueprints along the path represent the positions that the AMR will be at when driving the path.
 The footprint helps to ensure that the AMR will not collide with surrounding objects and 
 validate the optimizer's ability to avoid obstacles. 
 
@@ -346,7 +346,7 @@ Finally, the truck docks the target location at the desired position as shown in
 The forks are facing the shelf and ready to start pick up/ drop process. 
 
 \textbf{Remark}: the shift of the final position of the vehicle on figure \Ref{OptResult8} is due 
-to control issues. Currently the path following is not completely correct and requires 
+to control issues. Currently, the path following is not completely correct and requires 
 control improvement.
 
 \begin{figure}[H]
@@ -419,7 +419,7 @@ The values can be clustered into two groups:
 \end{itemize}
 
 Using this comparison, the PSO algorithm outperforms the other algorithms in complex environments as it 
-finds the fittests path which refers to the shortest path and the least curvature change and also finds a path in 
+finds the fittest path which refers to the shortest path and the least curvature change and also finds a path in 
 the constrained subpolygon where the obstacle stands.
 
 \begin{figure}[H]
@@ -483,7 +483,7 @@ the constrained subpolygon where the obstacle stands.
 \section{Field-Testing of the Solution on the AMR}
 This section sums up the developed module for a field test on the iGo Neo Truck. 
 First the test Conditions are outlined, then the planning process with the sensor input are explained.
-Finally the planned path and navigation of the truck in each scenario are discussed.
+Finally, the planned path and navigation of the truck in each scenario are discussed.
 
 The Approach is tested in 3 different scenarios:
 \begin{itemize}
@@ -532,7 +532,7 @@ towards the shelf in preparation to dock then pickup or drop.
 On this picture is a real warehouse where the field test took place.
 The test truck is an iGo Neo and the station used is station \(Empty pallets\) at a 
 global position inside the warehouse \(x = 34121\), \(y = 23752\), and \(\rho = 0.0^\circ\).
-The station limits are fictious they are not outlined in the warehouse, 
+The station limits are fictional they are not outlined in the warehouse, 
 but they can be seen on figure \ref{OptResult10}.
 The shelf is marked by the yellow floor anchors fixed on the floor.
 The environment for this test is not completely simple and empty as 
@@ -578,7 +578,7 @@ fork to the target.
 \end{figure}
 
 The Truck arrives at the planned target and successfully 
-docks the shelf with forks oriented towards it in perepartion for
+docks the shelf with forks oriented towards it in preparation for
 pickup / drop.
 
 To summarize, for the test on the AMR, the PSO Algorithm is used. The duration of Planning of the optimized 
@@ -591,15 +591,15 @@ The Field-Tests in Complex Environments are conducted by placing obstacles on tw
 station. 
 Two test cases were carried out using two obstacle setups: Placing obstacles to the AMR's left then right
 as illustrate figures \Ref{OptResult12} and \Ref{OptResult18}. %TODO: here les schemas bel distances
-The goal is to block one of the Transition zones, in order to test the system's flexibilty,
+The goal is to block one of the Transition zones, in order to test the system's flexibility,
 exploration and exploitation of the transition possibilities.
 
 
 
 \subsubsection{Obstacle Setup 1: Obstacle on the left of the AMR}
 
-The truck was placed at position \(x = \), \(y = \), and \(\rho = ^\circ\) as illustrated by figure 
-\Ref{OptResult13}. The target is set at position \(x = \), \(y = \), and \(\rho = ^\circ\).
+The truck was placed at position \(x = 33785\), \(y = 28845\), and \(\rho = 90.0^\circ\) as illustrated by figure 
+\Ref{OptResult13}. The target is set at position \(x = 33356\), \(y = 22699\), and \(\rho = 270.0^\circ\).
 The obstacle is as represented by figure \Ref{OptResult12}, a two-box block set one above the other. 
 This obstacle was scanned and represented on the RACK Simulation 
 Environment by its corner marked by the green arrow as illustrated by figure \Ref{OptResult13}.
@@ -754,6 +754,33 @@ represented by scan points that the truck needs to check for collisions for ever
 The traveled path can be shorter: the used Evaluation approach favors the optimization of the 
 curvature term over the length, in other words, a longer path is better than a curved path.
 This minimizes the curvature but creates long paths that have room for improvement. 
+
+\section{Summary of Contributions and Reflections}
+The goals set out for this thesis have been successfully achieved. A solution was developed that generates 
+repeatable paths adhering to a predefined pattern, ensuring compliance with the specific layout and dimensions 
+of the destination station. The solution is station-related, meaning it is tailored to the available space and 
+dimensions of each station, allowing for precise accuracy in docking. Paths are generated within the goal's 
+frame of reference, ensuring precision upon arrival. Additionally, optimization was achieved by focusing on 
+both path length and curvature, utilizing metaheuristic algorithms to avoid obstacles while aligning with the 
+kinematic constraints of the vehicle. This ensures an optimal and efficient route while respecting the physical 
+limitations of the truck.
+
+Several key gaps found in the literature, particularly related to intensive computational demands and long 
+processing times in existing mobile robot path planning methods, have been addressed. The developed approach 
+significantly reduces planning time, achieving times between 40 and 50 milliseconds in simulation and around 
+300 milliseconds in field tests. In contrast, planning times in the literature range from 13 to 31 seconds 
+(as outlined in Chapter 2, Section 4). Real-world challenges were addressed by simulating real obstacles and 
+incorporating them into field tests. The pattern-based path generation approach also complies with the vehicle's 
+kinematic constraints, such as turning radius, by limiting curvature, which ensures both computational efficiency 
+and practical applicability in real-world scenarios.
+
+The solution also fulfills the initial motivations by providing explainable and predictable paths. Maneuvering 
+and direction changes are clearly interpretable by human operators, ensuring transparency in the system’s behavior. 
+The decision-making process is also explainable, with the optimizer’s parameters—path length and curvature—clearly 
+defined and weighted. The ease of commissioning is preserved, as the system is designed to recognize stations 
+easily and is adaptable to any station, regardless of its orientation (as demonstrated in the tests conducted on 
+two stations in Chapter 4). By addressing these key points, the solution enhances customer trust and confidence 
+while maintaining both autonomy and operational efficiency.
 
 \subsection*{Conclusion}
 In this chapter, the proposed solution was rigorously tested and validated through a series of evaluations, 

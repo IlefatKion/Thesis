@@ -60,6 +60,7 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Obstacle Setup 1: Obstacle on the left of the AMR}{104}{subsubsection.4.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Obstacle Setup 2: Obstacle on the right of the AMR}{108}{subsubsection.4.4.2.2}%
 \contentsline {subsection}{\numberline {4.3}Discussion of the results}{111}{subsection.4.4.3}%
-\contentsline {chapter}{General conclusion}{113}{chapter*.88}%
-\contentsline {chapter}{Annexes}{115}{chapter*.89}%
-\contentsline {chapter}{Bibliography}{116}{chapter*.90}%
+\contentsline {section}{\numberline {5}Summary of Contributions and Reflections}{112}{section.4.5}%
+\contentsline {chapter}{General conclusion}{114}{chapter*.88}%
+\contentsline {chapter}{Annexes}{116}{chapter*.89}%
+\contentsline {chapter}{Bibliography}{117}{chapter*.90}%

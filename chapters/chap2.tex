@@ -20,7 +20,7 @@ components are integrated into a cohesive solution for precise pallet access wit
 As mentioned in the introduction, this project does not tackle the navigation system of the AMRs in 
 general, but is focusing on a specific movement that the AMR must perform in order to accurately dock the pallet/shelf. 
 More details are explained in chapter 1, section 2.
-Considered the problems detailed in chapter 1 and the state of the art outputs in chapter 2, 
+Considered the problems detailed in chapter 1 and the state-of-the-art outputs in chapter 2, 
 the following goals were identified 
 based on the former detailed requirements for applications to autonomous mobile robots in intralogistics:
 \begin{itemize}
@@ -102,7 +102,7 @@ the forklifts in the near-field to the pallet is nothing but new to the intralog
 The process is repeated dozens of times daily inside warehouses and factories where forklift drivers take control over 
 resolving the problem. Taking a deeper look at their approaches to resolve the same issue, the autonomous vehicles team 
 noticed that forklift drivers have certain driving styles that are repeated according to the current situation.
-Similarily to car parking, depending on the type of the parking slot, there are some patterns to reproduce in order to fit 
+Similarly to car parking, depending on the type of the parking slot, there are some patterns to reproduce in order to fit 
 the car inside its assigned spot as given by figure \ref{Parking_Styles}. 
 Each situation has an according pattern that is relevant to the car's orientation, the parking slot, 
 and the direction of parking. The parking styles were set to teach beginners the way to park a car 
@@ -129,11 +129,11 @@ Parking assistance feature is embedded in human-driven and driverless cars to in
 \end{figure}
 
 Analogically, after the truck arrives in the station, the drivers would drive and steer in the opposite direction of the 
-pallet, until the forks are in a position to allow the truck to easily and correctfully drive to the pallet in fork direction.
+pallet, until the forks are in a position to allow the truck to easily and correctly drive to the pallet in fork direction.
 The goal here is to develop a pallet-linking algorithm to automate the driving to the pallet pickup location for 
 autonomous forklifts as given by figure \ref{pattern}. The truck would autonomously plan the path to its destination
 based on the pattern: the Station linking trajectory on figure \ref{pattern} and on the environment settings that it would navigate in. 
-The pattern enhances the explainability in the forklifts behavior. Explainability allows for more order in the warehouse: 
+The pattern enhances the explainability in the forklift's behavior. Explainability allows for more order in the warehouse: 
 it simplifies the coordination of safe simultaneous tasks around the truck. This is achieved through the design of an 
 algorithm that aims to create a transparent navigation process, making it easier for humans to understand and trust 
 the technology. Additionally, the approach is intended to ensure secure and reliable decision-making for autonomous trucks.
@@ -149,8 +149,8 @@ the technology. Additionally, the approach is intended to ensure secure and reli
     \end{center}
 \end{figure}
 For the forklifts use case, the AMR enters the station in "Opposite Direction" and docks the shelf/pallet in 
-"Main Direction" simliarily to the Back Perpendicular Parking.
-From now on, the following definitions of driving directions will be used as gven by figure \ref{driving directions}:
+"Main Direction" similarly to the Back Perpendicular Parking.
+From now on, the following definitions of driving directions will be used as given by figure \ref{driving directions}:
 \begin{itemize}
     \item Main Driving Direction: Driving in fork direction.
     \item Opposite Driving Direction: Driving in vehicle chassis direction.
@@ -173,7 +173,7 @@ pallet or the drop-off position as given by figure \Ref{subpolygons} that will b
 Having two possibilities for transition zones allows 
 for more flexibility: 
 in case one area is unreachable or presents obstacles, the second one can be used. They present free areas 
-inside the stations where less obstacles and dynamics are expected and smooth maneuvering of the truck can be managed. 
+inside the stations where fewer obstacles and dynamics are expected and smooth maneuvering of the truck can be managed. 
 In addition, the geometric solution is scalable to 
 any station that is recognized and whose properties are available to the truck. This makes the overall solution and the 
 autonomous forklifts simple to
@@ -237,13 +237,13 @@ The vehicle initially plans its missions: it constructs a plan of the stations t
 to do on each station. While the path driven from one station to the other is pre-defined by the global planner, 
 the path linking the vehicle to the pallet is to be planned in real-time. 
 Once the vehicle arrives at the docking position in the stations, it starts the path planning process. 
-The station-related information are stored in a file accessible to the vehicle. These information include stations' 
+The station-related information are stored in a file accessible to the vehicle. This information include stations' 
 positions and dimensions and the coordinates of the shelf that it contains.
 For each station represented like figure \ref{Station} the module creates the subpolygons on each side of the shelf, 
 limited by the station and shelf shapes. 
 
 The process that creates the subpolygons is detailed in the following Algorithm \ref{alg:createSubpolygons}.
-The algorithm begins with an initialization step, then the corners of the station and shelf areas are retrieved and 
+The algorithm begins with an initialization step, then the corners of the station and shelf areas are retrieved, and 
 transformation matrices are prepared to convert coordinates between global and shelf-specific coordinate systems. 
 The need to transform the used coordinates to the shelf frame is derived from the scalability needs.
 As seen on figure \Ref{warehouse}, stations can be placed in different positions and have different orientations.
@@ -368,7 +368,7 @@ y_{\text{SubPolygon}} \\
 
 
 For special cases like station3, where one of the subpolygons can be very narrow (lower than a 
-certain threshhold), the algorithm omits it and generates only one subpolygon. 
+certain threshold), the algorithm omits it and generates only one subpolygon. 
 The algorithm concludes by returning the created subpolygon(s), effectively segmenting the 
 input areas into distinct, usable geometric entities.
 The Pseudocode of the General Algorithm is given in Algorithm \Ref{alg:createSubpolygons}
@@ -385,7 +385,7 @@ The Pseudocode of the General Algorithm is given in Algorithm \Ref{alg:createSub
 The colored elements in this figure are explained here:
 \begin{itemize}
     \item Dark Blue outline: walls of the warehouse
-    \item Yellow Rectancles marked as stations: Warehouse stations: Actions like picking up or 
+    \item Yellow Rectangles marked as stations: Warehouse stations: Actions like picking up or 
     dropping are performed in specific locations inside the warehouse called 
     stations, examples of which are named \(station1\), \(station2\), and \(station3\) on the figure \Ref{move}.
     Each station is designed to support specific warehouse functions and their general mission
@@ -436,7 +436,7 @@ PosYsub\_subpolygon $\gets$ CreatePosYsubpolygon(tm\_station\_corners, tm\_shelf
 \subsubsection{Results of the Station Partitioning}
 
 In figure \ref{Station polygon} stands the simulated result processed using real station data: In purple and orange are 
-the polygons, and in green the outer polygon represenst the station.
+the polygons, and in green the outer polygon represents the station.
 The station used is the Station \(Empty Pallets\) of the warehouse.
 %TODO: write here 
 
@@ -478,7 +478,7 @@ which is crucial for precise navigation and control.
 
 The waypoints are then connected to form the path.
 However, to obtain smooth paths there should be curved paths that connect waypoints seamlessly instead 
-of simple vertices connection. 
+of simple vertices' connection. 
 
 Spline-based paths provide several key benefits for robotic navigation. They ensure smooth and continuous movement by 
 creating curved paths that connect waypoints seamlessly. Unlike abrupt turns and sharply angled paths, this smoothness 
@@ -508,7 +508,7 @@ the connected waypoints approach comes with drawbacks like sub-optimal travel ti
 and mechanical wear because of abrupt direction changes unlike curved paths \cite{R30}. The morphological 
 difference in both paths is distinguished in figure \Ref{paths}. 
 On the reader's left is a path of consequent vertices. This path has corner shaped turns which are rough to 
-navigate for AMRs. The vehicle has to stop at the corner before taking the next vertice 
+navigate for AMRs. The vehicle has to stop at the corner before taking the next vertex 
 as the change in direction happens suddenly and not gradually.
 On the right, the path is a curve controlled by the positions of the waypoints. 
 The change in direction happens gradually and the navigation on this route is smoother than the previous.
@@ -541,7 +541,7 @@ using splines. The interpolation of the control points of the original path
 creates a smooth, continuous curve. By incorporating a convex hull around these control points, we 
 ensure that the path does not deviate excessively from the desired points, thus avoiding potential 
 collisions with obstacles \cite{R33}. The convex hull acts as a boundary that keeps the spline inside the limits of 
-the control points that prametrize it (see figure \Ref{convex-hull}) and keeps the robot from straying 
+the control points that parametrize it (see figure \Ref{convex-hull}) and keeps the robot from straying 
 too far, ensuring a safe and accurate trajectory \cite{R29}.
 
 \begin{figure}[H]
@@ -568,7 +568,7 @@ advantages of smooth path planning with effective obstacle avoidance.
 
 %Case studies of spline-based trajectory planning in autonomous vehicles.
 
-A notable case study of splines integration in solving path planning problems, is a research conducted 
+A notable case study of splines integration in solving path planning problems, is research conducted 
 by B. Lau et al. \cite{R30} that aims to develop a time optimal solution while considering the kinodynamic 
 properties of a mobile robot. They used a global planner to generate straight-line paths and minimize time 
 of travel. Then, they  integrated splines to join the resulting path segments in a smooth and continuous 
@@ -590,7 +590,7 @@ spline’s features like curvature or approximate its length.
 
 In mathematics and computer graphics, a \textbf{curve} is a continuous and smooth flowing line without 
 sharp angles \Ref{R29}. 
-It can be defined parametrically or implicitly and represents a path that can be traced by a moving point.
+It can be defined with parameters or implicitly and represents a path that can be traced by a moving point.
 A curve can be defined using a parameter 
 \(u\), where \(u\)varies over an interval, and the coordinates of the curve are given by functions of:
 \begin{equation}
@@ -610,17 +610,17 @@ whereas, the implicit form of the circle would be:
     (x - h)^2 + (y - k)^2 = r^2
 \end{equation}
 
-where \((h,k)\) is the center and \(r\) is the radius.
+Where \((h,k)\) is the center and \(r\) is the radius.
 
 
 Parametric curves have a clear direction (from C(a) to C(b)), which implicit curves lack. This makes 
 it simpler to create ordered sequences of points along a parametric curve. Additionally, the parametric 
 form is more intuitive for designing and modeling shapes on a computer, as the coefficients in many 
-parametric functions (such as Bezier and B-Splines) carry geometric significance. This results in 
+parametric functions (such as Bézier and B-Splines) carry geometric significance. This results in 
 user-friendly design techniques and algorithms that are numerically stable \cite{R28}. 
-However, using one polynome-curves is inadequate as it is not possible to represent complex shapes, certain 
+However, using one polynom-curves is inadequate as it is not possible to represent complex shapes, certain 
 curve changes, and fitting the needed points. 
-The solution is to use piecewise polynomial curves of degree \((n-1)\) for example if we need to integrate
+The solution is to use piece wise polynomial curves of degree \((n-1)\) for example if we need to integrate
 \(n\) data points \cite{R29}.
 
 Polynomials are a commonly used type of function in robotics because they can be easily differentiated 
@@ -653,7 +653,7 @@ point \( \mathbf{P}_i \) has on the shape of the Bézier curve.
 
 The geometric coefficients \( \mathbf{P}_i \) are known as control points, and they define 
 the shape of the polynomial curve. In many applications, such as mapping trajectories, 
-a large number of control points is needed \cite{R28}.
+many control points are needed \cite{R28}.
 Furthermore, in the Bézier form, the continuity of the curve depends on the placement of 
 control points. This means if you want to change the shape of part of the curve while keeping 
 the rest smooth, you can't easily do so because changing one part affects the whole curve \cite{R29}.
@@ -664,10 +664,10 @@ Instead, a more effective curve representation can be expressed as:
     C(u) = \sum_{i=0}^{n} N_i(u) \mathbf{P}_i
 \end{equation}
 
-where:
+Where:
 \begin{itemize}
     \item \( \mathbf{P}_i \): the control points
-    \item \( N_i(u) \): the piecewise polynomial functions
+    \item \( N_i(u) \): the piece wise polynomial functions
 \end{itemize}
 The continuity of the curve is determined by these basis functions, allowing for flexible modification of 
 control points without affecting the curve's smoothness \cite{R29}.
