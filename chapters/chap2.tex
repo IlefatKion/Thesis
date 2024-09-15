@@ -19,7 +19,7 @@ components are integrated into a cohesive solution for precise pallet access wit
 %goals and overall approach of the methodology
 As mentioned in the introduction, this project does not tackle the navigation system of the AMRs in 
 general, but is focusing on a specific movement that the AMR must perform in order to accurately dock the pallet/shelf. 
-More details are explained in chapter 1, section 2.
+More details are explained in chapter 1, section 3.
 Considered the problems detailed in chapter 1 and the state-of-the-art outputs in chapter 2, 
 the following goals were identified 
 based on the former detailed requirements for applications to autonomous mobile robots in intralogistics:
@@ -45,7 +45,7 @@ based on the former detailed requirements for applications to autonomous mobile 
 \end{itemize}
 
 
-\subsection{Development Methodology} %TODO: hedhi design
+\subsection{Design of the Development Methodology}
 To achieve the aforementioned goals, the design  will follow a structured approach, consisting of the following key 
 development steps: 
 
@@ -179,7 +179,8 @@ any station that is recognized and whose properties are available to the truck. 
 autonomous forklifts simple to
 commission in new warehouses.
 
-Step 2 consists of the path creation. Smooth and continuous paths are generated through spline interpolation of constructed waypoints (see section 3.2.2). 
+Step 2 consists of the path creation. Smooth and continuous paths are generated through spline interpolation of constructed 
+waypoints (see section 3.2.2). 
 This technique ensures 
 that the resulting paths are smooth, operationally seamless, and reduce abrupt changes in direction and speed. 
 By interpolating between waypoints, the method enables the creation of curves that are optimized for driving efficiency 
@@ -438,7 +439,6 @@ PosYsub\_subpolygon $\gets$ CreatePosYsubpolygon(tm\_station\_corners, tm\_shelf
 In figure \ref{Station polygon} stands the simulated result processed using real station data: In purple and orange are 
 the polygons, and in green the outer polygon represents the station.
 The station used is the Station \(Empty Pallets\) of the warehouse.
-%TODO: write here 
 
 \begin{figure}[H]
     \begin{center}
@@ -467,7 +467,6 @@ intended driving direction. This straight-line motion ensures that the robot mai
 transitions from a stationary position to motion or vice versa, minimizing any unnecessary deviations or turns that could 
 disrupt its path. The alignment with the orientation points helps the robot to consistently maintain a straight trajectory, 
 which is crucial for precise navigation and control.
-%TODO: remove white space from the next figures
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5in]{images/Chap2/Orientation_points.png}\\
@@ -749,7 +748,7 @@ as given by figure \Ref{transition}.
 \end{figure}
 
 The interpolation of the waypoints and the manipulation of splines is through The Spline Library integarted in 
-the RACK framework (See RACK section%TODO add rack section
+the RACK framework (See RACK in Annex)
 ). The library provides tools to construct splines through several methods like interpolating points or blending two or more splines 
 together and retrieve their features by segmeting the splines and calculating length and curvature for instance.
 The result is a structure of coordinates through which passes the spline. 
@@ -864,7 +863,6 @@ The general Pseudocode of the Path Generation is explained through Algorithm \Re
 
 
 
-%TODO: check if section numbers are correct: ctrl+F section
 \subsection{Path Evaluation}
 Once the path has been created and the relevant information has been retrieved, the foundation is set to evaluate the 
 quality of the generated paths. \textbf{The input for this section is a spline-based path pattern, and the 
@@ -1079,7 +1077,7 @@ Exponential Weighted Path Evaluation and Normalized Weighted Path Evaluation. Th
 prioritize the significance of each component in the evaluation process. 
 
 \subsubsubsection{First approach: Exponential Weighted Path Evaluation}
-The Exponential Path Evaluation is based on A. Elshamli, et al. method \cite{R17}. As explained in section 2.3,
+The Exponential Path Evaluation is based on A. Elshamli, et al. method \cite{R17}. As explained in section 3.3.1,
 they consider path length, smoothness and clearance combined in a weighted cost function.
 Their approach of measuring path length and smoothness is considered here with some changes to fit it into the use case.
 
@@ -1289,7 +1287,7 @@ the optimized path leads to better time efficiency and safer operations, particu
 tight turns or narrow spaces can hinder navigation.
 
 \subsubsection{Implementation}
-As discussed in section 3.1, The meta-heuristic approach is used to optimize the spline-based pattern paths. 
+As discussed in chapter 2, The meta-heuristic approach is used to optimize the spline-based pattern paths. 
 Based on the Literature review the choice was made around testing 5 meta-heuristic optimization algorithms then 
 assessing each algorithm's performance. The algorithms are: Particle Swarm Optimization (PSO), Differential Evolution (DE),
 Genetic Algorithms (GA), Simulated Annealing (SA), and Ant Colony Optimization (ACO). Those algorithms were selected due 
@@ -1337,7 +1335,7 @@ initialize particles or ants randomly, For Simulated Annealing (SA), start with 
 
 
 Each transition point is used to generate a path as explained
-in section 3.3.2 then evaluated through the method in section 3.3.3. The evaluation result is the fitness of the path that the 
+in section 3.2 then evaluated through the method in section 3.3. The evaluation result is the fitness of the path that the 
 optimization algorithm bases its results on. By now the initial generation is completed. Then, the algorithm iterates until 
 the maximum number of iterations is met. The reason behind choosing a maximum number of iterations is that the fitness function 
 is not tangible. It can vary according to many factors like station configuration and dimensions and navigation environments.
@@ -1391,7 +1389,7 @@ Astronomy and the Advanced Concepts Team, at the European Space Research and Tec
 Pagmo provides an exhaustive toolset of meta-heuristic optimization techniques including the original Algorithms
 and the improved versions. 
 
-\subsubsubsection{Obstacle Avoidance in the Pattern Based Approach}
+\subsubsection{Obstacle Avoidance in the Pattern Based Approach}
 This approach is designed for complex, dynamic environments characterized by an abundance of obstacles, such 
 as Operators, Pallets, Materials, Shelves, and other vehicles, both inside and outside the station perimeter. 
 To navigate these environments, an obstacle avoidance feature is essential. The obstacle avoidance mechanism, 

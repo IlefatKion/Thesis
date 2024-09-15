@@ -151,7 +151,7 @@ in dynamic unkown environments.
 % safety
 Saftey in path planning was the main concern for 29 \% of the reviewed studies. Navigating efficient 
 paths while avoiding collisions is challenging to accomplish. Collision avoidance is tightly related to perception 
-input through sensors, analysis and use of the data. While it may seem simple for the robots to correctly analyze 
+through sensors, analysis, interpretation and use of the data. While it may seem simple for the robots to correctly analyze 
 and recognize the surrounding objects, in reality, detailed understanding is not possible \cite{R21}. Issues are 
 related to the accuracy of the sensors and the robustness of the algorithms. 
 It is expected from the robot to 
@@ -166,27 +166,29 @@ it can scan and does not see the hidden depth beyond these surfaces.
     \begin{center}
         \includegraphics[width=4in]{images/Chap1/scan.png}\\
         \caption{
-        Simulation of the robot's perception of surrounding obstacles.
-        \newline \textbf{Yellow rectangle:} Station limits
-        \newline \textbf{Black rectangle:} Shelf limits: where to pick or to place pallets
-        \newline \textbf{In gray:} Robot in simulation
-        \newline \textbf{Blue polygones:} Simulated obstacles
-        \newline \textbf{Black lines:} Perceived obstacle points}
+        Simulation of the robot's perception of surrounding obstacles}
         \label{scamSim}
         \end{center}
 \end{figure}
 
+\noindent \textbf{Color code:}
+\newline \textbf{Yellow rectangle:} Station limits
+\newline \textbf{Black rectangle:} Shelf limits: where to pick or to place pallets
+\newline \textbf{In gray:} Robot in simulation
+\newline \textbf{Blue polygones:} Simulated obstacles
+\newline \textbf{Black lines:} Perceived obstacle points
+
 As a result, algorithms are to compensate the shadowed depth of obstacles by enforcing safety measures like 
 keeping the vehicle at a safe distance from the obstacles and decelerating at the proximity 
-of static and dynamic objects to avoid collisions \Ref{R28}.
+of static and dynamic objects to avoid collisions \cite{R28}.
 In addition, this input contains noises caused by the sensors reflections of other objects
-or inaccuracies \Ref{R28}. 
+or inaccuracies \cite{R28}. 
 This makes it challenging to interpret the input and create deliberative systems as the built algorithms have to 
 deal with the given data
 in all cases and detect the inaccuracies and noises.
 Beyond that, it is complex to generate feasible solutions in all types of environments,
 some planners and algorithms risk stagnating in local minima and not converging to the optimal routes
-due to the limited knowledge of the environment and the sensory limitations previously mentioned \Ref{R28}. 
+due to the limited knowledge of the environment and the sensory limitations previously mentioned \cite{R28}. 
 Figure \Ref{local_minima} shows a simplified example of a potential wrong decision. A vehicle encounters two possible 
 driving paths, similar to what might happen in a racking system. Based solely on sensor data 
 (gray shaded area), the correct path cannot be determined. Only with global path planning (green path) 
@@ -300,7 +302,7 @@ the speed and direction of movement. They predict the rotational and translation
 creating the state space of velocities and taking into account the sensory inputs \cite{R28}. 
 The Dynamic Window Approach (DWA) is a Velocity-generating path planning method.
 
-In \cite{R19}, Liu et al. used Djikstra ALgorithm (A path-generating Algorithm) 
+In \cite{R19}, Liu et al. used Djikstra Algorithm (A path-generating Algorithm) 
 for Global path planning and 
 the DWA as the local path planner for sudden unknown obstacles that could 
 appear for smart cars while following the global path.
@@ -343,10 +345,12 @@ While this approach offers a straightforward understanding and implementation, i
 can be significant due to the large number of cells to evaluate and the repetitive nature of the 
 calculations. Additionally, grid-based methods are often constrained by the fixed directionality 
 of the grid. The paths generated are restricted to the directions defined by the grid. 
-For instance, if the grid is aligned along the x and y axes, the robot can only move horizontally 
-or vertically. This can be inefficient or even impossible in environments where diagonal 
+For instance, the grid-based depiction of an area can affect the alignment and orientation of the grid. 
+With larger grid cells, rotating the grid can sometimes result in blocking unnecessary space, while in 
+other rotations, the grid may align better with obstacles, allowing for more efficient use of space. 
+This can be inefficient or even impossible in environments where diagonal 
 or more complex movements are required.
-On the Other hand, 
+
 
 Lavalle \cite{R47} created a method called Rapidly-exploring Random Trees (RRT), a randomized data structure used 
 for various path planning tasks. It starts with a single node (usually the starting point)
@@ -355,7 +359,7 @@ the search space. The nearest node in the tree is found, and a new node is added
 this random point. This process is repeated until a path is found or a maximum number of iterations 
 is reached. RRT is particularly effective for exploring complex environments with obstacles. 
 Figure \Ref{sampling-based}, illustrates the test of RRT in an obstacle-rich environment (shown in blue)
-using 1, 4, then 32-core processors. The planned paths (branches) are shown in grey. 
+using 1, 4, then 32-core processors. The planned paths (branches) are shown in gray. 
 The path calculated as optimal is shown in red and connects the start pose with the goal pose.
 These algorithms present advantages like handling big environments and complex obstacle
 situations, however, they can also be computationally intensive and demanding in complicated situations.
@@ -683,7 +687,7 @@ of the real world gap. In summary, while meta-heuristic algorithms show promise 
 testing and realistic obstacle modeling are needed to ensure they work effectively in practical situations. 
 Addressing these issues is key to advancing the use of robotics in intralogistics and other fields.
 \newpage
-\section{Discussion} %TODO: change name it is soa here
+\section{Synthesis and Discussion} 
 To synthesize the research conducted, it is paramount to summarize the \textbf{key concepts} comprehensively and 
 point out the general \textbf{drawbacks}. This 
 State-of-the-Art report focuses on mobile robot path planning, a critical component of the overall 
